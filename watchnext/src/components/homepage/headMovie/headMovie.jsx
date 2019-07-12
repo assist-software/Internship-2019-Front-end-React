@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import "./top.css";
+import "./headMovie.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
-class Top extends Component {
+class headMovie extends Component {
   state = {};
 
   render() {
     const scrollToMiddle = this.props;
     return (
-      <div className="page">
+      <div className="pageTop">
         <div className="container h-100">
           <div className="row h-100 justify-content-center align-items-center">
-            <div className="col-md-7 text-center">
+            <div className="col-md-7">
               <h1>Moonlight</h1>
               <h3 className="mt-4">
                 A chronicle of the childhood, adolescence and burgeoning
@@ -28,7 +28,10 @@ class Top extends Component {
               </div>
             </div>
             <div className="col-md-4 text-center">
-              <img src={require("../../../assets/img/moovie_image.png")} />
+              <img
+                className="moovieImage"
+                src={require("../../../assets/img/moovie_image.png")}
+              />
             </div>
             <div className="nextPage text-center mb-3">
               <button onClick={this.props.scrollToMiddle} className="btn">
@@ -46,4 +49,4 @@ class Top extends Component {
   }
 }
 
-export default Top;
+export default headMovie;

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import Middle from "./middle/middle";
-import Top from "components/homepage/top/top";
-import { Link, animateScroll as scroll } from "react-scroll";
+import RecentAdded from "./recentAdded/recentAdded";
+import HeadMovie from "./headMovie/headMovie";
+// import Top from "components/homepage/top/top";
+import "../homepage/homepage.css";
+import ComingMovies from "./comingMovies/comingMovies";
 
 class Home extends Component {
   constructor(props) {
@@ -16,8 +18,18 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Top scrollToMiddle={this.scrollToMiddle} />
-        <Middle id="middle" />
+        {/* <Top scrollToMiddle={this.scrollToMiddle} /> */}
+        <section id="top">
+          <HeadMovie />
+        </section>
+        <section>
+          <RecentAdded />
+        </section>
+        <section>
+          <ComingMovies />
+        </section>
+
+        {/* <Middle /> */}
       </div>
     );
   }
