@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./top.css";
-import Grid from "@material-ui/core/Grid";
-import "../../../../node_modules/font-awesome/css/font-awesome.min.css";
-import { Link, animateScroll as scroll } from "react-scroll";
-import Middle from "../middle/middle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 class Top extends Component {
   state = {};
+
   render() {
+    const scrollToMiddle = this.props;
     return (
       <div className="page">
         <div className="container h-100">
@@ -19,10 +19,10 @@ class Top extends Component {
                 adulthood of a young, African-American, gay man growing up in a
                 rough neighborhood of Miami.
               </h3>
-              <div fullWidth className="btnGroup mt-5">
+              <div className="btnGroup mt-5">
                 <button className="watchTrailer">Watch trailer</button>
                 <button className="ml-3 addTo">
-                  <i className="fa fa-plus mr-3" />
+                  <FontAwesomeIcon className="mr-3" icon={faPlus} />
                   Add to list
                 </button>
               </div>
@@ -31,11 +31,13 @@ class Top extends Component {
               <img src={require("../../../assets/img/moovie_image.png")} />
             </div>
             <div className="nextPage text-center mb-3">
-              <a href="">
-                <i class="fa fa-arrow-down" />
-                <Link to="Middle" />
-              </a>
-              <Middle />
+              <button onClick={this.props.scrollToMiddle} className="btn">
+                <FontAwesomeIcon
+                  className="mb-2"
+                  icon={faArrowDown}
+                  color="white"
+                />
+              </button>
             </div>
           </div>
         </div>
