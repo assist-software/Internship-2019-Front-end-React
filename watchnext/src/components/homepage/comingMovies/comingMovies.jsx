@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import "./comingMovies.css";
 import Moovie from "../recentAdded/moovie/moovie";
-import MomentUtils from "@date-io/moment";
-import DateFnsUtils from "@date-io/date-fns";
-import LuxonUtils from "@date-io/luxon";
-import RecentAdded from "../recentAdded/recentAdded";
-import { MuiPickersUtilsProvider } from "material-ui-pickers";
+import DatePickers from "../../datepicker/datepicker";
 import {
   Form,
   Button,
@@ -38,9 +34,13 @@ class comingMovies extends Component {
                     </small>
 
                     <select className="categorySelect ml-4">
-                      <option>1</option>
-                      <option>2</option>
+                      <option>None</option>
+                      <option>Action</option>
+                      <option>Comedy</option>
+                      <option>Horror</option>
+                      <option>Fantasy</option>
                     </select>
+                    <DatePickers />
                   </div>
                 </div>
               </div>
