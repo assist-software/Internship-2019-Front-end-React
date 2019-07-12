@@ -11,24 +11,24 @@
   justify-content: center;
 }
 
-
 #moon{
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .moon{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: corbel;
   font-size: 48px;
   line-height: 60px;
   color: #FFFFFF;
 }
 
 .p{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: corbel;
   font-size: 18px;
   line-height: 25px;
-  max-width: 500px;
+  max-width: 464px;
   padding-right: 84px;
   width: 464px;
   height: 100px;
@@ -46,3 +46,35 @@
 
   border-radius: 20px;
 }
+
+#left button{
+  height: 48px;
+  width: 176px;
+  border-radius: 8px;
+  font-size: 18px;
+  border-style: none;
+  color: #FFFFFF;
+  margin-right: 21px;
+  font-family: corbel;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+#trailer {
+  background: #F5044C;
+}
+
+#list{
+  background: #1E1E1E;
+}
+
+#left span{
+  font-size: 26px;
+  position: absolute;
+  vertical-align: baseline;
+  margin: -2px 0 0 -26px;
+  font-weight: 100;
+  font-family: sans-serif;
+}
+
