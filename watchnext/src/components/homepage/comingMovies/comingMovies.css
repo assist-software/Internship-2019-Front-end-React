@@ -34,13 +34,12 @@
 }
 
 .MuiInput-formControl {
-  background: #f5044c;
+  background: #13131c;
   color: white;
   font-size: 14px;
   font-family: "Montserrat";
   border-radius: 5px;
   width: 160px !important;
-  border: none;
   width: 160px;
   height: 40px;
   margin-top: 0px !important;
@@ -49,11 +48,15 @@
 
 .MuiFormLabel-root {
   display: none !important;
+  border-color: #f5044c !important;
+}
+
+.MuiInput-root {
+  border: 2px solid #f5044c;
 }
 
 .MuiInputBase-input {
-  border: 2px !important;
-  background: #f5044c !important;
+  background: #13131c !important;
   border-radius: 20px;
   padding: 6px 16px 7px !important;
   color: white !important;
