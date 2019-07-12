@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./recentAdded.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import Moovie from "./moovie/moovie";
+import Moovie from "../../moovie/moovie";
 
 const i = [1, 2, 3, 4];
 
