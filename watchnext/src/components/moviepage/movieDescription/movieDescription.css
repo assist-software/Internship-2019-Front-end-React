@@ -4,8 +4,8 @@
   background-color: black;
 }
 
-.container {
-  padding-top: 170px;
+.content {
+  padding-top: 200px;
 }
 
 .moovieImage {
@@ -78,4 +78,5 @@ ul.movDetCont li {
 
 .movDet {
   margin-top: 30px;
+  padding-bottom: 120px;
 }

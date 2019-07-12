@@ -7,8 +7,8 @@ class MovieDescription extends Component {
     return (
       <div className="main-content">
         <div className="container">
-          <div className="row content">
-            <div className="col-md-12">
+          <div className="row">
+            <div className="col-md-12 content">
               <div className="row">
                 <div className="col-md-6">
                   <img
