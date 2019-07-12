@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 
-class Register extends Component {
-  state = {};
+export default class Register extends Component {
   render() {
-    return <h1>ggg</h1>;
+    return <div />;
   }
 }
-
-export default Register;
