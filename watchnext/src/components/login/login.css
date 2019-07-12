@@ -1,0 +1,75 @@
+body{
+    background: #0A0A0A;
+}
+  .container{
+    flex:1;
+    width: 560px;
+    height: 623px;
+    left: 440px;
+    background: #0A0A0A;
+    top:20px;
+    margin:0 auto;
+    align-items: center;
+    text-align: center;
+  
+  }
+ 
+
+hr.new5 {
+   
+    background: #212128;
+    height: 8px;
+  }
+.forgot {
+    font-family: Campton;
+    font-size: 14px;
+    display: flex;
+    text-align: right;
+}
+#forgot {
+    font-family: Campton;
+    font-size: 14px;
+    display: flex;
+    text-align: right;
+}
+.link-reg{
+    color: #9C9B9B !important;
+}
+
+.title {
+    font-family: Campton;
+    font-size: 40px;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    width:432px;
+    padding-left: 25%;
+
+}
+
+p{
+    justify-content:center;
+}
+
+h2 {
+    font-family: Campton;
+    font-size: 48px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+
+@media all and (min-width: 480px) {
+    .Login {
+      padding: 60px 0;
+      
+    }
+  
+    .Login form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+  }
+
