@@ -27,8 +27,60 @@
   color: white;
   font-size: 14px;
   font-family: "Montserrat";
-  border-radius: 20px;
+  border-radius: 20px !important;
   border: none;
   width: 160px;
   height: 40px;
+}
+
+.MuiInput-formControl {
+  background: #f5044c;
+  color: white;
+  font-size: 14px;
+  font-family: "Montserrat";
+  border-radius: 5px;
+  width: 160px !important;
+  border: none;
+  width: 160px;
+  height: 40px;
+  margin-top: 0px !important;
+  margin-left: 20px !important;
+}
+
+.MuiFormLabel-root {
+  display: none !important;
+}
+
+.MuiInputBase-input {
+  border: 2px !important;
+  background: #f5044c !important;
+  border-radius: 20px;
+  padding: 6px 16px 7px !important;
+  color: white !important;
+  font-size: 12px !important;
+}
+
+.MuiFormControl-marginNormal {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.MuiIconButton-root {
+  color: white !important;
+}
+
+.MuiTypography-colorInherit {
+  color: black !important;
+}
+
+.MuiPickersDay-day {
+  padding: 10px !important;
+}
+
+.MuiPickersToolbar-toolbar {
+  background-color: #f5044c !important;
+}
+
+.MuiPickersDay-daySelected {
+  background-color: #f5044c !important;
 }
