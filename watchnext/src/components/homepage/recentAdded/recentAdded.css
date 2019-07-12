@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+.pageMiddle {
+  background-color: black;
+}
+
+h5 {
+  font-family: "Montserrat";
+  font-size: 18px;
+  line-height: 80px;
+  color: #ffffff;
+}
+
+h5 span {
+  font-family: "Montserrat";
+  font-size: 18px;
+  line-height: 80px;
+  color: #ffffff;
+  opacity: 0.5;
+}
+
+.arrBtn {
+  width: 28px;
+  height: 28px;
+  background: #f5044c;
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 5px;
+}
