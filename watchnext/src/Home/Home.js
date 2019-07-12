@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from "./Hero/Hero"
 import RecentAdded from "./RecentAdded/RecentAdded"
 import ComingNext from "./ComingNext/ComingNext"
+import Header from '../Header/Header';
 
 class Home extends React.Component {
     constructor() {

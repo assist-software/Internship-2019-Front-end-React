@@ -10,11 +10,13 @@ import Login from './Login/Login';
 import Register from './Register/Register';
 import Movie from './Movie/Movie';
 import Admin from './Admin/Admin';
+import Header from './Header/Header';
 
 function App() {
   return (
     <Router>
         <div>
+          <Header />
           <Switch>
               <Route exact path='/' component = {Home} />
               <Route path='/home' component = {Home} />

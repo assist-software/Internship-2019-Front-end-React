@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Contact/contact.css';
-
+import { withRouter } from "react-router-dom";
 
 class Contact extends React.Component {
     constructor() {
@@ -9,9 +9,11 @@ class Contact extends React.Component {
     
     render() {
         return (
-          <div><b>Contact - Container</b></div>
+          <div><b>Contact - Container</b>
+            {1==1 && this.props.history.push("/Home")}
+          </div>
         )    
     }
 }
 
-export default Contact
+export default withRouter(Contact);
