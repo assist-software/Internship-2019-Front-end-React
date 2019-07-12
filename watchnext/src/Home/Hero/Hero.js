@@ -1,6 +1,6 @@
 import React from 'react';
-import '../Home/index.css';
-
+import '../Hero/Hero.js';
+import '../Hero/hero.css'
 
 class Home extends React.Component {
     constructor() {
