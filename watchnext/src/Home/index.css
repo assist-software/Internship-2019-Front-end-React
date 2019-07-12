@@ -1,3 +1,41 @@
 body{
-    background-color: red;
-  }
+  background-image: url(./image4.1.png);
+  height: 100%;
+  background-color: black;
+  
+}
+#moon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+.moon{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 48px;
+  line-height: 60px;
+  color: #FFFFFF;
+}
+
+.p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  max-width: 500px;
+  padding-right: 84px;
+  width: 464px;
+  height: 100px;
+  color: #FFFFFF;
+  opacity: 0.6;
+}
+
+.img2{
+
+  width: 392px;
+  height: 552px;
+  left: 800px;
+  top: 232px;
+  
+
+  border-radius: 20px;
+}
