@@ -9,7 +9,7 @@ class Home extends React.Component {
     
     render() {
         return (
-        <div>
+        <div id="hero">
             <div id="moon">
                 <div id="left">
                     <h1 className="moon">Moonlight {this.props.name}</h1>
