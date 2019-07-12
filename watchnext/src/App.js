@@ -9,6 +9,7 @@ import Reset from "./components/reset/reset";
 import Home from "./components/homepage/homepage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
+import MoviePage from "./components/moviepage/moviepage";
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route exact path="/home" component={Home} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/reset" component={Reset} />
+            <Route exact path="/movie-page" component={MoviePage} />
           </Switch>
           <Footer />
         </div>
