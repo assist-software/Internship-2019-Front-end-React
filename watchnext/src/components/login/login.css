@@ -1,0 +1,88 @@
+body{
+    background: black;
+}
+  .container-login {
+    flex:1;
+    width: 560px;
+    height: 620px;
+    background: #0A0A0A;
+    top:20px;
+    margin:0 auto;
+    align-items: center;
+    text-align: center;
+  
+  }
+ 
+.Login .btn-primary {
+  border-color: transparent;
+}
+hr.new5 {
+height: 8px;
+background: #212128;
+margin: 0;
+
+
+  }
+.forgot {
+    font-family: Campton;
+    font-size: 14px;
+    display: flex;
+    text-align: right;
+}
+#forgot {
+    font-family: Campton;
+    font-size: 14px;
+    display: flex;
+    text-align: right;
+}
+.link-reg{
+    color: #9C9B9B !important;
+}
+
+.title {
+    font-family: Campton;
+    font-size: 48px;
+    line-height: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+p{
+    justify-content:center;
+    width:auto;
+}
+
+.text-center {
+    font-family: Campton;
+    font-size: 48px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 60px;
+}
+
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+  margin-right: 5px;
+  color: #9C9B9B;
+}
+
+.fa, .fas {
+  font-weight: 400;
+}
+
+
+@media all and (min-width: 480px) {
+   
+  
+    .Login form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+  }
+
