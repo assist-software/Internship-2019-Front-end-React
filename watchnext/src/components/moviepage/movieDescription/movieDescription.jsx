@@ -12,7 +12,7 @@ class MovieDescription extends Component {
               <div className="row">
                 <div className="col-md-6">
                   <img
-                    className="moovieImage"
+                    className="movImage"
                     src={require("../../../assets/img/details.png")}
                   />
                 </div>
