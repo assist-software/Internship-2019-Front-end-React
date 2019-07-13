@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import './reset.css';
-import './logo.png';
-import {Link} from 'react-router-dom';
+import './frame.png';
 
 class Reset extends Component {
     constructor(props) {
@@ -29,33 +28,31 @@ class Reset extends Component {
       render() {
         return (
           <div className="container" style={{width:"560px", height:"463", marginTop:"150px", marginBottom:"150px"}}>
-          <img src={require("../login/logo.png")} alt="Logo"></img>
-          <hr className="new5" />
+          <img src={require("../reset/frame.png")} alt="Logo"></img>
+         
           <div className="container-reset" style={{marginTop:"50px"}}>
-          <div className="title">
+          <hr className="new5" />
+          <div className="title-reset">
             <h2>Reset password</h2>
+            <p>We will send you over the email the instructions in order to get your password reseted.</p>
             </div>
-            <p >We will send you over the email the instructions in order to get your password reseted.</p>
           <div className="Login">
             <form id="form">
-              <FormGroup controlId="email" bsSize="large" id="inputs">
+              <FormGroup controlId="email">
                 <FormControl
-                  div className="form-control"
+                  className="form-control"
                   type="email"
                   placeholder="Email address"
                   value={this.state.email}
                   onChange={this.handleChange}
-                  style={{backgroundColor:"transparent", color:"white"}}
-               
                 />
               </FormGroup>
             
               <Button
-                btn large
                 block
                 disabled={!this.validateForm()}
                 type="submit"
-                style={{background:"#F5044C", color:"#FFFFFF;"}}
+                style={{background:"#F5044C"}}
               >
                Reset password
               </Button>

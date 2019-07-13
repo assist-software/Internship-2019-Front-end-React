@@ -2,30 +2,54 @@
 
 body {
     text-align: center;
+    background: black;
 }
+.container-reset{
+    flex:1;
+    width: 560px;
+    height: 463px;
+    background: #0A0A0A;
+    top:20px;
+    margin:0 auto;
+    align-items: center;
+    text-align: center;
+  
+  }
 
 p {
+    font-family: "Campton";
     width: 300px;
     height: 40px;
     left: 547px;
     top: 494px;
-    font-family: "Cambia";
     font-size: 14px;
     line-height: 19px;
     text-align: center;
     color: #9C9B9B;
     display: inline-flex;
 }
-.title {
+.title-reset{
     margin: 0 auto;
     padding:0;
     color: #FFFFFF;
+    justify-content: center;
+    margin-bottom: 70px;
+    margin-top: 70px;
 }
 
-.Login input, .Login input:focus, .Login btn-primary {
+.Login input {
     background-color: transparent;
-    color: white;
+    color:#9C9B9B;
     /* border-color: transparent; */
     box-shadow: initial;
     border: 1px solid #9C9B9B;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.Login input:focus{
+    background-color: transparent;
+    color: #9C9B9B;;
+    box-shadow: initial;
+    border: 1px solid #9C9B9B;
+
 }

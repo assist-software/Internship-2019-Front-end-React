@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import './register.css';
-import './logo.png';
+import './frame.png';
 import {Link} from 'react-router-dom';
 
 class Register extends Component {
@@ -30,52 +30,46 @@ class Register extends Component {
       render() {
         return (
           <div className="container" style={{width:"560px", height:"711px", marginTop:"150px", marginBottom:"150px"}}>
-            
-          <img src={require("../login/logo.png")} style={{marginTop:"4%"}} alt="Logo"></img>
+          <img src={require("../login/frame.png")} style={{marginTop:"4%", marginBottom:"2%"}} alt="Logo"></img>
+          <div className="container-login" style={{marginTop:"50px"}} >
           <hr className="new5" />
-          <div className="container-login">
           <div className="title" style={{color:"#FFFFFF"}}>
             <h2 className="text-center">Let's create your account</h2>
             </div>
           <div className="Login">
             <form id="form">
-            <FormGroup controlId="name" bsSize="large" id="inputs">
+            <FormGroup controlId="name" id="inputs">
                 <FormControl
-                  div className="form-control"
+                  className="form-control"
                   autoFocus
                   type="text"
                   placeholder="Full name"
                   value={this.state.name}
                   onChange={this.handleChange}
-                  style={{backgroundColor:"transparent", color:"white"}}
-               
                 />
               </FormGroup>
-              <FormGroup controlId="email" bsSize="large" id="inputs">
+              <FormGroup controlId="email">
                 <FormControl
-                  div className="form-control"
+                  className="form-control"
                   autoFocus
                   type="email"
                   placeholder="Email address"
                   value={this.state.email}
                   onChange={this.handleChange}
-                  style={{backgroundColor:"transparent", color:"white"}}
-               
                 />
               </FormGroup>
-              <FormGroup controlId="password" bsSize="large" id="inputs">
+              <FormGroup controlId="password">
               
                 <FormControl
                   value={this.state.password}
                   onChange={this.handleChange}
                   type="password"
                   placeholder="Password"
-                  style={{backgroundColor:"transparent", color:"white"}}
                 />
+                 
               </FormGroup>
 
               <Button
-                btn large
                 block
                 disabled={!this.validateForm()}
                 type="submit"
@@ -83,7 +77,7 @@ class Register extends Component {
               >
                 Register
               </Button>
-              <p className="forgot" style={{color:"#9C9B9B"}}>Already have an account?   <Link to="/" className="link-reg" style={{textDecoration:"underline"}}>Log in!</Link></p>>
+              <p className="forgot" style={{color:"#9C9B9B"}}>Already have an account?   <Link to="/" className="link-reg" style={{textDecoration:"underline",  marginLeft:"5px"}}>Log in!</Link></p>
              
             </form>
           </div>
