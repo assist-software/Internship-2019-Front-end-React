@@ -10,6 +10,7 @@ import Home from "./components/homepage/homepage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import MoviePage from "./components/moviepage/moviepage";
+import WhatchList from "./components/whatchlist/whatchlist";
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/reset" component={Reset} />
             <Route exact path="/movie-page" component={MoviePage} />
+            <Route exact path="/whatch-list" component={WhatchList} />
           </Switch>
           <Footer />
         </div>

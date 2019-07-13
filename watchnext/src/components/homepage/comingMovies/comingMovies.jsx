@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./comingMovies.css";
-import Moovie from "../recentAdded/moovie/moovie";
+import Moovie from "../../moovie/moovie";
 import DatePickers from "../../datepicker/datepicker";
 import {
   Form,
