@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
-.pageTop {
+.hero-content {
   background: url("../../../assets/img/head_image.png");
 }
 
-.headTitle {
-  padding-top: 200px;
+.hero-row {
+  padding-top: 100px;
 }
 
 .heroTitle {
@@ -44,8 +44,4 @@
   border: none;
   width: 150px;
   height: 40px;
-}
-
-.heroImage {
-  padding-top: 130px;
 }

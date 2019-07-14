@@ -7,10 +7,11 @@ class headMovie extends Component {
   state = {};
 
   render() {
+    const scrollToMiddle = this.props;
     return (
-      <div className="pageTop">
-        <div className="container py-5">
-          <div className="row justify-content-center align-items-center">
+      <div className="hero-content">
+        <div className="container py-4">
+          <div className="row justify-content-center align-items-center hero-row">
             <div className="col-md-6">
               <div className="row headTitle">
                 <div>
@@ -45,6 +46,15 @@ class headMovie extends Component {
                 />
               </div>
             </div>
+          </div>
+          <div className="row justify-content-center align-items-center">
+            <button className="btn" onClick={this.handleClick}>
+              <FontAwesomeIcon
+                icon={faArrowDown}
+                color="white"
+                className="mt-5"
+              />
+            </button>
           </div>
         </div>
       </div>
