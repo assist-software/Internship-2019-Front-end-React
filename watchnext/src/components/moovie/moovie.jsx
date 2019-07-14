@@ -9,6 +9,7 @@ class Moovie extends Component {
         <div className="moovieImg">
           <img
             className="moovieComponent"
+            alt="moovie"
             src={require("../../assets/img/moovie2.png")}
           />
           <button className="addToList">Add to watchlist</button>

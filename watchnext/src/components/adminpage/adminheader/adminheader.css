@@ -1,0 +1,78 @@
+.navbar {
+  background: black;
+  height: 115px;
+}
+
+.navbar h3 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.dot {
+  color: #1cd4d4;
+}
+
+.navMenu {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.navBrowse span {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+
+  color: #ffffff;
+}
+
+.menuBars {
+  color: white;
+}
+
+.menuLink {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  padding-bottom: 5px;
+  color: white;
+}
+
+.mb-1,
+.my-1 {
+  margin-bottom: 0rem !important;
+}
+
+.nav-flex-icons {
+  align-items: center;
+}
+
+.dropdown-toggle::after {
+  vertical-align: 0 !important;
+}
+
+.adminName {
+  font-size: 14px;
+}
+
+.dropdown-toggle::after {
+  color: white;
+  opacity: 0.5;
+}
+
+.navbar-collapse a {
+  color: black !important;
+  font-size: 14px;
+}
+
+.menuLink:active {
+  border-bottom: 1px solid #fff;
+}
+
+.menuLink:hover {
+  border-bottom: 1px solid #fff;
+}

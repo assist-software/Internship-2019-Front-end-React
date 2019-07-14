@@ -11,6 +11,10 @@ h5 {
   color: #ffffff;
 }
 
+.hHeader {
+  float: left;
+}
+
 h5 span {
   font-family: "Montserrat";
   font-size: 18px;

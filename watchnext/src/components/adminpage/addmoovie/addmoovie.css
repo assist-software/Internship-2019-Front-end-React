@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+.addTitle {
+  color: black;
+}
+
+.titleRow {
+  margin-top: 50px;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.inputRow {
+  padding-top: 50px;
+}
+
+.modalAddMoovie {
+  background: #f5044c;
+  border-radius: 8px;
+  border: none;
+  width: 96%;
+  height: 40px;
+  color: white;
+  font: "Montserrat";
+}
+
+.modalCancelAdd {
+  background: transparent;
+  border-radius: 8px;
+  border: none;
+  width: 96%;
+  height: 40px;
+  color: black;
+  font: "Montserrat";
+}

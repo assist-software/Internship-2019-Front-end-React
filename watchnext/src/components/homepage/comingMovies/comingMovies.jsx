@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import "./comingMovies.css";
 import Moovie from "../../moovie/moovie";
-import DatePickers from "../../datepicker/datepicker";
-import {
-  Form,
-  Button,
-  FormGroup,
-  FormControl,
-  ControlLabel,
-  DateTimeField
-} from "react-bootstrap";
 const j = [1, 2, 3, 4, 5, 6, 7, 8];
 
 class comingMovies extends Component {
@@ -40,7 +31,6 @@ class comingMovies extends Component {
                       <option>Horror</option>
                       <option>Fantasy</option>
                     </select>
-                    <DatePickers />
                   </div>
                 </div>
               </div>
