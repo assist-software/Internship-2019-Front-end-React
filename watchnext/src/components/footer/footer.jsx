@@ -6,12 +6,12 @@ class Footer extends Component {
   render() {
     return (
       <section id="footer">
-        <div class="container">
+        <div className="container">
           <div
             id="footerRow"
-            class="row text-center text-xs-center text-sm-left text-md-left"
+            className="row text-center text-xs-center text-sm-left text-md-left"
           >
-            <div class="col-xs-12 col-sm-6 col-md-6">
+            <div className="col-xs-12 col-sm-6 col-md-6">
               <svg
                 width="257"
                 height="57"
@@ -71,42 +71,42 @@ class Footer extends Component {
                 </defs>
               </svg>
             </div>
-            <div class="col-xs-12 col-sm-2 col-md-2">
-              <ul class="list-unstyled quick-links">
+            <div className="col-xs-12 col-sm-2 col-md-2">
+              <ul className="list-unstyled quick-links">
                 <li>
-                  <a href="javascript:void();">Press Room</a>
+                  <a href="/press-room">Press Room</a>
                 </li>
                 <li>
-                  <a href="javascript:void();">Advertising</a>
+                  <a href="/advertising">Advertising</a>
                 </li>
                 <li>
-                  <a href="javascript:void();">Jobs</a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-xs-12 col-sm-2 col-md-2">
-              <ul class="list-unstyled quick-links">
-                <li>
-                  <a href="javascript:void();">Contact us</a>
-                </li>
-                <li>
-                  <a href="javascript:void();">Register</a>
-                </li>
-                <li>
-                  <a href="javascript:void();">News</a>
+                  <a href="/jobs">Jobs</a>
                 </li>
               </ul>
             </div>
-            <div class="col-xs-12 col-sm-2 col-md-2">
-              <ul class="list-unstyled quick-links">
+            <div className="col-xs-12 col-sm-2 col-md-2">
+              <ul className="list-unstyled quick-links">
                 <li>
-                  <a href="javascript:void();">Conditions of Use</a>
+                  <a href="/contact">Contact us</a>
                 </li>
                 <li>
-                  <a href="javascript:void();">Privacy Policy</a>
+                  <a href="/register">Register</a>
                 </li>
                 <li>
-                  <a href="javascript:void();">Interest-Based Ads</a>
+                  <a href="/news">News</a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-xs-12 col-sm-2 col-md-2">
+              <ul className="list-unstyled quick-links">
+                <li>
+                  <a href="/conditions">Conditions of Use</a>
+                </li>
+                <li>
+                  <a href="privacy-policy">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="/ads">Interest-Based Ads</a>
                 </li>
               </ul>
             </div>
@@ -120,20 +120,20 @@ class Footer extends Component {
             </div>
             <div className="col-md-6 footerRight">
               <small id="flollowUs">Follow us on social media</small>
-              <ul class="tt-socail">
+              <ul className="tt-socail">
                 <li>
-                  <a href="#">
-                    <i class="fa fa-facebook" aria-hidden="true" />
+                  <a href="facebook.com">
+                    <i className="fa fa-facebook" aria-hidden="true" />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i class="fa fa-twitter" aria-hidden="true" />
+                  <a href="twitter.com">
+                    <i className="fa fa-twitter" aria-hidden="true" />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i class="fa fa-youtube" aria-hidden="true" />
+                  <a href="youtube.com">
+                    <i className="fa fa-youtube" aria-hidden="true" />
                   </a>
                 </li>
               </ul>

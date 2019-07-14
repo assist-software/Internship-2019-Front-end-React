@@ -7,40 +7,43 @@ class headMovie extends Component {
   state = {};
 
   render() {
-    const scrollToMiddle = this.props;
     return (
       <div className="pageTop">
-        <div className="container h-100">
-          <div className="row h-100 justify-content-center align-items-center">
-            <div className="col-md-7">
-              <h1>Moonlight</h1>
-              <h3 className="mt-4">
-                A chronicle of the childhood, adolescence and burgeoning
-                adulthood of a young, African-American, gay man growing up in a
-                rough neighborhood of Miami.
-              </h3>
-              <div className="btnGroup mt-5">
-                <button className="watchTrailer">Watch trailer</button>
-                <button className="ml-3 addTo">
-                  <FontAwesomeIcon className="mr-3" icon={faPlus} />
-                  Add to list
-                </button>
+        <div className="container py-5">
+          <div className="row justify-content-center align-items-center">
+            <div className="col-md-6">
+              <div className="row headTitle">
+                <div>
+                  <h5 className="heroTitle">Moonlight</h5>
+                </div>
+                <div className="mt-4">
+                  <h3 className="heroDescription">
+                    A chronicle of the childhood, adolescence and burgeoning
+                    adulthood of a young, African-American, gay man growing up
+                    in a rough neighborhood of Miami.
+                  </h3>
+                </div>
+                <div className="mt-5">
+                  <button className="heroWatchButton">Watch trailer</button>
+                  <button className="heroAddButton ml-3">
+                    <FontAwesomeIcon
+                      icon={faPlus}
+                      color="white"
+                      className="mr-3"
+                    />
+                    Add to list
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="col-md-4 text-center">
-              <img
-                className="moovieImage"
-                src={require("../../../assets/img/moovie_image.png")}
-              />
-            </div>
-            <div className="nextPage text-center mb-3">
-              <button onClick={this.props.scrollToMiddle} className="btn">
-                <FontAwesomeIcon
-                  className="mb-2"
-                  icon={faArrowDown}
-                  color="white"
+
+            <div className="col-md-6 py-3">
+              <div className="heroImage">
+                <img
+                  src={require("../../../assets/img/moovie_image.png")}
+                  alt="Logo"
                 />
-              </button>
+              </div>
             </div>
           </div>
         </div>

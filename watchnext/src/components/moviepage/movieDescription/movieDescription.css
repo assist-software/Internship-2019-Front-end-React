@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
-.main-content {
+.movieDescription-content {
   background-color: black;
-}
-
-.content {
   padding-top: 200px;
 }
 
 .movImage {
-  width: 50%;
-  margin-left: 200px;
+  width: 70%;
+}
+
+.seeSource {
+  text-decoration: underline;
 }
 
 h1 {

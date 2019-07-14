@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import "./whatchlist.css";
+import "./watchlist.css";
 import Moovie from "../moovie/moovie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Header from "../header/header";
 
 const j = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -10,7 +11,8 @@ class WhatchList extends Component {
   state = {};
   render() {
     return (
-      <div className="main-content">
+      <div className="whatchlist-content">
+        <Header />
         <div className="container">
           <div className="row h-100 justify-content-center align-items-center">
             <div className="col-md-12">

@@ -7,6 +7,7 @@ class MoviePic extends Component {
     return (
       <div className="col-md-2">
         <img
+          alt="moovie"
           className="picLibrary"
           src={require("../../../../assets/img/moovie_image.png")}
         />

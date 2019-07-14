@@ -1,4 +1,4 @@
-.main-content {
+.whatchlist-content {
   background-color: black;
   padding-top: 200px;
 }
@@ -42,7 +42,6 @@
   margin: 0;
   margin-top: 10px;
   padding: 0;
-  width: 420px !important;
 }
 
 #custom-search-input .search-query {

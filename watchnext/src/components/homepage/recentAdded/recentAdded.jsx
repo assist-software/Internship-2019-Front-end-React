@@ -16,7 +16,7 @@ class RecentAdded extends Component {
             <div className="col-md-12">
               <div className="row">
                 <div className="col-md-6">
-                  <h5>
+                  <h5 class="hHeader">
                     Recent added movies<span className="ml-4">(4/10)</span>
                   </h5>
                 </div>
