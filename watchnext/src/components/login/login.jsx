@@ -29,13 +29,13 @@ class Login extends Component {
     return (
       <div
         className="container"
-        style={{ marginTop: "160px", marginBottom: "150px" }}
+        style={{ marginTop: "50px", marginBottom: "150px" }}
       >
         <img src={require("../login/frame.png")} alt="Logo" />
         <div className="container-login" style={{ marginTop: "50px" }}>
           <hr className="new5" />
           <div className="title" style={{ color: "#FFFFFF" }}>
-            <h2 className="textCenter">
+            <h2 className="text-center logInHeader">
               Log in to <br /> your account
             </h2>
           </div>
