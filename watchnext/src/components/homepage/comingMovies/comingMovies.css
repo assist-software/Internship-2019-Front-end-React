@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+#cNextMonth {
+  font-size: 48px;
+  line-height: 60px;
+  color: #ffffff;
+}
+
+#filterBy {
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #ffffff;
+  opacity: 0.7;
+  font-weight: bold;
+}
+
+.filterDiv {
+  float: right;
+}
+
+.pageBottom {
+  background-color: #13131c;
+}
+
+.categorySelect {
+  background: #f5044c;
+  color: white;
+  font-size: 14px;
+  font-family: "Montserrat";
+  border-radius: 20px !important;
+  border: none;
+  width: 160px;
+  height: 40px;
+}

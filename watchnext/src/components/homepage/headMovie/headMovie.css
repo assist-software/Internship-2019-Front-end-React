@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+.hero-content {
+  background: url("../../../assets/img/head_image.png");
+}
+
+.hero-row {
+  padding-top: 100px;
+}
+
+.heroTitle {
+  font-family: "Montserrat";
+  font-size: 48px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+
+  color: #ffffff;
+}
+
+.heroDescription {
+  font-family: "Montserrat";
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: normal;
+  color: #ffffff;
+  text-align: left;
+  opacity: 0.6;
+}
+
+.heroWatchButton {
+  background: #f5044c;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  width: 150px;
+  height: 40px;
+}
+
+.heroAddButton {
+  background: #1e1e1e;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  width: 150px;
+  height: 40px;
+}
+
+.nextPage {
+  z-index: 10000;
+}
+
+.nextPage button:focus {
+  border: none;
+  box-shadow: initial;
+}
+
+button {
+  outline: none !important;
+}
