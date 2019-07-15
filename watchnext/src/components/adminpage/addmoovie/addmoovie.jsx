@@ -15,7 +15,11 @@ class AddMoovie extends Component {
             <div className="col-md-6">
               <Form>
                 <Form.Group controlId="formBasicTitle">
-                  <Form.Control type="text" placeholder="Enter moovie title" />
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter moovie title"
+                    required
+                  />
                 </Form.Group>
               </Form>
             </div>

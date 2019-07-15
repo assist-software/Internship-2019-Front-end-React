@@ -9,7 +9,7 @@ import Header from "../header/header";
 class Home extends Component {
   state = {};
 
-  handleClick = () => {
+  nextPage = () => {
     console.log("Click happened");
   };
 
@@ -19,16 +19,14 @@ class Home extends Component {
         <Header />
 
         <section id="top">
-          <HeadMovie handleClick={this.handleClick} />
+          <HeadMovie handleClick={this.nextPage} />
         </section>
-        <section>
+        <section id="RecentAdded">
           <RecentAdded />
         </section>
         <section>
           <ComingMovies />
         </section>
-
-        {/* <Middle /> */}
       </div>
     );
   }

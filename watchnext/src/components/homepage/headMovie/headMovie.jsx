@@ -7,7 +7,7 @@ class headMovie extends Component {
   state = {};
 
   render() {
-    const scrollToMiddle = this.props;
+    const nextPage = this.props;
     return (
       <div className="hero-content">
         <div className="container py-4">
@@ -48,7 +48,8 @@ class headMovie extends Component {
             </div>
           </div>
           <div className="row justify-content-center align-items-center">
-            <button className="btn" onClick={this.handleClick}>
+            <a href="" />
+            <button className="btn nextPage" onClick={this.props.nextPage}>
               <FontAwesomeIcon
                 icon={faArrowDown}
                 color="white"
