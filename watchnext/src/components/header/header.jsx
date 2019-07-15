@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./header.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Badge from "react-bootstrap/Badge";
 
 class Header extends Component {
   state = {};
@@ -8,10 +9,10 @@ class Header extends Component {
     return (
       <div id="nav">
         <ul>
-          <li className="active navLink">
+          <li className="active navLink d-none d-md-block">
             <Link to={"/home"}>Home</Link>
           </li>
-          <li className="navLink">
+          <li className="navLink d-none d-md-block">
             <Link to={"/categories"}>Categories</Link>
           </li>
           <li>
@@ -74,11 +75,13 @@ class Header extends Component {
               </defs>
             </svg>
           </li>
-          <li className="navLink">
+          <li className="navLink d-none d-md-block">
             <Link to={"/watch-list"}>WatchList</Link>
-            <span id="bullet">3</span>
+            <Badge className="ml-2" variant="danger">
+              9
+            </Badge>
           </li>
-          <li className="navLink">
+          <li className="navLink d-none d-md-block">
             <Link to={"/contact"}>Contact</Link>
           </li>
         </ul>

@@ -7,31 +7,26 @@ import ComingMovies from "./comingMovies/comingMovies";
 import Header from "../header/header";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.scrollToMiddle = this.scrollToMiddle.bind(this);
-  }
-
   state = {};
 
-  scrollToMiddle = () => {};
+  nextPage = () => {
+    console.log("Click happened");
+  };
 
   render() {
     return (
       <div>
         <Header />
-        {/* <Top scrollToMiddle={this.scrollToMiddle} /> */}
+
         <section id="top">
-          <HeadMovie />
+          <HeadMovie handleClick={this.nextPage} />
         </section>
-        <section>
+        <section id="RecentAdded">
           <RecentAdded />
         </section>
         <section>
           <ComingMovies />
         </section>
-
-        {/* <Middle /> */}
       </div>
     );
   }
