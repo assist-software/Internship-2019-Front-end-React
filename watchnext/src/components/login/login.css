@@ -1,5 +1,5 @@
 
-  .container-login {
+.container-login {
     flex:1;
     width: 560px;
     height: 620px;
@@ -22,13 +22,7 @@ margin: 0;
 
   }
 .forgot {
-  font-family: Campton;
-  font-size: 14px;
-  display: flex;
-  text-align: right;
-}
-#forgot {
-  font-family: Campton;
+  font-family: "Montserrat";
   font-size: 14px;
   display: flex;
   text-align: right;
@@ -37,8 +31,14 @@ margin: 0;
   color: #9c9b9b !important;
 }
 
+#links {
+  text-decoration: underline !important;
+
+}
+#links 
+
 .title {
-    font-family: Campton;
+  font-family: "Montserrat";
     font-size: 48px;
     line-height: 60px;
     display: flex;
@@ -50,8 +50,8 @@ p{
     width:auto;
 }
 
-.text-center {
-    font-family: Campton;
+.textCenter {
+  font-family: "Montserrat";
     font-size: 48px;
     line-height: 60px;
     display: flex;
@@ -75,9 +75,8 @@ p{
 }
 
 @media all and (min-width: 480px) {
-   
-  
-    .Login form {
+
+ .Login form {
       margin: 0 auto;
       max-width: 320px;
     }

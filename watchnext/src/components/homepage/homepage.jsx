@@ -19,7 +19,7 @@ class Home extends Component {
         <Header />
 
         <section id="top">
-          <HeadMovie handleClick={this.nextPage} />
+          <HeadMovie nextPage={this.nextPage} />
         </section>
         <section id="RecentAdded">
           <RecentAdded />

@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl } from "react-bootstrap";
-import './login.css';
+import './loginadmin.css';
 import './frame.png';
 import {Link} from 'react-router-dom';
-class Login extends Component {
+class LoginAdmin extends Component {
     constructor(props) {
         super(props);
     
         this.state = {
           email: "",
           password: "",
-          confirmPassword:"",
           showPassword: false
         };
       }
@@ -30,7 +29,7 @@ class Login extends Component {
         return (
           
           <div className="container" style={{marginTop:"160px", marginBottom:"150px"}}>
-             <img src={require("../login/frame.png")}  alt="Logo"></img>
+             <img src={require("../loginadmin/frame.png")}  alt="Logo"></img>
              <div className="container-login" style={{marginTop:"50px"}}>
              <hr className="new5" />
              <div className="title" style={{color:"#FFFFFF"}}>
@@ -58,8 +57,7 @@ class Login extends Component {
                   placeholder="Password"
                 />
                 <span className="fa fa-fw fa-eye field-icon toggle-password"  onClick={() => this.setState({showPassword:!this.state.showPassword})}></span>
-            
-            
+          
               </FormGroup>
               <Link to="/reset" className="link-reg" id="forgot" style={{textAlign:"right", display:"flex", float:"right"}}>Forgot password?</Link>
               <Button
@@ -71,7 +69,7 @@ class Login extends Component {
               >
                 Login
               </Button>
-              <p className="forgot" style={{color:"#9C9B9B"}}>Don't have an account?  <Link to="/register" className="link-reg" style={{marginLeft:"5px"}} id="links"> Let's create one!</Link></p>
+        
             </form>
           </div>
           </div>
@@ -80,4 +78,4 @@ class Login extends Component {
         );
       }
     }
-    export default Login;
+    export default LoginAdmin;

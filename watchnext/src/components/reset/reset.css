@@ -17,7 +17,7 @@ body {
   }
 
 p {
-    font-family: "Campton";
+    font-family: "Montserrat";
     width: 300px;
     height: 40px;
     left: 547px;
@@ -45,6 +45,7 @@ p {
     border: 1px solid #9C9B9B;
     box-sizing: border-box;
     border-radius: 8px;
+    padding:0;
 }
 .Login input:focus{
     background-color: transparent;

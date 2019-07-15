@@ -57,14 +57,20 @@ class Register extends Component {
         />
        </FormGroup>
        <FormGroup controlId="password">
-       
         <FormControl
          value={this.state.password}
          onChange={this.handleChange}
          type="password"
          placeholder="Password"
         />
-         
+       </FormGroup>
+       <FormGroup controlId="confirmPassword">
+        <FormControl
+         value={this.state.password}
+         onChange={this.handleChange}
+         type="password"
+         placeholder="Confirm Password"
+        />
        </FormGroup>
        <Button
         block
@@ -74,7 +80,7 @@ class Register extends Component {
        >
         Register
        </Button>
-       <p className="forgot" style={{color:"#9C9B9B"}}>Already have an account?  <Link to="/" className="link-reg" style={{textDecoration:"underline", marginLeft:"5px"}}>Log in!</Link></p>
+       <p className="forgot" style={{color:"#9C9B9B"}}>Already have an account?  <Link to="/" className="link-reg" id="links" style={{ marginLeft:"5px"}}>Log in!</Link></p>
        
       </form>
      </div>
