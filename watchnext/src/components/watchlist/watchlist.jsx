@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Header from "../header/header";
 
-const j = [1, 2, 3, 4, 5, 6, 7, 8];
+const j = [1, 2, 3];
 
 class WhatchList extends Component {
   state = {};

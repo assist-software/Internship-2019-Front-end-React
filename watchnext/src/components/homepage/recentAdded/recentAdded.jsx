@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Moovie from "../../moovie/moovie";
 
-const i = [1, 2, 3, 4];
-
 class RecentAdded extends Component {
   state = {};
   render() {
@@ -38,11 +36,7 @@ class RecentAdded extends Component {
                 </div>
               </div>
               <div className="col-md-12">
-                <div className="row ">
-                  {i.map(a => {
-                    return <Moovie />;
-                  })}
-                </div>
+                <Moovie />
               </div>
             </div>
           </div>

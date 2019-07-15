@@ -8,6 +8,18 @@
   padding-top: 100px;
 }
 
+.heroImageDiv {
+  height: 550px;
+  width: 390px;
+}
+.heroImage {
+  border-radius: 15px;
+  height: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+}
+
 .heroTitle {
   font-family: "Montserrat";
   font-size: 48px;

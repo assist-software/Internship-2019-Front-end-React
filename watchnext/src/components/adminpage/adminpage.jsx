@@ -6,10 +6,9 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import MovieCard from "./moviecard/moviecard";
 import AddMoovie from "./addmoovie/addmoovie";
 
-const j = [1, 2, 3, 4, 5, 6, 7, 8];
-
 class AdminPage extends Component {
   state = {};
+
   render() {
     return (
       <div className="admin-content">
@@ -61,9 +60,7 @@ class AdminPage extends Component {
             </div>
           </div>
           <div className="all-moovies">
-            {j.map(a => {
-              return <MovieCard />;
-            })}
+            <MovieCard loadMore={this.loadMore} />
           </div>
         </div>
       </div>
