@@ -1,11 +1,11 @@
-body{
+/*body{
     background: black;
-}
+}*/
   .container-login {
     flex:1;
     width: 560px;
     height: 620px;
-    background: #0A0A0A;
+    /*background: #0A0A0A;*/
     top:20px;
     margin:0 auto;
     align-items: center;

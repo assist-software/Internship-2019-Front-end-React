@@ -59,6 +59,8 @@ class Login extends Component {
                   placeholder="Password"
                 />
                 <span className="fa fa-fw fa-eye field-icon toggle-password"  onClick={() => this.setState({showPassword:!this.state.showPassword})}></span>
+            
+            
               </FormGroup>
               <Link to="/reset" className="link-reg" id="forgot" style={{textAlign:"right", display:"flex", float:"right"}}>Forgot password?</Link>
               <Button
