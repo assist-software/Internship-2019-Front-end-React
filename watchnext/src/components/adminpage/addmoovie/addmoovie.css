@@ -35,3 +35,10 @@
   color: black;
   font: "Montserrat";
 }
+
+.addMovieContainer input[type="text"]::placeholder {
+  font-family: Montserrat !important;
+  color: #9c9b9b !important;
+  font-size: 12px !important;
+  padding-left: 20px !important;
+}
