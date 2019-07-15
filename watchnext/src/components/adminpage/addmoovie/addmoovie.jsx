@@ -6,69 +6,69 @@ class AddMoovie extends Component {
   state = {};
   render() {
     return (
-      <div className="container">
+      <div className="container addMovieContainer">
         <div className="col-md-12">
           <div className="row titleRow justify-content-center align-items-center">
             <h1 class="addTitle">Add Moovie</h1>
           </div>
-          <div className="row inputRow justify-content-center align-items-center">
-            <div className="col-md-6">
-              <Form>
+          <Form>
+            <div className="row inputRow justify-content-center align-items-center">
+              <div className="col-md-6">
                 <Form.Group controlId="formBasicTitle">
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter moovie title"
-                    required
-                  />
+                  <Form.Text className="text-muted floatLeft">
+                    Moovie title
+                  </Form.Text>
+                  <Form.Control type="text" />
                 </Form.Group>
-              </Form>
-            </div>
-            <div className="col-md-6">
-              <Form>
+              </div>
+              <div className="col-md-6">
                 <Form.Group controlId="formBasicTitle">
-                  <Form.Control type="text" placeholder="Trailer URL" />
+                  <Form.Text className="text-muted floatLeft">
+                    Trailer URL
+                  </Form.Text>
+                  <Form.Control type="text" />
                 </Form.Group>
-              </Form>
+              </div>
             </div>
-          </div>
-          <div className="row justify-content-center align-items-center">
-            <div className="col-md-12">
-              <Form>
+            <div className="row justify-content-center align-items-center">
+              <div className="col-md-12">
                 <Form.Group controlId="formBasicTitle">
-                  <Form.Control type="text" placeholder="Original source" />
+                  <Form.Text className="text-muted floatLeft">
+                    Original source
+                  </Form.Text>
+                  <Form.Control type="text" />
                 </Form.Group>
-              </Form>
+              </div>
             </div>
-          </div>
 
-          <div className="row justify-content-center align-items-center">
-            <div className="col-md-12">
-              <Form>
+            <div className="row justify-content-center align-items-center">
+              <div className="col-md-12">
                 <Form.Group controlId="formBasicTitle">
-                  <Form.Control type="text" placeholder="Cover URL" />
+                  <Form.Text className="text-muted floatLeft">
+                    Cover URL
+                  </Form.Text>
+                  <Form.Control type="text" />
                 </Form.Group>
-              </Form>
+              </div>
             </div>
-          </div>
-          <div className="row justify-content-center align-items-center">
-            <div className="col-md-12">
-              <Form>
+            <div className="row justify-content-center align-items-center">
+              <div className="col-md-12">
                 <Form.Group controlId="exampleForm.ControlTextarea1">
                   <Form.Text className="text-muted floatLeft">
                     Description
                   </Form.Text>
                   <Form.Control as="textarea" rows="3" />
                 </Form.Group>
-              </Form>
+              </div>
             </div>
-          </div>
 
-          <div className="row justify-content-center align-items-center">
-            <div className="col-md-7">
-              <Form>
+            <div className="row justify-content-center align-items-center">
+              <div className="col-md-7">
                 <Form.Group controlId="exampleForm.ControlSelect1">
+                  <Form.Text className="text-muted floatLeft">
+                    Category
+                  </Form.Text>
                   <Form.Control as="select">
-                    <option>Category</option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -76,25 +76,27 @@ class AddMoovie extends Component {
                     <option>5</option>
                   </Form.Control>
                 </Form.Group>
-              </Form>
-            </div>
-            <div className="col-md-5">
-              <Form>
+              </div>
+              <div className="col-md-5">
                 <Form.Group controlId="formBasicTitle">
-                  <Form.Control type="text" placeholder="IMDB Score" />
+                  <Form.Text className="text-muted floatLeft">
+                    IMDB Score
+                  </Form.Text>
+                  <Form.Control type="text" />
                 </Form.Group>
-              </Form>
+              </div>
             </div>
-          </div>
-          <div className="row justify-content-center align-items-center">
-            <div className="col-md-12">
-              <Form>
+            <div className="row justify-content-center align-items-center">
+              <div className="col-md-12">
                 <Form.Group controlId="formBasicTitle">
-                  <Form.Control type="text" placeholder="Release date" />
+                  <Form.Text className="text-muted floatLeft">
+                    Release date
+                  </Form.Text>
+                  <Form.Control type="text" />
                 </Form.Group>
-              </Form>
+              </div>
             </div>
-          </div>
+          </Form>
           <div className="row titleRow justify-content-center align-items-center">
             <button className="modalAddMoovie">Add moovie</button>
           </div>

@@ -50,3 +50,11 @@
   z-index: 10000;
 }
 
+.nextPage button:focus {
+  border: none;
+  box-shadow: initial;
+}
+
+button {
+  outline: none !important;
+}

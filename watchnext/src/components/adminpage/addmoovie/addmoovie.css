@@ -5,7 +5,7 @@
 }
 
 .titleRow {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .floatLeft {
@@ -13,7 +13,7 @@
 }
 
 .inputRow {
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 .modalAddMoovie {
@@ -34,4 +34,11 @@
   height: 40px;
   color: black;
   font: "Montserrat";
+}
+
+.addMovieContainer input[type="text"]::placeholder {
+  font-family: Montserrat !important;
+  color: #9c9b9b !important;
+  font-size: 12px !important;
+  padding-left: 20px !important;
 }

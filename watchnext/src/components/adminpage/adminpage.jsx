@@ -17,11 +17,11 @@ class AdminPage extends Component {
         <div className="container adminContainer">
           <div className="row">
             <div className="col-md-6">
-              <div class="searchBox" id="custom-search-input">
+              <div class="searchBox" id="customSearchInput">
                 <div className="input-group col-md-12">
                   <input
                     type="text"
-                    className="search-query form-control"
+                    className="search-query form-control searchX"
                     placeholder="Search for a movie..."
                   />
                   <span className="input-group-btn">

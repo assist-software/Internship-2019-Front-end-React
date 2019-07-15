@@ -7,7 +7,7 @@
   padding-bottom: 130px;
 }
 
-::placeholder {
+.searchX::placeholder {
   font-family: Montserrat !important;
   color: #9c9b9b !important;
   font-size: 12px !important;
@@ -31,7 +31,7 @@
   font-family: Montserrat;
 }
 
-#custom-search-input button {
+#customSearchInput button {
   border: 0;
   background: none;
   padding: 5px 1px;
@@ -59,7 +59,7 @@
   float: right;
 }
 
-.custom-search-input {
+.customInput {
   margin: 0;
   margin-top: 10px;
   padding: 0;
@@ -74,9 +74,13 @@
 }
 
 .addNewContent {
-  height: 750px !important;
+  height: 780px !important;
 }
 
 .modal-header {
   border-bottom: none !important;
+}
+
+button:focus {
+  outline: none !important;
 }

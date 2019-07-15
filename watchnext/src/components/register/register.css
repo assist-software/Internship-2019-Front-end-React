@@ -6,3 +6,11 @@
 .Login .btn-primary {
     border-color: transparent;
   }
+
+  .registerHeader {
+    font-family: "Montserrat";
+    font-size: 48px;
+    line-height: 60px;
+    margin: 60px;
+    font-weight: bold;
+  }

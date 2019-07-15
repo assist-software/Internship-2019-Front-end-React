@@ -1,56 +1,53 @@
 /*@import url(“https://fonts.googleapis.com/css?family=Montserrat“);*/
 
 body {
-    text-align: center;
-    background: black;
+  text-align: center;
+  background: black;
 }
-.container-reset{
-    flex:1;
-    width: 560px;
-    height: 463px;
-    background: #0A0A0A;
-    top:20px;
-    margin:0 auto;
-    align-items: center;
-    text-align: center;
-  
-  }
+.container-reset {
+  flex: 1;
+  width: 560px;
+  height: 463px;
+  background: #0a0a0a;
+  top: 20px;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+}
 
 p {
-    font-family: "Montserrat";
-    width: 300px;
-    height: 40px;
-    left: 547px;
-    top: 494px;
-    font-size: 14px;
-    line-height: 19px;
-    text-align: center;
-    color: #9C9B9B;
-    display: inline-flex;
+  font-family: "Campton";
+  width: 300px;
+  height: 40px;
+  left: 547px;
+  top: 494px;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  color: #9c9b9b;
+  display: inline-flex;
 }
-.title-reset{
-    margin: 0 auto;
-    padding:0;
-    color: #FFFFFF;
-    justify-content: center;
-    margin-bottom: 70px;
-    margin-top: 70px;
+.title-reset {
+  margin: 0 auto;
+  padding: 0;
+  color: #ffffff;
+  justify-content: center;
+  margin-bottom: 70px;
+  margin-top: 70px;
 }
 
 .Login input {
-    background-color: transparent;
-    color:#9C9B9B;
-    /* border-color: transparent; */
-    box-shadow: initial;
-    border: 1px solid #9C9B9B;
-    box-sizing: border-box;
-    border-radius: 8px;
-    padding:0;
+  background-color: transparent;
+  color: #9c9b9b;
+  /* border-color: transparent; */
+  box-shadow: initial;
+  border: 1px solid #9c9b9b;
+  box-sizing: border-box;
+  border-radius: 8px;
 }
-.Login input:focus{
-    background-color: transparent;
-    color: #9C9B9B;;
-    box-shadow: initial;
-    border: 1px solid #9C9B9B;
-
+.Login input:focus {
+  background-color: transparent;
+  color: #9c9b9b;
+  box-shadow: initial;
+  border: 1px solid #9c9b9b;
 }

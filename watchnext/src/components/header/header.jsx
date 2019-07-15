@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./header.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 
 class Header extends Component {
@@ -23,7 +23,7 @@ class Header extends Component {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0)">
+              <g clipPath="url(#clip0)">
                 <path
                   d="M58.8882 3.85719C57.7852 2.75515 56.437 1.95923 54.9051 1.46944C53.3731 0.979639 51.7186 0.734741 50.0029 0.734741C44.6104 0.734741 40.4435 3.06127 37.5021 7.71433C34.6221 3.1225 30.4552 0.795966 25.0014 0.795966C20.5894 0.795966 16.6063 2.51025 13.0522 5.8776V1.34699H0V38.2654H13.0522V20.0817C13.0522 18.1225 13.2361 16.5307 13.5424 15.3062C13.8488 14.0817 14.2778 13.1021 14.8293 12.4286C15.3808 11.7551 15.9936 11.2654 16.7289 11.0205C17.4642 10.7756 18.1996 10.6531 19.0575 10.6531C20.0379 10.6531 20.8345 10.7756 21.5699 11.0205C22.3052 11.2654 22.8567 11.7551 23.3469 12.4898C23.7759 13.2245 24.1435 14.2041 24.3886 15.4286C24.6338 16.6531 24.7563 18.1837 24.7563 20.0817V38.2654H37.8085V20.0817C37.8085 14.0205 39.892 10.9592 44.0589 10.9592C44.8555 10.9592 45.5296 11.0817 46.2036 11.3266C46.8777 11.5715 47.4905 12 47.9807 12.6735C48.4709 13.347 48.8386 14.2654 49.145 15.4898C49.3901 16.7143 49.5126 18.2449 49.5126 20.0817V38.2654H62.5036V14.3266C62.5036 11.8776 62.1972 9.79597 61.5231 8.08168C60.8491 6.36739 59.9912 4.89801 58.8882 3.85719Z"
                   fill="white"
@@ -66,8 +66,8 @@ class Header extends Component {
                   y2="20"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="white" />
-                  <stop offset="1" stop-color="white" stop-opacity="0.92" />
+                  <stop stopColor="white" />
+                  <stop offset="1" stopColor="white" stopOpacity="0.92" />
                 </linearGradient>
                 <clipPath id="clip0">
                   <rect width="257" height="57" fill="white" />

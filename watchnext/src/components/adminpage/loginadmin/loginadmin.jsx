@@ -33,7 +33,7 @@ class LoginAdmin extends Component {
              <div className="container-login" style={{marginTop:"50px"}}>
              <hr className="new5" />
              <div className="title" style={{color:"#FFFFFF"}}>
-             <h2 className="textCenter">Log in to <br /> your account</h2>
+             <h2 className="text-center logInHeader">Log in to <br /> your account</h2>
           </div>
           <div className="Login">
             <form id="form">

@@ -32,7 +32,7 @@ class Register extends Component {
      <div className="container-login" style={{marginTop:"50px"}} >
      <hr className="new5" />
      <div className="title" style={{color:"#FFFFFF"}}>
-      <h2 className="text-center">Let's create your account</h2>
+      <h2 className="text-center registerHeader">Let's create your account</h2>
       </div>
      <div className="Login">
       <form id="form">

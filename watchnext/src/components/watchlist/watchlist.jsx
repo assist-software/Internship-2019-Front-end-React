@@ -29,11 +29,11 @@ class WhatchList extends Component {
                     <div class="input-group col-md-12">
                       <input
                         type="text"
-                        class="  search-query form-control"
+                        className="search-query form-control searchB"
                         placeholder="Search for a movie..."
                       />
-                      <span class="input-group-btn">
-                        <button class="btn btn-danger" type="button">
+                      <span className="input-group-btn">
+                        <button className="btn btn-danger" type="button">
                           <span>
                             <FontAwesomeIcon icon={faSearch} color="white" />
                           </span>

@@ -9,12 +9,14 @@ class MovieDescription extends Component {
         <div className="container">
           <div className="col-md-12">
             <div className="row">
-              <div className="col-md-6 text-center">
-                <img
-                  alt="moovie"
-                  className="movImage"
-                  src={require("../../../assets/img/details.png")}
-                />
+              <div className="col-md-6">
+                <div>
+                  <img
+                    alt="moovie"
+                    className="movImage"
+                    src={require("../../../assets/img/details.png")}
+                  />
+                </div>
                 <div className="text-center">
                   <a href="imdb.com">
                     <small className="seeSource">See original source</small>
