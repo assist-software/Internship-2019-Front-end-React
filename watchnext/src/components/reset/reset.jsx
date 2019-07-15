@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import './reset.css';
 import './frame.png';
 
 class Reset extends Component {
-    constructor(props) {
-        super(props);
-    
-        this.state = {
-          email: ""
+  constructor(props) {
+    super(props);
 
-        };
-      }
-      validateForm() {
-        return this.state.email.length > 0;
-      }
+    this.state = {
+      email: ""
+    };
+  }
+  validateForm() {
+    return this.state.email.length > 0;
+  }
 
       handleChange = event => {
         this.setState({
@@ -47,21 +46,21 @@ class Reset extends Component {
                   onChange={this.handleChange}
                 />
               </FormGroup>
-            
+
               <Button
                 block
                 disabled={!this.validateForm()}
                 type="submit"
                 style={{background:"#F5044C"}}
               >
-               Reset password
+                Reset password
               </Button>
             </form>
           </div>
-          </div>
-          </div>
-        );
-      }
-    }
+        </div>
+      </div>
+    );
+  }
+}
 
-    export default Reset;
+export default Reset;

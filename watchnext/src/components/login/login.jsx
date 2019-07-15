@@ -3,7 +3,6 @@ import { Button, FormGroup, FormControl } from "react-bootstrap";
 import './login.css';
 import './frame.png';
 import {Link} from 'react-router-dom';
-
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +16,6 @@ class Login extends Component {
       validateForm() {
         return this.state.email.length > 0 && this.state.password.length > 0;
       }
-
       handleChange = event => {
         this.setState({
           [event.target.id]: event.target.value
@@ -31,12 +29,12 @@ class Login extends Component {
         return (
           
           <div className="container" style={{marginTop:"160px", marginBottom:"150px"}}>
-          <img src={require("../login/frame.png")}  alt="Logo"></img>
-          <div className="container-login" style={{marginTop:"50px"}}>
-          <hr className="new5" />
-          <div className="title" style={{color:"#FFFFFF"}}>
-            <h2 className="text-center">Log in to <br /> your account</h2>
-            </div>
+             <img src={require("../login/frame.png")}  alt="Logo"></img>
+             <div className="container-login" style={{marginTop:"50px"}}>
+             <hr className="new5" />
+             <div className="title" style={{color:"#FFFFFF"}}>
+             <h2 className="text-center">Log in to <br /> your account</h2>
+          </div>
           <div className="Login">
             <form id="form">
               <FormGroup controlId="email">
@@ -81,5 +79,4 @@ class Login extends Component {
         );
       }
     }
-
     export default Login;
