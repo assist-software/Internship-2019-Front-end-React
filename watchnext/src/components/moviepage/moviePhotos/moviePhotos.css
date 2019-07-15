@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+.picsContainer {
+  background-color: #13131c;
+}
+
+#picLabel {
+  float: left;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 60px;
+  color: #ffffff;
+  padding-top: 120px;
+  padding-bottom: 25px;
+}
+
+.picRow {
+  margin-bottom: 120px;
+  text-align: left;
+}

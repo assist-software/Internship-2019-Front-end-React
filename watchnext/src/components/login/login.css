@@ -1,11 +1,9 @@
-body{
-    background: black;
-}
+
   .container-login {
     flex:1;
     width: 560px;
     height: 620px;
-    background: #0A0A0A;
+    /*background: #0A0A0A;*/
     top:20px;
     margin:0 auto;
     align-items: center;
@@ -24,19 +22,19 @@ margin: 0;
 
   }
 .forgot {
-    font-family: Campton;
-    font-size: 14px;
-    display: flex;
-    text-align: right;
+  font-family: Campton;
+  font-size: 14px;
+  display: flex;
+  text-align: right;
 }
 #forgot {
-    font-family: Campton;
-    font-size: 14px;
-    display: flex;
-    text-align: right;
+  font-family: Campton;
+  font-size: 14px;
+  display: flex;
+  text-align: right;
 }
-.link-reg{
-    color: #9C9B9B !important;
+.link-reg {
+  color: #9c9b9b !important;
 }
 
 .title {
@@ -76,7 +74,6 @@ p{
   font-weight: 400;
 }
 
-
 @media all and (min-width: 480px) {
    
   
@@ -84,5 +81,10 @@ p{
       margin: 0 auto;
       max-width: 320px;
     }
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
   }
 
