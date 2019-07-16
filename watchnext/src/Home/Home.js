@@ -3,6 +3,7 @@ import Hero from "./Hero/Hero"
 import RecentAdded from "./RecentAdded/RecentAdded"
 import ComingNext from "./ComingNext/ComingNext"
 import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 
 class Home extends React.Component {
     constructor() {
