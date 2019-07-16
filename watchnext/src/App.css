@@ -2,3 +2,13 @@ body{
     background:black;
     color:#fff;
 }
+
+@font-face {
+    font-family: Campton;
+    src: url("./camptonFont/Campton-BoldDEMO.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Camptonlight;
+    src: url("./camptonFont/Campton-LightDEMO.otf") format("opentype");
+}

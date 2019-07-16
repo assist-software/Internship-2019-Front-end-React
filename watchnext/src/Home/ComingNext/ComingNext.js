@@ -1,6 +1,6 @@
 import React from 'react';
 import '../ComingNext/comingNext.css';
-import Dropdown from './dropdown/Dropdown';
+import Dropdown from '../../dropdown/Dropdown';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
