@@ -20,6 +20,7 @@ const Main = () => (
         <Route path='/contact' component = {Contact} />
         <Route path='/login' component = {Login} />
         <Route path='/register' component = {Login} />
+        <Route path='/reset' component = {Login} />
         <Route path='/movie' component = {Movie} />
         <Route path='/admin' component = {Admin} />
       </Switch>

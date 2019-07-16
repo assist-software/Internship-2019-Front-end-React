@@ -1,12 +1,11 @@
 #login_page{
     position: relative;
     max-width: 1920px;
-    /* width: 1920px; */
     max-height: 1024px;
-    /* height: 1024px; */
     background: #010103;
     overflow: hidden;
     margin: 0 auto;
+    margin-bottom: 100px;
 }
 
 #mainPage{
@@ -84,7 +83,7 @@
 }
 
 #buttonDiv{
-    margin-top: 74px;
+    margin-top: 40px;
 }
 
 #logIn{
@@ -115,6 +114,7 @@
     font-size: 18px;
     line-height: 25px;
     outline: none;
+    cursor: pointer;
   }
   
   .button1:hover {
@@ -150,7 +150,7 @@
     color: #9C9B9B;
     font-family: sans-serif;
     font-size: 14px;
-    margin-top: 60px;
+    margin-top: 7px;
     margin-bottom: 0px;
 }
 
@@ -170,4 +170,113 @@
     opacity: 0.7;
     margin-left: 63px;
     border: 1px solid #B3B3B3;
+}
+
+#boxReset{
+    background: #0A0A0A;
+    display: block;
+    max-width: 560px;
+    min-height: 463px;
+    margin: 0 auto;
+}
+
+#resetText{
+    color: #9C9B9B;
+    text-align: center;
+    margin-bottom: 70px;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+#resetLoginText{
+    color: #FFFFFF;
+    margin-top: 0px;
+    margin-bottom: -90px;
+    padding: 61px 0 0px 54px;
+    text-align: center;
+    font-size: 48px;
+    width: 432px;
+    height: 144px;
+    line-height: 60px;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+#hideItem{
+    display: none;
+}
+
+#afterClick{
+    text-align: center;
+    color: #9C9B9B;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-top: 66px;
+}
+
+#displayEmail{
+    text-align: center;
+    color: #F5044C;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-top: 66px;
+}
+
+#button2 {
+    width: 367px;
+    height: 48px;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: #F5044C; 
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  #button2:hover {
+    width: 367px;
+    height: 48px;
+    color: #0A0A0A;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: black;
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+  }
+
+  #box input:-internal-autofill-selected {
+    background-color: #9C9B9B !important;
+    background-image: none !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #0A0A0A inset !important;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+}
+
+#logFail{
+    width: 351px;
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    line-height: 21px;
+    font-size: 18px;
+    padding-left: 16px;
+    background: #0A0A0A;
+    border: 2px solid red;
+    outline: none;
 }
