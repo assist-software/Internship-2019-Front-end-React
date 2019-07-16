@@ -60,7 +60,7 @@ class AdminPage extends Component {
             </div>
           </div>
           <div className="all-moovies">
-            <MovieCard loadMore={this.loadMore} />
+            <MovieCard />
           </div>
         </div>
       </div>

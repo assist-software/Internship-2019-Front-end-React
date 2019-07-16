@@ -5,42 +5,47 @@ class Moovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: []
+      movies: [],
+      data: []
     };
   }
-  render() {
-    let url = "http://localhost:3002/movies";
+
+  componentDidMount() {
+    let url = "http://localhost:3003/movies";
     fetch(url)
       .then(resp => resp.json())
       .then(data => {
-        let movies = data.map((movie, index) => {
-          return (
-            <div className="col-md-3 mb-5">
-              <div key={index}>
-                <a href={"/movie-page/" + movie.id}>
-                  <div className="moovieImg">
-                    <img
-                      className="moovieComponent"
-                      alt="moovie"
-                      src={movie.picture}
-                    />
-                    <button className="addToList">Add to watchlist</button>
-                    <button className="rating">{movie.imdb_score}</button>
-                  </div>
-
-                  <h5 id="moovieTitle">{movie.title}</h5>
-                </a>
-                <small>
-                  Realeased date: {movie.release_date} <br /> {movie.category}
-                </small>
-              </div>
-            </div>
-          );
-        });
-        this.setState({ movies: movies });
+        this.setState({ data: data });
       });
+  }
 
-    return <div className="row ">{this.state.movies}</div>;
+  render() {
+    const { data } = this.state;
+    return (
+      <div className="row">
+        {data.map((movie, index) => (
+          <div key={index} className="col-md-3 mb-5">
+            <div>
+              <a href={"/movie-page/" + movie.id}>
+                <div className="moovieImg">
+                  <img
+                    className="moovieComponent"
+                    alt="moovie"
+                    src={movie.picture}
+                  />
+                  <button className="addToList">Add to watchlist</button>
+                  <button className="rating">{movie.imdb_score}</button>
+                </div>
+                <h5 id="moovieTitle">{movie.title}</h5>
+              </a>
+              <small>
+                Realeased date: {movie.release_date} <br /> {movie.category}
+              </small>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
   }
 }
 
