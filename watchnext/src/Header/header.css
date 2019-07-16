@@ -1,12 +1,10 @@
 #nav{
-    max-width: 1200px;
+    max-width: 1755px;
     background: transparent;
     color: #fff;
     position: absolute;
     width: 100%;
-    top: 0;
-    margin: 0 auto;
-    top: 0;
+    top: 19px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -53,5 +51,11 @@ a{color:#fff;text-decoration: none;}
     background-position: center;
     padding-bottom: 4px;
     font-size: 10px;
-    background-image: url(/static/media/bullet.ec42652d.svg);
+    background-image: url('../Header/bullet.svg');
+}
+
+.group{
+    display: flex;
+    min-width: 185px;
+    justify-content: space-between;
 }

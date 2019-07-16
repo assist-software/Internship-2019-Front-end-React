@@ -1,15 +1,18 @@
 import React from 'react';
 import '../Categories/categories.css';
+import Header from '../Header/Header';
 
 
 class Categories extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
     }
     
     render() {
         return (
-          <div><b>Categories - Container</b></div>
+          <div>
+            <b>Categories - Container</b>
+          </div>
         )    
     }
 }

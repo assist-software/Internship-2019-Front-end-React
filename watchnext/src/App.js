@@ -1,36 +1,37 @@
 import React from 'react'
 import './App.css'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-
-import Home from "./Home/Home"
-import Categories from "./Categories/Categories"
-import Watchlist from './Watchlist/Watchlist'
-import Contact from './Contact/Contact'
-import Login from './Login/Login';
-import Register from './Register/Register';
-import Movie from './Movie/Movie';
-import Admin from './Admin/Admin';
 import Header from './Header/Header';
+import Main from './Main';
+import { withRouter } from "react-router-dom";
 
-function App() {
-  return (
-    <Router>
-        <div>
-          <Header />
-          <Switch>
-              <Route exact path='/' component = {Home} />
-              <Route path='/home' component = {Home} />
-              <Route path='/categories' component = {Categories} />
-              <Route path='/watchlist' component = {Watchlist} />
-              <Route path='/contact' component = {Contact} />
-              <Route path='/login' component = {Login} />
-              <Route path='/register' component = {Register} />
-              <Route path='/movie' component = {Movie} />
-              <Route path='/admin' component = {Admin} />
-          </Switch>
-        </div>
-      </Router>
-  );
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      page: props.location.pathname
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      console.log("Route change!", this.props.location.pathname);
+      this.setState(()=>{
+        return {
+          page:this.props.location.pathname
+        }
+      })
+    }
+  }
+
+  render() {
+    return(
+      <div>
+        <Header page={this.state.page}/>
+        <Main />
+      </div>
+    );
+  } 
 }
 
-export default App;
+export default withRouter(props => <App {...props} />);
