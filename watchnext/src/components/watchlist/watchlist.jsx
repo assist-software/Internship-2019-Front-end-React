@@ -3,6 +3,7 @@ import "./watchlist.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Header from "../header/header";
+import Footer from "../footer/footer";
 
 class WhatchList extends Component {
   constructor(props) {
@@ -13,19 +14,23 @@ class WhatchList extends Component {
       filteredData: [],
       value: ""
     };
-
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-    console.log(this.state.value);
-    this.setState({
-      filteredData: this.state.data.filter(movie => {
-        movie.title.toString().includes(this.state.value);
-      })
-    });
-  }
+  filterMovies = async event => {
+    const result = this.state.data.filter(movie =>
+      movie.title
+        .toLocaleLowerCase()
+        .includes(this.state.value.toLocaleLowerCase())
+    );
+    console.log(result);
+    if (result.length > 0 || this.state.value) {
+      this.setState({ filteredData: result, value: event.target.value });
+    } else
+      this.setState({
+        filteredData: this.state.data,
+        value: event.target.value
+      });
+  };
 
   componentDidMount() {
     let url = "http://localhost:3003/movies";
@@ -39,7 +44,6 @@ class WhatchList extends Component {
 
   render() {
     const { data, filteredData } = this.state;
-    this.state.filteredData = this.state.data;
     return (
       <div className="whatchlist-content">
         <Header />
@@ -58,9 +62,9 @@ class WhatchList extends Component {
                   <div id="watchSearch">
                     <div className="input-group col-md-12">
                       <input
-                        type="text"
                         value={this.state.value}
-                        onChange={this.handleChange}
+                        onChange={this.filterMovies}
+                        type="text"
                         className="search-query form-control searchB"
                         placeholder="Search for a movie..."
                       />
@@ -124,6 +128,7 @@ class WhatchList extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

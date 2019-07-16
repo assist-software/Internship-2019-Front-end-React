@@ -76,7 +76,7 @@
 }
 
 .search-query:focus + button {
-  z-index: 3;
+  z-index: 1000;
 }
 
 .searchB::placeholder {

@@ -27,7 +27,6 @@ class App extends Component {
             <Route exact path="/watch-list" component={WhatchList} />
             <Route exact path="/admin" component={AdminPage} />
           </Switch>
-          <Footer />
         </div>
       </Router>
     );

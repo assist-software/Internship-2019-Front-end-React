@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import MovieCard from "./moviecard/moviecard";
 import AddMoovie from "./addmoovie/addmoovie";
+import Footer from "../footer/footer";
 
 class AdminPage extends Component {
   state = {};
@@ -63,6 +64,7 @@ class AdminPage extends Component {
             <MovieCard />
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
