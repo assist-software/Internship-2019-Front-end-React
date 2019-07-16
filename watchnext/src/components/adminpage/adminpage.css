@@ -84,3 +84,94 @@
 button:focus {
   outline: none !important;
 }
+
+.card {
+  border-radius: 8px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.movImg {
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+  max-width: 100px;
+  float: left;
+}
+
+.movTit {
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  font-family: Montserrat;
+}
+
+.movDat {
+  padding-left: 40px;
+  font-size: 12px !important;
+  color: black;
+  font-family: Montserrat;
+}
+
+.movAction {
+  float: right;
+  margin-right: 20px;
+}
+
+.mAction {
+  margin-left: 50px;
+}
+
+.movBtn {
+  background: none;
+  border: none;
+}
+
+.modal-body {
+  border: none;
+}
+
+.deleteDialog {
+  padding-top: 15% !important;
+}
+
+.textModal {
+  font-size: 24px;
+  line-height: 52px;
+  font-family: Montserrat;
+  text-align: center;
+  color: #010103;
+}
+
+.modal-content {
+  height: 300px;
+}
+
+.cancelModal {
+  background: #ffffff;
+  box-shadow: 0px 4px 100px rgba(163, 163, 163, 0.1);
+  border-radius: 8px;
+  width: 140px;
+  height: 40px;
+  font-family: Montserrat;
+}
+
+.deleteMovieModal {
+  width: 140px;
+  height: 40px;
+  font-family: Montserrat;
+  background: #f5044c;
+  border-radius: 8px;
+  border: none;
+  color: white;
+}
+
+.modal-footer {
+  padding-right: 100px !important;
+  border-top: none !important;
+  margin-bottom: 30px;
+}
+
+.modal-header {
+  border-bottom: none !important;
+}

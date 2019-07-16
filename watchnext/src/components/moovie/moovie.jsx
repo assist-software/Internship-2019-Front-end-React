@@ -15,7 +15,7 @@ class Moovie extends Component {
     fetch(url)
       .then(resp => resp.json())
       .then(data => {
-        this.setState({ data: data });
+        this.setState({ data: data.slice(0, this.props.nrOfMov) });
       });
   }
 

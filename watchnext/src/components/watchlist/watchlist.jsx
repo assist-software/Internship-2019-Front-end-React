@@ -9,27 +9,14 @@ class WhatchList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: [],
       data: [],
       filteredData: [],
-      value: ""
+      filter: ""
     };
   }
 
-  filterMovies = async event => {
-    const result = this.state.data.filter(movie =>
-      movie.title
-        .toLocaleLowerCase()
-        .includes(this.state.value.toLocaleLowerCase())
-    );
-    console.log(result);
-    if (result.length > 0 || this.state.value) {
-      this.setState({ filteredData: result, value: event.target.value });
-    } else
-      this.setState({
-        filteredData: this.state.data,
-        value: event.target.value
-      });
+  handleChange = event => {
+    this.setState({ filter: event.target.value });
   };
 
   componentDidMount() {
@@ -43,7 +30,11 @@ class WhatchList extends Component {
   }
 
   render() {
-    const { data, filteredData } = this.state;
+    const { filter, data } = this.state;
+    const filteredData = data.filter(item => {
+      return item.title.toLowerCase().includes(this.state.filter);
+    });
+
     return (
       <div className="whatchlist-content">
         <Header />
@@ -62,8 +53,8 @@ class WhatchList extends Component {
                   <div id="watchSearch">
                     <div className="input-group col-md-12">
                       <input
-                        value={this.state.value}
-                        onChange={this.filterMovies}
+                        value={filter}
+                        onChange={this.handleChange}
                         type="text"
                         className="search-query form-control searchB"
                         placeholder="Search for a movie..."

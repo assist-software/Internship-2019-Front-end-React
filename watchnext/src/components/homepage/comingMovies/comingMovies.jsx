@@ -3,7 +3,12 @@ import "./comingMovies.css";
 import Moovie from "../../moovie/moovie";
 
 class comingMovies extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      nrOfMov: 8
+    };
+  }
 
   render() {
     return (
@@ -34,7 +39,7 @@ class comingMovies extends Component {
                 </div>
               </div>
               <div className="col-md-12">
-                <Moovie />
+                <Moovie nrOfMov={this.state.nrOfMov} />
               </div>
             </div>
           </div>

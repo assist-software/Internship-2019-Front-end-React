@@ -5,7 +5,13 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Moovie from "../../moovie/moovie";
 
 class RecentAdded extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      nrOfMov: 4
+    };
+  }
+
   render() {
     return (
       <div className="pageMiddle">
@@ -36,7 +42,7 @@ class RecentAdded extends Component {
                 </div>
               </div>
               <div className="col-md-12">
-                <Moovie />
+                <Moovie nrOfMov={this.state.nrOfMov} />
               </div>
             </div>
           </div>
