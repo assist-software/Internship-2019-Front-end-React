@@ -4,6 +4,7 @@ import '../Header/header.css';
 import { BrowserRouter as Router, Switch, Route, Link, withRouter } from 'react-router-dom'
 
 class Header extends React.Component {
+
     constructor(props) {
         super(props)
     }
@@ -14,8 +15,8 @@ class Header extends React.Component {
             <div id="nav">
                 <ul>
                     <div className="group">
-                        <Link to={'/'}><li className={(this.props.page=='/Home' || this.props.page=='/')?'active h':'h'}>Home</li></Link>
-                        <Link to={'/Categories'}><li className={this.props.page=='/Categories'?'active h':'h'}>Categories</li></Link>
+                        <Link to={'/'}><li className={(this.props.page.toLowerCase()=='/home'|| this.props.page.toLowerCase() =='/')?'active h':'h'}>Home</li></Link>
+                        <Link to={'/Categories'}><li className={this.props.page.toLowerCase()=='/categories'?'active h':'h'}>Categories</li></Link>
                     </div>
                     <li>
                         <svg width="257" height="57" viewBox="0 0 257 57" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,11 +44,11 @@ class Header extends React.Component {
 
                     <div className="group">     
                         <Link to={'/WatchList'}>
-                            <li className={this.props.page=='/WatchList'?'active h':'h'}>WatchList
-                                <span id='watchNum'>3</span>
+                            <li className={this.props.page.toLowerCase()==('/watchlist')?'active h':'h'}>WatchList
+                                <span id='watchNum'>{this.props.wLCounter}</span>
                             </li>
                         </Link>
-                        <Link to={'/contact'}><li className={this.props.page=='/contact'?'active h':'h'}>Contact</li></Link>
+                        <Link to={'/contact'}><li className={this.props.page.toLowerCase()=='/contact'?'active h':'h'}>Contact</li></Link>
                     </div>
 
                 </ul>
