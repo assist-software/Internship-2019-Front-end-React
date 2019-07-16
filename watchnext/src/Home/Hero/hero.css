@@ -6,15 +6,13 @@
   background-color: black;
   background-position: center;
   height: 1024px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #moon{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top:200px;
 }
 
 .moon{
@@ -30,7 +28,7 @@
   line-height: 25px;
   max-width: 464px;
   padding-right: 84px;
-  width: 464px;
+
   height: 100px;
   color: #FFFFFF;
   opacity: 0.6;
@@ -42,8 +40,6 @@
   height: 552px;
   left: 800px;
   top: 232px;
-  
-
   border-radius: 20px;
 }
 
@@ -66,15 +62,21 @@
 }
 
 #list{
-  background: #1E1E1E;
+  background: #1E1E1E !important;
 }
 
 #left span{
   font-size: 26px;
-  position: absolute;
   vertical-align: baseline;
   margin: -2px 0 0 -26px;
   font-weight: 100;
   font-family: sans-serif;
 }
 
+#down{
+  margin: 0 auto;
+  display: block;
+  /* border: 1px solid red; */
+  text-align: center;
+  margin-top: 223px;
+}
