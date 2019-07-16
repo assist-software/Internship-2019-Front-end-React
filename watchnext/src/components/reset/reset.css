@@ -1,9 +1,9 @@
-/*@import url(“https://fonts.googleapis.com/css?family=Montserrat“);*/
 
 body {
   text-align: center;
   background: black;
 }
+
 .container-reset {
   flex: 1;
   width: 560px;
@@ -13,10 +13,11 @@ body {
   margin: 0 auto;
   align-items: center;
   text-align: center;
+  
 }
 
 p {
-  font-family: "Campton";
+  font-family: "Montserrat";
   width: 300px;
   height: 40px;
   left: 547px;

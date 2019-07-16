@@ -1,12 +1,17 @@
+.container {
+   margin-top: 50px; 
+   margin-bottom: 150px; 
+}
 .container-login {
   flex: 1;
   width: 560px;
   height: 620px;
-  /*background: #0A0A0A;*/
+  background: #0a0a0a;
   top: 20px;
   margin: 0 auto;
   align-items: center;
   text-align: center;
+  margin-top: 50px;
 }
 
 .Login .btn-primary {
@@ -23,22 +28,32 @@ hr.new5 {
   display: flex;
   text-align: right;
 }
+#forgot {
+  font-family: "Montserrat";
+  font-size: 14px;
+  display: flex;
+  text-align: right;
+}
 .link-reg {
   color: #9c9b9b !important;
+  text-decoration: underline;
+  margin-left: 5px;
 }
 
 #links {
   text-decoration: underline !important;
 
 }
-#links 
-
+.forgot {
+  color: #9C9B9B;
+}
 .title {
   font-family: "Montserrat";
   font-size: 48px;
   line-height: 60px;
   display: flex;
   justify-content: center;
+  color: #FFFFFF;
 }
 
 p {
@@ -50,6 +65,7 @@ p {
   font-family: "Montserrat";
   font-size: 48px;
   line-height: 60px;
+  font-weight: bold;
   margin: 60px;
   font-weight: bold;
 }

@@ -1,10 +1,27 @@
 import React, { Component } from "react";
 import "./comingMovies.css";
 import Moovie from "../../moovie/moovie";
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
+
 const j = [1, 2, 3, 4, 5, 6, 7, 8];
 
 class comingMovies extends Component {
-  state = {};
+ // state = {};
+ constructor (props) {
+  super(props)
+  this.state = {
+    startDate: moment()
+  };
+  this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
+  }
 
   render() {
     return (
@@ -31,6 +48,12 @@ class comingMovies extends Component {
                       <option>Horror</option>
                       <option>Fantasy</option>
                     </select>
+
+                    <DatePicker selected={this.state.date}
+                      onSelect={this.handleSelect} 
+                      onChange={this.handleChange }
+                    />
+
                   </div>
                 </div>
               </div>

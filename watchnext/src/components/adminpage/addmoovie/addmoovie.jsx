@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./addmoovie.css";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 class AddMoovie extends Component {
   state = {};
