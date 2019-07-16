@@ -6,11 +6,23 @@ class comingMovies extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nrOfMov: 8
+      nrOfMov: 4,
+      movies: [],
+      data: []
     };
   }
 
+  componentDidMount() {
+    let url = "http://localhost:3003/movies";
+    fetch(url)
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ data });
+      });
+  }
+
   render() {
+    const { data } = this.state;
     return (
       <div className="pageBottom">
         <div className="container h-100 py-5">
@@ -39,7 +51,13 @@ class comingMovies extends Component {
                 </div>
               </div>
               <div className="col-md-12">
-                <Moovie nrOfMov={this.state.nrOfMov} />
+                <div className="row">
+                  {data.map((movie, index) => (
+                    <div key={index} className="col-md-3 mb-5">
+                      <Moovie movie={movie} />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

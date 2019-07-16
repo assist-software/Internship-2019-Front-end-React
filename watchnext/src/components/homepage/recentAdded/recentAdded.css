@@ -23,11 +23,26 @@ h5 span {
   opacity: 0.5;
 }
 
-.arrBtn {
+.arrLeft {
   width: 28px;
   height: 28px;
   background: #f5044c;
   border-radius: 8px;
   font-size: 14px;
   padding: 5px;
+  right: 35px;
+  top: -50px;
+  position: absolute;
+}
+
+.arrRight {
+  width: 28px;
+  height: 28px;
+  background: #f5044c;
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 5px;
+  right: 10px;
+  top: -50px;
+  position: absolute;
 }
