@@ -1,7 +1,7 @@
 const comingNextData = [
     {
         id: 1,
-        title: "Godzila Kind of the Monsters2",
+        title: "Godzila Kind of the Monsters23",
         gen: ["Action","Comedy"],
         releaseDate: "20/03/2019",
         img:'http://localhost:3000/static/media/img.png'

@@ -10,7 +10,7 @@ import Admin from './Admin/Admin';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
-const Main = () => (
+const Main = (props) => (
     <main>
       <Switch>
         <Route exact path='/' component = {Home} />

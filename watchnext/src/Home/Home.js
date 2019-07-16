@@ -16,7 +16,6 @@ class Home extends React.Component {
                 <Hero />
                 <RecentAdded />
                 <ComingNext />
-                <Footer />
             </div>
         )    
     }
