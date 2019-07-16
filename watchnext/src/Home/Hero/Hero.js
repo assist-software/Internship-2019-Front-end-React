@@ -23,7 +23,8 @@ class Home extends React.Component {
                      <img className="img2" alt="img2" src={require('./image4.2.png')}/>
                 </div>
             </div>
-            <i class="fas fa-angle-down"></i>
+            <div><i class="fas fa-angle-down"></i></div>
+            
          
         </div>
              

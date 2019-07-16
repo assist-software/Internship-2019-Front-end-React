@@ -11,6 +11,7 @@ import Register from './Register/Register';
 import Movie from './Movie/Movie';
 import Admin from './Admin/Admin';
 
+
 function App() {
   return (
     <Router>
