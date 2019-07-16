@@ -1,5 +1,4 @@
 #personal{  
-    border: 2px solid blue;
     background: #010102;
     /*margin-top: 3408px;*/
     height: 352px;  
@@ -8,7 +7,6 @@
 }
 
 #footerUp{
-    border: 2px solid red;
     color: #FFFFFF;
     width: 1440px;
     margin-left: auto;
@@ -18,18 +16,19 @@
     justify-content: space-between;
 }
 
+#first.li.up{
+    margin-top: 56px;
+}
+
 #footerUp li{
     display: inherit;   
     margin-left: 16px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: corbel;
     font-size: 14px;
     width: 184px;
     height: 43px;;
     /*margin-top: 6px;*/
-}
-
-#footerUp ul{
-    display: grid;
+    font-family: sans-serif;
 }
 
 ul{
@@ -37,12 +36,15 @@ ul{
 }
 
 #yup{
-    border: 1px solid purple;
     display: inherit;
+    height: 129px;
+}
+
+#footerUp ul{
+    margin-top: 56px;
 }
 
 #footerDown{
-    border: 2px solid green;
     color: #FFFFFF;
     width: 1440px;
     margin-left: auto;
@@ -52,15 +54,44 @@ ul{
     justify-content: space-between;
 }
 
-#footerDown li{
-    margin-left: 16px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
+#footerDown ul{
     display: flex;
 }
 
+#liSvg{
+    margin-left: 16px;
+    font-family: corbel;
+    font-size: 14px;
+    margin-top: 19px;
+    height: 32px;
+}
+
+#liText{
+    margin-top: 16px;
+    height: 43px;
+    vertical-align: baseline;
+    line-height: 40px;
+    font-family: sans-serif;
+}
+
+#footerUp img{
+    height: 57px;
+    width: 257px;
+    margin-top: 68px;
+}
+
 #footerDown p{
-    font-family: 'Courier New', Courier, monospace;
+    font-family: sans-serif;
     font-size: 14px;
     line-height: 42px;
+    margin-top: 16px;
+}
+
+#bar{
+    position: absolute;
+    width: 1440px;
+    height: 0px;
+    
+    opacity: 0.7;
+    border: 1px solid #B3B3B3;
 }

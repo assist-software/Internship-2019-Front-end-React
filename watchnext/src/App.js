@@ -22,7 +22,7 @@ function App() {
               <Route path='/watchlist' component = {Watchlist} />
               <Route path='/contact' component = {Contact} />
               <Route path='/login' component = {Login} />
-              <Route path='/register' component = {Register} />
+              <Route path='/register' component = {Login} />
               <Route path='/movie' component = {Movie} />
               <Route path='/admin' component = {Admin} />
           </Switch>
