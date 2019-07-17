@@ -15,9 +15,7 @@
 .heroImage {
   border-radius: 15px;
   height: 100%;
-  display: flex;
-  justify-content: right;
-  align-items: right;
+  float: right;
 }
 
 .heroTitle {

@@ -1,0 +1,180 @@
+{
+  "movies": [
+    {
+      "id": "1",
+      "title": "John Wick 3",
+      "category": "Comedy • Crime",
+      "length": "1h 33min",
+      "description": "Josephine Chesterfield is a glamorous, seductive British woman who has a penchant for defrauding gullible men out of their money. Into her well-ordered, meticulous world comes Penny Rust, a cunning and fun-loving Australian woman who lives to swindle unsuspecting marks. Despite their different methods, the two grifters soon join forces for the ultimate score -- a young and naive tech billionaire in the South of France.",
+      "director": "Chris Addison",
+      "writers": "Stanley Shapiro, Paul Henning ",
+      "stars": "Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons",
+      "imdb_score": "8.8",
+      "picture": "https://i.pinimg.com/originals/2c/b0/b4/2cb0b40827c1d8b53df0d68013674709.jpg",
+      "release_date": "13/07/2019"
+    },
+    {
+      "id": "2",
+      "title": "Fast & Furious 7",
+      "category": "Comedy • Crime",
+      "length": "1h 33min",
+      "description": "Josephine Chesterfield is a glamorous, seductive British woman who has a penchant for defrauding gullible men out of their money. Into her well-ordered, meticulous world comes Penny Rust, a cunning and fun-loving Australian woman who lives to swindle unsuspecting marks. Despite their different methods, the two grifters soon join forces for the ultimate score -- a young and naive tech billionaire in the South of France.",
+      "director": "Chris Addison",
+      "writers": "Stanley Shapiro, Paul Henning ",
+      "stars": "Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons",
+      "imdb_score": "8.8",
+      "picture": "https://i.pinimg.com/originals/2c/b0/b4/2cb0b40827c1d8b53df0d68013674709.jpg",
+      "release_date": "12/07/2019"
+    },
+    {
+      "id": "3",
+      "title": "Home Alone 2",
+      "category": "Comedy • Crime",
+      "length": "1h 33min",
+      "description": "Josephine Chesterfield is a glamorous, seductive British woman who has a penchant for defrauding gullible men out of their money. Into her well-ordered, meticulous world comes Penny Rust, a cunning and fun-loving Australian woman who lives to swindle unsuspecting marks. Despite their different methods, the two grifters soon join forces for the ultimate score -- a young and naive tech billionaire in the South of France.",
+      "director": "Chris Addison",
+      "writers": "Stanley Shapiro, Paul Henning ",
+      "stars": "Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons",
+      "imdb_score": "8.8",
+      "picture": "https://i.pinimg.com/originals/2c/b0/b4/2cb0b40827c1d8b53df0d68013674709.jpg",
+      "release_date": "05/07/2019"
+    },
+    {
+      "id": "4",
+      "title": "100 Things and Nothing More",
+      "category": "Comedy • Crime",
+      "length": "1h 33min",
+      "description": "Josephine Chesterfield is a glamorous, seductive British woman who has a penchant for defrauding gullible men out of their money. Into her well-ordered, meticulous world comes Penny Rust, a cunning and fun-loving Australian woman who lives to swindle unsuspecting marks. Despite their different methods, the two grifters soon join forces for the ultimate score -- a young and naive tech billionaire in the South of France.",
+      "director": "Chris Addison",
+      "writers": "Stanley Shapiro, Paul Henning ",
+      "stars": "Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons",
+      "imdb_score": "8.8",
+      "picture": "https://i.pinimg.com/originals/2c/b0/b4/2cb0b40827c1d8b53df0d68013674709.jpg",
+      "release_date": "25/07/2019"
+    },
+    {
+      "id": "5",
+      "title": "Moonlight",
+      "category": "Comedy • Crime",
+      "length": "1h 33min",
+      "description": "Josephine Chesterfield is a glamorous, seductive British woman who has a penchant for defrauding gullible men out of their money. Into her well-ordered, meticulous world comes Penny Rust, a cunning and fun-loving Australian woman who lives to swindle unsuspecting marks. Despite their different methods, the two grifters soon join forces for the ultimate score -- a young and naive tech billionaire in the South of France.",
+      "director": "Chris Addison",
+      "writers": "Stanley Shapiro, Paul Henning ",
+      "stars": "Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons",
+      "imdb_score": "8.8",
+      "picture": "https://i.pinimg.com/originals/2c/b0/b4/2cb0b40827c1d8b53df0d68013674709.jpg",
+      "release_date": "18/07/2019"
+    },
+    {
+      "id": "6",
+      "title": "Godzilla Kind of the Monsters",
+      "category": "Comedy • Crime",
+      "length": "1h 33min",
+      "description": "Josephine Chesterfield is a glamorous, seductive British woman who has a penchant for defrauding gullible men out of their money. Into her well-ordered, meticulous world comes Penny Rust, a cunning and fun-loving Australian woman who lives to swindle unsuspecting marks. Despite their different methods, the two grifters soon join forces for the ultimate score -- a young and naive tech billionaire in the South of France.",
+      "director": "Chris Addison",
+      "writers": "Stanley Shapiro, Paul Henning ",
+      "stars": "Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons",
+      "imdb_score": "8.8",
+      "picture": "https://i.pinimg.com/originals/2c/b0/b4/2cb0b40827c1d8b53df0d68013674709.jpg",
+      "release_date": "19/07/2019"
+    },
+    {
+      "id": "7",
+      "title": "Fantastic Beasts",
+      "category": "Comedy • Crime",
+      "length": "1h 33min",
+      "description": "Josephine Chesterfield is a glamorous, seductive British woman who has a penchant for defrauding gullible men out of their money. Into her well-ordered, meticulous world comes Penny Rust, a cunning and fun-loving Australian woman who lives to swindle unsuspecting marks. Despite their different methods, the two grifters soon join forces for the ultimate score -- a young and naive tech billionaire in the South of France.",
+      "director": "Chris Addison",
+      "writers": "Stanley Shapiro, Paul Henning ",
+      "stars": "Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons",
+      "imdb_score": "8.8",
+      "picture": "https://i.pinimg.com/originals/2c/b0/b4/2cb0b40827c1d8b53df0d68013674709.jpg",
+      "release_date": "11/07/2019"
+    },
+    {
+      "id": "8",
+      "title": "Game Night",
+      "category": "Comedy • Crime",
+      "length": "1h 33min",
+      "description": "Josephine Chesterfield is a glamorous, seductive British woman who has a penchant for defrauding gullible men out of their money. Into her well-ordered, meticulous world comes Penny Rust, a cunning and fun-loving Australian woman who lives to swindle unsuspecting marks. Despite their different methods, the two grifters soon join forces for the ultimate score -- a young and naive tech billionaire in the South of France.",
+      "director": "Chris Addison",
+      "writers": "Stanley Shapiro, Paul Henning ",
+      "stars": "Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons",
+      "imdb_score": "8.8",
+      "picture": "https://i.pinimg.com/originals/2c/b0/b4/2cb0b40827c1d8b53df0d68013674709.jpg",
+      "release_date": "15/07/2019"
+    },
+    {
+      "id": "9",
+      "title": "Men in Black",
+      "category": "Comedy • Crime",
+      "length": "1h 53min",
+      "description": "Josephine Chesterfield is a glamorous, seductive British woman who has a penchant for defrauding gullible men out of their money. Into her well-ordered, meticulous world comes Penny Rust, a cunning and fun-loving Australian woman who lives to swindle unsuspecting marks. Despite their different methods, the two grifters soon join forces for the ultimate score -- a young and naive tech billionaire in the South of France.",
+      "director": "Chris Addison",
+      "writers": "Stanley Shapiro, Paul Henning ",
+      "stars": "Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons",
+      "imdb_score": "8.8",
+      "picture": "https://i.pinimg.com/originals/2c/b0/b4/2cb0b40827c1d8b53df0d68013674709.jpg",
+      "release_date": "15/07/2019"
+    },
+    {
+      "id": "10",
+      "title": "Road King",
+      "category": "Comedy • Crime",
+      "length": "1h 23min",
+      "description": "Josephine Chesterfield is a glamorous, seductive British woman who has a penchant for defrauding gullible men out of their money. Into her well-ordered, meticulous world comes Penny Rust, a cunning and fun-loving Australian woman who lives to swindle unsuspecting marks. Despite their different methods, the two grifters soon join forces for the ultimate score -- a young and naive tech billionaire in the South of France.",
+      "director": "Chris Addison",
+      "writers": "Stanley Shapiro, Paul Henning ",
+      "stars": "Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons",
+      "imdb_score": "8.8",
+      "picture": "https://i.pinimg.com/originals/2c/b0/b4/2cb0b40827c1d8b53df0d68013674709.jpg",
+      "release_date": "15/07/2019"
+    }
+  ],
+  "users": [
+    {
+      "email": "loredana.bratu@yahoo.com",
+      "password": "loredana",
+      "id": 1
+    },
+    {
+      "email": "ana.craciun@yahoo.com",
+      "password": "loredana",
+      "id": 2
+    },
+    {
+      "email": "elena.timpau@yahoo.com",
+      "password": "loredana",
+      "id": 3
+    },
+    {
+      "email": "florin.leahu@yahoo.com",
+      "password": "loredana",
+      "id": 4
+    },
+    {
+      "email": "ana.craciun+1@yahoo.com",
+      "password": "123123",
+      "name": "Loredana Bratu",
+      "id": 5
+    },
+    {
+      "email": "andreea@mail.com",
+      "password": "123456",
+      "name": "andreea",
+      "id": 6
+    },
+    {
+      "email": "aliona.mercian@mail.com",
+      "password": "12345",
+      "name": "andreea",
+      "id": 7
+    },
+    {
+      "email": "loredana_dana91@yahoo.com",
+      "password": "loredana23!AA",
+      "name": "Loredana Bratu",
+      "id": 8
+    }
+  ]
+}
