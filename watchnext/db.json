@@ -130,5 +130,51 @@
       "picture": "https://i.pinimg.com/originals/2c/b0/b4/2cb0b40827c1d8b53df0d68013674709.jpg",
       "release_date": "15/07/2019"
     }
+  ],
+  "users": [
+    {
+      "email": "loredana.bratu@yahoo.com",
+      "password": "loredana",
+      "id": 1
+    },
+    {
+      "email": "ana.craciun@yahoo.com",
+      "password": "loredana",
+      "id": 2
+    },
+    {
+      "email": "elena.timpau@yahoo.com",
+      "password": "loredana",
+      "id": 3
+    },
+    {
+      "email": "florin.leahu@yahoo.com",
+      "password": "loredana",
+      "id": 4
+    },
+    {
+      "email": "ana.craciun+1@yahoo.com",
+      "password": "123123",
+      "name": "Loredana Bratu",
+      "id": 5
+    },
+    {
+      "email": "andreea@mail.com",
+      "password": "123456",
+      "name": "andreea",
+      "id": 6
+    },
+    {
+      "email": "aliona.mercian@mail.com",
+      "password": "12345",
+      "name": "andreea",
+      "id": 7
+    },
+    {
+      "email": "loredana_dana91@yahoo.com",
+      "password": "loredana23!AA",
+      "name": "Loredana Bratu",
+      "id": 8
+    }
   ]
 }
