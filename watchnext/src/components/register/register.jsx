@@ -64,6 +64,7 @@ class Register extends Component {
         <img
           src={require("../../assets/img/frame.png")}
           alt="Logo"
+          className="frame"
         />
         <div className="container-register">
           <hr className="new5" />

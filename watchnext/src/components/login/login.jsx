@@ -70,7 +70,7 @@ class Login extends Component {
     
     return (
       <div className="container">
-        <img src={require("../../assets/img/frame.png")} alt="Logo" />
+        <img src={require("../../assets/img/frame.png")} className="frame" alt="Logo" />
         <div className="container-login">
           <hr className="new5" />
           <div className="title">

@@ -175,6 +175,12 @@
       "password": "loredana23!AA",
       "name": "Loredana Bratu",
       "id": 8
+    },
+    {
+      "email": "ana.blanc",
+      "password": "qazsert12AA!",
+      "name": "Ana Blanc",
+      "id": 9
     }
   ]
 }

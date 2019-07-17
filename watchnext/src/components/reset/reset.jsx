@@ -27,7 +27,7 @@ class Reset extends Component {
       render() {
         return (
           <div className="container">
-          <img src={require("../../assets/img/frame.png")} alt="Logo"></img>
+          <img src={require("../../assets/img/frame.png")} alt="Logo" className="frame"></img>
          
           <div className="container-reset">
           <hr className="new5" />
