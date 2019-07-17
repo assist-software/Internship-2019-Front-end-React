@@ -7,7 +7,6 @@ import Login from "./components/login/login";
 import Register from "./components/register/register";
 import Reset from "./components/reset/reset";
 import Home from "./components/homepage/homepage";
-import Footer from "./components/footer/footer";
 import MoviePage from "./components/moviepage/moviepage";
 import WhatchList from "./components/watchlist/watchlist";
 import AdminPage from "./components/adminpage/adminpage";
