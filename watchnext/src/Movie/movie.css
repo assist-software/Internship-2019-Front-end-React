@@ -2,13 +2,13 @@
     margin: 0 auto;
     background-color: black;
     max-width: 1440px;
-    height: 1071px; 
+    height: 1120px;
 }
 
 #moovie #containermov{
     display: flex;
     margin:0 auto; 
-    margin-top:300px;
+    margin-top: 235px;
     align-items: flex-start;
     justify-content: center;
 }
@@ -33,6 +33,7 @@
     text-decoration-line: underline;
     color: #FFFFFF;
     opacity: 0.6;
+    margin-top: 29px;
 }
 #title{
     display: flex;
@@ -72,7 +73,7 @@
 #descr{
     width: 464px;
     top: 396px;
-    height: 250px;
+    height: 260px;
     font-family: corbel;
     font-size: 18px;
     line-height: 25px;
@@ -93,31 +94,84 @@
     cursor: pointer;
     background-color: #F5044C;
     padding-bottom: 2px;
+    margin-top: 15px;
+}
+
+#bott{
+    margin-top: 42px;
 }
 
 #bott #staff div{
     display: flex;
-    
+    max-height: 54px;
 }
 
 
 #st{
-    width: 85px;
+    width: 80px;
+    height: 25px;
     margin-right: 20px;
     font-family: corbel;
     font-size: 18px;
     line-height: 25px;
     color: #FFFFFF;
     opacity: 0.6;
+    margin-top: 18px;
+}
+
+#stw{
+    width: 80px;
+    height: 25px;
+    margin-right: 20px;
+    font-family: corbel;
+    font-size: 18px;
+    line-height: 25px;
+    color: #FFFFFF;
+    opacity: 0.6;
+    margin-bottom: 0px;
+    margin-top: 18px;
+}
+
+#sts{
+    width: 80px;
+    height: 25px;
+    margin-right: 20px;
+    font-family: corbel;
+    font-size: 18px;
+    line-height: 25px;
+    color: #FFFFFF;
+    opacity: 0.6;
+    margin-top: 35px;
 }
 
 #dr{
-    margin-right: 30px;
-    width: 368px;
-    height: 30px;
+    width: 176px;
+    height: 25px;
     font-family: corbel;
     font-size: 18px;
-    line-height: 29px;
+    line-height: 25px;
+    color: #FFFFFF;
+    margin-bottom: 0px;
+    margin-top: 18px;
+}
+
+#drw{
+    width: 368px;
+    height: 50px;
+    font-family: corbel;
+    font-size: 18px;
+    line-height: 25px;
+    color: #FFFFFF;
+    margin-top: 18px;
+}
+
+#drs{
+    margin-top: 35px;
+    width: 368px;
+    height: 50px;
+    font-family: corbel;
+    font-size: 18px;
+    line-height: 25px;
     color: #FFFFFF;
 }
 
@@ -142,20 +196,19 @@
 }
 
 #containerfoto{
-    margin: 0px auto;
+    margin: 86px auto;
     max-width: 1440px;
     height: 444px;
     left: 0px;
     top: 1068px;
     background: #13131C;
-    border: chartreuse solid;
 }
 
 #fotto{
+    padding-top: 44px;
     margin: 0 auto;
-    max-width: 700px;
-    height: 44px;
-    border: red solid;
+    max-width: 1134px;
+    height: 335px;
 }
 #containerfoto #fotto h1{
     max-width: 272px;
@@ -171,4 +224,45 @@
     max-width: 110px;
     height: 99px;
     
+}
+
+#poza1{
+    padding-right: 16px;
+}
+#poza2{
+    padding-right: 16px;
+}
+#poza3{
+    padding-right: 16px;
+}
+#poza4{
+    padding-right: 16px;
+}
+#poza5{
+    padding-right: 16px;
+}
+#poza6{
+    padding-right: 16px;
+}
+
+#playt{
+    position: absolute;
+    width: 168px;
+    height: 30px;
+    margin-left: -271px;
+    top: 548px;
+    font-family: corbel;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #FFFFFF;
+}
+
+#playbut{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    margin-left: -223px;
+    top: 447px;
 }

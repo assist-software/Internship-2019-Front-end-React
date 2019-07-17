@@ -13,6 +13,8 @@ class Movie extends React.Component {
               <div id="containermov">
                   <div id="left">
                         <img id="imgmov" alt="imgmov" src={require('./image.png')}/>
+                        <img id="playbut" alt="" src={require('./playbut.png')}/>
+                        <a href="#" id="playt">Play Trailer</a>
                         <div id="source">
                             <a href="imdb.com" id="p">See orginal content</a>
                         </div>
@@ -34,12 +36,12 @@ class Movie extends React.Component {
                                          <p id="dr">Chris Addison</p>
                                     </div>
                                     <div>
-                                         <p id="st">Writers</p>
-                                         <p id="dr">Stanley Shapiro (screenplay by), Paul Henning (screenplay by) • <a id="stafff" href="">5 more credits</a></p>
+                                         <p id="stw">Writers</p>
+                                         <p id="drw">Stanley Shapiro (screenplay by), Paul Henning (screenplay by) • <a id="stafff" href="">5 more credits</a></p>
                                     </div>
                                     <div>
-                                         <p id="st">Stars</p>
-                                         <p id="dr">Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons • <a id="stafff" href="">See full cast & crew</a></p>
+                                         <p id="sts">Stars</p>
+                                         <p id="drs">Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons • <a id="stafff" href="">See full cast & crew</a></p>
                                     </div>
                                    
                                   

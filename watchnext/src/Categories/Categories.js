@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Categories/categories.css';
+
 import Header from '../Header/Header';
 
 

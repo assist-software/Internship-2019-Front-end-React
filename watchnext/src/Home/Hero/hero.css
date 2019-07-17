@@ -43,7 +43,10 @@
   border-radius: 20px;
 }
 
-#left button{
+
+
+#trailer {
+  background: #F5044C;
   height: 48px;
   width: 176px;
   border-radius: 8px;
@@ -57,12 +60,19 @@
   cursor: pointer;
 }
 
-#trailer {
-  background: #F5044C;
-}
-
 #list{
   background: #1E1E1E !important;
+  height: 48px;
+  width: 176px;
+  border-radius: 8px;
+  font-size: 18px;
+  border-style: none;
+  color: #FFFFFF;
+  margin-right: 21px;
+  font-family: corbel;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
 }
 
 #left span{
