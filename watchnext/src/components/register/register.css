@@ -1,9 +1,4 @@
-.container {
-    width: 560px;
-    height: 711px;
-    margin-top: 50px;
-    margin-bottom: 150px;
-}
+
 img {
   margin-top: 4%;
   margin-bottom: 2%; 
@@ -29,6 +24,11 @@ img {
 
 .Login .btn-primary {
   border-color: transparent;
+}
+
+.error-message {
+  margin: 10px 0;
+  color: red;
 }
 
 .registerHeader {

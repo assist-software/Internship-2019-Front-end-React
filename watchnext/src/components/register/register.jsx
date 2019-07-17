@@ -30,14 +30,14 @@ class Register extends Component {
   };
   handleSubmit = async (event) => {
       const { password, confirmPassword } = this.state;
+      event.preventDefault();
      
       if (password !== confirmPassword) {
-         alert("Passwords don't match");
-        // message.error("Passwords don't match");
+        this.setState({ registerError: 'Passwords don\'t match' })
+      } else  if(!password.match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/gm)){
+        this.setState({ registerError: 'Password must contain ....' })
       } else {
     try {
-
-      event.preventDefault();
       const { email } = this.state;
       const url = `${API_URL}/users?email=${email}`;
       const user = await axios.get(url)
@@ -58,8 +58,7 @@ class Register extends Component {
     } };
 
   render() {
-    console.log(this.setState.registerError);
-    
+    const { registerError }  = this.state;
     return (
       <div className="container" >
         <img
@@ -111,6 +110,7 @@ class Register extends Component {
                   placeholder="Confirm Password"
                 />
               </FormGroup>
+              <div className="error-message">{registerError}</div>
               <Button
                 block
                 disabled={!this.validateForm()}

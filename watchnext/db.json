@@ -127,6 +127,12 @@
       "password": "12345",
       "name": "andreea",
       "id": 7
+    },
+    {
+      "email": "loredana_dana91@yahoo.com",
+      "password": "loredana23!AA",
+      "name": "Loredana Bratu",
+      "id": 8
     }
   ]
 }
