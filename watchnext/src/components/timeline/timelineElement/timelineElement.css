@@ -1,0 +1,32 @@
+.timelinePic {
+  height: 100%;
+  width: 100%;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+}
+
+.timelineTitle {
+  font-size: 18px;
+  line-height: 40px;
+  font-family: "Montserrat";
+  text-align: left;
+  color: #ffffff;
+}
+
+.timelineCategory {
+  font-family: "Montserrat";
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+}
+
+.timelineDescription {
+  display: flex;
+  align-items: center;
+}
+
+.vertical-timeline::before {
+  width: 1px !important;
+  background-color: #f5044c !important;
+}
