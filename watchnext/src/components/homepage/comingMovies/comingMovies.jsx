@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTh, faListUl } from "@fortawesome/free-solid-svg-icons";
+import Timeline from "../../timeline/timeline";
 
 class comingMovies extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class comingMovies extends Component {
       movies: [],
       data: [],
       date: null,
-      isOpenPicker: false
+      isOpenPicker: false,
+      isTimeline: false
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -27,6 +29,12 @@ class comingMovies extends Component {
   openPicker = () => {
     this.setState({
       isOpenPicker: true
+    });
+  };
+
+  timelineClick = value => {
+    this.setState({
+      isTimeline: value
     });
   };
 
@@ -46,7 +54,7 @@ class comingMovies extends Component {
   }
 
   render() {
-    const { data, date, isOpenPicker } = this.state;
+    const { data, date, isOpenPicker, isTimeline } = this.state;
     return (
       <div className="pageBottom">
         <div className="container h-100 py-5">
@@ -88,6 +96,7 @@ class comingMovies extends Component {
                         onSelect={this.closePicker}
                         selected={date}
                         placeholderText="Any date"
+                        type="date"
                       />
                       <div className="input-group-addon">
                         <i
@@ -105,31 +114,49 @@ class comingMovies extends Component {
               <div className="row switchRow mr-1">
                 <button
                   type="button"
-                  className="btn btnSwitch"
+                  className={
+                    "btn mr-2 " + (isTimeline ? "btnSwitch" : "openedTimeline")
+                  }
                   data-toggle="tooltip"
                   data-placement="bottom"
                   title="Switch to Grid"
+                  onClick={() => this.timelineClick(false)}
                 >
-                  <FontAwesomeIcon icon={faTh} color="#f5044c" />
+                  <FontAwesomeIcon
+                    icon={faTh}
+                    color={isTimeline ? "#f5044c" : "#ffffff"}
+                  />
                 </button>
                 <button
                   type="button"
-                  className="ml-2 btn btnSwitch"
+                  className={
+                    "btn " + (isTimeline ? "openedTimeline" : "btnSwitch")
+                  }
                   data-toggle="tooltip"
                   data-placement="bottom"
                   title="Switch to Timeline"
+                  onClick={() => this.timelineClick(true)}
                 >
-                  <FontAwesomeIcon icon={faListUl} color="#f5044c" />
+                  <FontAwesomeIcon
+                    icon={faListUl}
+                    color={isTimeline ? "#ffffff" : "#f5044c"}
+                  />
                 </button>
               </div>
             </div>
             <div className="col-md-12">
               <div className="row">
-                {data.map((movie, index) => (
-                  <div key={index} className="col-md-3 mb-5">
-                    <Moovie movie={movie} />
-                  </div>
-                ))}
+                {isTimeline ? (
+                  <Timeline />
+                ) : (
+                  <React.Fragment>
+                    {data.map((movie, index) => (
+                      <div key={index} className="col-md-3 mb-5">
+                        <Moovie movie={movie} />
+                      </div>
+                    ))}
+                  </React.Fragment>
+                )}
               </div>
             </div>
           </div>

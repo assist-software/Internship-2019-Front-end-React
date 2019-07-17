@@ -57,14 +57,14 @@ class MovieDescription extends Component {
                 </div>
                 <div className="row movDet">
                   <div className="col-md-2">
-                    <ul class="list-unstyled movDetList">
+                    <ul className="list-unstyled movDetList">
                       <li>Director</li>
                       <li>Writers</li>
                       <li className="mt-4">Stars</li>
                     </ul>
                   </div>
                   <div className="col-md-8">
-                    <ul class="list-unstyled movDetCont">
+                    <ul className="list-unstyled movDetCont">
                       <li>{data.director}</li>
                       <li>{data.writers}</li>
                       <li>{data.stars}</li>

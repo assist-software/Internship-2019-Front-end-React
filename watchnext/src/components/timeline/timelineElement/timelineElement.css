@@ -22,11 +22,21 @@
 }
 
 .timelineDescription {
-  display: flex;
-  align-items: center;
+  min-height: 80px;
+  height: auto;
+  max-height: 100px;
+  margin: auto 0;
 }
 
 .vertical-timeline::before {
   width: 1px !important;
   background-color: #f5044c !important;
+}
+
+.scorRow {
+  display: flex;
+}
+
+.titRow {
+  display: flex;
 }
