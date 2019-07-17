@@ -1,5 +1,6 @@
-
 .container-login {
+  margin-top: 50px;
+  margin-bottom: 150px;
   flex: 1;
   width: 560px;
   height: 620px;
@@ -41,10 +42,9 @@ hr.new5 {
 
 #links {
   text-decoration: underline !important;
-
 }
 .forgot {
-  color: #9C9B9B;
+  color: #9c9b9b;
 }
 .title {
   font-family: "Montserrat";
@@ -52,7 +52,7 @@ hr.new5 {
   line-height: 60px;
   display: flex;
   justify-content: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 p {
