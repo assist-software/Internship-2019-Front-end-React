@@ -33,7 +33,7 @@ class AdminPage extends Component {
   render() {
     const { filter, data } = this.state;
     const filteredData = data.filter(item => {
-      return item.title.toLowerCase().includes(this.state.filter);
+      return item.title.toLowerCase().includes(filter);
     });
 
     return (
@@ -42,7 +42,7 @@ class AdminPage extends Component {
         <div className="container adminContainer">
           <div className="row">
             <div className="col-md-6">
-              <div class="searchBox" id="customSearchInput">
+              <div className="searchBox" id="customSearchInput">
                 <div className="input-group col-md-12">
                   <input
                     onChange={this.handleChange}
@@ -69,14 +69,18 @@ class AdminPage extends Component {
                 Add new
               </button>
               <div
-                class="modal fade bd-example-modal-lg"
+                className="modal fade bd-example-modal-lg"
                 id="addMoovie"
                 role="dialog"
               >
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content addNewContent">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">
+                <div className="modal-dialog modal-lg">
+                  <div className="modal-content addNewContent">
+                    <div className="modal-header">
+                      <button
+                        type="button"
+                        className="close"
+                        data-dismiss="modal"
+                      >
                         &times;
                       </button>
                     </div>
@@ -91,16 +95,16 @@ class AdminPage extends Component {
               {filteredData.map((movie, index) => (
                 <div
                   key={index}
-                  class="card flex-row flex-wrap mb-4 justify-content-center align-items-center"
+                  className="card flex-row flex-wrap mb-4 justify-content-center align-items-center"
                 >
                   <div className="col-md-">
                     <img className="movImg" alt="moovie" src={movie.picture} />
                   </div>
                   <div className="col-md-3">
-                    <h1 class="movTit">{movie.title}</h1>
+                    <h1 className="movTit">{movie.title}</h1>
                   </div>
                   <div className="col-md-3">
-                    <h2 class="movDat">{movie.release_date}</h2>
+                    <h2 className="movDat">{movie.release_date}</h2>
                   </div>
                   <div className="col-md-3">
                     <h2 className="movDat">{movie.category}</h2>
@@ -114,34 +118,38 @@ class AdminPage extends Component {
                       >
                         <FontAwesomeIcon icon={faTrash} color="#9C9B9B" />
                       </button>
-                      <div class="modal fade" id="deleteMoovie" role="dialog">
-                        <div class="modal-dialog deleteDialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
+                      <div
+                        className="modal fade"
+                        id="deleteMoovie"
+                        role="dialog"
+                      >
+                        <div className="modal-dialog deleteDialog">
+                          <div className="modal-content">
+                            <div className="modal-header">
                               <button
                                 type="button"
-                                class="close"
+                                className="close"
                                 data-dismiss="modal"
                               >
                                 &times;
                               </button>
                             </div>
-                            <div class="modal-body">
-                              <p class="textModal">
+                            <div className="modal-body">
+                              <p className="textModal">
                                 Are you sure you want to delete this movie?
                               </p>
                             </div>
-                            <div class="modal-footer">
+                            <div className="modal-footer">
                               <button
                                 type="button"
-                                class="cancelModal"
+                                className="cancelModal"
                                 data-dismiss="modal"
                               >
                                 Cancel
                               </button>
                               <button
                                 type="button"
-                                class="deleteMovieModal"
+                                className="deleteMovieModal"
                                 data-dismiss="modal"
                               >
                                 Delete

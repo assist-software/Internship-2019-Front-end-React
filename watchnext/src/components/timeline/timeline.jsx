@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import "./timeline.css";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement
-} from "react-vertical-timeline-component";
+import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faCar, faMinus } from "@fortawesome/free-solid-svg-icons";
 import TimelineElement from "./timelineElement/timelineElement";
 
 class Timeline extends Component {
@@ -33,7 +28,7 @@ class Timeline extends Component {
       <div className="vericalTime">
         <VerticalTimeline>
           {data.map((movie, index) => (
-            <TimelineElement movie={movie} />
+            <TimelineElement key={index} movie={movie} />
           ))}
         </VerticalTimeline>
       </div>

@@ -18,8 +18,8 @@ class MoviePhotos extends Component {
             </div>
             <div className="picRow">
               <div className="row pl-3">
-                {j.map(a => {
-                  return <MoviePic />;
+                {j.map((a, index) => {
+                  return <MoviePic key={index} />;
                 })}
               </div>
             </div>

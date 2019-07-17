@@ -9,7 +9,7 @@ class AddMoovie extends Component {
       <div className="container addMovieContainer">
         <div className="col-md-12">
           <div className="row titleRow justify-content-center align-items-center">
-            <h1 class="addTitle">Add Moovie</h1>
+            <h1 className="addTitle">Add Moovie</h1>
           </div>
           <Form>
             <div className="row inputRow justify-content-center align-items-center">
