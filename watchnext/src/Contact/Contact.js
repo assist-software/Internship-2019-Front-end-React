@@ -27,5 +27,4 @@ class Contact extends React.Component {
       )    
     }
 }
-
 export default withRouter(Contact);

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Admin/admin.css';
+import Popup from './PopUp/Popup';
 
 
 class Admin extends React.Component {
@@ -9,7 +10,9 @@ class Admin extends React.Component {
     
     render() {
         return (
-          <div><b>Admin - Page</b></div>
+            <Popup/>
+
+        
         )    
     }
 }
