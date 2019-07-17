@@ -8,7 +8,8 @@
 
 #footerUp{
     color: #FFFFFF;
-    width: 1440px;
+    max-width: 1440px;
+    min-width: 200px;
     margin-left: auto;
     margin-right: auto;
     height: 74.15%;
@@ -28,7 +29,7 @@
     width: 184px;
     height: 43px;;
     /*margin-top: 6px;*/
-    font-family: sans-serif;
+    font-family: Campton;
 }
 
 ul{
@@ -46,7 +47,8 @@ ul{
 
 #footerDown{
     color: #FFFFFF;
-    width: 1440px;
+    max-width: 1440px;
+    min-width: 200px;
     margin-left: auto;
     margin-right: auto;
     height: 25.85%;
@@ -71,7 +73,7 @@ ul{
     height: 43px;
     vertical-align: baseline;
     line-height: 40px;
-    font-family: sans-serif;
+    font-family: Campton;
 }
 
 #footerUp img{
@@ -81,7 +83,7 @@ ul{
 }
 
 #footerDown p{
-    font-family: sans-serif;
+    font-family: Campton;
     font-size: 14px;
     line-height: 42px;
     margin-top: 16px;
