@@ -4,9 +4,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 class headMovie extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      movies: [],
+      data: []
+    };
+  }
+
+  componentDidMount() {
+    let url = "http://localhost:3003/movies";
+    fetch(url)
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ data: data[data.length - 1] });
+      });
+  }
 
   render() {
+    const { data } = this.state;
     return (
       <div className="hero-content">
         <div className="container py-4">
@@ -14,14 +30,10 @@ class headMovie extends Component {
             <div className="col-md-6">
               <div className="row headTitle">
                 <div>
-                  <h5 className="heroTitle">Moonlight</h5>
+                  <h5 className="heroTitle">{data.title}</h5>
                 </div>
                 <div className="mt-4">
-                  <h3 className="heroDescription">
-                    A chronicle of the childhood, adolescence and burgeoning
-                    adulthood of a young, African-American, gay man growing up
-                    in a rough neighborhood of Miami.
-                  </h3>
+                  <h3 className="heroDescription">{data.description}</h3>
                 </div>
                 <div className="mt-5">
                   <button className="heroWatchButton">Watch trailer</button>
@@ -36,13 +48,9 @@ class headMovie extends Component {
                 </div>
               </div>
             </div>
-
             <div className="col-md-6 py-3">
-              <div className="heroImage">
-                <img
-                  src={require("../../../assets/img/moovie_image.png")}
-                  alt="Logo"
-                />
+              <div className="heroImageDiv">
+                <img className="heroImage" src={data.picture} alt="Logo" />
               </div>
             </div>
           </div>

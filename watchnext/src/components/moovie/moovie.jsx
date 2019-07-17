@@ -2,25 +2,31 @@ import React, { Component } from "react";
 import "./moovie.css";
 
 class Moovie extends Component {
-  state = {};
   render() {
-    return (
-      <div className="col-md-3 mb-5">
-        <div className="moovieImg">
-          <img
-            className="moovieComponent"
-            alt="moovie"
-            src={require("../../assets/img/moovie2.png")}
-          />
-          <button className="addToList">Add to watchlist</button>
-          <button className="rating">8.2</button>
-        </div>
+    const { movie } = this.props;
 
-        <h5 id="moovieTitle">Godzilla Kind of the Monsters</h5>
-        <small>
-          Realeased date: 20/03/2019 <br /> Action • Drama
-        </small>
-      </div>
+    return (
+      <React.Fragment>
+        {movie && (
+          <div>
+            <a href={"/movie-page/" + movie.id}>
+              <div className="moovieImg">
+                <img
+                  className="moovieComponent"
+                  alt="moovie"
+                  src={movie.picture}
+                />
+                <button className="addToList">Add to watchlist</button>
+                <button className="rating">{movie.imdb_score}</button>
+              </div>
+              <h5 id="moovieTitle">{movie.title}</h5>
+            </a>
+            <small>
+              Realeased date: {movie.release_date} <br /> {movie.category}
+            </small>
+          </div>
+        )}
+      </React.Fragment>
     );
   }
 }

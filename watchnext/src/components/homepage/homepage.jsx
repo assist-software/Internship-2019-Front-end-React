@@ -5,6 +5,7 @@ import HeadMovie from "./headMovie/headMovie";
 import "../homepage/homepage.css";
 import ComingMovies from "./comingMovies/comingMovies";
 import Header from "../header/header";
+import Footer from "../footer/footer";
 
 class Home extends Component {
   state = {};
@@ -27,6 +28,7 @@ class Home extends Component {
         <section>
           <ComingMovies />
         </section>
+        <Footer />
       </div>
     );
   }

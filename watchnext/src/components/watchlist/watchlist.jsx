@@ -1,15 +1,40 @@
 import React, { Component } from "react";
 import "./watchlist.css";
-import Moovie from "../moovie/moovie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Header from "../header/header";
-
-const j = [1, 2, 3, 4, 5, 6, 7, 8];
+import Footer from "../footer/footer";
 
 class WhatchList extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      filteredData: [],
+      filter: ""
+    };
+  }
+
+  handleChange = event => {
+    this.setState({ filter: event.target.value });
+  };
+
+  componentDidMount() {
+    let url = "http://localhost:3003/movies";
+
+    fetch(url)
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ data: data });
+      });
+  }
+
   render() {
+    const { filter, data } = this.state;
+    const filteredData = data.filter(item => {
+      return item.title.toLowerCase().includes(this.state.filter);
+    });
+
     return (
       <div className="whatchlist-content">
         <Header />
@@ -25,13 +50,16 @@ class WhatchList extends Component {
               </div>
               <div className="row searchRow">
                 <div className="col-md-6">
-                  <div id="custom-search-input">
-                    <div class="input-group col-md-12">
+                  <div id="watchSearch">
+                    <div className="input-group col-md-12">
                       <input
+                        value={filter}
+                        onChange={this.handleChange}
                         type="text"
                         className="search-query form-control searchB"
                         placeholder="Search for a movie..."
                       />
+
                       <span className="input-group-btn">
                         <button className="btn btn-danger" type="button">
                           <span>
@@ -60,14 +88,38 @@ class WhatchList extends Component {
               </div>
               <div className="col-md-12">
                 <div className="row">
-                  {j.map(a => {
-                    return <Moovie />;
-                  })}
+                  <div className="row">
+                    {filteredData.map((movie, index) => (
+                      <div key={index} className="col-md-3 mb-5">
+                        <div>
+                          <a href={"/movie-page/" + movie.id}>
+                            <div className="moovieImg">
+                              <img
+                                className="moovieComponent"
+                                alt="moovie"
+                                src={movie.picture}
+                              />
+                              <button className="addToList">Remove</button>
+                              <button className="rating">
+                                {movie.imdb_score}
+                              </button>
+                            </div>
+                            <h5 id="moovieTitle">{movie.title}</h5>
+                          </a>
+                          <small>
+                            Realeased date: {movie.release_date} <br />{" "}
+                            {movie.category}
+                          </small>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

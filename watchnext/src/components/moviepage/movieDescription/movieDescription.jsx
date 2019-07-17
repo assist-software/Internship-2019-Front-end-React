@@ -1,9 +1,27 @@
 import React, { Component } from "react";
 import "./movieDescription.css";
+import { withRouter } from "react-router";
 
 class MovieDescription extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      movies: [],
+      data: []
+    };
+  }
+
+  componentDidMount() {
+    let url = "http://localhost:3003/movies";
+    fetch(url)
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ data: data[this.props.match.params.id - 1] });
+      });
+  }
+
   render() {
+    const { data } = this.state;
     return (
       <div className="movieDescription-content">
         <div className="container">
@@ -11,11 +29,7 @@ class MovieDescription extends Component {
             <div className="row">
               <div className="col-md-6">
                 <div>
-                  <img
-                    alt="moovie"
-                    className="movImage"
-                    src={require("../../../assets/img/details.png")}
-                  />
+                  <img alt="moovie" className="movImage" src={data.picture} />
                 </div>
                 <div className="text-center">
                   <a href="imdb.com">
@@ -24,26 +38,19 @@ class MovieDescription extends Component {
                 </div>
               </div>
               <div className="col-md-6 description">
-                <h1 className="pt-2">The Hustle </h1>
+                <h1 className="pt-2">{data.title}</h1>
                 <img
                   alt="imdb"
                   className="imdbImage pl-3"
                   src={require("../../../assets/img/imdb.png")}
                 />
                 <div>
-                  <small id="movieDet">Comedy • Crime • 1h 33min</small>
+                  <small id="movieDet">
+                    {data.category} • {data.length}
+                  </small>
                 </div>
                 <div>
-                  <h5 id="movieDes">
-                    Josephine Chesterfield is a glamorous, seductive British
-                    woman who has a penchant for defrauding gullible men out of
-                    their money. Into her well-ordered, meticulous world comes
-                    Penny Rust, a cunning and fun-loving Australian woman who
-                    lives to swindle unsuspecting marks. Despite their different
-                    methods, the two grifters soon join forces for the ultimate
-                    score -- a young and naive tech billionaire in the South of
-                    France.
-                  </h5>
+                  <h5 id="movieDes">{data.description}</h5>
                 </div>
                 <div>
                   <button className="addToWatch">Add to watchlist</button>
@@ -58,15 +65,9 @@ class MovieDescription extends Component {
                   </div>
                   <div className="col-md-8">
                     <ul class="list-unstyled movDetCont">
-                      <li>Chris Addison</li>
-                      <li>
-                        Stanley Shapiro (screenplay by), Paul Henning
-                        (screenplay by) •
-                      </li>
-                      <li>
-                        Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons
-                        •
-                      </li>
+                      <li>{data.director}</li>
+                      <li>{data.writers}</li>
+                      <li>{data.stars}</li>
                     </ul>
                   </div>
                 </div>
@@ -79,4 +80,4 @@ class MovieDescription extends Component {
   }
 }
 
-export default MovieDescription;
+export default withRouter(MovieDescription);
