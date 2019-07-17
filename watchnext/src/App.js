@@ -36,7 +36,7 @@ class App extends React.Component {
     return(
       <div>
         <Header page={this.state.page} wLCounter={this.state.watchListCounter}/>
-        <Main updateCounter={this.watchListCounter} />
+        <Main updateCounter={this.watchListCounter} page={this.state.page}/>
         <Footer />
       </div>
     );

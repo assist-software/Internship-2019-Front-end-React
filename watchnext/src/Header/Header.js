@@ -10,7 +10,7 @@ class Header extends React.Component {
     
     render() {
         return (
-            (this.props.page!="/login" && this.props.page!="/pop") &&
+            this.props.page.toLowerCase()!="/login" &&
             <div id="nav">
                 <ul>
                     <div className="group">
