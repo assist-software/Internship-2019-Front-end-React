@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import './reset.css';
-import './frame.png';
+
 
 class Reset extends Component {
   constructor(props) {
@@ -26,10 +26,10 @@ class Reset extends Component {
       
       render() {
         return (
-          <div className="container" style={{width:"560px", height:"463", marginTop:"150px", marginBottom:"150px"}}>
-          <img src={require("../reset/frame.png")} alt="Logo"></img>
+          <div className="container">
+          <img src={require("../../assets/img/frame.png")} alt="Logo"></img>
          
-          <div className="container-reset" style={{marginTop:"50px"}}>
+          <div className="container-reset">
           <hr className="new5" />
           <div className="title-reset">
             <h2>Reset password</h2>
@@ -51,7 +51,7 @@ class Reset extends Component {
                 block
                 disabled={!this.validateForm()}
                 type="submit"
-                style={{background:"#F5044C"}}
+                
               >
                 Reset password
               </Button>

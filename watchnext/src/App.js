@@ -10,6 +10,7 @@ import Home from "./components/homepage/homepage";
 import MoviePage from "./components/moviepage/moviepage";
 import WhatchList from "./components/watchlist/watchlist";
 import AdminPage from "./components/adminpage/adminpage";
+import LoginAdmin from "./components/adminpage/loginadmin/loginadmin";
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
             <Route exact path="/reset" component={Reset} />
             <Route exact path="/movie-page/:id" component={MoviePage} />
             <Route exact path="/watch-list" component={WhatchList} />
+            <Route exact path="/login-admin" component={LoginAdmin} />
             <Route exact path="/admin" component={AdminPage} />
           </Switch>
         </div>
