@@ -6,16 +6,16 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 
 class Home extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
     }
     
     render() {
         return (
             <div>
                 <Hero />
-                <RecentAdded />
-                <ComingNext />
+                <RecentAdded updateCounter={()=>this.props.updateCounter()} />
+                <ComingNext  updateCounter={()=>this.props.updateCounter()} />
             </div>
         )    
     }
