@@ -3,6 +3,8 @@ import "./comingMovies.css";
 import Moovie from "../../moovie/moovie";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTh, faListUl } from "@fortawesome/free-solid-svg-icons";
 
 class comingMovies extends Component {
   constructor(props) {
@@ -57,7 +59,7 @@ class comingMovies extends Component {
                   </h1>
                 </div>
                 <div className="col-md-7 mt-3">
-                  <div className="row filterDiv">
+                  <div className="row filterDiv mr-1">
                     <small className="pt-2" id="filterBy">
                       Filter By:
                     </small>
@@ -98,16 +100,36 @@ class comingMovies extends Component {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>{" "}
               </div>
-              <div className="col-md-12">
-                <div className="row">
-                  {data.map((movie, index) => (
-                    <div key={index} className="col-md-3 mb-5">
-                      <Moovie movie={movie} />
-                    </div>
-                  ))}
-                </div>
+              <div className="row switchRow mr-1">
+                <button
+                  type="button"
+                  className="btn btnSwitch"
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  title="Switch to Grid"
+                >
+                  <FontAwesomeIcon icon={faTh} color="#f5044c" />
+                </button>
+                <button
+                  type="button"
+                  className="ml-2 btn btnSwitch"
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  title="Switch to Timeline"
+                >
+                  <FontAwesomeIcon icon={faListUl} color="#f5044c" />
+                </button>
+              </div>
+            </div>
+            <div className="col-md-12">
+              <div className="row">
+                {data.map((movie, index) => (
+                  <div key={index} className="col-md-3 mb-5">
+                    <Moovie movie={movie} />
+                  </div>
+                ))}
               </div>
             </div>
           </div>

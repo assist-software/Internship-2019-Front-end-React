@@ -1,0 +1,39 @@
+.vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
+  background-color: transparent !important;
+}
+
+.vertical-timeline-element-content {
+  box-shadow: none !important;
+  border: 1px solid #f5044c !important;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 0 !important;
+  border-radius: 8px !important;
+}
+
+.vertical-timeline-element-content::before {
+  visibility: hidden !important;
+}
+
+.vertical-timeline {
+  background-color: transparent !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  border-radius: 8px !important;
+}
+
+.vericalTime {
+  background-color: #13131c;
+}
+
+.imdb_sc {
+  color: #f5044c;
+}
+.vertical-timeline-element-icon {
+  box-shadow: none !important;
+  color: white !important;
+  background-color: #13131c !important;
+  line-height: 50px !important;
+  left: 49% !important;
+  top: 30% !important;
+}

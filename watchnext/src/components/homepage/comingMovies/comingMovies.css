@@ -22,10 +22,6 @@
   background-color: #13131c;
 }
 
-.comingRow {
-  margin-bottom: 50px;
-}
-
 .categorySelect {
   background: #f5044c;
   color: white;
@@ -153,4 +149,11 @@
   font-weight: bold;
 }
 
+.switchRow {
+  float: right !important;
+  margin-bottom: 50px;
+}
 
+.btnSwitch {
+  border: 1px solid #f5044c;
+}
