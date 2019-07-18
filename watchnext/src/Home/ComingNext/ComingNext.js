@@ -8,6 +8,7 @@ import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import MovieCart from '../../movieCart/MovieCart';
+import Timeline from './Timeline/Timeline';
 
 class ComingNext extends React.Component {
   state = {
@@ -148,7 +149,11 @@ class ComingNext extends React.Component {
                     </div>
                 </div>
             </div>
-            <div id="comingList">{this.state.comingNext}</div>
+            <div id="comingList">
+             {/* // this.state.comingNext */}
+              <Timeline/>
+            </div>
+          
         </div>
       </div>
     )    

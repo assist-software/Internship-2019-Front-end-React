@@ -72,13 +72,14 @@
   font-family: corbel;
   font-weight: 600;
   outline: none;
+  vertical-align: middle;
   cursor: pointer;
 }
 
 #left span{
   font-size: 26px;
-  vertical-align: baseline;
-  margin: -2px 0 0 -26px;
+  vertical-align: middle;
+  margin: -2px 11px 0 -26px;
   font-weight: 100;
   font-family: sans-serif;
 }
