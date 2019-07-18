@@ -14,7 +14,9 @@ class Login extends Component {
       email: "",
       password: "",
       showPassword: false,
-      errors: []
+      errors: [],
+      token:"",
+      loginError:""
     };
   }
 
@@ -31,23 +33,51 @@ class Login extends Component {
   onSubmitForm = async e => {
     try {
       e.preventDefault();
-      console.log(this.state);
+      // console.log(this.state);
       const { email, password } = this.state;
 
-      const url = `${API_URL}/users?email=${email}`;
-      const user = await axios.get(url);
-      console.log("User", user);
-      if (user.data[0] && user.data[0].password === password) {
-        //redirect here
-        this.props.history.push("/");
-        // return user.data[0]
-      } else {
-        this.setState({ loginError: "Invalid credentials" });
-        throw new Error("Invalid credentials");
-      }
-    } catch (err) {
-      console.log("Error ", err);
-    }
+      // const url = `${API_URL}/users?email=${email}`;
+      const url = `${API_URL}signin`
+     await axios.post(url,{
+        email:email,
+        password: password
+        //Admin123.
+      }).then((response) => {
+        //header
+        console.log(response)
+        if(response.data.status === "Login successfully"){
+          console.log('test');
+            const token = response.data.token;
+
+            localStorage.setItem("token", token)
+            response.headers.Authorization = `Bearer ${token}`;
+           // localStorage.setItem("user", JSON.stringify(user))
+            this.setState({
+                token})
+                console.log('test')
+
+            this.props.history.push("/");
+            } else {
+            console.log("error")
+            this.setState({ loginError: "Invalid credentials" });
+            throw new Error("Invalid credentials");
+            }
+        }).catch ((err) =>{
+          console.log("Error ", err);
+        }) 
+        
+      //console.log("User", user);
+      // if (user.data[0] && user.data[0].password === password) {
+      //   //redirect here
+      //   this.props.history.push("/");
+      //   // return user.data[0]
+      // } else {
+      //   this.setState({ loginError: "Invalid credentials" });
+      //   throw new Error("Invalid credentials");
+      // }
+     } catch (err) {
+       console.log("Error ", err);
+     }
     // .then(response => {
     //   const validUser  = response.data.find((user)=> {
     //    if(this.state.email === user.email && this.state.password === user.password)
@@ -144,3 +174,4 @@ class Login extends Component {
   }
 }
 export default Login;
+
