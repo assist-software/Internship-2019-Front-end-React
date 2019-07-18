@@ -1,3 +1,4 @@
+  
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import './reset.css';
@@ -27,18 +28,14 @@ class Reset extends Component {
       render() {
         return (
           <div className="container">
-            <div className="container-reset">
-            <div className="col-md-12">
           <img src={require("../../assets/img/frame.png")} alt="Logo" className="frame"></img>
+         
+          <div className="container-reset">
           <hr className="new5" />
-          </div>
-          <div className="col-md-12">
           <div className="title-reset">
             <h2>Reset password</h2>
             <p>We will send you over the email the instructions in order to get your password reseted.</p>
             </div>
-            </div>
-            <div className="col-md-12">
           <div className="Login">
             <form id="form">
               <FormGroup controlId="email">
@@ -63,9 +60,9 @@ class Reset extends Component {
           </div>
         </div>
       </div>
-      </div>
     );
   }
 }
 
 export default Reset;
+

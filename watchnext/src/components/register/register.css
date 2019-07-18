@@ -1,10 +1,13 @@
 
-/* .frame {
+.frame {
   margin-top: 4%;
   margin-bottom: 2%; 
-} */
+}
 
 .container-register {
+  flex: 1;
+  width: 560px;
+  height: 463px;
   background: #0a0a0a;
   top: 20px;
   margin: 0 auto;
@@ -12,7 +15,7 @@
   text-align: center;
 }
 
-.title-register {
+.title {
   margin: 0 auto;
   padding: 0;
   color: #ffffff;
@@ -42,8 +45,4 @@
   margin: 60px;
 }
 
-@media screen and (max-width: 600px) {
-  .registerHeader {
-    font-size: 28px;
-  }
-}
+

@@ -64,23 +64,18 @@ class Register extends Component {
     const { registerError }  = this.state;
     return (
       <div className="container" >
-         <div className="container-register">
-         <div className="col-md-12">
-           <img
+        <img
           src={require("../../assets/img/frame.png")}
           alt="Logo"
           className="frame"
         />
+        <div className="container-register">
           <hr className="new5" />
-          </div>
-          <div className="col-md-12">
-          <div className="title-register">
+          <div className="title">
             <h2 className="text-center registerHeader">
               Let's create your account
             </h2>
           </div>
-          </div>
-          <div className="col-md-12">
           <div className="Login">
             <form id="form">
               <FormGroup controlId="name" id="inputs">
@@ -148,8 +143,8 @@ class Register extends Component {
           </div>
         </div>
       </div>
-      </div>
     );
   }
 }
 export default Register;
+
