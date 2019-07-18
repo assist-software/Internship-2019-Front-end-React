@@ -15,7 +15,9 @@ class comingMovies extends Component {
       data: [],
       date: null,
       isOpenPicker: false,
-      isTimeline: false
+      isTimeline: false,
+      isClicked: false
+      
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -43,6 +45,13 @@ class comingMovies extends Component {
       isOpenPicker: false
     });
   };
+
+  changeFilter = value => {
+    this.setState({
+      isClicked: value
+    })
+  }
+
 
   componentDidMount() {
     let url = "http://localhost:3003/movies";
@@ -72,7 +81,7 @@ class comingMovies extends Component {
                       Filter By:
                     </small>
 
-                    <select className="categorySelect ml-4">
+                    <select className={`categorySelect ${isTimeline ? 'timeline' : 'gridline'} ml-4`}>
                       <option>None</option>
                       <option>Action</option>
                       <option>Comedy</option>

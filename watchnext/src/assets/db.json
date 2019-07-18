@@ -175,6 +175,36 @@
       "password": "loredana23!AA",
       "name": "Loredana Bratu",
       "id": 8
+    },
+    {
+      "email": "ana.blanc",
+      "password": "qazsert12AA!",
+      "name": "Ana Blanc",
+      "id": 9
+    },
+    {
+      "email": "dddddd",
+      "password": "QQQ12!!BBB",
+      "name": "eeee",
+      "id": 10
+    },
+    {
+      "email": "sssss",
+      "password": "qaz123AA!!",
+      "name": "",
+      "id": 11
+    },
+    {
+      "email": "dddd",
+      "password": "qaz12AA!",
+      "name": "",
+      "id": 12
+    },
+    {
+      "email": "loredana@mail.com",
+      "password": "qaz1235AA!!",
+      "name": "Loredana Bratu",
+      "id": 13
     }
   ]
 }

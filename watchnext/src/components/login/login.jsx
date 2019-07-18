@@ -68,7 +68,7 @@ class Login extends Component {
 
     return (
       <div className="container">
-        <img src={require("../../assets/img/frame.png")} alt="Logo" />
+        <img src={require("../../assets/img/frame.png")} className="frame" alt="Logo" />
         <div className="container-login">
           <hr className="new5" />
           <div className="title">
@@ -78,7 +78,7 @@ class Login extends Component {
           </div>
 
           <div className="Login">
-            <div className="d-flex align-items-center justify-content-center w-100">
+            <div className="d-flex align-items-center justify-content-center w-100" id="err">
               {loginError}
             </div>
             <form id="form" onSubmit={this.onSubmitForm}>
@@ -89,14 +89,14 @@ class Login extends Component {
                   type="email"
                   name="email"
                   placeholder="Email address"
-                  // value={this.state.email}
+                   //value={this.state.email}
                   onChange={this.handeleFormData}
                 />
               </FormGroup>
               <FormGroup controlId="password">
                 <FormControl
                   name="password"
-                  // value={this.state.password}
+                  //value={this.state.password}
                   onChange={this.handeleFormData}
                   type={this.state.showPassword ? "text" : "password"}
                   placeholder="Password"

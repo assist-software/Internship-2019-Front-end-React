@@ -27,15 +27,18 @@ class Register extends Component {
     this.setState({
       [event.target.id]: event.target.value
     });
+
   };
   handleSubmit = async (event) => {
-      const { password, confirmPassword } = this.state;
+      const { password, confirmPassword, email } = this.state;
       event.preventDefault();
      
       if (password !== confirmPassword) {
         this.setState({ registerError: 'Passwords don\'t match' })
       } else  if(!password.match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/gm)){
         this.setState({ registerError: 'Password must contain ....' })
+      } else if (!email.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)) {
+        this.setState({ registerError: 'Please insert a valid email address' })
       } else {
     try {
       const { email } = this.state;
@@ -64,6 +67,7 @@ class Register extends Component {
         <img
           src={require("../../assets/img/frame.png")}
           alt="Logo"
+          className="frame"
         />
         <div className="container-register">
           <hr className="new5" />
@@ -84,6 +88,7 @@ class Register extends Component {
                   onChange={this.handleChange}
                 />
               </FormGroup>
+             
               <FormGroup controlId="email">
                 <FormControl
                   className="form-control"
@@ -92,6 +97,7 @@ class Register extends Component {
                   placeholder="Email address"
                   value={this.state.email}
                   onChange={this.handleChange}
+        
                 />
               </FormGroup>
               <FormGroup controlId="password">
