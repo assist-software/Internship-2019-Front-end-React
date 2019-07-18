@@ -106,6 +106,7 @@
   position: absolute;
   z-index: 2;
   color: #f5044c;
+  top: 2px;
   /* margin-right: 5px; */
 }
 #timer-b {

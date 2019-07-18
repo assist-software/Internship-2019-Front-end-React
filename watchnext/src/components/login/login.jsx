@@ -68,16 +68,22 @@ class Login extends Component {
 
     return (
       <div className="container">
-        <img src={require("../../assets/img/frame.png")} className="frame" alt="Logo" />
-        <div className="container-login">
-          <hr className="new5" />
+        <div className="container-login flex-row flex-wrap mb-4 justify-content-center align-items-center">
+        <div className="col-md-12">
+          <img src={require("../../assets/img/frame.png")} className="frame" alt="Logo" />
+        
+          <hr className="new5 mt-4" />
+          </div>
+          <div className="col-md-12">
           <div className="title">
             <h2 className="text-center logInHeader">
               Log in to <br /> your account
             </h2>
           </div>
-
-          <div className="Login">
+          </div>
+          <div className="col-md-12">
+            <div className="row flex-row flex-wrap mb-4 justify-content-center align-items-center">
+              <div className="Login">
             <div className="d-flex align-items-center justify-content-center w-100" id="err">
               {loginError}
             </div>
@@ -138,7 +144,10 @@ class Login extends Component {
               </p>
             </form>
           </div>
+            </div>
+          
         </div>
+      </div>
       </div>
     );
   }

@@ -5,9 +5,6 @@ body {
 }
 
 .container-reset {
-  flex: 1;
-  width: 560px;
-  height: 463px;
   background: #0a0a0a;
   top: 20px;
   margin: 0 auto;
@@ -15,7 +12,6 @@ body {
   text-align: center;
  
 }
-  
 
 p {
   font-family: "Montserrat";

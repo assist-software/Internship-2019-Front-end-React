@@ -1,17 +1,5 @@
-.container-login {
-  margin-top: 50px;
-  margin-bottom: 150px;
-  flex: 1;
-  width: 560px;
-  height: 620px;
-  background: #0a0a0a;
-  top: 20px;
-  margin: 0 auto;
-  align-items: center;
-  text-align: center;
-  margin-top: 50px;
-  margin-top: 50px; 
-  margin-bottom: 150px; 
+.frame {
+  top: 10px;
 }
 
 .Login .btn-primary {
@@ -63,14 +51,14 @@ p {
   color: red;
 }
 
-.logInHeader {
+/* .logInHeader {
   font-family: "Montserrat";
   font-size: 48px;
   line-height: 60px;
   font-weight: bold;
   margin: 60px;
   font-weight: bold;
-}
+} */
 
 .field-icon {
   float: right;
@@ -89,12 +77,15 @@ p {
 
 @media all and (min-width: 480px) {
   .Login form {
-    margin: 0 auto;
     max-width: 320px;
   }
 }
 
 .Login form {
-  margin: 0 auto;
   max-width: 320px;
+}
+
+.container-login{
+  width: 560px;
+
 }
