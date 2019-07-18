@@ -60,7 +60,11 @@
   cursor: pointer;
 }
 
+<<<<<<< HEAD
+#moon list{
+=======
 #list{
+>>>>>>> 883782a403213293cc90b49ebf972a43f0ef148b
   background: #1E1E1E !important;
   height: 48px;
   width: 176px;
