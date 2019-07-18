@@ -6,22 +6,51 @@ class MovieCart extends React.Component {
         super(props)
         this.state = {
             genres:props.gen.map((gen,index) =>  (index>0 ? " • ":" ")+ gen )  ,
-            selected:false
+            selected:false,
+            notif:"Added"
         }
     }
 
-     addToWatchList(event){
+    addToWatchList(event){
         var arr = localStorage.getItem("watchList") === null ? new Array() : JSON.parse(localStorage.getItem("watchList") )
         if (arr.indexOf(this.props.id) === -1) {
             arr.push(this.props.id)
             localStorage.setItem('watchList', JSON.stringify(arr));
-         }
+            console.log(localStorage.getItem('watchList'))
+            this.props.updateCounter()
+            this.setState(()=>{return {notif:"Added"}})
+        }else{
+            this.setState(()=>{return {notif:"Already In"}})
+        }
         this.setState(()=>{
             return {
                 selected:true
             }
-        })
-        console.log(localStorage.getItem('watchList'))
+        }) 
+        setTimeout(function() { //Start the timer
+            this.setState(()=>{
+                return {
+                    selected:false
+                }
+            }) 
+        }.bind(this), 3000)
+
+    }
+
+    removeFromWatchList(){
+        if(localStorage.getItem("watchList")){
+            var arr = JSON.parse(localStorage.getItem("watchList"))
+            if (arr.includes(this.props.id)) {
+                for(var i = arr.length - 1; i >= 0; i--) {
+                    if(arr[i] === this.props.id) {
+                       arr.splice(i, 1);
+                       localStorage.setItem('watchList', JSON.stringify(arr));
+                       this.props.updateCounter()
+                       this.props.refreshMovieList()
+                    }
+                }
+            }
+        }
     }
 
     render() {
@@ -29,9 +58,13 @@ class MovieCart extends React.Component {
             <div className="movieCart">
                 <img src={require("../movieCart/img.png")}/>
                 <div id="ctrl">
-                    <button className="test" onClick={this.addToWatchList.bind(this)}>Add to watchlist</button>
+                    {this.props.page=="watchlist" ? 
+                        <button className="test" onClick={this.removeFromWatchList.bind(this)}>Remove</button> 
+                        : 
+                        <button className="test" onClick={this.addToWatchList.bind(this)}>Add to watchlist</button>
+                    }
                     <div className='rate'>8.3</div>
-           
+                    {this.state.selected && <div id="notif">{this.state.notif}</div>}
                 </div>
 
                 <div id="description"></div>

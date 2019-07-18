@@ -1,0 +1,89 @@
+
+* {
+    box-sizing: border-box;
+}
+ .App {
+     max-width: 420px;
+     margin: 180px 0px 10px 580px;
+}
+
+ #cont {
+     text-align: center;
+     font-weight: 500;
+     font-family: corbel;
+     font-size: 35px;
+}
+ #fname {
+     width: 100%;
+     padding: 12px;
+     font-family: Campton;
+     border: 1px solid white;
+     background-color: #0A0A0A;
+     border-radius: 4px;
+     box-sizing: border-box;
+     margin-top: 6px;
+     margin-bottom: 16px;
+     resize: vertical;
+}
+#lname {
+     width: 100%;
+     padding: 12px;
+     font-family: Campton;
+     border: 1px solid white;
+     background-color: #0A0A0A;
+     border-radius: 4px;
+     box-sizing: border-box;
+     margin-top: 6px;
+     margin-bottom: 16px;
+     resize: vertical;
+}
+
+#email {
+    width: 100%;
+    padding: 12px;
+    font-family: Campton;
+    border: 1px solid white;
+    background-color: #0A0A0A;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+
+#submit{
+     background-color:#F5044C;
+     color: white;
+     padding: 12px 20px;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     font-family: Campton;
+}
+#submit:hover {
+     background-color: #0A0A0A;
+}
+
+
+#first{
+    font-family: Campton;
+
+}
+
+#last{
+    font-family: Campton;
+
+}
+
+
+#em{
+    font-family: Campton;
+
+}
+
+
+#sub{
+    font-family: Campton;
+
+}

@@ -18,19 +18,19 @@ class Footer extends React.Component {
                 <img src={require("./moovie_logo.png")}/>
                 <div id = "yup">
                     <ul>
-                        <li id="first.li.up">Press Room</li>
-                        <li>Advertising</li>
-                        <li>Jobs</li>
+                        <li id="first.li.up"><a href="#">Press Room</a></li>
+                        <li><a href="#">Advertising</a></li>
+                        <li><a href="#">Jobs</a></li>
                     </ul>
                     <ul>
-                        <li id="first.li.up">Contact us</li>
-                        <li>Register</li>
-                        <li>News</li>
+                        <li id="first.li.up"><a href="#">Contact us</a></li>
+                        <li><a href="/register">Register</a></li>
+                        <li><a href="#">News</a></li>
                     </ul>
                     <ul>
-                        <li id="first.li.up">Condition of Use</li>
-                        <li>Privacy Policy</li>
-                        <li>Interest-Based Ads</li>
+                        <li id="first.li.up"><a href="">Condition of Use</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Interest-Based Ads</a></li>
                     </ul>
                  </div>
             </div>

@@ -4,22 +4,49 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import Dropdown from '../dropdown/Dropdown';
 import MovieCart from '../movieCart/MovieCart';
-import comingNextData from '../data/comingNextData';
 
 class Watchlist extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      comingMovies: comingNextData.map(item => <MovieCart id={item.id} title={item.title} release={item.releaseDate} gen={item.gen} img={item.img} />),
+      comingMovies: new Array(),
       selected: 'Last Added',
       options: [{
-            id: 0,
-            title: 'Last Added',
+        id: 0,
+        title: 'Last Added',
         }
       ]
     }
   }
   
+  componentDidMount = () =>{
+    this.getMovieList()
+  }
+
+  getMovieList = (movieName) => {
+    var movies_id = JSON.parse(localStorage.getItem("watchList"))
+    this.setState({comingMovies:new Array()})
+    
+    for (var i = 0; i < movies_id.length; i++) {
+      let url = "http://localhost:3001/movies/" + movies_id[i]
+      fetch(url)
+        .then(resp => resp.json())
+        .then(item => {
+          this.setState((prev) => {   
+            return {
+              comingMovies:prev.comingMovies.concat(<MovieCart refreshMovieList={()=>this.getMovieList()} updateCounter={()=>this.props.updateCounter()} key={item.id} id={item.id} title={item.title} release={item.releaseDate} gen={item.gen} img={item.img} page='watchlist'/>)
+            }
+        })        
+      })
+    }
+    this.setState({update:true})
+  }
+
+  sort = () => {
+    let x = this.state.comingMovies
+    console.log(x.length)
+  }
+
   updateOpt = (g) => {
     this.setState(()=>{
       return {
@@ -27,30 +54,20 @@ class Watchlist extends React.Component {
       }
     })
   }
-
+  
   search = (event) => {
     const movieName = event.target.value
     if (movieName){
-      this.setState(()=>{
-        return {
-          comingMovies: comingNextData.map(item => {
-            if(item.title.toLowerCase().includes(movieName.toLowerCase())){
-              return  <MovieCart id={item.id} title={item.title} release={item.releaseDate} gen={item.gen} img={item.img} />
-            }
-          }),
-        }
-      })
+      this.getMovieList(movieName)
     }else{
-      this.setState(()=>{
-        return {
-          comingMovies: comingNextData.map(item => <MovieCart id={item.id} title={item.title} release={item.releaseDate} gen={item.gen} img={item.img} />),
-        }
-      })
+      this.getMovieList()
     }
   }
-
+  
   render() {
+  this.sort()
     return (
+      
       <div id="watchList">
         <h1 id="title">Welcome to your<br />Watchlist page.</h1>
         <div id="wctrl">
@@ -68,6 +85,7 @@ class Watchlist extends React.Component {
       </div>
     )    
   }
+
 }
 
 export default Watchlist

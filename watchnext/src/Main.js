@@ -13,10 +13,22 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 const Main = (props) => (
     <main>
       <Switch>
-        <Route exact path='/' component = {Home} />
-        <Route path='/home' component = {Home} />
+        <Route
+          exact path='/'
+          render={() => <Home updateCounter={()=>props.updateCounter()} />}
+        />
+
+        <Route
+          path='/home'
+          render={() => <Home updateCounter={()=>props.updateCounter()} />}
+        />
+
+        <Route
+          path='/watchlist'
+          render={() => <Watchlist updateCounter={()=>props.updateCounter()} />}
+        />
+
         <Route path='/categories' component = {Categories} />
-        <Route path='/watchlist' component = {Watchlist} />
         <Route path='/contact' component = {Contact} />
         <Route path='/login' component = {Login} />
         <Route path='/register' component = {Login} />
