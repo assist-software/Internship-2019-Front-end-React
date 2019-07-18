@@ -40,7 +40,6 @@ class AdminPage extends Component {
 
   closeModal() {
     this.setState({
-      selectedMovieId: null,
       selectedMovieId: null
     });
   }
@@ -99,7 +98,7 @@ class AdminPage extends Component {
             </div>
             <div className="col-md-6">
               <button
-                className="addNew mt-3"
+                className="addNew mt-1 mr-3"
                 data-toggle="modal"
                 data-target="#addMoovie"
               >

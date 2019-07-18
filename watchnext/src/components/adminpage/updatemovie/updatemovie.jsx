@@ -39,7 +39,6 @@ class UpdateMoovie extends Component {
   }
 
   handleChange = event => {
-    debugger;
     event.preventDefault();
     const { name, value } = event.target;
     let errors = this.state.errors;
@@ -110,17 +109,19 @@ class UpdateMoovie extends Component {
     };
 
     if (validateForm(this.state.errors)) {
-      axios.post(`http://localhost:3003/movies`, { movies }).then(res => {
-        console.log(res);
-        console.log(res.data);
-      });
+      axios
+        // eslint-disable-next-line no-useless-concat
+        .put(`http://localhost:3003/movies` + "/" + this.state.movie.id, movies)
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+        });
     } else {
       window.alert("Please fill in all fields!");
     }
   };
 
   componentWillReceiveProps(newProps) {
-    //   todo: rerender fix
     this.setState({ movie: newProps.selectedMovie });
   }
 
@@ -143,7 +144,7 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="title"
                     onChange={this.handleChange}
-                    value={movie && movie.title}
+                    value={movie.title}
                     noValidate
                   />
                   {errors.title.length > 0 && (
@@ -162,7 +163,7 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="trailerUrl"
                     onChange={this.handleChange}
-                    value={movie && movie.trailerUrl}
+                    value={movie.trailerUrl}
                     noValidate
                   />
                   {errors.trailerUrl.length > 0 && (
@@ -183,7 +184,7 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="originalSourceUrl"
                     onChange={this.handleChange}
-                    value={movie && movie.originalSourceUrl}
+                    value={movie.originalSourceUrl}
                     noValidate
                   />
                   {errors.originalSourceUrl.length > 0 && (
@@ -205,7 +206,7 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="cover_url"
                     onChange={this.handleChange}
-                    value={movie && movie.coverUrl}
+                    value={movie.coverUrl}
                     noValidate
                   />
                   {errors.coverUrl.length > 0 && (
@@ -227,7 +228,7 @@ class UpdateMoovie extends Component {
                     rows="3"
                     name="description"
                     onChange={this.handleChange}
-                    value={movie && movie.description}
+                    value={movie.description}
                     noValidate
                   />
                   {errors.description.length > 0 && (
@@ -250,7 +251,7 @@ class UpdateMoovie extends Component {
                     name="category"
                     onChange={this.handleChange}
                     noValidate
-                    value={movie && movie.category}
+                    value={movie.category}
                   >
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -274,7 +275,7 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="imdbScore"
                     onChange={this.handleChange}
-                    value={movie && movie.imdbScore}
+                    value={movie.imdbScore}
                     noValidate
                   />
                   {errors.imdbScore.length > 0 && (
@@ -295,7 +296,7 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="releaseDate"
                     onChange={this.handleChange}
-                    value={movie && movie.releaseDate}
+                    value={movie.releaseDate}
                     noValidate
                   />
                   {errors.releaseDate.length > 0 && (

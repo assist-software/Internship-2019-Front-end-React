@@ -16,23 +16,23 @@ class AddMoovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie_title: null,
-      trailer_url: null,
-      original_source: null,
-      cover_url: null,
-      movie_description: null,
-      movie_category: null,
-      imdb_score: null,
-      release_date: null,
+      title: null,
+      trailerUrl: null,
+      originalSourceUrl: null,
+      coverUrl: null,
+      description: null,
+      category: null,
+      imdbScore: null,
+      releaseDate: null,
       errors: {
-        movie_title: "",
-        trailer_url: "",
-        original_source: "",
-        cover_url: "",
-        movie_description: "",
-        movie_category: "",
-        imdb_score: "",
-        release_date: ""
+        title: "",
+        trailerUrl: "",
+        originalSourceUrl: "",
+        coverUrl: "",
+        description: "",
+        category: "",
+        imdbScore: "",
+        releaseDate: ""
       }
     };
   }
@@ -43,47 +43,45 @@ class AddMoovie extends Component {
     let errors = this.state.errors;
 
     switch (name) {
-      case "movie_title":
-        errors.movie_title =
+      case "title":
+        errors.title =
           value.length < 5
             ? "Movie title must be at least 5 characters long!"
             : "";
         break;
-      case "trailer_url":
-        errors.trailer_url = validUrl.test(value)
+      case "trailerUrl":
+        errors.trailerUrl = validUrl.test(value)
           ? ""
           : "Trailer URL is not valid!";
         break;
-      case "original_source":
-        errors.original_source = validUrl.test(value)
+      case "originalSourceUrl":
+        errors.originalSourceUrl = validUrl.test(value)
           ? ""
           : "Original Source URL is not valid!";
         break;
-      case "cover_url":
-        errors.cover_url = validUrl.test(value)
-          ? ""
-          : "Cover URL is not valid!";
+      case "coverUrl":
+        errors.coverUrl = validUrl.test(value) ? "" : "Cover URL is not valid!";
         break;
-      case "movie_description":
-        errors.movie_description =
+      case "description":
+        errors.description =
           value.length < 10
             ? "Movie description must be at least 10 characters long!"
             : "";
         break;
-      case "movie_category":
-        errors.movie_category =
+      case "category":
+        errors.category =
           value.length < 1
             ? "Movie category must be at least 5 characters long!"
             : "";
         break;
-      case "imdb_score":
-        errors.imdb_score =
+      case "imdbScore":
+        errors.imdbScore =
           value.length < 2
             ? "IMDB Score must be at least 2 characters long!"
             : "";
         break;
-      case "release_date":
-        errors.release_date =
+      case "releaseDate":
+        errors.releaseDate =
           value.length < 6
             ? "Release date must be at least 6 characters long!"
             : "";
@@ -98,18 +96,18 @@ class AddMoovie extends Component {
     event.preventDefault();
 
     const movies = {
-      title: this.state.movie_title,
-      description: this.state.movie_description,
-      cover_url: this.state.cover_url,
-      trailer_url: this.state.trailer_url,
-      original_source: this.state.original_source,
-      category: this.state.movie_category,
-      imdb_score: this.state.imdb_score,
-      release_date: this.state.release_date
+      title: this.state.title,
+      trailerUrl: this.state.trailerUrl,
+      originalSourceUrl: this.state.originalSourceUrl,
+      coverUrl: this.state.coverUrl,
+      description: this.state.description,
+      category: this.state.category,
+      imdbScore: this.state.imdbScore,
+      releaseDate: this.state.releaseDate
     };
 
     if (validateForm(this.state.errors)) {
-      axios.post(`http://localhost:3003/movies`, { movies }).then(res => {
+      axios.post(`http://localhost:3003/movies/`, { movies }).then(res => {
         console.log(res);
         console.log(res.data);
       });
@@ -129,37 +127,37 @@ class AddMoovie extends Component {
           <Form onSubmit={this.handleSubmit} noValidate>
             <div className="row inputRow justify-content-center align-items-center">
               <div className="col-md-6">
-                <Form.Group controlId="movie_title">
+                <Form.Group controlId="title">
                   <Form.Text className="text-muted floatLeft">
                     Movie title
                   </Form.Text>
                   <Form.Control
                     type="text"
-                    name="movie_title"
+                    name="title"
                     onChange={this.handleChange}
                     noValidate
                   />
-                  {errors.movie_title.length > 0 && (
+                  {errors.title.length > 0 && (
                     <span className="text-danger errorLabel">
-                      {errors.movie_title}
+                      {errors.title}
                     </span>
                   )}
                 </Form.Group>
               </div>
               <div className="col-md-6">
-                <Form.Group controlId="trailer_url">
+                <Form.Group controlId="trailerUrl">
                   <Form.Text className="text-muted floatLeft">
                     Trailer URL
                   </Form.Text>
                   <Form.Control
                     type="text"
-                    name="trailer_url"
+                    name="trailerUrl"
                     onChange={this.handleChange}
                     noValidate
                   />
-                  {errors.trailer_url.length > 0 && (
+                  {errors.trailerUrl.length > 0 && (
                     <span className="text-danger errorLabel">
-                      {errors.trailer_url}
+                      {errors.trailerUrl}
                     </span>
                   )}
                 </Form.Group>
@@ -167,19 +165,19 @@ class AddMoovie extends Component {
             </div>
             <div className="row justify-content-center align-items-center">
               <div className="col-md-12">
-                <Form.Group controlId="original_source">
+                <Form.Group controlId="originalSourceUrl">
                   <Form.Text className="text-muted floatLeft">
                     Original source
                   </Form.Text>
                   <Form.Control
                     type="text"
-                    name="original_source"
+                    name="originalSourceUrl"
                     onChange={this.handleChange}
                     noValidate
                   />
-                  {errors.original_source.length > 0 && (
+                  {errors.originalSourceUrl.length > 0 && (
                     <span className="text-danger errorLabel">
-                      {errors.original_source}
+                      {errors.originalSourceUrl}
                     </span>
                   )}
                 </Form.Group>
@@ -188,19 +186,19 @@ class AddMoovie extends Component {
 
             <div className="row justify-content-center align-items-center">
               <div className="col-md-12">
-                <Form.Group controlId="cover_url">
+                <Form.Group controlId="coverUrl">
                   <Form.Text className="text-muted floatLeft">
                     Cover URL
                   </Form.Text>
                   <Form.Control
                     type="text"
-                    name="cover_url"
+                    name="coverUrl"
                     onChange={this.handleChange}
                     noValidate
                   />
-                  {errors.cover_url.length > 0 && (
+                  {errors.coverUrl.length > 0 && (
                     <span className="text-danger errorLabel">
-                      {errors.cover_url}
+                      {errors.coverUrl}
                     </span>
                   )}
                 </Form.Group>
@@ -208,20 +206,20 @@ class AddMoovie extends Component {
             </div>
             <div className="row justify-content-center align-items-center">
               <div className="col-md-12">
-                <Form.Group controlId="movie_description">
+                <Form.Group controlId="description">
                   <Form.Text className="text-muted floatLeft">
                     Description
                   </Form.Text>
                   <Form.Control
                     as="textarea"
                     rows="3"
-                    name="movie_description"
+                    name="description"
                     onChange={this.handleChange}
                     noValidate
                   />
-                  {errors.movie_description.length > 0 && (
+                  {errors.description.length > 0 && (
                     <span className="text-danger errorLabel">
-                      {errors.movie_description}
+                      {errors.description}
                     </span>
                   )}
                 </Form.Group>
@@ -230,13 +228,13 @@ class AddMoovie extends Component {
 
             <div className="row justify-content-center align-items-center">
               <div className="col-md-7">
-                <Form.Group controlId="movie_category">
+                <Form.Group controlId="category">
                   <Form.Text className="text-muted floatLeft">
                     Category
                   </Form.Text>
                   <Form.Control
                     as="select"
-                    name="movie_category"
+                    name="category"
                     onChange={this.handleChange}
                     noValidate
                   >
@@ -246,27 +244,27 @@ class AddMoovie extends Component {
                     <option value="4">4</option>
                     <option value="5">5</option>
                   </Form.Control>
-                  {errors.movie_category.length > 0 && (
+                  {errors.category.length > 0 && (
                     <span className="text-danger errorLabel">
-                      {errors.movie_category}
+                      {errors.category}
                     </span>
                   )}
                 </Form.Group>
               </div>
               <div className="col-md-5">
-                <Form.Group controlId="imdb_score">
+                <Form.Group controlId="imdbScore">
                   <Form.Text className="text-muted floatLeft">
                     IMDB Score
                   </Form.Text>
                   <Form.Control
                     type="text"
-                    name="imdb_score"
+                    name="imdbScore"
                     onChange={this.handleChange}
                     noValidate
                   />
-                  {errors.imdb_score.length > 0 && (
+                  {errors.imdbScore.length > 0 && (
                     <span className="text-danger errorLabel">
-                      {errors.imdb_score}
+                      {errors.imdbScore}
                     </span>
                   )}
                 </Form.Group>
@@ -274,19 +272,19 @@ class AddMoovie extends Component {
             </div>
             <div className="row justify-content-center align-items-center">
               <div className="col-md-12">
-                <Form.Group controlId="release_date">
+                <Form.Group controlId="releaseDate">
                   <Form.Text className="text-muted floatLeft">
                     Release date
                   </Form.Text>
                   <Form.Control
                     type="text"
-                    name="release_date"
+                    name="releaseDate"
                     onChange={this.handleChange}
                     noValidate
                   />
-                  {errors.release_date.length > 0 && (
+                  {errors.releaseDate.length > 0 && (
                     <span className="text-danger errorLabel">
-                      {errors.release_date}
+                      {errors.releaseDate}
                     </span>
                   )}
                 </Form.Group>

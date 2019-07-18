@@ -39,8 +39,5 @@ a {
 
 .active {
   border-bottom: 1px solid #fff;
-}
-
-.navLink:hover {
-  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
 }
