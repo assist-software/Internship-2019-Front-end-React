@@ -32,7 +32,7 @@ class AllMovies extends Component {
   render() {
     const { filter, data } = this.state;
     const filteredData = data.filter(item => {
-      return item.title.toLowerCase().includes(this.state.filter);
+      return item.category.toLowerCase().includes(this.state.filter);
     });
 
     return (
@@ -97,17 +97,17 @@ class AllMovies extends Component {
                               <img
                                 className="moovieComponent"
                                 alt="moovie"
-                                src={movie.picture}
+                                src={movie.coverUrl}
                               />
                               <button className="addToList">Remove</button>
                               <button className="rating">
-                                {movie.imdb_score}
+                                {movie.imdbScore}
                               </button>
                             </div>
                             <h5 id="moovieTitle">{movie.title}</h5>
                           </a>
                           <small>
-                            Realeased date: {movie.release_date} <br />{" "}
+                            Realeased date: {movie.releaseDate} <br />{" "}
                             {movie.category}
                           </small>
                         </div>

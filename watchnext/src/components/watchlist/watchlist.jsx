@@ -71,7 +71,7 @@ class WhatchList extends Component {
                   </div>
                 </div>
                 <div className="col-md-6 mt-3">
-                  <div className="row sortDiv">
+                  <div className="row sortDiv mr-2">
                     <small className="pt-2" id="sortBy">
                       Filter By:
                     </small>

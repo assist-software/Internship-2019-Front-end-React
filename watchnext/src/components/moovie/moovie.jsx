@@ -14,15 +14,15 @@ class Moovie extends Component {
                 <img
                   className="moovieComponent"
                   alt="moovie"
-                  src={movie.picture}
+                  src={movie.coverUrl}
                 />
                 <button className="addToList">Add to watchlist</button>
-                <button className="rating">{movie.imdb_score}</button>
+                <button className="rating">{movie.imdbScore}</button>
               </div>
               <h5 id="moovieTitle">{movie.title}</h5>
             </a>
             <small>
-              Realeased date: {movie.release_date} <br /> {movie.category}
+              Realeased date: {movie.releaseDate} <br /> {movie.category}
             </small>
           </div>
         )}

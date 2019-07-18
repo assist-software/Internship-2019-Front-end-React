@@ -17,7 +17,6 @@ class comingMovies extends Component {
       isOpenPicker: false,
       isTimeline: false,
       isClicked: false
-      
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -49,9 +48,8 @@ class comingMovies extends Component {
   changeFilter = value => {
     this.setState({
       isClicked: value
-    })
-  }
-
+    });
+  };
 
   componentDidMount() {
     let url = "http://localhost:3003/movies";
@@ -81,7 +79,11 @@ class comingMovies extends Component {
                       Filter By:
                     </small>
 
-                    <select className={`categorySelect ${isTimeline ? 'timeline' : 'gridline'} ml-4`}>
+                    <select
+                      className={`categorySelect ${
+                        isTimeline ? "timeline" : "gridline"
+                      } ml-4`}
+                    >
                       <option>None</option>
                       <option>Action</option>
                       <option>Comedy</option>
@@ -120,7 +122,7 @@ class comingMovies extends Component {
                   </div>
                 </div>{" "}
               </div>
-              <div className="row switchRow mr-1">
+              <div className="row switchRow mr-1 mt-2">
                 <button
                   type="button"
                   className={

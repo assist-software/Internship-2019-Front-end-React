@@ -29,7 +29,7 @@ class MovieDescription extends Component {
             <div className="row">
               <div className="col-md-6">
                 <div>
-                  <img alt="moovie" className="movImage" src={data.picture} />
+                  <img alt="moovie" className="movImage" src={data.coverUrl} />
                 </div>
                 <div className="text-center">
                   <a href="imdb.com">

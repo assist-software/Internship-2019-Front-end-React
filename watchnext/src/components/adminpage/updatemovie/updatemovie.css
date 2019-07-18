@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+.updateTitle {
+  color: black;
+}
+
+.updateTitleRow {
+  margin-top: 20px;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.updateInputRow {
+  padding-top: 20px;
+}
+
+.modalUpdateMoovie {
+  background: #f5044c;
+  border-radius: 8px;
+  border: none;
+  width: 96%;
+  height: 40px;
+  color: white;
+  font: "Montserrat";
+}
+
+.modalCancelUpdate {
+  background: transparent;
+  border-radius: 8px;
+  border: none;
+  width: 96%;
+  height: 40px;
+  color: black;
+  font: "Montserrat";
+}
+
+.updateMovieContainer input[type="text"]::placeholder {
+  font-family: Montserrat !important;
+  color: #9c9b9b !important;
+  font-size: 12px !important;
+  padding-left: 20px !important;
+}
+
+.errorLabel {
+  font-size: 12px;
+  font-family: "Montserrat";
+}

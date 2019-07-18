@@ -50,7 +50,7 @@ class headMovie extends Component {
             </div>
             <div className="col-md-6 py-3">
               <div className="heroImageDiv">
-                <img className="heroImage" src={data.picture} alt="Logo" />
+                <img className="heroImage" src={data.coverUrl} alt="Logo" />
               </div>
             </div>
           </div>
