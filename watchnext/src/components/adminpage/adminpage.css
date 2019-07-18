@@ -77,6 +77,12 @@
   height: 780px !important;
 }
 
+@media screen and (max-width: 770px) {
+  .addNewContent {
+    height: 920px !important;
+  }
+}
+
 .modal-header {
   border-bottom: none !important;
 }

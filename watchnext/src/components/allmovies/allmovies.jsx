@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./watchlist.css";
+import "../watchlist/watchlist.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 
-class WhatchList extends Component {
+class AllMovies extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,14 +37,14 @@ class WhatchList extends Component {
 
     return (
       <div className="whatchlist-content">
-        <Header nrWatch={data.length} />
+        <Header />
         <div className="container">
           <div className="row h-100 justify-content-center align-items-center">
             <div className="col-md-12">
               <div className="row">
                 <div className="col-md-6">
                   <h1 id="welcome" className="pb-5">
-                    Welcome to your Watchlist page.
+                    Look for a movie Your life is short.
                   </h1>
                 </div>
               </div>
@@ -125,4 +125,4 @@ class WhatchList extends Component {
   }
 }
 
-export default WhatchList;
+export default AllMovies;

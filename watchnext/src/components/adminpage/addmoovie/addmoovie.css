@@ -42,3 +42,8 @@
   font-size: 12px !important;
   padding-left: 20px !important;
 }
+
+.errorLabel {
+  font-size: 12px;
+  font-family: "Montserrat";
+}

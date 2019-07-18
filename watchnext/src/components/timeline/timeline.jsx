@@ -18,7 +18,7 @@ class Timeline extends Component {
     fetch(url)
       .then(resp => resp.json())
       .then(data => {
-        this.setState({ data: data.slice(0, 8) });
+        this.setState({ data: data });
       });
   }
 

@@ -11,7 +11,7 @@ import MoviePage from "./components/moviepage/moviepage";
 import WhatchList from "./components/watchlist/watchlist";
 import AdminPage from "./components/adminpage/adminpage";
 import LoginAdmin from "./components/adminpage/loginadmin/loginadmin";
-import Timeline from "./components/timeline/timeline";
+import AllMovies from "./components/allmovies/allmovies";
 
 class App extends Component {
   render() {
@@ -28,7 +28,7 @@ class App extends Component {
             <Route exact path="/watch-list" component={WhatchList} />
             <Route exact path="/login-admin" component={LoginAdmin} />
             <Route exact path="/admin" component={AdminPage} />
-            <Route exact path="/timeline" component={Timeline} />
+            <Route exact path="/movies" component={AllMovies} />
           </Switch>
         </div>
       </Router>
