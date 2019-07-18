@@ -10,69 +10,14 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import MovieCart from '../../movieCart/MovieCart';
 
 class ComingNext extends React.Component {
-  state = {
-    genre:'Action',
-    genres: [
-        {
-            id: 0,
-            title: 'Action',
-            selected: false,
-            key: 'location'
-        },
-        {
-          id: 1,
-          title: 'Comedy',
-          selected: false,
-          key: 'location'
-        },
-        {
-          id: 2,
-          title: 'Thriler',
-          selected: false,
-          key: 'location'
-        },
-        {
-          id: 3,
-          title: 'Romance',
-          selected: false,
-          key: 'location'
-        }
-      ],
-    startDate: new Date(),
-    date:'',
-    dateOpen:false,
-  }
-
   constructor(props) {
     super(props)
     this.state = {
+        loaded:false,
         genre:'Action',
         genres: [
-            {
-                id: 0,
-                title: 'Action',
-                selected: false,
-                key: 'location'
-            },
-            {
-              id: 1,
-              title: 'Comedy',
-              selected: false,
-              key: 'location'
-            },
-            {
-              id: 2,
-              title: 'Thriler',
-              selected: false,
-              key: 'location'
-            },
-            {
-              id: 3,
-              title: 'Romance',
-              selected: false,
-              key: 'location'
-            }
-          ],
+
+        ],
         startDate: new Date(),
         date:'',
         dateOpen:false,
@@ -120,7 +65,7 @@ class ComingNext extends React.Component {
     })
   }
 
-  componentDidMount(){
+  componentDidMount = () => {
     let url = "http://localhost:3001/movies"
     fetch(url)
       .then(resp => resp.json())
@@ -128,7 +73,21 @@ class ComingNext extends React.Component {
         let movies = data.map(item => <MovieCart updateCounter={()=>this.props.updateCounter()} id={item.id} title={item.title} release={item.releaseDate} gen={item.gen} img={item.img} />)
         this.setState({comingNext:movies})
       })
+
+    url = "http://localhost:3001/category/"
+    fetch(url)
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({genres:data.map((item) => {
+          return {"id":item.id, title:item.name} 
+        }) 
+      }) 
+      })
   }
+
+  // shouldComponentUpdate(){
+  //   return this.state.loaded == true
+  // }
 
   render() {
     return (
@@ -137,13 +96,24 @@ class ComingNext extends React.Component {
             <div id="top">
                 <h1>See what movies are<br />coming next month</h1>
                 <div id="filter">
-                    <h3>Filter by</h3>       
+                     
                     <Dropdown list={this.state.genres} gen={this.state.genre} ug={this.updateGenre} />
                     <button id="date" onClick={this.btnDateClick}> 
-                    <FontAwesomeIcon icon={faCalendar} /> Any Date <FontAwesomeIcon icon={this.state.dateOpen?faChevronDown:faChevronLeft} />
+                      <FontAwesomeIcon icon={faCalendar} /> Any Date <FontAwesomeIcon icon={this.state.dateOpen?faChevronDown:faChevronLeft} />
                     </button>
                     <div id="dp">
-                      <DatePicker selected={this.state.date} onSelect={this.dateChange} onChange={this.dateSelect}
+                      <DatePicker 
+                      selected={this.state.date} onSelect={this.dateChange} onChange={this.dateSelect}
+                      popperPlacement="botom-start"
+                      popperModifiers={{
+                        flip: {
+                          enabled: false
+                        },
+                        preventOverflow: {
+                          enabled: true,
+                          escapeWithReference: false
+                        }
+                      }}
                     />
                     </div>
                 </div>

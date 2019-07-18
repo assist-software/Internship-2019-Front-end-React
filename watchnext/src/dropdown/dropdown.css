@@ -38,13 +38,13 @@
     text-decoration: none;
     padding: 0;
     margin: 0;
-    width: 156px;
+    width: 158px;
     margin-top: 10px;
-
     background: #F5044C;
     border-radius: 8px;
     overflow: hidden;
     position: absolute;
+    max-height: 175px;
 }
 
 #filter li{

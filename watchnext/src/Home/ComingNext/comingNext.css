@@ -26,7 +26,7 @@
     min-width: 300px;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+
 }
 
 #top{
@@ -73,3 +73,4 @@ select:hover {
     flex-wrap: wrap;
     justify-content: center;
 }
+

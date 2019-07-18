@@ -71,7 +71,9 @@ class MovieCart extends React.Component {
                 <h1>{this.props.title}</h1>
 
                 <div className="info">
-                    <div id="rd">Release date: <h4>{this.props.release}</h4></div>
+                    <div id="rd">Release date: <h4>{
+                        this.props.release.split('-')[2] +"/" +this.props.release.split('-')[1] +"/"+ this.props.release.split('-')[0]
+                    }</h4></div>
                     {this.state.genres}
                 </div>
             </div>
