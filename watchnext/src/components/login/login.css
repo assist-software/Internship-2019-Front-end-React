@@ -59,6 +59,9 @@ p {
   justify-content: center;
   width: auto;
 }
+#err {
+  color: red;
+}
 
 .logInHeader {
   font-family: "Montserrat";

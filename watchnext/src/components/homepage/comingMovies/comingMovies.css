@@ -23,14 +23,23 @@
 }
 
 .categorySelect {
-  background: #f5044c;
-  color: white;
   font-size: 14px;
   font-family: "Montserrat";
   border-radius: 8px !important;
   border: none;
   width: 140px;
   height: 40px;
+}
+
+.gridline {
+  background: #f5044c;
+  color: white;
+}
+
+.timeline {
+  border: 1px solid #F5044C;
+  background-color: transparent;
+  color: #F5044C;
 }
 
 .date-picker {
