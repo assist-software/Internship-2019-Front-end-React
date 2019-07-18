@@ -13,7 +13,7 @@
      font-family: corbel;
      font-size: 35px;
 }
- input[type=text],input[type=email], select, textarea {
+ #fname {
      width: 100%;
      padding: 12px;
      font-family: Campton;
@@ -25,7 +25,34 @@
      margin-bottom: 16px;
      resize: vertical;
 }
- input[type=submit] {
+#lname {
+     width: 100%;
+     padding: 12px;
+     font-family: Campton;
+     border: 1px solid white;
+     background-color: #0A0A0A;
+     border-radius: 4px;
+     box-sizing: border-box;
+     margin-top: 6px;
+     margin-bottom: 16px;
+     resize: vertical;
+}
+
+#email {
+    width: 100%;
+    padding: 12px;
+    font-family: Campton;
+    border: 1px solid white;
+    background-color: #0A0A0A;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+
+#submit{
      background-color:#F5044C;
      color: white;
      padding: 12px 20px;
@@ -34,17 +61,29 @@
      cursor: pointer;
      font-family: Campton;
 }
- input[type=submit]:hover {
+#submit:hover {
      background-color: #0A0A0A;
-}
- .container {
-     border-radius: 5px;
-     background-color: #0A0A0A;
-     padding: 20px;
-     
 }
 
-label{
+
+#first{
+    font-family: Campton;
+
+}
+
+#last{
+    font-family: Campton;
+
+}
+
+
+#em{
+    font-family: Campton;
+
+}
+
+
+#sub{
     font-family: Campton;
 
 }

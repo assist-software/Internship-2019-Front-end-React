@@ -1,6 +1,6 @@
 #comingNext{
     max-width: 1440px;
-    height: 1520px;    
+    /* height: 1520px;     */
     background: #13131C;
     margin:0 auto;
     min-width: 1000px;
@@ -9,7 +9,7 @@
 #container{
     margin: 0 auto;
     max-width: 1143px;
-    height: 700px;
+    /* height: 700px; */
     font-family: corbel;
     /* min-width: 1000px; */
 }
