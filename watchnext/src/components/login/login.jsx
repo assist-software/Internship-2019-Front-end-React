@@ -42,8 +42,7 @@ class Login extends Component {
           email,
           password
         },
-        //Admin123.
-        // user: lori@yahoo.com Admin123.
+       
         errorHandler: (err) => {
           this.setState({ loginError: "Invalid credentials" })
         },

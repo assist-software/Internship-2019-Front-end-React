@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import axios from 'axios'
 import createApiRequest from '../../api'
-import { API_URL } from '../../constants/api'
 import "./register.css";
 
 
@@ -38,7 +36,7 @@ class Register extends Component {
       } else  if(!password.match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/gm)){
         this.setState({ registerError: 'Password must contain ....' })
       // } else if (!email.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)) {
-      //   this.setState({ registerError: 'Please insert a valid email address' })
+      // this.setState({ registerError: 'Please insert a valid email address' })
       } else {
     try {
 
@@ -52,8 +50,6 @@ class Register extends Component {
           password,
           confimPassword
         },
-
-        
         //Admin123.
         // user: lori@yahoo.com Admin123.
         errorHandler: (err) => {
@@ -63,26 +59,10 @@ class Register extends Component {
           localStorage.setItem('token', token);
           this.props.history.push("/login");
         }
-      })
-    //   try {
-    //   const { email } = this.state;
-    //   const url = `${API_URL}/users?email=${email}`;
-    //   const user = await axios.get(url)
-    //   if(user.data[0]){
-    //     this.setState({ registerError: 'User already exist' })
-    //     throw new Error('User already exist')
-    //   } else {
-    //     const { email, password, name } = this.state; 
-    //     const {data} = axios.post(`${API_URL}/users`, {email, password,name})
-    //     this.props.history.push('/')
-    //     console.log('Data',data);
-        
-    //   }
-      
+      })  
     } catch (err){
       console.log(err, "eroare")
   }
-
     } 
   };
 

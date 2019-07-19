@@ -1,4 +1,3 @@
-  
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import './reset.css';
@@ -47,12 +46,10 @@ class Reset extends Component {
                   onChange={this.handleChange}
                 />
               </FormGroup>
-
               <Button
                 block
                 disabled={!this.validateForm()}
-                type="submit"
-                
+                type="submit" 
               >
                 Reset password
               </Button>
