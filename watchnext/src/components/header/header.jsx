@@ -5,47 +5,46 @@ import Badge from "react-bootstrap/Badge";
 import axios from "axios";
 import { API_URL } from "../../constants/api";
 
-
 class Header extends Component {
   constructor(props) {
     super(props);
-  this.state = {
-    email: "",
-    password:""
-  };
-}
+    this.state = {
+      email: "",
+      password: ""
+    };
+  }
 
-// handleChange = async e => {
-//   const { email, password } = this.state;
-//   const url = `${API_URL}signin`
-//         await axios.post(url,{
-//         email:email,
-//         password: password
-//         //Admin123.
-//       }).then((response) => {
-//         //header
-//         console.log(response)
-//         if(response.data.role === 1){
-//           console.log('test');
-//             const token = response.data.token;
+  // handleChange = async e => {
+  //   const { email, password } = this.state;
+  //   const url = `${API_URL}signin`
+  //         await axios.post(url,{
+  //         email:email,
+  //         password: password
+  //         //Admin123.
+  //       }).then((response) => {
+  //         //header
+  //         console.log(response)
+  //         if(response.data.role === 1){
+  //           console.log('test');
+  //             const token = response.data.token;
 
-//             localStorage.setItem("token", token)
-//             response.headers.Authorization = `Bearer ${token}`;
+  //             localStorage.setItem("token", token)
+  //             response.headers.Authorization = `Bearer ${token}`;
 
-//             this.setState({
-//                 token})
-//                 console.log('test')
-//             this.props.history.push("/");
-            
-//             } else {
-//             console.log("error")
-//             this.setState({ loginError: "Invalid credentials" });
-//             throw new Error("Invalid credentials");
-//             }
-//         }).catch ((err) =>{
-//           console.log("Error ", err);
-//         }) }
-        
+  //             this.setState({
+  //                 token})
+  //                 console.log('test')
+  //             this.props.history.push("/");
+
+  //             } else {
+  //             console.log("error")
+  //             this.setState({ loginError: "Invalid credentials" });
+  //             throw new Error("Invalid credentials");
+  //             }
+  //         }).catch ((err) =>{
+  //           console.log("Error ", err);
+  //         }) }
+
   render() {
     return (
       <div id="nav">
