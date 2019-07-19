@@ -1,69 +1,75 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import axios from 'axios'
-
-import { API_URL } from '../../constants/api'
+import createApiRequest from "../../api";
 import "./register.css";
-
 
 class Register extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: "",
+      username: "",
       email: "",
       password: "",
-      confirmPassword: "",
+      confimPassword: "",
       errors: []
     };
   }
   validateForm() {
     return this.state.email.length > 0 && this.state.password.length > 0;
-
   }
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
-
   };
-  handleSubmit = async (event) => {
-      const { password, confirmPassword, email } = this.state;
-      event.preventDefault();
-     
-      if (password !== confirmPassword) {
-        this.setState({ registerError: 'Passwords don\'t match' })
-      } else  if(!password.match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/gm)){
-        this.setState({ registerError: 'Password must contain ....' })
-      } else if (!email.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)) {
-        this.setState({ registerError: 'Please insert a valid email address' })
-      } else {
-    try {
-      const { email } = this.state;
-      const url = `${API_URL}/users?email=${email}`;
-      const user = await axios.get(url)
-      if(user.data[0]){
-        this.setState({ registerError: 'User already exist' })
-        throw new Error('User already exist')
-      } else {
-        const { email, password, name } = this.state; 
-        const {data} = axios.post(`${API_URL}/users`, {email, password,name})
-        this.props.history.push('/')
-        console.log('Data',data);
-        
+  handleSubmit = async event => {
+    const { password, confimPassword, email } = this.state;
+    event.preventDefault();
+
+    if (password !== confimPassword) {
+      this.setState({ registerError: "Passwords don't match" });
+    } else if (
+      !password.match(
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/gm
+      )
+    ) {
+      this.setState({ registerError: "Password must contain ...." });
+      // } else if (!email.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)) {
+      // this.setState({ registerError: 'Please insert a valid email address' })
+    } else {
+      try {
+        const { username, email, password, confimPassword } = this.state;
+        await createApiRequest({
+          method: "post",
+          url: "/signup",
+          data: {
+            username,
+            email,
+            password,
+            confimPassword
+          },
+          //Admin123.
+          // user: lori@yahoo.com Admin123.
+          errorHandler: err => {
+            this.setState({ loginError: "Invalid credentials" });
+          },
+          afterSuccess: ({ data: { token } }) => {
+            localStorage.setItem("token", token);
+            this.props.history.push("/login");
+          }
+        });
+      } catch (err) {
+        console.log(err, "eroare");
       }
-      
-    } catch (err){
-      console.log(err)
     }
-    } };
+  };
 
   render() {
-    const { registerError }  = this.state;
+    const { registerError } = this.state;
     return (
-      <div className="container" >
+      <div className="container">
         <img
           src={require("../../assets/img/frame.png")}
           alt="Logo"
@@ -78,17 +84,17 @@ class Register extends Component {
           </div>
           <div className="Login">
             <form id="form">
-              <FormGroup controlId="name" id="inputs">
+              <FormGroup controlId="username" id="inputs">
                 <FormControl
                   className="form-control"
                   autoFocus
                   type="text"
                   placeholder="Full name"
-                  value={this.state.name}
+                  value={this.state.username}
                   onChange={this.handleChange}
                 />
               </FormGroup>
-             
+
               <FormGroup controlId="email">
                 <FormControl
                   className="form-control"
@@ -97,7 +103,6 @@ class Register extends Component {
                   placeholder="Email address"
                   value={this.state.email}
                   onChange={this.handleChange}
-        
                 />
               </FormGroup>
               <FormGroup controlId="password">
@@ -108,9 +113,9 @@ class Register extends Component {
                   placeholder="Password"
                 />
               </FormGroup>
-              <FormGroup controlId="confirmPassword">
+              <FormGroup controlId="confimPassword">
                 <FormControl
-                  value={this.state.confirmPassword}
+                  value={this.state.confimPassword}
                   onChange={this.handleChange}
                   type="password"
                   placeholder="Confirm Password"
@@ -130,12 +135,9 @@ class Register extends Component {
               >
                 Register
               </Button>
-              <p className="already-account" >
+              <p className="already-account">
                 Already have an account?{" "}
-                <Link
-                  to="/"
-                  className="link-reg"
-                >
+                <Link to="/" className="link-reg">
                   Log in!
                 </Link>
               </p>
@@ -147,4 +149,3 @@ class Register extends Component {
   }
 }
 export default Register;
-

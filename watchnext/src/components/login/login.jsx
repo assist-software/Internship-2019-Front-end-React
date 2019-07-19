@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import createApiRequest from '../../api'
-import logo from '../../assets/img/frame.png'
+import createApiRequest from "../../api";
+import logo from "../../assets/img/frame.png";
 import "./login.css";
 import { withRouter } from "react-router";
 
@@ -16,8 +16,8 @@ class Login extends Component {
       password: "",
       showPassword: false,
       errors: [],
-      token:"",
-      loginError:""
+      token: "",
+      loginError: ""
     };
   }
 
@@ -32,33 +32,32 @@ class Login extends Component {
   };
 
   onSubmitForm = async e => {
-      e.preventDefault();
-      
-      const { email, password } = this.state;
-      await createApiRequest({
-        method: 'post',
-        url: '/signin',
-        data: {
-          email,
-          password
-        },
-        //Admin123.
-        // user: lori@yahoo.com Admin123.
-        errorHandler: (err) => {
-          this.setState({ loginError: "Invalid credentials" })
-        },
-        afterSuccess: ({ data: {token, role } }) => {
-          localStorage.setItem('token', token);
-          localStorage.setItem('role', role);
+    e.preventDefault();
 
-          const rol = localStorage.getItem('role');
-           if (rol === "2"){
-              this.props.history.push("/");
-          } else {
-              this.props.history.push("/admin");
-           }
+    const { email, password } = this.state;
+    await createApiRequest({
+      method: "post",
+      url: "/signin",
+      data: {
+        email,
+        password
+      },
+
+      errorHandler: err => {
+        this.setState({ loginError: "Invalid credentials" });
+      },
+      afterSuccess: ({ data: { token, role } }) => {
+        localStorage.setItem("token", token);
+        localStorage.setItem("role", role);
+
+        const rol = localStorage.getItem("role");
+        if (rol === "2") {
+          this.props.history.push("/");
+        } else {
+          this.props.history.push("/admin");
         }
-      })
+      }
+    });
   };
   render() {
     const { loginError } = this.state;
@@ -76,7 +75,10 @@ class Login extends Component {
           </div>
 
           <div className="Login">
-            <div className="d-flex align-items-center justify-content-center w-100" id="err">
+            <div
+              className="d-flex align-items-center justify-content-center w-100"
+              id="err"
+            >
               {loginError}
             </div>
             <form id="form" onSubmit={this.onSubmitForm}>
@@ -87,7 +89,7 @@ class Login extends Component {
                   type="email"
                   name="email"
                   placeholder="Email address"
-                   //value={this.state.email}
+                  //value={this.state.email}
                   onChange={this.handeleFormData}
                 />
               </FormGroup>
@@ -142,4 +144,3 @@ class Login extends Component {
   }
 }
 export default withRouter(Login);
-
