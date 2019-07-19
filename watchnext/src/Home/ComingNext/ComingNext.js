@@ -11,38 +11,6 @@ import MovieCart from '../../movieCart/MovieCart';
 import Timeline from './Timeline/Timeline';
 
 class ComingNext extends React.Component {
-  state = {
-    genre:'Action',
-    genres: [
-        {
-            id: 0,
-            title: 'Action',
-            selected: false,
-            key: 'location'
-        },
-        {
-          id: 1,
-          title: 'Comedy',
-          selected: false,
-          key: 'location'
-        },
-        {
-          id: 2,
-          title: 'Thriler',
-          selected: false,
-          key: 'location'
-        },
-        {
-          id: 3,
-          title: 'Romance',
-          selected: false,
-          key: 'location'
-        }
-      ],
-    startDate: new Date(),
-    date:'',
-    dateOpen:false,
-  }
 
   constructor(props) {
     super(props)
@@ -77,6 +45,7 @@ class ComingNext extends React.Component {
         startDate: new Date(),
         date:'',
         dateOpen:false,
+        isListDisplayed: true
     }
     this.handleChange = this.handleChange.bind(this)
     this.updateGenre = this.updateGenre.bind(this)
@@ -121,6 +90,12 @@ class ComingNext extends React.Component {
     })
   }
 
+  onListSwitchView(value) {
+      this.setState({
+        isListDisplayed: value
+      })
+  }
+
   componentDidMount(){
     let url = "http://localhost:3001/movies"
     fetch(url)
@@ -132,6 +107,7 @@ class ComingNext extends React.Component {
   }
 
   render() {
+    const {isListDisplayed} = this.state
     return (
       <div id="comingNext">
         <div id="container">
@@ -150,8 +126,14 @@ class ComingNext extends React.Component {
                 </div>
             </div>
             <div id="comingList">
-             {/* // this.state.comingNext */}
-              <Timeline/>
+              <div>
+                <button className={"btn " + (isListDisplayed ? 'active-list' : 'inactive-list')} onClick={()=>this.onListSwitchView(true)}>list</button>
+                <button onClick={()=>this.onListSwitchView(false)}>timeline</button>
+              </div>
+       
+           {isListDisplayed ?  <div>first component</div> :  <Timeline/> }
+           
+              
             </div>
           
         </div>
