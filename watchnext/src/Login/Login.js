@@ -13,7 +13,8 @@ class Login extends React.Component {
         super()
         this.state = {
             value: '',
-      
+            password1: '',
+            password2: '',
             isPassworDisplayed: false,
             isLogin: true,
             isRegister: false,
@@ -26,14 +27,40 @@ class Login extends React.Component {
         }
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleChangePassword1 = this.handleChangePassword1.bind(this);
+        this.handleChangePassword2 = this.handleChangePassword2.bind(this);
     }
 
     handleChange(event) {
         this.setState({value: event.target.value});
     }
 
+    handleChangePassword1(event) {
+        this.setState({password1: event}, () => {
+            console.log(this.state.password1)
+        });
+        
+    }
+
+    handleChangePassword2(event) {
+        this.setState({password2: event});
+        console.log(this.state.password1)
+    }
+
     displayPassword(value) {
         this.setState({isPassworDisplayed: value})
+    }
+
+    matchingPasswords(){
+        if(this.state.password1 === this.state.password2){
+            console.log(this.state.password1, this.state.password2)
+            console.log("equal")
+            return 1;
+        }
+        else {
+            console.log("not equal")
+            return 0;
+        }
     }
 
     resetClicked() { 
@@ -122,15 +149,19 @@ class Login extends React.Component {
                     {(isRegister) && 
                         <div id = "box">
                             <h1 id = "loginText"> Let<font face = "corbel">'</font>s create <br/>your account </h1>
-                            <div align="center">
+                            <div align="center" id = "logInInputDiv">
                                 <input type="text" id="log" name="fullName" placeholder="Full name"/>
-                                <input type="text" id="log" name="email" placeholder="Email adress"></input>
+                                <input type="text" id = {isClicked ? "hideItem" : "log"} name="email" placeholder="Confirm email adress"  value={this.state.value} onChange={this.handleChange} />
+                                
 
-                                <input type={isPassworDisplayed ? "text":"password"} name="password" placeholder = "Password" id = "log" className = "vis"></input>
+                                <input type={isPassworDisplayed ? "text":"password"} name="password" placeholder = "Password" id = "log" className = "vis" value={this.state.password1} onChange={e=>this.handleChangePassword1(e.target.value)}></input>
                                 <FontAwesomeIcon icon={faEye} id = "eye" onClick={() => this.displayPassword(!isPassworDisplayed)} />
+                                <br/>
+                                <input type={isPassworDisplayed ? "text":"password"} name="password" placeholder = "Confirm password" id = "log" className = "vis" value={this.state.password2} onChange={e=>this.handleChangePassword2(e.target.value)}></input>
 
                                 {(this.state.squad && this.state.isPressed && !isClicked && isRegister) && <p id='noRegister'>Invalid email or blank fields. <br/> Try again!</p>}
-
+                                {/* {console.log(this.state.password1, this.state.password2)} */}
+                                {(this.matchingPasswords(this.state.password1, this.state.password2) == 0) && <p id="noRegister"> Passwords don't match </p>}
                             </div>
                             <div align = "center" id = "buttonDiv">
                                 <input type = "button" className = "logIn button1" align = "center" value = "Register" align ="center"  onClick = {() => this.validateEmail(this.state.value, this.state.isPressed)} ></input>

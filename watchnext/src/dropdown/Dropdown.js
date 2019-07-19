@@ -48,7 +48,7 @@ class Dropdown extends React.Component {
             </div>
             {this.state.listOpen && <div id="list"> 
                 <ul>
-                <Scrollbars style={{ width: 159, height: 175 }}>
+                <Scrollbars style={{ height: 175 }}>
                     {this.state.list}
                     </Scrollbars>
                 </ul>

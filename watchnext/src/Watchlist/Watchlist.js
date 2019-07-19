@@ -12,12 +12,12 @@ class Watchlist extends React.Component {
       watchListIndex: JSON.parse(localStorage.getItem("watchList")).reverse(),
       comingMovies: new Array(),
       comingMoviesList: new Array(),
-      selected: 'Last Added',
+      selected: 'Latest Added',
       loaded:false,
       movieName:'',
       options: [{
         id: 0,
-        title: 'Last Added',
+        title: 'Latest Added',
         },
         {
           id: 1,
@@ -110,7 +110,7 @@ class Watchlist extends React.Component {
       })  
     }
 
-    if(gen == "Last Added"){
+    if(gen == "Latest Added"){
       this.load(true)
     }
 
