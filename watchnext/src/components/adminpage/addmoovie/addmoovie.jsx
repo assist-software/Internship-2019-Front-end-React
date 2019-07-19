@@ -16,6 +16,7 @@ class AddMoovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      categories: [],
       title: null,
       trailerUrl: null,
       originalSourceUrl: null,
@@ -24,6 +25,7 @@ class AddMoovie extends Component {
       category: null,
       duration: null,
       imdbScore: null,
+      imdbId: null,
       director: null,
       writers: null,
       stars: null,
@@ -37,6 +39,7 @@ class AddMoovie extends Component {
         category: "",
         duration: "",
         imdbScore: "",
+        imdbId: "",
         director: "",
         writers: "",
         stars: "",
@@ -94,6 +97,10 @@ class AddMoovie extends Component {
             ? "IMDB Score must be at least 2 characters long!"
             : "";
         break;
+      case "imdbId":
+        errors.imdbId =
+          value.length < 2 ? "IMDB ID must be at least 2 characters long!" : "";
+        break;
       case "director":
         errors.director = value.length < 4 ? "Specify who's the director!" : "";
         break;
@@ -115,6 +122,22 @@ class AddMoovie extends Component {
     this.setState({ errors, [name]: value });
   };
 
+  componentDidMount() {
+    let catUrl = "http://192.168.151.218:3000/api/category";
+    const token = localStorage.getItem("token");
+
+    fetch(catUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ categories: data });
+      });
+  }
+
   handleSubmit = event => {
     event.preventDefault();
 
@@ -127,6 +150,7 @@ class AddMoovie extends Component {
       category: this.state.category,
       duration: this.state.duration,
       imdbScore: this.state.imdbScore,
+      imdbId: this.state.imdbId,
       director: this.state.director,
       writers: this.state.writers,
       stars: this.state.stars,
@@ -134,17 +158,30 @@ class AddMoovie extends Component {
     };
 
     if (validateForm(this.state.errors)) {
-      axios.post(`http://localhost:3003/movies/`, { movies }).then(res => {
-        console.log(res);
-        console.log(res.data);
-      });
+      const token = localStorage.getItem("token");
+      console.log(this.state.category);
+      axios
+        .post(
+          `http://192.168.151.218:3000/api/movie`,
+          { ...movies },
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
+        )
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+        });
     } else {
       window.alert("Please fill in all fields!");
     }
   };
 
   render() {
-    const { errors } = this.state;
+    const { errors, categories } = this.state;
     return (
       <div className="container addMovieContainer">
         <div className="col-md-12">
@@ -265,11 +302,10 @@ class AddMoovie extends Component {
                     onChange={this.handleChange}
                     noValidate
                   >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="">None</option>
+                    {categories.map(cat => {
+                      return <option key={cat.name}>{cat.name}</option>;
+                    })}
                   </Form.Control>
                   {errors.category.length > 0 && (
                     <span className="text-danger errorLabel">
@@ -296,7 +332,7 @@ class AddMoovie extends Component {
                   )}
                 </Form.Group>
               </div>
-              <div className="col-md-5">
+              <div className="col-md-3">
                 <Form.Group controlId="imdbScore">
                   <Form.Text className="text-muted floatLeft">
                     IMDB Score
@@ -310,6 +346,22 @@ class AddMoovie extends Component {
                   {errors.imdbScore.length > 0 && (
                     <span className="text-danger errorLabel">
                       {errors.imdbScore}
+                    </span>
+                  )}
+                </Form.Group>
+              </div>
+              <div className="col-md-2">
+                <Form.Group controlId="imdbId">
+                  <Form.Text className="text-muted floatLeft">ID</Form.Text>
+                  <Form.Control
+                    type="text"
+                    name="imdbId"
+                    onChange={this.handleChange}
+                    noValidate
+                  />
+                  {errors.imdbId.length > 0 && (
+                    <span className="text-danger errorLabel">
+                      {errors.imdbId}
                     </span>
                   )}
                 </Form.Group>

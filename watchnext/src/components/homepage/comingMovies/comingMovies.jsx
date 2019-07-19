@@ -13,6 +13,7 @@ class comingMovies extends Component {
     this.state = {
       movies: [],
       data: [],
+      categories: [],
       date: null,
       isOpenPicker: false,
       isTimeline: false,
@@ -53,6 +54,7 @@ class comingMovies extends Component {
 
   componentDidMount() {
     let url = "http://192.168.151.218:3000/api/movies";
+    let catUrl = "http://192.168.151.218:3000/api/category";
     const token = localStorage.getItem("token");
     fetch(url, {
       method: "GET",
@@ -64,10 +66,21 @@ class comingMovies extends Component {
       .then(data => {
         this.setState({ data: data.slice(0, 8) });
       });
+
+    fetch(catUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ categories: data });
+      });
   }
 
   render() {
-    const { data, date, isOpenPicker, isTimeline } = this.state;
+    const { data, date, isOpenPicker, isTimeline, categories } = this.state;
     return (
       <div className="pageBottom">
         <div className="container h-100 py-5">
@@ -90,11 +103,10 @@ class comingMovies extends Component {
                         isTimeline ? "timeline" : "gridline"
                       } ml-4`}
                     >
-                      <option>None</option>
-                      <option>Action</option>
-                      <option>Comedy</option>
-                      <option>Horror</option>
-                      <option>Fantasy</option>
+                      <option value="">None</option>
+                      {categories.map(cat => {
+                        return <option key={cat.name}>{cat.name}</option>;
+                      })}
                     </select>
                     <div className="date-picker">
                       <div className="input-group-addon">

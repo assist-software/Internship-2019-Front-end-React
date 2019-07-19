@@ -4,6 +4,7 @@ import "./moovie.css";
 class Moovie extends Component {
   render() {
     const { movie } = this.props;
+    console.log(movie.title);
 
     return (
       <React.Fragment>
@@ -28,7 +29,10 @@ class Moovie extends Component {
                 month: "2-digit",
                 day: "2-digit"
               }).format(movie.releaseDate)}{" "}
-              <br /> {/* {movie.movie.category[1]} */}
+              <br />
+              {movie.category.map(cat => {
+                return <small>{cat.name} </small>;
+              })}
             </small>
           </div>
         )}

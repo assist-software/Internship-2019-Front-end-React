@@ -52,7 +52,11 @@ class MovieDescription extends Component {
                 />
                 <div>
                   <small id="movieDet">
-                    {data.category} • {data.duration}
+                    {data.category &&
+                      data.category.map(cat => {
+                        return <small>{cat.name} - </small>;
+                      })}
+                    {data.duration}
                   </small>
                 </div>
                 <div>

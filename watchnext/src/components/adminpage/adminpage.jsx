@@ -61,8 +61,14 @@ class AdminPage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://localhost:3003/movies";
-    fetch(url)
+    let url = "http://192.168.151.218:3000/api/movies";
+    const token = localStorage.getItem("token");
+    fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then(resp => resp.json())
       .then(data => {
         this.setState({ data: data });
@@ -143,10 +149,20 @@ class AdminPage extends Component {
                     <h1 className="movTit">{movie.title}</h1>
                   </div>
                   <div className="col-md-3">
-                    <h2 className="movDat">{movie.releaseDate}</h2>
+                    <h2 className="movDat">
+                      {" "}
+                      {new Intl.DateTimeFormat("en-US", {
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit"
+                      }).format(movie.releaseDate)}{" "}
+                    </h2>
                   </div>
                   <div className="col-md-3">
-                    <h2 className="movDat">{movie.category}</h2>
+                    {movie.category &&
+                      movie.category.map(cat => {
+                        return <h2 className="movDat">{cat.name}</h2>;
+                      })}
                   </div>
                   <div className="col-md- mAction">
                     <div className="col-md- movAction">

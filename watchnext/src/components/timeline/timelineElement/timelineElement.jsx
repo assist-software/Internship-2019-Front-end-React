@@ -10,7 +10,11 @@ class TimelineElement extends Component {
     return (
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
-        icon={movie.releaseDate}
+        icon={new Intl.DateTimeFormat("en-US", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        }).format(movie.releaseDate)}
       >
         {movie && (
           <div className="row">
@@ -23,7 +27,6 @@ class TimelineElement extends Component {
               </div>
               <div className="row scorRow">
                 <div className="imdb_sc mr-4">{movie.imdbScore}</div>
-                <div className="timelineCategory">{movie.category}</div>
               </div>
             </div>
           </div>
