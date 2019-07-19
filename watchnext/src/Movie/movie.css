@@ -13,18 +13,18 @@
     justify-content: center;
 }
 
-#source{
+#moovie #source{
     text-align: center;
 }
 
-#imgmov{
+#moovie#imgmov{
     width: 368px;
     height: 552px;
     background: linear-gradient(0deg, rgba(36, 36, 36, 0.3), rgba(36, 36, 36, 0.3)), url(image.png);
     border-radius: 20px;
 }
 
-#p{
+#moovie #p{
     width: 168px;
     height: 25px;
     font-family: corbel;
@@ -35,16 +35,16 @@
     opacity: 0.6;
     margin-top: 29px;
 }
-#title{
+#moovie #title{
     display: flex;
 }
-#right #title img{
+#moovie #right #title img{
     width: 98px;
     height: 28px;
     padding-top: 10px;
     padding-left: 20px;
 }
-#right #title h1 {
+#moovie #right #title h1 {
      width: 376px;
     height: 53px;
     display: flex;
@@ -56,11 +56,11 @@
     margin: 0;
 }
 
-#containermov #right{
+#moovie #containermov #right{
     margin-left:100px;
 }
 
-#genmov{
+#moovie #genmov{
     width: 240px;
     height: 25px;
     font-family: corbel;
@@ -70,7 +70,7 @@
     opacity: 0.6;
 }
 
-#descr{
+#moovie #descr{
     width: 464px;
     top: 396px;
     height: 260px;
@@ -80,7 +80,7 @@
     color: #FFFFFF;
 }
 
-#addwatchmov{
+#moovie #addwatchmov{
     height: 48px;
     width: 176px;
     border-radius: 8px;
@@ -97,17 +97,16 @@
     margin-top: 15px;
 }
 
-#bott{
+#moovie #bott{
     margin-top: 42px;
 }
 
-#bott #staff div{
+#moovie #bott #staff div{
     display: flex;
     max-height: 54px;
 }
 
-
-#st{
+#moovie #st{
     width: 80px;
     height: 25px;
     margin-right: 20px;
@@ -119,7 +118,7 @@
     margin-top: 18px;
 }
 
-#stw{
+#moovie #stw{
     width: 80px;
     height: 25px;
     margin-right: 20px;
@@ -132,7 +131,7 @@
     margin-top: 18px;
 }
 
-#sts{
+#moovie #sts{
     width: 80px;
     height: 25px;
     margin-right: 20px;
@@ -144,7 +143,7 @@
     margin-top: 35px;
 }
 
-#dr{
+#moovie #dr{
     width: 176px;
     height: 25px;
     font-family: corbel;
@@ -155,7 +154,7 @@
     margin-top: 18px;
 }
 
-#drw{
+#moovie #drw{
     width: 368px;
     height: 50px;
     font-family: corbel;
@@ -165,7 +164,7 @@
     margin-top: 18px;
 }
 
-#drs{
+#moovie #drs{
     margin-top: 35px;
     width: 368px;
     height: 50px;
@@ -175,7 +174,7 @@
     color: #FFFFFF;
 }
 
-#stafff{
+#moovie #stafff{
     font-family: corbel;
     font-size: 18px;
     line-height: 25px;
@@ -184,7 +183,7 @@
     text-decoration-line: underline;
 }
 
-#left #play{
+#moovie #left #play{
     font-family: corbel;
     font-size: 22px;
     line-height: 30px;
@@ -195,22 +194,23 @@
     height: 30px;
 }
 
-#containerfoto{
-    margin: 86px auto;
+#moovie #containerfoto {
+    margin: 79px auto;
     max-width: 1440px;
-    height: 444px;
+    height: 400px;
     left: 0px;
     top: 1068px;
     background: #13131C;
 }
 
-#fotto{
+#moovie #fotto{
     padding-top: 44px;
     margin: 0 auto;
     max-width: 1134px;
     height: 335px;
 }
-#containerfoto #fotto h1{
+
+#moovie #containerfoto #fotto h1{
     max-width: 272px;
     height: 64px;
     font-family: corbel;
@@ -219,33 +219,38 @@
     color: #FFFFFF;
 }
 
-#containerfoto #fotto #poze{
+#moovie #containerfoto #fotto #poze{
     display: flex;
     max-width: 110px;
     height: 99px;
     
 }
 
-#poza1{
-    padding-right: 16px;
-}
-#poza2{
-    padding-right: 16px;
-}
-#poza3{
-    padding-right: 16px;
-}
-#poza4{
-    padding-right: 16px;
-}
-#poza5{
-    padding-right: 16px;
-}
-#poza6{
+#moovie #poza1{
     padding-right: 16px;
 }
 
-#playt{
+#moovie #poza2{
+    padding-right: 16px;
+}
+
+#moovie #poza3{
+    padding-right: 16px;
+}
+
+#moovie #poza4{
+    padding-right: 16px;
+}
+
+#moovie #poza5{
+    padding-right: 16px;
+}
+
+#moovie #poza6{
+    padding-right: 16px;
+}
+
+#moovie #playt{
     position: absolute;
     width: 168px;
     height: 30px;
@@ -259,7 +264,7 @@
     color: #FFFFFF;
 }
 
-#playbut{
+#moovie #playbut{
     position: absolute;
     width: 80px;
     height: 80px;

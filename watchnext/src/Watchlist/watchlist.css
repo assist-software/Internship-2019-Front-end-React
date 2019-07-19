@@ -1,13 +1,21 @@
 #watchList{
-    height: 1520px;
+    min-height: 900px;
     margin: 0 auto;
-    min-width: 1000px;
     padding-top: 158px;
-    max-width: 1143px;
+    max-width: 1180px;
     margin-bottom: 250px;
     padding-left: 30px;
     padding-right: 30px;
     min-width: 900px;
+}
+
+#watchList #comingList{
+    margin-top:137px;
+    display: flex;
+    margin-top: 120px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #watchList #title{
@@ -15,7 +23,7 @@
     line-height: 60px;    
     color: #FFFFFF;
     min-width: 430px;
-    font-family: corbel;
+    font-family: CamptonLight;
     margin-top: 98px;
 }
 
@@ -23,8 +31,7 @@
     margin:0;
     margin-top:100px;
     display: flex;
-    justify-content: space-between;
-    
+    justify-content: space-between;   
 }
 
 #searchamov{
@@ -57,19 +64,16 @@ color: #FFFFFF;
     margin-left:-40px;
 }
 
-#ctrl-right span{
-    font-size: 16px;
-    font-size: 16px;
-    font-family: corbel;
+#ctrl-right span {
+    margin-right: 20px;
+    font-size: 14px;
     font-weight: bold;
+    font-family: CamptonLight;
 }
 
 #wctrl #genre button{
-    width: 158px;
-    height: 40px;
     font-family: corbel;
-    font-size: 16px;
-    color: white;
+    font-size: 14px;
     cursor: pointer;
     background: transparent;
     display: flex;
@@ -83,6 +87,7 @@ color: #FFFFFF;
     box-sizing: border-box;
     border-radius: 5px;
     color: #F5044C;
+    font-family: CamptonLight;
 }
 
 #wctrl #genre svg{
@@ -102,10 +107,10 @@ color: #FFFFFF;
     border-radius: 8px;
     overflow: hidden;
     position: absolute;
-    width: 176px;
     border: 1px solid #F5044C;
     box-sizing: border-box;
     border-radius: 5px;
+    background: #000000c4;
 }
 
 #wctrl li{
@@ -116,8 +121,8 @@ color: #FFFFFF;
     padding-left: 10px;
     font-weight: 600;
     cursor: pointer;
-    font-family: corbel;
-    font-size: 16px;
+    font-family: CamptonLight;
+    font-size: 15px;
     color: #F5044C;
 }
 
@@ -129,4 +134,20 @@ color: #FFFFFF;
 #wctrl #ctrl-right{
     display: flex;
     align-items: center;
+}
+
+#nor{
+    text-align: center;
+    font-family: monospace;
+    font-size: 25px;
+    color: gray;
+}
+
+#nof {
+    text-align: center;
+}
+
+#nof svg{
+    font-size: 39px;
+    color: gray;
 }

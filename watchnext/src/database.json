@@ -56,7 +56,9 @@
             "img":"http://localhost:3000/static/media/img.png",
             "category":[8,9,12]
         }
+
     ],
+
     "category":[
         {
             "id":1,
@@ -155,4 +157,4 @@
             "name":"Western"
         }
     ]
-  }
+}

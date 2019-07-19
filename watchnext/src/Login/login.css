@@ -38,10 +38,17 @@
     margin: 0 auto;
 }
 
+#logInInputDiv{
+    text-align: center;
+    margin-top: 100px;
+}
+
 #loginText{
     color: #FFFFFF;
-    margin-top: 0px;
-    padding: 30px 0 40px 54px;
+    margin-top: 0px auto;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    padding: 30px 0 40px 0px;
     text-align: center;
     font-size: 48px;
     width: 432px;
@@ -64,7 +71,7 @@
     height: 48px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 8px;
+    margin-bottom: 22px;
     border-radius: 8px;
     line-height: 21px;
     font-size: 18px;
@@ -72,6 +79,7 @@
     background: #0A0A0A;
     border: 1px solid #9C9B9B;
     outline: none;
+    margin-top: -14px;
 }
 
 #password{
@@ -114,6 +122,7 @@
     font-size: 18px;
     line-height: 25px;
     outline: none;
+    font-family: Campton;
     cursor: pointer;
   }
   
@@ -143,7 +152,7 @@
     color: #9C9B9B;
     margin-left: -38px;
     position: absolute;
-    margin-top: 18px;
+    margin-top: 2px;
     cursor: pointer;
 }
 
@@ -191,9 +200,8 @@
 
 #resetLoginText{
     color: #FFFFFF;
-    margin-top: 0px;
-    margin-bottom: -90px;
-    padding: 61px 0 0px 54px;
+    margin: 0 auto;
+    padding: 58px 0 0px 0px;
     text-align: center;
     font-size: 48px;
     width: 432px;
