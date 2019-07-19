@@ -28,7 +28,7 @@ class LoginAdmin extends Component {
       render() {
         return (
           <div className="container">
-             <img src={require("../../../assets/img//frame.png")}  alt="Logo"></img>
+             <img src={require("../../../assets/img//frame.png")}  alt="Logo" className="frame"></img>
              <div className="container-login">
              <hr className="new5" />
              <div className="title">
@@ -75,3 +75,5 @@ class LoginAdmin extends Component {
       }
     }
     export default LoginAdmin;
+
+
