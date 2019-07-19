@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
-import { API_URL } from "../../constants/api";
+import createApiRequest from '../../api'
+import logo from '../../assets/img/frame.png'
 import "./login.css";
+import { withRouter } from "react-router";
 
 class Login extends Component {
   constructor(props) {
@@ -31,66 +32,33 @@ class Login extends Component {
   };
 
   onSubmitForm = async e => {
-    try {
       e.preventDefault();
-      // console.log(this.state);
+      
       const { email, password } = this.state;
-
-      // const url = `${API_URL}/users?email=${email}`;
-      const url = `${API_URL}signin`
-     await axios.post(url,{
-        email:email,
-        password: password
+      await createApiRequest({
+        method: 'post',
+        url: '/signin',
+        data: {
+          email,
+          password
+        },
         //Admin123.
-      }).then((response) => {
-        //header
-        console.log(response)
-        if(response.data.status === "Login successfully"){
-          console.log('test');
-            const token = response.data.token;
+        // user: lori@yahoo.com Admin123.
+        errorHandler: (err) => {
+          this.setState({ loginError: "Invalid credentials" })
+        },
+        afterSuccess: ({ data: {token, role } }) => {
+          localStorage.setItem('token', token);
+          localStorage.setItem('role', role);
 
-            localStorage.setItem("token", token)
-            response.headers.Authorization = `Bearer ${token}`;
-           // localStorage.setItem("user", JSON.stringify(user))
-            this.setState({
-                token})
-                console.log('test')
-
-            this.props.history.push("/");
-            } else {
-            console.log("error")
-            this.setState({ loginError: "Invalid credentials" });
-            throw new Error("Invalid credentials");
-            }
-        }).catch ((err) =>{
-          console.log("Error ", err);
-        }) 
-        
-      //console.log("User", user);
-      // if (user.data[0] && user.data[0].password === password) {
-      //   //redirect here
-      //   this.props.history.push("/");
-      //   // return user.data[0]
-      // } else {
-      //   this.setState({ loginError: "Invalid credentials" });
-      //   throw new Error("Invalid credentials");
-      // }
-     } catch (err) {
-       console.log("Error ", err);
-     }
-    // .then(response => {
-    //   const validUser  = response.data.find((user)=> {
-    //    if(this.state.email === user.email && this.state.password === user.password)
-    //     {
-    //       return true
-    //     }
-    //  })
-    //  if(validUser) {
-    //     return < Redirect to='/'/>
-
-    //  }
-    // })
-    // .catch(err => console.log(err));
+          const rol = localStorage.getItem('role');
+           if (rol === "2"){
+              this.props.history.push("/");
+          } else {
+              this.props.history.push("/admin");
+           }
+        }
+      })
   };
   render() {
     const { loginError } = this.state;
@@ -98,7 +66,7 @@ class Login extends Component {
 
     return (
       <div className="container">
-        <img src={require("../../assets/img/frame.png")} className="frame" alt="Logo" />
+        <img src={logo} className="frame" alt="Logo" />
         <div className="container-login">
           <hr className="new5" />
           <div className="title">
@@ -173,5 +141,5 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+export default withRouter(Login);
 
