@@ -12,8 +12,14 @@ class MovieDescription extends Component {
   }
 
   componentDidMount() {
-    let url = "http://localhost:3003/movies";
-    fetch(url)
+    let url = "http://192.168.151.218:3000/api/movies";
+    const token = localStorage.getItem("token");
+    fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then(resp => resp.json())
       .then(data => {
         this.setState({ data: data[this.props.match.params.id - 1] });
@@ -46,7 +52,7 @@ class MovieDescription extends Component {
                 />
                 <div>
                   <small id="movieDet">
-                    {data.category} • {data.length}
+                    {data.category} • {data.duration}
                   </small>
                 </div>
                 <div>
@@ -60,7 +66,7 @@ class MovieDescription extends Component {
                     <ul className="list-unstyled movDetList">
                       <li>Director</li>
                       <li>Writers</li>
-                      <li className="mt-4">Stars</li>
+                      <li>Stars</li>
                     </ul>
                   </div>
                   <div className="col-md-8">

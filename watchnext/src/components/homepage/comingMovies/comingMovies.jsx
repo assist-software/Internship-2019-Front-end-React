@@ -52,8 +52,14 @@ class comingMovies extends Component {
   };
 
   componentDidMount() {
-    let url = "http://localhost:3003/movies";
-    fetch(url)
+    let url = "http://192.168.151.218:3000/api/movies";
+    const token = localStorage.getItem("token");
+    fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then(resp => resp.json())
       .then(data => {
         this.setState({ data: data.slice(0, 8) });

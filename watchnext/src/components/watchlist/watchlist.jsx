@@ -20,11 +20,18 @@ class WhatchList extends Component {
   };
 
   componentDidMount() {
-    let url = "http://localhost:3003/movies";
+    let url = "http://192.168.151.218:3000/api/movies";
+    const token = localStorage.getItem("token");
 
-    fetch(url)
+    fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then(resp => resp.json())
       .then(data => {
+        console.log("aa", data);
         this.setState({ data: data });
       });
   }
@@ -107,8 +114,13 @@ class WhatchList extends Component {
                             <h5 id="moovieTitle">{movie.title}</h5>
                           </a>
                           <small>
-                            Realeased date: {movie.releaseDate} <br />{" "}
-                            {movie.category}
+                            Realeased date:{" "}
+                            {new Intl.DateTimeFormat("en-US", {
+                              year: "numeric",
+                              month: "2-digit",
+                              day: "2-digit"
+                            }).format(movie.releaseDate)}{" "}
+                            <br /> {/* {movie.movie.category[1]} */}
                           </small>
                         </div>
                       </div>

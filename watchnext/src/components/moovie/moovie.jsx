@@ -22,7 +22,13 @@ class Moovie extends Component {
               <h5 id="moovieTitle">{movie.title}</h5>
             </a>
             <small>
-              Realeased date: {movie.releaseDate} <br /> {movie.category}
+              Realeased date:{" "}
+              {new Intl.DateTimeFormat("en-US", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+              }).format(movie.releaseDate)}{" "}
+              <br /> {/* {movie.movie.category[1]} */}
             </small>
           </div>
         )}

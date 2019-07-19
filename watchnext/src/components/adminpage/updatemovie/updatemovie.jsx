@@ -17,13 +17,16 @@ class UpdateMoovie extends Component {
     super(props);
     this.state = {
       movie: [],
-      title: null,
+      isSubmitted: false,
       trailerUrl: null,
       originalSourceUrl: null,
       coverUrl: null,
       description: null,
       category: null,
+      duration: null,
       imdbScore: null,
+      writers: null,
+      stars: null,
       releaseDate: null,
       errors: {
         title: "",
@@ -32,7 +35,11 @@ class UpdateMoovie extends Component {
         coverUrl: "",
         description: "",
         category: "",
+        duration: "",
         imdbScore: "",
+        director: "",
+        writers: "",
+        stars: "",
         releaseDate: ""
       }
     };
@@ -75,11 +82,26 @@ class UpdateMoovie extends Component {
             ? "Movie category must be at least 5 characters long!"
             : "";
         break;
+      case "duration":
+        errors.duration =
+          value.duration < 5
+            ? "Movie duration must be at least 2 characters long!"
+            : "";
+        break;
       case "imdbScore":
         errors.imdbScore =
           value.length < 2
             ? "IMDB Score must be at least 2 characters long!"
             : "";
+        break;
+      case "director":
+        errors.director = value.length < 4 ? "Specify who's the director!" : "";
+        break;
+      case "writers":
+        errors.writers = value.length < 8 ? "Specify who're the writers!" : "";
+        break;
+      case "stars":
+        errors.stars = value.length < 8 ? "Specify who're the stars!" : "";
         break;
       case "releaseDate":
         errors.releaseDate =
@@ -104,7 +126,11 @@ class UpdateMoovie extends Component {
       coverUrl: this.state.coverUrl,
       description: this.state.description,
       category: this.state.category,
+      duration: this.state.duration,
       imdbScore: this.state.imdbScore,
+      director: this.state.director,
+      writers: this.state.writers,
+      stars: this.state.stars,
       releaseDate: this.state.releaseDate
     };
 
@@ -113,8 +139,7 @@ class UpdateMoovie extends Component {
         // eslint-disable-next-line no-useless-concat
         .put(`http://localhost:3003/movies` + "/" + this.state.movie.id, movies)
         .then(res => {
-          console.log(res);
-          console.log(res.data);
+          this.setState({ isSubmitted: true });
         });
     } else {
       window.alert("Please fill in all fields!");
@@ -122,11 +147,24 @@ class UpdateMoovie extends Component {
   };
 
   componentWillReceiveProps(newProps) {
-    this.setState({ movie: newProps.selectedMovie });
+    this.setState({
+      movie: newProps.selectedMovie,
+      title: newProps.selectedMovie.title,
+      trailerUrl: newProps.selectedMovie.trailerUrl,
+      originalSourceUrl: newProps.selectedMovie.originalSourceUrl,
+      coverUrl: newProps.selectedMovie.coverUrl,
+      description: newProps.selectedMovie.description,
+      category: newProps.selectedMovie.category,
+      duration: newProps.selectedMovie.duration,
+      imdbScore: newProps.selectedMovie.imdbScore,
+      writers: newProps.selectedMovie.writers,
+      stars: newProps.selectedMovie.stars,
+      releaseDate: newProps.selectedMovie.releaseDate
+    });
   }
 
   render() {
-    const { errors, movie } = this.state;
+    const { errors, isSubmitted } = this.state;
     return (
       <div className="container updateMovieContainer">
         <div className="col-md-12">
@@ -144,7 +182,7 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="title"
                     onChange={this.handleChange}
-                    value={movie.title}
+                    value={this.state.title}
                     noValidate
                   />
                   {errors.title.length > 0 && (
@@ -163,7 +201,7 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="trailerUrl"
                     onChange={this.handleChange}
-                    value={movie.trailerUrl}
+                    value={this.state.trailerUrl || ""}
                     noValidate
                   />
                   {errors.trailerUrl.length > 0 && (
@@ -184,7 +222,7 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="originalSourceUrl"
                     onChange={this.handleChange}
-                    value={movie.originalSourceUrl}
+                    value={this.state.originalSourceUrl || ""}
                     noValidate
                   />
                   {errors.originalSourceUrl.length > 0 && (
@@ -206,7 +244,7 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="cover_url"
                     onChange={this.handleChange}
-                    value={movie.coverUrl}
+                    value={this.state.coverUrl || ""}
                     noValidate
                   />
                   {errors.coverUrl.length > 0 && (
@@ -228,7 +266,7 @@ class UpdateMoovie extends Component {
                     rows="3"
                     name="description"
                     onChange={this.handleChange}
-                    value={movie.description}
+                    value={this.state.description || ""}
                     noValidate
                   />
                   {errors.description.length > 0 && (
@@ -241,7 +279,7 @@ class UpdateMoovie extends Component {
             </div>
 
             <div className="row justify-content-center align-items-center">
-              <div className="col-md-7">
+              <div className="col-md-4">
                 <Form.Group controlId="category">
                   <Form.Text className="text-muted floatLeft">
                     Category
@@ -251,7 +289,7 @@ class UpdateMoovie extends Component {
                     name="category"
                     onChange={this.handleChange}
                     noValidate
-                    value={movie.category}
+                    value={this.state.category || ""}
                   >
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -266,6 +304,25 @@ class UpdateMoovie extends Component {
                   )}
                 </Form.Group>
               </div>
+              <div className="col-md-3">
+                <Form.Group controlId="duration">
+                  <Form.Text className="text-muted floatLeft">
+                    Duration
+                  </Form.Text>
+                  <Form.Control
+                    type="text"
+                    name="duration"
+                    onChange={this.handleChange}
+                    noValidate
+                    value={this.state.duration || ""}
+                  />
+                  {errors.duration.length > 0 && (
+                    <span className="text-danger errorLabel">
+                      {errors.duration}
+                    </span>
+                  )}
+                </Form.Group>
+              </div>
               <div className="col-md-5">
                 <Form.Group controlId="imdbScore">
                   <Form.Text className="text-muted floatLeft">
@@ -275,7 +332,7 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="imdbScore"
                     onChange={this.handleChange}
-                    value={movie.imdbScore}
+                    value={this.state.imdbScore || ""}
                     noValidate
                   />
                   {errors.imdbScore.length > 0 && (
@@ -287,7 +344,26 @@ class UpdateMoovie extends Component {
               </div>
             </div>
             <div className="row justify-content-center align-items-center">
-              <div className="col-md-12">
+              <div className="col-md-6">
+                <Form.Group controlId="director">
+                  <Form.Text className="text-muted floatLeft">
+                    Director
+                  </Form.Text>
+                  <Form.Control
+                    type="text"
+                    name="director"
+                    onChange={this.handleChange}
+                    value={this.state.director || ""}
+                    noValidate
+                  />
+                  {errors.director.length > 0 && (
+                    <span className="text-danger errorLabel">
+                      {errors.director}
+                    </span>
+                  )}
+                </Form.Group>
+              </div>
+              <div className="col-md-6">
                 <Form.Group controlId="releaseDate">
                   <Form.Text className="text-muted floatLeft">
                     Release date
@@ -296,12 +372,53 @@ class UpdateMoovie extends Component {
                     type="text"
                     name="releaseDate"
                     onChange={this.handleChange}
-                    value={movie.releaseDate}
+                    value={this.state.releaseDate || ""}
                     noValidate
                   />
                   {errors.releaseDate.length > 0 && (
                     <span className="text-danger errorLabel">
                       {errors.releaseDate}
+                    </span>
+                  )}
+                </Form.Group>
+              </div>
+            </div>
+            <div className="row justify-content-center align-items-center">
+              <div className="col-md-12">
+                <Form.Group controlId="writers">
+                  <Form.Text className="text-muted floatLeft">
+                    Writers
+                  </Form.Text>
+                  <Form.Control
+                    type="text"
+                    name="writers"
+                    onChange={this.handleChange}
+                    value={this.state.writers || ""}
+                    noValidate
+                  />
+                  {errors.writers.length > 0 && (
+                    <span className="text-danger errorLabel">
+                      {errors.writers}
+                    </span>
+                  )}
+                </Form.Group>
+              </div>
+            </div>
+
+            <div className="row justify-content-center align-items-center">
+              <div className="col-md-12">
+                <Form.Group controlId="stars">
+                  <Form.Text className="text-muted floatLeft">Stars</Form.Text>
+                  <Form.Control
+                    type="text"
+                    name="stars"
+                    onChange={this.handleChange}
+                    value={this.state.stars || ""}
+                    noValidate
+                  />
+                  {errors.stars.length > 0 && (
+                    <span className="text-danger errorLabel">
+                      {errors.stars}
                     </span>
                   )}
                 </Form.Group>
@@ -313,6 +430,7 @@ class UpdateMoovie extends Component {
                 className="modalUpdateMoovie"
                 type="submit"
                 value="Update moovie"
+                data-dismiss={isSubmitted ? "modal" : ""}
               />
             </div>
           </Form>

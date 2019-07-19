@@ -74,12 +74,12 @@
 }
 
 .addNewContent {
-  height: 780px !important;
+  height: 920px !important;
 }
 
 @media screen and (max-width: 770px) {
   .addNewContent {
-    height: 920px !important;
+    height: 1220px !important;
   }
 }
 

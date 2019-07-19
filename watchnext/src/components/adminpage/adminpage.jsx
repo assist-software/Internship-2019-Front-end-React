@@ -46,15 +46,18 @@ class AdminPage extends Component {
 
   deleteMovie() {
     const movieToDelete = this.state.selectedMovieId;
-    axios.delete(`http://localhost:3003/movies/${movieToDelete}`).then(res => {
-      const newData = this.state.data.filter(mov => {
-        if (mov.id !== movieToDelete) {
-          return mov;
-        }
+    axios
+      .delete(`http://192.168.151.218:3000/api/movie/${movieToDelete}`)
+      .then(res => {
+        // eslint-disable-next-line array-callback-return
+        const newData = this.state.data.filter(mov => {
+          if (mov.id !== movieToDelete) {
+            return mov;
+          }
+        });
+        this.setState({ data: newData });
+        this.closeModal();
       });
-      this.setState({ data: newData });
-      this.closeModal();
-    });
   }
 
   componentDidMount() {
@@ -67,7 +70,7 @@ class AdminPage extends Component {
   }
 
   render() {
-    const { filter, data, selectedMovieId, selectedMovie } = this.state;
+    const { filter, data, selectedMovie } = this.state;
     const filteredData = data.filter(item => {
       return item.title.toLowerCase().includes(filter);
     });

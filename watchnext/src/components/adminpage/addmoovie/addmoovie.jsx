@@ -22,7 +22,11 @@ class AddMoovie extends Component {
       coverUrl: null,
       description: null,
       category: null,
+      duration: null,
       imdbScore: null,
+      director: null,
+      writers: null,
+      stars: null,
       releaseDate: null,
       errors: {
         title: "",
@@ -31,7 +35,11 @@ class AddMoovie extends Component {
         coverUrl: "",
         description: "",
         category: "",
+        duration: "",
         imdbScore: "",
+        director: "",
+        writers: "",
+        stars: "",
         releaseDate: ""
       }
     };
@@ -74,11 +82,26 @@ class AddMoovie extends Component {
             ? "Movie category must be at least 5 characters long!"
             : "";
         break;
+      case "duration":
+        errors.duration =
+          value.duration < 5
+            ? "Movie duration must be at least 2 characters long!"
+            : "";
+        break;
       case "imdbScore":
         errors.imdbScore =
           value.length < 2
             ? "IMDB Score must be at least 2 characters long!"
             : "";
+        break;
+      case "director":
+        errors.director = value.length < 4 ? "Specify who's the director!" : "";
+        break;
+      case "writers":
+        errors.writers = value.length < 8 ? "Specify who're the writers!" : "";
+        break;
+      case "stars":
+        errors.stars = value.length < 8 ? "Specify who're the stars!" : "";
         break;
       case "releaseDate":
         errors.releaseDate =
@@ -102,7 +125,11 @@ class AddMoovie extends Component {
       coverUrl: this.state.coverUrl,
       description: this.state.description,
       category: this.state.category,
+      duration: this.state.duration,
       imdbScore: this.state.imdbScore,
+      director: this.state.director,
+      writers: this.state.writers,
+      stars: this.state.stars,
       releaseDate: this.state.releaseDate
     };
 
@@ -227,7 +254,7 @@ class AddMoovie extends Component {
             </div>
 
             <div className="row justify-content-center align-items-center">
-              <div className="col-md-7">
+              <div className="col-md-4">
                 <Form.Group controlId="category">
                   <Form.Text className="text-muted floatLeft">
                     Category
@@ -247,6 +274,24 @@ class AddMoovie extends Component {
                   {errors.category.length > 0 && (
                     <span className="text-danger errorLabel">
                       {errors.category}
+                    </span>
+                  )}
+                </Form.Group>
+              </div>
+              <div className="col-md-3">
+                <Form.Group controlId="duration">
+                  <Form.Text className="text-muted floatLeft">
+                    Duration
+                  </Form.Text>
+                  <Form.Control
+                    type="text"
+                    name="duration"
+                    onChange={this.handleChange}
+                    noValidate
+                  />
+                  {errors.duration.length > 0 && (
+                    <span className="text-danger errorLabel">
+                      {errors.duration}
                     </span>
                   )}
                 </Form.Group>
@@ -271,7 +316,25 @@ class AddMoovie extends Component {
               </div>
             </div>
             <div className="row justify-content-center align-items-center">
-              <div className="col-md-12">
+              <div className="col-md-6">
+                <Form.Group controlId="director">
+                  <Form.Text className="text-muted floatLeft">
+                    Director
+                  </Form.Text>
+                  <Form.Control
+                    type="text"
+                    name="director"
+                    onChange={this.handleChange}
+                    noValidate
+                  />
+                  {errors.director.length > 0 && (
+                    <span className="text-danger errorLabel">
+                      {errors.director}
+                    </span>
+                  )}
+                </Form.Group>
+              </div>
+              <div className="col-md-6">
                 <Form.Group controlId="releaseDate">
                   <Form.Text className="text-muted floatLeft">
                     Release date
@@ -290,6 +353,45 @@ class AddMoovie extends Component {
                 </Form.Group>
               </div>
             </div>
+            <div className="row justify-content-center align-items-center">
+              <div className="col-md-12">
+                <Form.Group controlId="writers">
+                  <Form.Text className="text-muted floatLeft">
+                    Writers
+                  </Form.Text>
+                  <Form.Control
+                    type="text"
+                    name="writers"
+                    onChange={this.handleChange}
+                    noValidate
+                  />
+                  {errors.writers.length > 0 && (
+                    <span className="text-danger errorLabel">
+                      {errors.writers}
+                    </span>
+                  )}
+                </Form.Group>
+              </div>
+            </div>
+
+            <div className="row justify-content-center align-items-center">
+              <div className="col-md-12">
+                <Form.Group controlId="stars">
+                  <Form.Text className="text-muted floatLeft">Stars</Form.Text>
+                  <Form.Control
+                    type="text"
+                    name="stars"
+                    onChange={this.handleChange}
+                    noValidate
+                  />
+                  {errors.stars.length > 0 && (
+                    <span className="text-danger errorLabel">
+                      {errors.stars}
+                    </span>
+                  )}
+                </Form.Group>
+              </div>
+            </div>
 
             <div className="row titleRow justify-content-center align-items-center">
               <input
@@ -300,9 +402,7 @@ class AddMoovie extends Component {
             </div>
           </Form>
           <div className="row justify-content-center align-items-center mt-2">
-            <button data-dismiss="modal" className="modalCancelAdd">
-              Cancel
-            </button>
+            <button className="modalCancelAdd">Cancel</button>
           </div>
         </div>
       </div>

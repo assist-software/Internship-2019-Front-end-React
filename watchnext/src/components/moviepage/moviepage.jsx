@@ -12,7 +12,9 @@ class MoviePage extends Component {
       <div>
         <Header />
         <MovieDescription />
-        <MoviePhotos />
+        <div className="mt-5">
+          <MoviePhotos />
+        </div>
         <Footer />
       </div>
     );
