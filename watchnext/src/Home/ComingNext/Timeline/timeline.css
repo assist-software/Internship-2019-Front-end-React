@@ -54,7 +54,7 @@
     font-family: Campton !important;
   }
  
- #title {
+  .vertical-timeline #title {
     width: 255px !important;
     height: 40px !important;
     font-family: corbel !important;
@@ -64,7 +64,7 @@
     color: #FFFFFF !important;
   }
 
-  #gent{
+  .vertical-timeline #gent{
     width: 102px;
     height: 19px;
     font-family: corbel;
@@ -90,26 +90,30 @@
     margin-left: 20px !important;
   }
   
-  span{
-      font-family: corbel ;
-      color: white;
-      margin-left: -10px;
+  .vertical-element-content span{
+    font-family: corbel ;
+    color: white;
+    margin-left: -10px;
   }
 
   @media only screen and (max-width: 1170px){
-      .vertical-timeline--two-columns .vertical-timeline-element-icon {
-          width: 60px;
-          height: 60px;
-          left: 10px!important;
-          margin-left: -30px;
-      }
-      .vertical-timeline-element-content {
-        
-        margin-left: 85px !important;
+    .vertical-timeline--two-columns .vertical-timeline-element-icon {
+        width: 60px;
+        height: 60px;
+        left: 10px!important;
+        margin-left: -30px;
+    }
+    .vertical-timeline-element-content {
+      
+      margin-left: 85px !important;
 
-      }
-      .vertical-element-content{
-        margin-left: 60px !important;
-      }
+    }
+    .vertical-element-content{
+      margin-left: 60px !important;
+    }
 }
 
+
+.vertical-timeline--two-columns .vertical-timeline-element-icon{
+  border-radius:0 !important;
+}

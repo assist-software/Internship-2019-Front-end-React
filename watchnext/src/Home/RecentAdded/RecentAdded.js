@@ -34,6 +34,9 @@ class RecentAdded extends React.Component {
   constructor(props){
     super(props)
     this.state={
+      oldSlide: 0,
+      activeSlide: 0,
+      activeSlide2: 0
     }
   }
 
@@ -50,17 +53,22 @@ class RecentAdded extends React.Component {
   render() {
     const settings = {
       dots: false,
-      infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 2,
       nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />
+      prevArrow: <PrevArrow />,
+      beforeChange: (current, next) =>
+      this.setState({ oldSlide: current, activeSlide: next }),
+      afterChange: current => this.setState({ activeSlide2: current })
     };
-    
+
     return (   
       <div id="recentAdded">
-          <div id="left">Recent added movies <h4>(4/10)</h4></div>
+          {this.state.recentAddedMovies &&<div id="left">Recent added movies <h4>(
+            {this.state.activeSlide+4>this.state.recentAddedMovies.length?this.state.recentAddedMovies.length:this.state.activeSlide+4}/{this.state.recentAddedMovies.length})</h4>
+            </div>}
           <div id="slider">
               <Slider {...settings}>
                   {this.state.recentAddedMovies}

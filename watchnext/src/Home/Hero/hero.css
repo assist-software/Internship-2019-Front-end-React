@@ -16,19 +16,18 @@
 }
 
 .moon{
-  font-family: corbel;
+  font-family: CamptonLight;
   font-size: 48px;
   line-height: 60px;
   color: #FFFFFF;
 }
 
 .p{
-  font-family: corbel;
-  font-size: 18px;
-  line-height: 25px;
+  font-family: CamptonLight;
+  font-size: 15px;
+  line-height: 22px;
   max-width: 464px;
   padding-right: 84px;
-
   height: 100px;
   color: #FFFFFF;
   opacity: 0.6;
@@ -50,30 +49,29 @@
   height: 48px;
   width: 176px;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 17px;
   border-style: none;
   color: #FFFFFF;
   margin-right: 21px;
-  font-family: corbel;
   font-weight: 600;
   outline: none;
   cursor: pointer;
+  font-family: CamptonLight;
 }
 
-<<<<<<< HEAD
-#moon list{
-=======
-#list{
->>>>>>> 883782a403213293cc90b49ebf972a43f0ef148b
+
+#moon #list{
+
+
   background: #1E1E1E !important;
   height: 48px;
   width: 176px;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 17px;
   border-style: none;
   color: #FFFFFF;
   margin-right: 21px;
-  font-family: corbel;
+  font-family: CamptonLight;
   font-weight: 600;
   outline: none;
   vertical-align: middle;
