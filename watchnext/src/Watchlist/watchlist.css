@@ -151,3 +151,7 @@ color: #FFFFFF;
     font-size: 39px;
     color: gray;
 }
+
+#watchList #list ul{
+    height:122px;
+}

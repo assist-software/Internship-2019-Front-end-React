@@ -1,11 +1,26 @@
-#category{
-    height: 1024px;
-    margin-top: 162px;
-    margin-left: 301px;
-    max-width: 100%;
+#categorypage {
+    margin: 0 auto;
+    color: #010103;
+    padding-top: 140px;
+    max-width: 1143px;
+        height: 1400px; 
+    background: #010103;
+    min-width: 1120px;
 }
 
-#category #titlucateg{
-    font-family: Campton;
+#categorypage #leftcateg {
     font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    font-family: Campton;
+}
+
+#categorypage #leftcateg span{
+    font-family: corbel;
+}
+
+#categorypage h1{
+    color: white;
 }

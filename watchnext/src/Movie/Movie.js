@@ -37,11 +37,11 @@ class Movie extends React.Component {
                                     </div>
                                     <div>
                                          <p id="stw">Writers</p>
-                                         <p id="drw">Stanley Shapiro (screenplay by), Paul Henning (screenplay by) • <a id="stafff" href="">5 more credits</a></p>
+                                         <p id="drw">Stanley Shapiro (screenplay by), Paul Henning (screenplay by) <span>•</span> <a id="stafff" href="">5 more credits</a></p>
                                     </div>
                                     <div>
                                          <p id="sts">Stars</p>
-                                         <p id="drs">Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons • <a id="stafff" href="">See full cast & crew</a></p>
+                                         <p id="drs">Anne Hathaway, Rebel Wilson, Alex Sharp, Timothy Simons <span>•</span> <a id="stafff" href="">See full cast & crew</a></p>
                                     </div>
                                    
                                   

@@ -16,13 +16,14 @@ class ComingNext extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-        loaded:false,
+				loaded:false,
+				genreName:'',
         genre:'Action',
         genres: [],
         startDate: new Date(),
         date:'',
         dateOpen:false,
-        list:true
+        isListDisplayed:true
     }
   }
   
@@ -34,20 +35,15 @@ class ComingNext extends React.Component {
   }
 
   dateSelect = (date) => {
-    this.setState((prev)=>{
-      return {
-        date: date,
-        dateOpen: true
-      }
-    })
+		this.setState({
+			date: date,
+			dateOpen: true
+		})
   }
 
-  updateGenre = (g) => {
-    this.setState(()=>{
-      return{
-        genre:g
-      }
-    })
+  updateGenre = (genre) => {
+		this.setState({genre})
+		this.getMovies(genre)
   }
 
   btnDateClick = () => {
@@ -59,15 +55,8 @@ class ComingNext extends React.Component {
   }
 
   componentDidMount = () => {
-    let url = "http://localhost:3001/movies"
-    fetch(url)
-      .then(resp => resp.json())
-      .then(data => {
-        let movies = data.map(item => <MovieCart updateCounter={()=>this.props.updateCounter()} id={item.id} title={item.title} release={item.releaseDate} gen={item.gen} img={item.img} />)
-        this.setState({comingNext:movies})
-      })
-
-    url = "http://localhost:3001/category/"
+		this.getMovies(1)
+    let url = "http://localhost:3001/category"
     fetch(url)
       .then(resp => resp.json())
       .then(data => {
@@ -76,18 +65,32 @@ class ComingNext extends React.Component {
         }) 
       }) 
       })
-  }
+	}
+	
+	getMovies = (category_id) => {
+		let url = "http://localhost:3001/movies?category_like=" + category_id
+    fetch(url)
+      .then(resp => resp.json())
+      .then(data => {
+				let movies = data.map(item => 
+          <MovieCart 
+            key={item.id}
+						updateCounter={()=>this.props.updateCounter()} 
+						id={item.id} title={item.title} 
+						release={item.releaseDate} 
+						gen={item.category} 
+            img={item.coverUrl}
+					/>)
+				this.setState({comingNext:movies})
+      })
+	}
 
-  switchTimeLine = () => {
-    this.setState({list:false})
-  }
-
-  swithcList = () => {
-    this.setState({list:true})
+  swithcList = (val) => {
+    this.setState({list:val})
   }
 
   render() {
-    const {isListDisplayed} = this.state
+		const {genre, genres} = this.state;
     return (
       <div id="comingNext">
         <div id="container">
@@ -96,7 +99,7 @@ class ComingNext extends React.Component {
             <h1>See what movies are<br />coming next month</h1>
 
             <div id="filter">       
-              <Dropdown list={this.state.genres} gen={this.state.genre} ug={this.updateGenre} />
+              <Dropdown list={genres} gen={genre} ug={this.updateGenre} num={true}/>
 
               <button id="date" onClick={this.btnDateClick}> 
                 <FontAwesomeIcon icon={faCalendar} /> Any Date <FontAwesomeIcon icon={this.state.dateOpen?faChevronDown:faChevronLeft} />
@@ -118,21 +121,17 @@ class ComingNext extends React.Component {
                 />
               </div>
               
-                    
               <div id="view">
-                <button onClick={this.swithcList}><FontAwesomeIcon icon={faTh} /></button>
-                <button onClick={this.switchTimeLine}><FontAwesomeIcon icon={faList} /></button>
+                <button onClick={() => this.swithcList(false)}><FontAwesomeIcon icon={faTh} /></button>
+                <button onClick={() => this.swithcList(true)}><FontAwesomeIcon icon={faList} /></button>
               </div>
 
             </div>
       
           </div>
 
-
-
           <div id="comingList">
-            {this.state.list ? this.state.comingNext :  <Timeline/>}
-          
+            {!this.state.list ? this.state.comingNext :  <Timeline/>}
           </div>  
 
         </div>

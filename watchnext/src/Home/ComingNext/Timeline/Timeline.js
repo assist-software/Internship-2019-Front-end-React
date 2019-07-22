@@ -16,8 +16,9 @@ class Timeline extends React.Component {
 		fetch(url)
 			.then(resp => resp.json())
 			.then(data => {
-				let movies = data.map(item => {
+				let movies = data.map((item,index) => {
 					return <VerticalTimelineElement
+						key = {index}
 						className="verticalwork"
 						iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
 						icon={"20.03.2019"}

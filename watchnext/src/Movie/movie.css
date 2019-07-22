@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-#moovie#imgmov{
+#moovie #imgmov{
     width: 368px;
     height: 552px;
     background: linear-gradient(0deg, rgba(36, 36, 36, 0.3), rgba(36, 36, 36, 0.3)), url(image.png);
@@ -27,7 +27,7 @@
 #moovie #p{
     width: 168px;
     height: 25px;
-    font-family: corbel;
+    font-family: Campton;
     font-size: 18px;
     line-height: 25px;
     text-decoration-line: underline;
@@ -48,7 +48,7 @@
      width: 376px;
     height: 53px;
     display: flex;
-    font-family: corbel;
+    font-family: Campton;
     font-size: 48px;
     line-height: 60px;
     align-items: center; 
@@ -74,7 +74,7 @@
     width: 464px;
     top: 396px;
     height: 260px;
-    font-family: corbel;
+    font-family: Campton;
     font-size: 18px;
     line-height: 25px;
     color: #FFFFFF;
@@ -88,7 +88,7 @@
     border-style: none;
     color: #FFFFFF;
     margin-right: 21px;
-    font-family: corbel;
+    font-family: Campton;
     font-weight: 600;
     outline: none;
     cursor: pointer;
@@ -110,7 +110,7 @@
     width: 80px;
     height: 25px;
     margin-right: 20px;
-    font-family: corbel;
+    font-family: Campton;
     font-size: 18px;
     line-height: 25px;
     color: #FFFFFF;
@@ -122,7 +122,7 @@
     width: 80px;
     height: 25px;
     margin-right: 20px;
-    font-family: corbel;
+    font-family: Campton;
     font-size: 18px;
     line-height: 25px;
     color: #FFFFFF;
@@ -131,11 +131,18 @@
     margin-top: 18px;
 }
 
+#moovie #drw span{
+font-family: corbel;
+}
+
+#moovie #drs span{
+    font-family: corbel;
+    }
 #moovie #sts{
     width: 80px;
     height: 25px;
     margin-right: 20px;
-    font-family: corbel;
+    font-family: Campton;
     font-size: 18px;
     line-height: 25px;
     color: #FFFFFF;
@@ -146,7 +153,7 @@
 #moovie #dr{
     width: 176px;
     height: 25px;
-    font-family: corbel;
+    font-family: Campton;
     font-size: 18px;
     line-height: 25px;
     color: #FFFFFF;
@@ -157,7 +164,7 @@
 #moovie #drw{
     width: 368px;
     height: 50px;
-    font-family: corbel;
+    font-family: Campton;
     font-size: 18px;
     line-height: 25px;
     color: #FFFFFF;
@@ -168,14 +175,14 @@
     margin-top: 35px;
     width: 368px;
     height: 50px;
-    font-family: corbel;
+    font-family: Campton;
     font-size: 18px;
     line-height: 25px;
     color: #FFFFFF;
 }
 
 #moovie #stafff{
-    font-family: corbel;
+    font-family: Campton;
     font-size: 18px;
     line-height: 25px;
     align-items: center;
@@ -184,7 +191,7 @@
 }
 
 #moovie #left #play{
-    font-family: corbel;
+    font-family: Campton;
     font-size: 22px;
     line-height: 30px;
     text-align: center;
@@ -213,7 +220,7 @@
 #moovie #containerfoto #fotto h1{
     max-width: 272px;
     height: 64px;
-    font-family: corbel;
+    font-family: Campton;
     font-size: 48px;
     line-height: 60px;
     color: #FFFFFF;
@@ -255,9 +262,9 @@
     position: absolute;
     width: 168px;
     height: 30px;
-    margin-left: -271px;
+    margin-left: -272px;
     top: 548px;
-    font-family: corbel;
+    font-family: Campton;
     font-size: 22px;
     line-height: 30px;
     text-align: center;
@@ -271,4 +278,5 @@
     height: 80px;
     margin-left: -223px;
     top: 447px;
+    cursor: pointer;
 }
