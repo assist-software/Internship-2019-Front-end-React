@@ -1,0 +1,367 @@
+#login_page{
+    position: relative;
+    max-width: 1920px;
+    max-height: 1024px;
+    background: #010103;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+#mainPage{
+    position: relative;
+    max-width: 1440px;
+    
+    background: #010103;
+    margin-left: 10%;
+}
+
+#logo{
+    position: relative;
+    text-align: center;
+}
+
+#logoImage{ 
+    margin-top: 151px;
+    margin-bottom: 58px;
+}
+
+#box{
+    background: #0A0A0A;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    display: block;
+    max-width: 560px;
+    /* min-width: 400px; */
+    min-height: 623px;
+    /* margin-top: 0px; */
+    margin: 0 auto;
+}
+
+#box #logInInputDiv{
+    text-align: center;
+    margin-top: 100px;
+}
+
+#box #loginText{
+    color: #FFFFFF;
+    margin-top: 0px auto;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    padding: 30px 0 40px 0px;
+    text-align: center;
+    font-size: 48px;
+    width: 432px;
+    height: 144px;
+    line-height: 60px;
+    font-family: Campton;
+    font-weight: 100;
+}
+
+#barLogin{
+    margin-left: auto;
+    margin-right: auto;
+    width: 560px;
+    height: 8px;
+    background: #212128;
+}
+
+#box #log{
+    width: 351px;
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px;
+    border-radius: 8px;
+    line-height: 21px;
+    font-size: 18px;
+    padding-left: 16px;
+    background: #0A0A0A;
+    border: 1px solid #9C9B9B;
+    outline: none;
+    margin-top: -14px;
+}
+
+#boxReset #logResetPassword {
+    width: 351px;
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px;
+    border-radius: 8px;
+    line-height: 21px;
+    font-size: 18px;
+    padding-left: 16px;
+    background: #0A0A0A;
+    border: 1px solid #9C9B9B;
+    outline: none;
+    margin-top: -14px;
+}
+
+#box #password{
+    color: #9C9B9B;
+    text-align: right;
+    margin-right: 17%;
+    font-size: 14px;
+    font-family: Campton;
+}
+
+#box #buttonDiv{
+    margin-top: 40px;
+}
+
+#boxReset #buttonDiv{
+    margin-top: 40px;
+}
+
+#box #logIn{
+    width: 367px;
+    height: 48px;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: #F5044C; 
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+
+    transition-duration: 0.4s;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+}
+
+#boxReset #logIn{
+    width: 367px;
+    height: 48px;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: #F5044C; 
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+
+    transition-duration: 0.4s;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+}
+
+.button1 {
+    width: 367px;
+    height: 48px;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: #F5044C; 
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+    font-family: Campton;
+    cursor: pointer;
+  }
+  
+  .button1:hover {
+    width: 367px;
+    height: 48px;
+    color: #0A0A0A;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: black;
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+  }
+
+  input, select, textarea{
+    color: white;
+}
+
+    textarea:focus, input:focus {
+    color: white;
+}
+
+
+#box #eye{
+    color: #9C9B9B;
+    margin-left: -38px;
+    position: absolute;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+#box #create{
+    color: #9C9B9B;
+    font-family: Campton;
+    font-size: 14px;
+    margin-top: 7px;
+    margin-bottom: 0px;
+}
+
+#box #createOne{
+    position: absolute;
+    width: 108px;
+    height: 1px;
+    opacity: 0.7;
+    margin-left: 28px;
+    border: 1px solid #B3B3B3;
+}
+
+#box #haveOne {
+    position: absolute;
+    width: 42px;
+    height: 1px;
+    opacity: 0.7;
+    margin-left: 69px;
+    border: 1px solid #B3B3B3;
+}
+
+#boxReset{
+    background: #0A0A0A;
+    display: block;
+    max-width: 560px;
+    min-height: 463px;
+    margin: 0 auto;
+}
+
+#box #resetText{
+    color: #9C9B9B;
+    text-align: center;
+    margin-bottom: 70px;
+    font-size: 17px;
+    font-family: Campton;
+}
+
+#boxReset #resetTextResetPassword{
+    color: #9C9B9B;
+    text-align: center;
+    margin-bottom: 70px;
+    font-size: 17px;
+    font-family: Campton;
+}
+
+#boxReset #resetLoginText{
+    color: #FFFFFF;
+    margin: 0 auto;
+    padding: 58px 0 0px 0px;
+    text-align: center;
+    font-size: 48px;
+    width: 432px;
+    height: 144px;
+    line-height: 60px;
+    font-family: Campton;
+    font-weight: 100;
+}
+
+#box #hideItem{
+    display: none;
+}
+
+#boxReset #hideItem{
+    display: none;
+}
+
+
+#box #afterClick{
+    text-align: center;
+    color: #9C9B9B;
+    font-size: 20px;
+    font-family: Campton;
+    margin-top: 66px;
+}
+
+#boxReset #afterClick{
+    text-align: center;
+    color: #9C9B9B;
+    font-size: 20px;
+    font-family: Campton;
+    margin-top: 66px;
+}
+
+#box #displayEmail{
+    text-align: center;
+    color: #F5044C;
+    font-size: 20px;
+    font-family: Campton;
+    margin-top: 66px;
+}
+
+#boxReset #button2 {
+    width: 367px;
+    height: 48px;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: #F5044C; 
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  #boxReset #button2:hover {
+    width: 367px;
+    height: 48px;
+    color: #0A0A0A;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: black;
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+  }
+
+  #box input:-internal-autofill-selected {
+    background-color: #9C9B9B !important;
+    background-image: none !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #0A0A0A inset !important;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+}
+
+#logFail{
+    width: 351px;
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    line-height: 21px;
+    font-size: 18px;
+    padding-left: 16px;
+    background: #0A0A0A;
+    border: 2px solid red;
+    outline: none;
+}
+
+#noEmail{
+    color: red;
+    font-family: Campton;
+    font-size: 15px;
+}
+
+#noRegister{
+    color: red;
+    font-family: Campton;
+    font-size: 15px;
+}
+
+#noLogin{
+    color: red;
+    font-family: Campton;
+    font-size: 15px;
+}

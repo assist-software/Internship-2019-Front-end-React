@@ -1,0 +1,601 @@
+#blurAdminPage{
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #000000a8;
+    z-index: 999;
+}
+
+#mainDialogAddMovie{
+    background: white;
+    max-width: 1000px;
+    min-width: 600px;
+    height: 1000px;
+    box-shadow: 0px 4px 100px rgba(163, 163, 163, 0.1);
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 252px;
+    width: 90%;
+}
+
+#mainDialogAddMovie #AddMovie{
+    font-family: Campton;
+    color: black;
+    text-align: center;
+    font-size: 36px;
+    line-height: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+#mainDialogAddMovie #titleURL{
+    margin: 0 auto;
+    color: #010103;
+}
+
+#mainDialogAddMovie #movieTitle{
+    background: white;
+    border: 1px solid #010103;
+    height: 48px;
+    width: 276px;
+    margin: 0 auto;
+    outline: none;
+    color: black;
+    border-radius: 4px;
+    font-family: campton;
+    padding-left: 10px;
+}
+
+#mainDialogAddMovie #trailerURL{
+    background: white;
+    border: 1px solid #010103;
+    height: 48px;
+    width: 276px;
+    margin: 0 auto;
+    outline: none;
+    color: black;
+    border-radius: 4px;
+    font-family: campton;
+    padding-left: 10px;
+}
+
+#mainDialogAddMovie #movieTitleText{
+    margin: 0 auto;
+    display: flex;
+    font-family: campton;
+}
+
+#mainDialogAddMovie #trailerURLText{
+    display: flex;
+    font-family: campton;
+    margin: 0 auto;
+}
+
+#mainDialogAddMovie #dialogContent{
+    margin-top: 166px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 70px;
+
+}
+
+#mainDialogAddMovie #Display{
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+}
+
+#mainDialogAddMovie #trailerURLdiv{
+    color: #010103;
+    margin: 0 auto;
+}
+
+#mainDialogAddMovie #originalSourceText{
+    color: #010103;
+    display: flex;
+    margin-top: 20px;
+    font-family: campton;
+}
+
+#mainDialogAddMovie #originalSourceInput{
+    width: 577px;
+    height: 48px;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid #010103;
+    outline: none;
+    border-radius: 4px;
+    color: black;
+    font-family: campton;
+    padding-left: 10px;
+}
+
+#mainDialogAddMovie #originalSourceDiv{
+    margin: 0 auto;
+    text-align: center;
+    width: 577px;
+}
+
+#mainDialogAddMovie #coverURLdiv{
+    margin: 0 auto;
+    text-align: center;
+    width: 577px;
+}
+
+#mainDialogAddMovie #coverURLtext{
+    color: #010103;
+    display: flex;
+    margin-top: 20px;
+    font-family: campton;
+}
+
+#mainDialogAddMovie #coverURLinput{
+    width: 577px;
+    height: 48px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 4px;
+    border: 1px solid #010103;
+    outline: none;
+    color: black;
+    font-family: campton;
+    padding-left: 10px;
+}
+
+#mainDialogAddMovie #descriptionDiv{
+    margin: 0 auto;
+    text-align: center;
+    width: 577px;
+}
+
+#mainDialogAddMovie #descriptionText{
+    color: #010103;
+    display: flex;
+    margin-top: 20px;
+    font-family: campton;
+}
+
+#mainDialogAddMovie #descriptionInput{
+    width: 577px;
+    height: 159px;
+    color: black;
+    margin: 0 auto;
+    background: white;
+    border-radius: 4px;
+    border: 1px solid #010103;
+    outline: none;
+    resize: none;
+    font-family: campton;
+    padding-left: 10px;
+}
+
+#mainDialogAddMovie #category{
+    margin: 0 auto;
+    color: #010103;
+    padding-top: 20px;
+}
+
+#mainDialogAddMovie #categoryText{
+    margin: 0 auto;
+    display: flex;
+    font-family: campton;
+}
+
+#mainDialogAddMovie #categoryInput{
+    background: white;
+    border: 1px solid #010103;
+    height: 48px;
+    width: 276px;
+    margin: 0 auto;
+    color: black;
+    border-radius: 4px;
+    font-family: campton;
+    outline: none;
+    padding-left: 10px;
+}
+
+#mainDialogAddMovie #imdbScoreDiv{
+    margin: 0 auto;
+    color: #010103;
+    padding-top: 20px;
+}
+
+#mainDialogAddMovie #imdbScoreText{
+    margin: 0 auto;
+    display: flex;
+    font-family: campton;
+}
+
+#mainDialogAddMovie #imdbScoreInput{
+    background: white;
+    border: 1px solid #010103;
+    height: 48px;
+    width: 276px;
+    margin: 0 auto;
+    outline: none;
+    color: black;
+    border-radius: 4px;
+    font-family: campton;
+    padding-left: 10px;
+}
+
+#mainDialogAddMovie #releaseDateDiv{
+    margin: 0 auto;
+    text-align: center;
+    width: 577px;
+}
+
+#mainDialogAddMovie #releaseDatetext{
+    color: #010103;
+    display: flex;
+    margin-top: 20px;
+    font-family: campton;
+}
+
+#mainDialogAddMovie #releaseDateLinput{
+    width: 577px;
+    height: 48px;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid #010103;
+    font-family: campton;
+    outline: none;
+    color: black;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+.addMovieButton{
+    width: 367px;
+    height: 48px;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: #F5044C; 
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+    cursor: pointer;
+
+    margin: 0 auto;
+  
+}
+
+.addMovieButton:hover{
+    width: 367px;
+    height: 48px;
+    color: #0A0A0A;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: black;
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+}
+
+#mainDialogAddMovie #addMovieButton{
+    margin: 0 auto;
+    width: 367px;
+    padding-top: 50px;
+}
+
+#mainDialogAddMovie #cancelButton{
+    color: #010103;
+    font-family: Campton;
+    text-align: center;
+}
+
+#dialogContent svg{
+    font-size: 16px !important;
+    font-weight: bold;
+    width: 16px !important;
+    color: black;
+    margin-left: 125px;
+}
+
+#mainDialogAddMovie #dropDown{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+#list{
+    background:none;
+    /* padding: 0 10px 0 10px; */
+}
+
+#dialogContent button{
+    width: 158px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+    background: #f5044c;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 600;
+    font-family: unset;
+    font-family: Campton;
+    border-radius: 4px;
+
+
+    outline: none;
+    background: white;
+    border: 1px solid #010103;
+    height: 48px;
+    width: 276px;
+    margin: 0 auto;
+}
+
+/* button:hover{
+    background: #C7044C;
+} */
+
+#dialogContent ul{
+    list-style-type: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    width: 276px;
+    margin-top: 10px;
+    color: #000;
+    background: #FFF;
+    border: 1px solid #010103;
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    font-family: Campton;
+}
+
+#dialogContent li{
+    text-align: left;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#dialogContent li:hover{
+    color: #FFF;
+    background: #000;
+}
+#dp button{
+    pointer-events: none;
+    width:10px !important;;
+    height: 10px !important;;
+    color:#fff !important;
+}
+#dp input{
+    width: 158px;
+    height: 40px;    opacity: 0;
+    margin: -28px 0px 0px -159px;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    border-radius: 4px;
+    border-radius: 4px;
+}
+
+#dp .react-datepicker{
+    margin-left:-200px;
+}
+
+#date{
+    background:none !important;
+    border-radius: 8px;
+    font-size: 20px;
+    color: white;
+    border: 1px solid #f5044c !important;
+    background: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 600;
+    font-family: unset;
+    color: #F5044C !important;
+    outline: none;
+}
+
+.react-datepicker__month{
+    background: #F5044C;
+    border-radius: 8px;
+}
+
+.react-datepicker {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+     background-color:transparent !important;
+    color: #000;
+    border: none !important;
+    border-radius: 0.3rem;
+    display: block !important;
+    position: relative;
+}
+
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+    color: #ffffff !important;
+    display: inline-block;
+    width: 1.7rem;
+    line-height: 1.7rem;
+    text-align: center;
+    padding: 12px 10px 12px 10px;
+    font-weight: bold;
+}
+
+.react-datepicker__day--keyboard-selected:hover, .react-datepicker__month-text--keyboard-selected:hover {
+    background-color: #1d5d90;
+}
+
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected {
+    border-radius: 0.3rem;
+    background-color: #ffffff !important;
+    color: #F5044C !important;
+    border-radius: 50%;
+}
+
+.react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover, .react-datepicker__month-text--selected:hover, .react-datepicker__month-text--in-selecting-range:hover, .react-datepicker__month-text--in-range:hover {
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+}
+.react-datepicker__day--selected{
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+    color: #F5044C !important;
+}
+.react-datepicker__day:hover, .react-datepicker__month-text:hover {
+    border-radius: 50% !important; 
+    background-color: #ffffff;
+    color: #F5044C !important;
+}
+
+.react-datepicker__day--keyboard-selected:hover, .react-datepicker__month-text--keyboard-selected:hover {
+    background-color: #ffffff;
+    border-radius: 50% !important;
+    color: #F5044C !important;
+}
+
+.react-datepicker__day:hover, .react-datepicker__month-text:hover {
+    border-radius: 0.3rem;
+    background-color: #ffffff;
+    border-radius: 50% !important;
+    color: #F5044C !important;
+}
+
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected {
+    border-radius: 0.3rem;
+    background-color: #ffffff;
+    color: #F5044C !important;
+    border-radius: 50% !important;
+}
+
+.react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover, .react-datepicker__month-text--selected:hover, .react-datepicker__month-text--in-selecting-range:hover, .react-datepicker__month-text--in-range:hover {
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+}
+
+.react-datepicker__month-container{
+    background: #F5044C;
+    border-radius: 8px
+}
+.react-datepicker__header {
+    text-align: center;
+    background-color: #f0f0f0;
+    background:transparent !important;
+    border: 0 !important;
+    margin-bottom: -21px;
+}
+.react-datepicker button{
+    padding:0;
+    background:none !important;
+}
+
+.react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header {
+    margin-top: 22px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.944rem;
+    font-size: 21px;
+}
+
+.react-datepicker__triangle{
+    display:none !important;
+}
+
+.react-datepicker__current-month{
+    color:#fff !important;
+    font-size: 20px !important
+}
+
+#closeButtonDiv{
+    text-align: right;
+    max-width: 1000px;
+    min-width: 600px;
+    padding: 33px;
+}
+
+#mainDialogAddMovie #closeButton{
+    color: black;
+    width: 20px;
+    text-align: right;
+    height: 16px;
+    width: 16px;
+}
+
+#mainDialogAddMovieDelete{
+    background: white;
+    max-width: 752px;
+    /* min-width: 600px; */
+    min-width: 430px;
+    min-height: 338px;
+    height: 420px;
+    box-shadow: 0px 4px 100px rgba(163, 163, 163, 0.1);
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 252px;
+    width: 90%;
+}
+
+#mainDialogAddMovieDelete #AddMovie{
+    font-family: Campton;
+    color: black;
+    text-align: center;
+    font-size: 36px;
+    margin: 0 auto;
+    padding: 104px;
+    padding-bottom: 60px;
+}
+
+#mainDialogAddMovieDelete #buttonsDiv{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+#mainDialogAddMovieDelete #cancelButton{
+    background: white;
+    border: 1px solid #010103;
+    border-radius: 8px;
+    width: 176px;
+    height: 48px;
+    color: black;
+    font-family: Campton;
+}
+
+#mainDialogAddMovieDelete #cancelButton{
+    background: white;
+    border: 1px solid #010103;
+    border-radius: 8px;
+    width: 176px;
+    height: 48px;
+    color: black;
+    font-family: Campton;
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+#mainDialogAddMovieDelete #deleteButton{
+    width: 176px;
+    height: 48px;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: #F5044C;
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #010103;
+    border-radius: 8px;
+    margin: 0 auto;
+}

@@ -1,0 +1,119 @@
+
+
+.vertical-timeline--animate .vertical-timeline-element-content.bounce-in{
+    background-color: transparent !important;
+    display: flex;
+    
+}
+.vertical-timeline-element-content {
+    box-shadow: none !important;
+    border: 1px solid #f5044c !important;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    width: 414px;
+    height: 113px;
+    
+  }
+  .vertical-timeline-element-content::before {
+    visibility: hidden !important;
+    
+  }
+
+  .vertical-timeline::before {
+    position: absolute;
+    top: 0;
+    left: 18px;
+    height: 100%;
+    width: 4px;
+    background: #F5044C !important;
+    
+}
+
+  .img1{
+    width: 72px;
+    height: 111px;
+    border-radius: 7px;
+  }
+  .vertical-timeline {
+    background-color: transparent !important;
+    margin-top: 0 !important;
+    border-radius: 8px !important;
+   
+  }
+ 
+  .vertical-timeline-element-icon {
+    box-shadow: none !important;
+    background-color: #13131c !important;
+    line-height: 50px !important;
+    left: 49% !important;
+    top: 30% !important;
+    margin-left: -36px !important;
+    font-size: 18px !important;
+    font-family: Campton !important;
+  }
+ 
+  .vertical-timeline #title {
+    width: 255px !important;
+    height: 40px !important;
+    font-family: corbel !important;
+    font-size: 18px !important;
+    line-height: 40px !important;
+    align-items: center !important;
+    color: #FFFFFF !important;
+  }
+
+  .vertical-timeline #gent{
+    width: 102px;
+    height: 19px;
+    font-family: corbel;
+    font-size: 14px;
+    display: flex;
+    line-height: 19px;
+    align-items: center;
+    color: #FFFFFF;
+    
+  }
+
+  .vertical-timeline-element-content p {
+      display: inline;
+      font-size: 18px;
+      line-height: 60px;
+    color: #F5044C;
+    font-family: Campton !important;
+    margin-left: 22px !important;
+}
+  .vertical-timeline-element-title {
+    margin-top: 16px !important;
+    margin-bottom: 0px !important;
+    margin-left: 20px !important;
+  }
+  
+  .vertical-element-content span{
+    font-family: corbel ;
+    color: white;
+    margin-left: -10px;
+  }
+
+  @media only screen and (max-width: 1170px){
+    .vertical-timeline--two-columns .vertical-timeline-element-icon {
+        width: 60px;
+        height: 60px;
+        left: 10px!important;
+        margin-left: -30px;
+    }
+    .vertical-timeline-element-content {
+      
+      margin-left: 85px !important;
+
+    }
+    .vertical-element-content{
+      margin-left: 60px !important;
+    }
+}
+
+
+.vertical-timeline--two-columns .vertical-timeline-element-icon{
+  border-radius:0 !important;
+}

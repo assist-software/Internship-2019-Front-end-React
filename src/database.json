@@ -1,0 +1,337 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Godzila Kind of the Monsters1",
+      "gen": [
+        "Action",
+        "Comedy"
+      ],
+      "releaseDate": "2019-03-20",
+      "img": "http://localhost:3000/static/media/img.png",
+      "category": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Godzila Kind of the Monsters2",
+      "gen": [
+        "Action",
+        "Comedy"
+      ],
+      "releaseDate": "2019-03-21",
+      "img": "http://localhost:3000/static/media/img.png",
+      "category": [
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Godzila Kind of the Monsters3",
+      "gen": [
+        "Action",
+        "Comedy"
+      ],
+      "releaseDate": "2019-03-22",
+      "img": "http://localhost:3000/static/media/img.png",
+      "category": [
+        8,
+        9
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Godzila Kind of the Monsters4",
+      "gen": [
+        "Action",
+        "Comedy"
+      ],
+      "releaseDate": "2019-03-23",
+      "img": "http://localhost:3000/static/media/img.png",
+      "category": [
+        8,
+        9,
+        12
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Godzila Kind of the Monsters5",
+      "gen": [
+        "Action",
+        "Comedy"
+      ],
+      "releaseDate": "2019-03-24",
+      "img": "http://localhost:3000/static/media/img.png",
+      "category": [
+        8,
+        9,
+        12
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Godzila Kind of the Monsters6",
+      "gen": [
+        "Action",
+        "Comedy"
+      ],
+      "releaseDate": "2019-03-25",
+      "img": "http://localhost:3000/static/media/img.png",
+      "category": [
+        8,
+        9,
+        12
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Godzila Kind of the Monsters6",
+      "gen": [
+        "Action",
+        "Comedy"
+      ],
+      "releaseDate": "2019-03-25",
+      "img": "http://localhost:3000/static/media/img.png",
+      "category": [
+        8,
+        9,
+        12
+      ]
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Action"
+    },
+    {
+      "id": 2,
+      "name": "Adventure"
+    },
+    {
+      "id": 3,
+      "name": "Animation"
+    },
+    {
+      "id": 4,
+      "name": "Biography"
+    },
+    {
+      "id": 5,
+      "name": "Comedy"
+    },
+    {
+      "id": 6,
+      "name": "Crime"
+    },
+    {
+      "id": 7,
+      "name": "Documentary"
+    },
+    {
+      "id": 8,
+      "name": "Drama"
+    },
+    {
+      "id": 9,
+      "name": "Family"
+    },
+    {
+      "id": 10,
+      "name": "Fantasy"
+    },
+    {
+      "id": 11,
+      "name": "Film Noir"
+    },
+    {
+      "id": 12,
+      "name": "History"
+    },
+    {
+      "id": 13,
+      "name": "Horror"
+    },
+    {
+      "id": 14,
+      "name": "Music"
+    },
+    {
+      "id": 15,
+      "name": "Musical"
+    },
+    {
+      "id": 16,
+      "name": "Mystery"
+    },
+    {
+      "id": 17,
+      "name": "Romance"
+    },
+    {
+      "id": 18,
+      "name": "Sci-Fi"
+    },
+    {
+      "id": 19,
+      "name": "Short Film"
+    },
+    {
+      "id": 20,
+      "name": "Sport"
+    },
+    {
+      "id": 21,
+      "name": "Superhero"
+    },
+    {
+      "id": 22,
+      "name": "Thriller"
+    },
+    {
+      "id": 23,
+      "name": "War"
+    },
+    {
+      "id": 24,
+      "name": "Western"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Bogdan",
+      "email": "b.petrosceac@gmail.com",
+      "password": "salut"
+    },
+    {
+      "username": "Bogdan",
+      "email": "b.petrosceac@gmail.com",
+      "password": "salut",
+      "id": 2
+    },
+    {
+      "username": "Bogdan",
+      "email": "b.petrosceac@gmail.com",
+      "password": "salut",
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "username": "asd",
+      "email": "b.petrosceac@gmail.com",
+      "password": "Bogdan Petrosceac",
+      "id": 7
+    },
+    {
+      "username": "asd",
+      "email": "b.petrosceac@gmail.com",
+      "password": "Bogdan Petrosceac",
+      "id": 8
+    },
+    {
+      "username": "asd",
+      "email": "b.petrosceac@gmail.com",
+      "password": "Bogdan Petrosceac",
+      "id": 9
+    },
+    {
+      "username": "asd",
+      "email": "b.petrosceac@gmail.com",
+      "password": "Bogdan Petrosceac",
+      "id": 10
+    },
+    {
+      "username": "asd",
+      "email": "b.petrosceac@gmail.com",
+      "password": "Boss",
+      "id": 11
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "id": 12
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosc",
+      "password": "asd",
+      "id": 13
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "id": 14
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "id": 15
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "id": 16
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "id": 17
+    },
+    {
+      "username": "",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "id": 18
+    },
+    {
+      "username": "Bogdan Petrosceac1",
+      "email": "b.petrosceac@gmail.com",
+      "password": "123",
+      "id": 19
+    },
+    {
+      "username": "Bogdan Petrosceac1",
+      "email": "b.petrosceac@gmail.com",
+      "password": "1233",
+      "id": 20
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "id": 21
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "id": 22
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "id": 23
+    }
+  ]
+}
