@@ -37,9 +37,9 @@
 }
 
 .timeline {
-  border: 1px solid #F5044C;
+  border: 1px solid #f5044c;
   background-color: transparent;
-  color: #F5044C;
+  color: #f5044c;
 }
 
 .date-picker {
@@ -106,7 +106,7 @@
   position: absolute;
   z-index: 2;
   color: #f5044c;
-  top: 2px;
+  /* top: 2px; */
   /* margin-right: 5px; */
 }
 #timer-b {

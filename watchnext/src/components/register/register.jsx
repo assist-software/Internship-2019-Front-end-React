@@ -25,7 +25,7 @@ class Register extends Component {
     });
   };
   handleSubmit = async event => {
-    const { password, confimPassword, email } = this.state;
+    const { password, confimPassword } = this.state;
     event.preventDefault();
 
     if (password !== confimPassword) {
@@ -35,7 +35,10 @@ class Register extends Component {
         /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/gm
       )
     ) {
-      this.setState({ registerError: "Password must contain ...." });
+      this.setState({
+        registerError:
+          "Password must contain 8 characters, digits && special characters"
+      });
       // } else if (!email.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)) {
       // this.setState({ registerError: 'Please insert a valid email address' })
     } else {
@@ -56,6 +59,7 @@ class Register extends Component {
             this.setState({ loginError: "Invalid credentials" });
           },
           afterSuccess: ({ data: { token } }) => {
+            console.log("tessstsyydy");
             localStorage.setItem("token", token);
             this.props.history.push("/login");
           }
@@ -82,7 +86,7 @@ class Register extends Component {
               Let's create your account
             </h2>
           </div>
-          <div className="Login">
+          <div className="register">
             <form id="form">
               <FormGroup controlId="username" id="inputs">
                 <FormControl

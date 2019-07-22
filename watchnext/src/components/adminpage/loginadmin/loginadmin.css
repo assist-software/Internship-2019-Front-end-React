@@ -1,9 +1,8 @@
-   
-.container-login {
+/* .container-login {
   margin-top: 160px;
   margin-bottom: 150px;
   margin-top: 50px;
-}
+} */
 .title {
   color: #ffffff;
 }
@@ -13,9 +12,8 @@
   display: flex;
   float: right;
 }
-.Login .btn-primary {
+.login .btn-primary {
   background: #f5044c;
   margin-top: 110px;
   margin-bottom: 25px;
 }
-

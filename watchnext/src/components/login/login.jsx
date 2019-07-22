@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
 import createApiRequest from "../../api";
 import logo from "../../assets/img/frame.png";
 import "./login.css";
@@ -65,7 +64,10 @@ class Login extends Component {
 
     return (
       <div className="container">
-        <img src={logo} className="frame" alt="Logo" />
+        <a href="/">
+          {" "}
+          <img src={logo} className="frame" alt="Logo" />
+        </a>
         <div className="container-login">
           <hr className="new5" />
           <div className="title">
@@ -74,7 +76,7 @@ class Login extends Component {
             </h2>
           </div>
 
-          <div className="Login">
+          <div className="login">
             <div
               className="d-flex align-items-center justify-content-center w-100"
               id="err"
@@ -131,7 +133,7 @@ class Login extends Component {
               </Button>
               <p className="forgot">
                 Don't have an account?{" "}
-                <Link to="/register" className="link-reg">
+                <Link to="/register" className="link-reg active">
                   {" "}
                   Let's create one!
                 </Link>

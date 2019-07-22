@@ -40,7 +40,7 @@ class LoginAdmin extends Component {
               Log in to <br /> your account
             </h2>
           </div>
-          <div className="Login">
+          <div className="login">
             <form id="form">
               <FormGroup controlId="email">
                 <FormControl
