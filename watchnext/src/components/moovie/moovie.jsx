@@ -4,7 +4,7 @@ import "./moovie.css";
 class Moovie extends Component {
   render() {
     const { movie } = this.props;
-    console.log(movie.title);
+    console.log(movie.id);
 
     return (
       <React.Fragment>

@@ -22,70 +22,129 @@ class MovieDescription extends Component {
     })
       .then(resp => resp.json())
       .then(data => {
-        this.setState({ data: data[this.props.match.params.id - 1] });
+        this.setState({
+          data: data.filter(mov => {
+            if (this.props.match.params.id == mov.id) return mov;
+          })
+        });
       });
   }
 
   render() {
     const { data } = this.state;
     return (
-      <div className="movieDescription-content">
-        <div className="container">
-          <div className="col-md-12">
-            <div className="row">
-              <div className="col-md-6">
-                <div>
-                  <img alt="moovie" className="movImage" src={data.coverUrl} />
-                </div>
-                <div className="text-center">
-                  <a href="imdb.com">
-                    <small className="seeSource">See original source</small>
-                  </a>
-                </div>
-              </div>
-              <div className="col-md-6 description">
-                <h1 className="pt-2">{data.title}</h1>
-                <img
-                  alt="imdb"
-                  className="imdbImage pl-3"
-                  src={require("../../../assets/img/imdb.png")}
-                />
-                <div>
-                  <small id="movieDet">
-                    {data.category &&
-                      data.category.map(cat => {
-                        return <small>{cat.name} - </small>;
-                      })}
-                    {data.duration}
-                  </small>
-                </div>
-                <div>
-                  <h5 id="movieDes">{data.description}</h5>
-                </div>
-                <div>
-                  <button className="addToWatch">Add to watchlist</button>
-                </div>
-                <div className="row movDet">
-                  <div className="col-md-2">
-                    <ul className="list-unstyled movDetList">
-                      <li>Director</li>
-                      <li>Writers</li>
-                      <li>Stars</li>
-                    </ul>
+      <React.Fragment>
+        {data[0] && (
+          <div className="movieDescription-content">
+            <div className="container">
+              <div className="col-md-12">
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="trailerDiv">
+                      <button
+                        className="btn"
+                        data-toggle="modal"
+                        data-target="#watchTrailer"
+                      >
+                        <img
+                          src={require("../../../assets/img/play-button.png")}
+                          alt="Play Trailer"
+                          className="playIcon"
+                        />
+                        <img
+                          alt="moovie"
+                          className="movImage"
+                          src={data[0].coverUrl}
+                        />
+                      </button>
+                      <div
+                        className="modal fade bd-example-modal-lg"
+                        id="watchTrailer"
+                        role="dialog"
+                      >
+                        <div className="modal-dialog trailerDialog modal-lg">
+                          <div className="modal-content trailerContent">
+                            <div className="modal-header">
+                              <button
+                                type="button"
+                                className="close"
+                                data-dismiss="modal"
+                              >
+                                &times;
+                              </button>
+                            </div>
+                            <div className="modal-body">
+                              <div className="embed-responsive embed-responsive-16by9">
+                                <iframe
+                                  className="embed-responsive-item"
+                                  src={data[0].trailerUrl}
+                                  allowFullScreen
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <a href={data.originalSourceUrl} target="_blank">
+                        <small className="seeSource">See original source</small>
+                      </a>
+                    </div>
                   </div>
-                  <div className="col-md-8">
-                    <ul className="list-unstyled movDetCont">
-                      <li>{data.director}</li>
-                      <li>{data.writers}</li>
-                      <li>{data.stars}</li>
-                    </ul>
+                  <div className="col-md-6 description">
+                    <h1 className="pt-2">{data[0].title}</h1>
+                    <img
+                      alt="imdb"
+                      className="imdbImage pl-3"
+                      src={require("../../../assets/img/imdb.png")}
+                    />
+                    <div>
+                      <small id="movieDet">
+                        {data[0].category &&
+                          data[0].category.map((cat, index) => {
+                            return <small key={index}>{cat.name} - </small>;
+                          })}
+                        {data[0].duration}
+                      </small>
+                    </div>
+                    <div>
+                      <h5 id="movieDes">{data[0].description}</h5>
+                    </div>
+                    <div>
+                      <button className="addToWatch">Add to watchlist</button>
+                    </div>
+                    <div className="row detRow mt-5">
+                      <div className="col-md-2">
+                        <h5 className="firstColumn">Director</h5>
+                      </div>
+                      <div className="col-md-8 ml-5">
+                        <h5 className="secondColumn">{data[0].director}</h5>
+                      </div>
+                    </div>
+                    <div className="row detRow">
+                      <div className="col-md-2">
+                        <h5 className="firstColumn">Writers</h5>
+                      </div>
+                      <div className="col-md-8 ml-5">
+                        <h5 className="secondColumn">{data[0].writers}</h5>
+                      </div>
+                    </div>
+                    <div className="row detRow">
+                      <div className="col-md-2">
+                        <h5 className="firstColumn">Stars</h5>
+                      </div>
+                      <div className="col-md-8 ml-5">
+                        <h5 className="secondColumn">{data[0].stars}</h5>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        )}
+      </React.Fragment>
     );
   }
 }

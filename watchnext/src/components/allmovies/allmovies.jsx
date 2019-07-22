@@ -20,11 +20,18 @@ class AllMovies extends Component {
   };
 
   componentDidMount() {
-    let url = "http://localhost:3003/movies";
+    let url = "http://192.168.151.218:3000/api/movies";
+    const token = localStorage.getItem("token");
 
-    fetch(url)
+    fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then(resp => resp.json())
       .then(data => {
+        console.log("aa", data);
         this.setState({ data: data });
       });
   }
@@ -32,7 +39,7 @@ class AllMovies extends Component {
   render() {
     const { filter, data } = this.state;
     const filteredData = data.filter(item => {
-      return item.category.toLowerCase().includes(this.state.filter);
+      return item.title.toLowerCase().includes(this.state.filter);
     });
 
     return (
@@ -57,7 +64,7 @@ class AllMovies extends Component {
                         onChange={this.handleChange}
                         type="text"
                         className="search-query form-control searchB"
-                        placeholder="Search for a movie..."
+                        placeholder="Search by category..."
                       />
 
                       <span className="input-group-btn">
@@ -99,7 +106,9 @@ class AllMovies extends Component {
                                 alt="moovie"
                                 src={movie.coverUrl}
                               />
-                              <button className="addToList">Remove</button>
+                              <button className="addToList">
+                                Add to Watchlist
+                              </button>
                               <button className="rating">
                                 {movie.imdbScore}
                               </button>
@@ -107,8 +116,13 @@ class AllMovies extends Component {
                             <h5 id="moovieTitle">{movie.title}</h5>
                           </a>
                           <small>
-                            Realeased date: {movie.releaseDate} <br />{" "}
-                            {movie.category}
+                            Realeased date:{" "}
+                            {new Intl.DateTimeFormat("en-US", {
+                              year: "numeric",
+                              month: "2-digit",
+                              day: "2-digit"
+                            }).format(movie.releaseDate)}{" "}
+                            <br /> {/* {movie.movie.category[1]} */}
                           </small>
                         </div>
                       </div>

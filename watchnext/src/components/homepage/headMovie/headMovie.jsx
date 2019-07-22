@@ -42,7 +42,41 @@ class headMovie extends Component {
                   <h3 className="heroDescription">{data.description}</h3>
                 </div>
                 <div className="mt-5">
-                  <button className="heroWatchButton">Watch trailer</button>
+                  <button
+                    className="heroWatchButton"
+                    data-toggle="modal"
+                    data-target="#watchTrailer"
+                  >
+                    Watch trailer
+                  </button>
+                  <div
+                    className="modal fade bd-example-modal-lg"
+                    id="watchTrailer"
+                    role="dialog"
+                  >
+                    <div className="modal-dialog trailerDialog modal-lg">
+                      <div className="modal-content trailerContent">
+                        <div className="modal-header">
+                          <button
+                            type="button"
+                            className="close"
+                            data-dismiss="modal"
+                          >
+                            &times;
+                          </button>
+                        </div>
+                        <div className="modal-body">
+                          <div className="embed-responsive embed-responsive-16by9">
+                            <iframe
+                              className="embed-responsive-item"
+                              src={data.trailerUrl}
+                              allowFullScreen
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <button className="heroAddButton ml-3">
                     <FontAwesomeIcon
                       icon={faPlus}

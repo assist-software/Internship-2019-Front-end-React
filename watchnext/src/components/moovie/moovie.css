@@ -3,6 +3,8 @@
 .moovieComponent {
   width: 95%;
   border-radius: 8px;
+  object-fit: cover;
+  max-height: 320px;
 }
 
 #moovieTitle {

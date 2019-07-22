@@ -16,6 +16,7 @@ class UpdateMoovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      categories: [],
       movie: [],
       isSubmitted: false,
       trailerUrl: null,
@@ -25,6 +26,7 @@ class UpdateMoovie extends Component {
       category: null,
       duration: null,
       imdbScore: null,
+      director: null,
       writers: null,
       stars: null,
       releaseDate: null,
@@ -135,36 +137,65 @@ class UpdateMoovie extends Component {
     };
 
     if (validateForm(this.state.errors)) {
+      const token = localStorage.getItem("token");
       axios
         // eslint-disable-next-line no-useless-concat
-        .put(`http://localhost:3003/movies` + "/" + this.state.movie.id, movies)
+        .put(
+          `http://192.168.151.218:3000/api/movie` + "/" + this.state.movie.id,
+          movies,
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
+        )
         .then(res => {
-          this.setState({ isSubmitted: true });
+          window.location.reload();
         });
     } else {
       window.alert("Please fill in all fields!");
     }
   };
 
+  componentDidMount() {
+    let catUrl = "http://192.168.151.218:3000/api/category";
+    const token = localStorage.getItem("token");
+
+    fetch(catUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ categories: data });
+      });
+  }
+
   componentWillReceiveProps(newProps) {
-    this.setState({
-      movie: newProps.selectedMovie,
-      title: newProps.selectedMovie.title,
-      trailerUrl: newProps.selectedMovie.trailerUrl,
-      originalSourceUrl: newProps.selectedMovie.originalSourceUrl,
-      coverUrl: newProps.selectedMovie.coverUrl,
-      description: newProps.selectedMovie.description,
-      category: newProps.selectedMovie.category,
-      duration: newProps.selectedMovie.duration,
-      imdbScore: newProps.selectedMovie.imdbScore,
-      writers: newProps.selectedMovie.writers,
-      stars: newProps.selectedMovie.stars,
-      releaseDate: newProps.selectedMovie.releaseDate
-    });
+    if (newProps.selectedMovie) {
+      this.setState({
+        movie: newProps.selectedMovie,
+        title: newProps.selectedMovie.title,
+        trailerUrl: newProps.selectedMovie.trailerUrl,
+        originalSourceUrl: newProps.selectedMovie.originalSourceUrl,
+        coverUrl: newProps.selectedMovie.coverUrl,
+        description: newProps.selectedMovie.description,
+        category: newProps.selectedMovie.category,
+        duration: newProps.selectedMovie.duration,
+        imdbScore: newProps.selectedMovie.imdbScore,
+        director: newProps.selectedMovie.director,
+        writers: newProps.selectedMovie.writers,
+        stars: newProps.selectedMovie.stars,
+        releaseDate: newProps.selectedMovie.releaseDate
+      });
+    }
   }
 
   render() {
-    const { errors, isSubmitted } = this.state;
+    const { errors, isSubmitted, categories } = this.state;
     return (
       <div className="container updateMovieContainer">
         <div className="col-md-12">
@@ -291,11 +322,10 @@ class UpdateMoovie extends Component {
                     noValidate
                     value={this.state.category || ""}
                   >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="">None</option>
+                    {categories.map(cat => {
+                      return <option key={cat.name}>{cat.name}</option>;
+                    })}
                   </Form.Control>
                   {errors.category.length > 0 && (
                     <span className="text-danger errorLabel">
@@ -430,7 +460,6 @@ class UpdateMoovie extends Component {
                 className="modalUpdateMoovie"
                 type="submit"
                 value="Update moovie"
-                data-dismiss={isSubmitted ? "modal" : ""}
               />
             </div>
           </Form>

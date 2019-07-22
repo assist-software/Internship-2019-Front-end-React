@@ -56,7 +56,7 @@ class AddMoovie extends Component {
     switch (name) {
       case "title":
         errors.title =
-          value.length < 5
+          value.length < 3
             ? "Movie title must be at least 5 characters long!"
             : "";
         break;
@@ -75,8 +75,8 @@ class AddMoovie extends Component {
         break;
       case "description":
         errors.description =
-          value.length < 10
-            ? "Movie description must be at least 10 characters long!"
+          value.length > 254 && value.length < 10
+            ? "Movie description must contain between 10 and 255 characters!"
             : "";
         break;
       case "category":
@@ -172,8 +172,7 @@ class AddMoovie extends Component {
           }
         )
         .then(res => {
-          console.log(res);
-          console.log(res.data);
+          window.location.reload();
         });
     } else {
       window.alert("Please fill in all fields!");

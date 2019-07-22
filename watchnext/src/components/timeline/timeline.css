@@ -37,3 +37,25 @@
   left: 49% !important;
   top: 30% !important;
 }
+
+@media screen and (max-width: 1000px) {
+  .vertical-timeline-element-icon {
+    box-shadow: none !important;
+    color: white !important;
+    background-color: #13131c !important;
+    line-height: 50px !important;
+    left: -4% !important;
+    top: 30% !important;
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .vertical-timeline-element-icon {
+    box-shadow: none !important;
+    color: white !important;
+    background-color: #13131c !important;
+    line-height: 50px !important;
+    left: -3% !important;
+    top: 30% !important;
+  }
+}

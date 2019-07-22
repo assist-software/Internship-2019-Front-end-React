@@ -16,7 +16,8 @@ class AdminPage extends Component {
       data: [],
       filteredData: [],
       filter: "",
-      selectedMovieId: null,
+      selectedMovieUpdateId: null,
+      selectedMovieDeleteId: null,
       selectedMovie: null
     };
   }
@@ -25,29 +26,39 @@ class AdminPage extends Component {
     this.setState({ filter: event.target.value });
   };
 
-  selectMovie(movieId, movie) {
-    if (movie) {
-      this.setState({
-        selectedMovieId: movieId,
-        selectedMovie: movie
-      });
-    } else {
-      this.setState({
-        selectedMovieId: movieId
-      });
-    }
+  selectMovieUpdate(movieId, movie) {
+    this.setState({
+      selectedMovieUpdateId: movieId,
+      selectedMovie: movie
+    });
   }
 
-  closeModal() {
+  selectMovieDelete(movieId, movie) {
+    this.setState({ selectedMovieDeleteId: movieId });
+  }
+
+  closeUpdateModal() {
     this.setState({
-      selectedMovieId: null
+      selectedMovieUpdateId: null
+    });
+  }
+
+  closeDeleteModal() {
+    this.setState({
+      selectedMovieDeleteId: null
     });
   }
 
   deleteMovie() {
-    const movieToDelete = this.state.selectedMovieId;
+    const movieToDelete = this.state.selectedMovieDeleteId;
+    const token = localStorage.getItem("token");
     axios
-      .delete(`http://192.168.151.218:3000/api/movie/${movieToDelete}`)
+      .delete(`http://192.168.151.218:3000/api/movie/${movieToDelete}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
       .then(res => {
         // eslint-disable-next-line array-callback-return
         const newData = this.state.data.filter(mov => {
@@ -56,7 +67,7 @@ class AdminPage extends Component {
           }
         });
         this.setState({ data: newData });
-        this.closeModal();
+        this.closeDeleteModal();
       });
   }
 
@@ -170,7 +181,7 @@ class AdminPage extends Component {
                         className="movBtn"
                         data-toggle="modal"
                         data-target="#deleteMoovie"
-                        onClick={() => this.selectMovie(movie.id)}
+                        onClick={() => this.selectMovieDelete(movie.id)}
                       >
                         <FontAwesomeIcon icon={faTrash} color="#9C9B9B" />
                       </button>
@@ -186,7 +197,7 @@ class AdminPage extends Component {
                                 type="button"
                                 className="close"
                                 data-dismiss="modal"
-                                onClick={() => this.closeModal()}
+                                onClick={() => this.closeDeleteModal()}
                               >
                                 &times;
                               </button>
@@ -201,7 +212,7 @@ class AdminPage extends Component {
                                 type="button"
                                 className="cancelModal"
                                 data-dismiss="modal"
-                                onClick={() => this.closeModal()}
+                                onClick={() => this.closeDeleteModal()}
                               >
                                 Cancel
                               </button>
@@ -224,7 +235,7 @@ class AdminPage extends Component {
                         className="movBtn"
                         data-toggle="modal"
                         data-target="#updateMovie"
-                        onClick={() => this.selectMovie(movie.id, movie)}
+                        onClick={() => this.selectMovieUpdate(movie.id, movie)}
                       >
                         {" "}
                         <FontAwesomeIcon icon={faPen} color="#9C9B9B" />
@@ -238,7 +249,7 @@ class AdminPage extends Component {
                           <div className="modal-content addNewContent">
                             <div className="modal-header">
                               <button
-                                onClick={() => this.closeModal()}
+                                onClick={() => this.closeUpdateModal()}
                                 type="button"
                                 className="close"
                                 data-dismiss="modal"
@@ -247,7 +258,7 @@ class AdminPage extends Component {
                               </button>
                             </div>
                             <UpdateMoovie
-                              closeModal={() => this.closeModal()}
+                              closeModal={() => this.closeUpdateModal()}
                               selectedMovie={selectedMovie}
                             />
                           </div>
