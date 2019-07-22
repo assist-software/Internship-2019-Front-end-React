@@ -68,6 +68,7 @@ class headMovie extends Component {
                         <div className="modal-body">
                           <div className="embed-responsive embed-responsive-16by9">
                             <iframe
+                              title="trailerYoutube"
                               className="embed-responsive-item"
                               src={data.trailerUrl}
                               allowFullScreen

@@ -31,7 +31,6 @@ class AllMovies extends Component {
     })
       .then(resp => resp.json())
       .then(data => {
-        console.log("aa", data);
         this.setState({ data: data });
       });
   }

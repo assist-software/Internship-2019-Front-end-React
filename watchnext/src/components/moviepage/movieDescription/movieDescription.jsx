@@ -23,8 +23,9 @@ class MovieDescription extends Component {
       .then(resp => resp.json())
       .then(data => {
         this.setState({
+          // eslint-disable-next-line array-callback-return
           data: data.filter(mov => {
-            if (this.props.match.params.id == mov.id) return mov;
+            if (parseInt(this.props.match.params.id) === mov.id) return mov;
           })
         });
       });
@@ -76,6 +77,7 @@ class MovieDescription extends Component {
                             <div className="modal-body">
                               <div className="embed-responsive embed-responsive-16by9">
                                 <iframe
+                                  title="trailerYoutube"
                                   className="embed-responsive-item"
                                   src={data[0].trailerUrl}
                                   allowFullScreen
@@ -87,7 +89,7 @@ class MovieDescription extends Component {
                       </div>
                     </div>
                     <div className="text-center">
-                      <a href={data.originalSourceUrl} target="_blank">
+                      <a href={data.originalSourceUrl}>
                         <small className="seeSource">See original source</small>
                       </a>
                     </div>

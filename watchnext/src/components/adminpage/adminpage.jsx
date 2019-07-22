@@ -171,8 +171,12 @@ class AdminPage extends Component {
                   </div>
                   <div className="col-md-3">
                     {movie.category &&
-                      movie.category.map(cat => {
-                        return <h2 className="movDat">{cat.name}</h2>;
+                      movie.category.map((cat, index) => {
+                        return (
+                          <h2 key={index} className="movDat">
+                            {cat.name}
+                          </h2>
+                        );
                       })}
                   </div>
                   <div className="col-md- mAction">
