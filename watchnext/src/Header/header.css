@@ -18,10 +18,11 @@
     vertical-align: baseline;
     justify-content: space-evenly;
     list-style: none;
-    font-family: corbel;
+    font-family: CamptonLight;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 45px;
+    outline: none;
 }
 
 #nav li{
@@ -44,14 +45,15 @@
 a{color:#fff;text-decoration: none;}
 
 #watchNum{
+    margin-left: -3px;
     background-repeat: no-repeat;
     position: absolute;
     top: 35px;
-    padding: 2px 6px 0 7px;
+    padding: 5px 8px 10px 8px;
     background-position: center;
-    padding-bottom: 4px;
+    padding-bottom: 1px;
     font-size: 10px;
-    background-image: url('../Header/bullet.svg');
+    background-image: url(/static/media/bullet.4ad804c9.svg);
 }
 
 .group{

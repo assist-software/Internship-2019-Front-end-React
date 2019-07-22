@@ -8,15 +8,14 @@
     padding-top: 80px;
     min-width: 1120px;
 
-    
 }
 
 #recentAdded #left{
     font-size: 18px;
-    font-family: 'Corbel';
     font-weight: 500;
     display: flex;
     align-items: center;
+    font-family: CamptonLight;
 }
 
 #recentAdded #left h4{
@@ -31,7 +30,6 @@
     margin: 0 auto;
     max-width: 1143px;
     font-family: corbel;
-
 }
 
 .slick-prev:before{

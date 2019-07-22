@@ -386,21 +386,7 @@
     margin-left:-200px;
 }
 
-#date{
-    background:none !important;
-    border-radius: 8px;
-    font-size: 20px;
-    color: white;
-    border: 1px solid #f5044c !important;
-    background: none;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-weight: 600;
-    font-family: unset;
-    color: #F5044C !important;
-    outline: none;
-}
+
 
 .react-datepicker__month{
     background: #F5044C;
