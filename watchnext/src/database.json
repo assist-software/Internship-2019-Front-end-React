@@ -3,58 +3,86 @@
         {
             "id": 1,
             "title": "Godzila Kind of the Monsters1",
-            "gen": ["Action","Comedy"],
+            "trailerUrl": "",
+            "originalSourceUrl": "",
+            "coverUrl": "http://localhost:3000/static/media/img.png",
+            "imdbId": "",
+            "imdbScore": "",
+            "description": "",
             "releaseDate": "2019-03-20",
-            "img":"http://localhost:3000/static/media/img.png",
             "category":[1,2,3]
         },
         {
             "id": 2,
             "title": "Godzila Kind of the Monsters2",
-            "gen": ["Action","Comedy"],
-            "releaseDate": "2019-03-21",
-            "img":"http://localhost:3000/static/media/img.png",
-            "category":[4,5,6]
+            "trailerUrl": "",
+            "originalSourceUrl": "",
+            "coverUrl": "http://localhost:3000/static/media/img.png",
+            "imdbId": "",
+            "imdbScore": "",
+            "description": "",
+            "releaseDate": "2019-03-25",
+            "category":[1,2,3]
         },
         {
             "id": 3,
             "title": "Godzila Kind of the Monsters3",
-            "gen": ["Action","Comedy"],
-            "releaseDate": "2019-03-22",
-            "img":"http://localhost:3000/static/media/img.png",
-            "category":[8,9]
+            "trailerUrl": "",
+            "originalSourceUrl": "",
+            "coverUrl": "http://localhost:3000/static/media/img.png",
+            "imdbId": "",
+            "imdbScore": "",
+            "description": "",
+            "releaseDate": "2019-03-20",
+            "category":[1,2,3]
         },
         {
             "id": 4,
             "title": "Godzila Kind of the Monsters4",
-            "gen": ["Action","Comedy"],
-            "releaseDate": "2019-03-23",
-            "img":"http://localhost:3000/static/media/img.png",
-            "category":[8,9,12]
+            "trailerUrl": "",
+            "originalSourceUrl": "",
+            "coverUrl": "http://localhost:3000/static/media/img.png",
+            "imdbId": "",
+            "imdbScore": "",
+            "description": "",
+            "releaseDate": "2019-04-20",
+            "category":[1,2,3]
         },
         {
             "id": 5,
             "title": "Godzila Kind of the Monsters5",
-            "gen": ["Action","Comedy"],
-            "releaseDate": "2019-03-24",
-            "img":"http://localhost:3000/static/media/img.png",
-            "category":[8,9,12]
+            "trailerUrl": "",
+            "originalSourceUrl": "",
+            "coverUrl": "http://localhost:3000/static/media/img.png",
+            "imdbId": "",
+            "imdbScore": "",
+            "description": "",
+            "releaseDate": "2019-03-20",
+            "category":[1,2,3]
         },
         {
             "id": 6,
             "title": "Godzila Kind of the Monsters6",
-            "gen": ["Action","Comedy"],
-            "releaseDate": "2019-03-25",
-            "img":"http://localhost:3000/static/media/img.png",
-            "category":[8,9,12]
+            "trailerUrl": "",
+            "originalSourceUrl": "",
+            "coverUrl": "http://localhost:3000/static/media/img.png",
+            "imdbId": "",
+            "imdbScore": "",
+            "description": "",
+            "releaseDate": "2019-03-20",
+            "category":[5]
         },
         {
             "id": 7,
-            "title": "Godzila Kind of the Monsters6",
-            "gen": ["Action","Comedy"],
-            "releaseDate": "2019-03-25",
-            "img":"http://localhost:3000/static/media/img.png",
-            "category":[8,9,12]
+            "title": "Godzila Kind of the Monsters7",
+            "trailerUrl": "",
+            "originalSourceUrl": "",
+            "coverUrl": "http://localhost:3000/static/media/img.png",
+            "imdbId": "",
+            "imdbScore": "",
+            "description": "",
+            "releaseDate": "2019-03-20",
+            "category":[1,2,3]
         }
 
     ],
