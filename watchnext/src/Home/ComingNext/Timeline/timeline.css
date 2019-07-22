@@ -16,7 +16,7 @@
     height: 113px;
     
   }
-  .vertical-timeline-element-content::before {
+ .vertical-timeline-element-content::before {
     visibility: hidden !important;
     
   }

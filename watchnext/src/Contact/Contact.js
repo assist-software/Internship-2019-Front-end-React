@@ -10,10 +10,10 @@ class Contact extends React.Component {
     
     render() {
       return (
-        <div className="App">
+        <div className="contact">
           <p id="cont">Contact</p>
             <form id="form" action="/action_page.php">
-                <label id="firt">First Name</label>
+                <label id="first">First Name</label>
                 <input type="text" id="fname" name="firstname" placeholder="Your first name.." />
                 <label id="last">Last name</label>
                 <input type="text" id="lname" name="lastname" placeholder="Your last name.." />

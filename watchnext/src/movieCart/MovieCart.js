@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {Component} from 'react';
 import '../movieCart/movieCart.css';
 
-class MovieCart extends React.Component {
+class MovieCart extends Component {
     constructor(props) {
         super(props)
         this.state = {
-					genres: props.gen ? props.gen.map((gen, index) => (index > 0 ? " • " : " ") + gen):"",
-					selected: false,
-					notif: "Added"
+			genres: props.gen ? props.gen.map((gen, index) => (index > 0 ? " • " : " ") + gen):"",
+			selected: false,
+			notif: "Added"
         }
     }
 
