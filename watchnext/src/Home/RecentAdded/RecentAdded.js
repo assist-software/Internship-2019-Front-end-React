@@ -8,24 +8,24 @@ import arrowRight from '../RecentAdded/right.png';
 import arrowLeft from "../RecentAdded/left.png"
 
 class PrevArrow extends React.Component {
-  render(){
-    const {onClick} = this.props;
-  return (
-    <div className="custom-arrow prev-arrow-custom" onClick={onClick}>
-      <img src={arrowLeft} alt="right-icon"/>
-    </div>
-  );  
-}
+  render() {
+    const { onClick } = this.props;
+    return (
+      <div className="custom-arrow prev-arrow-custom" onClick={onClick}>
+        <img src={arrowLeft} alt="right-icon"/>
+      </div>
+    );  
+  }
 }
 
 class NextArrow extends React.Component {
   render(){
-    const {onClick} = this.props;
-  return (
-    <div className="custom-arrow next-arrow-custom" onClick={onClick}>
-      <img src={arrowRight} alt="left-icon"/>
-    </div>
-  );  
+    const { onClick } = this.props;
+    return (
+      <div className="custom-arrow next-arrow-custom" onClick={onClick}>
+        <img src={arrowRight} alt="left-icon"/>
+      </div>
+    );  
   }
 }
 
@@ -45,7 +45,7 @@ class RecentAdded extends React.Component {
     fetch(url)
       .then(resp => resp.json())
       .then(data => {
-        let movies = data.map(item => <MovieCart updateCounter={()=>this.props.updateCounter()} id={item.id} title={item.title} release={item.releaseDate} gen={item.gen} img={item.img} />)
+        let movies = data.map(item => <MovieCart updateCounter={()=>this.props.updateCounter()} key={item.id} id={item.id} title={item.title} release={item.releaseDate} gen={item.category} img={item.cover} />)
         this.setState({recentAddedMovies:movies})
       })
   }
@@ -66,12 +66,19 @@ class RecentAdded extends React.Component {
 
     return (   
       <div id="recentAdded">
-          {this.state.recentAddedMovies &&<div id="left">Recent added movies <h4>(
-            {this.state.activeSlide+4>this.state.recentAddedMovies.length?this.state.recentAddedMovies.length:this.state.activeSlide+4}/{this.state.recentAddedMovies.length})</h4>
-            </div>}
+          {this.state.recentAddedMovies &&
+            <div id="left">Recent added movies <h4>(
+              {
+                this.state.activeSlide+4 > this.state.recentAddedMovies.length
+                ?this.state.recentAddedMovies.length
+                :this.state.activeSlide+4
+              }
+              /{this.state.recentAddedMovies.length})</h4>
+            </div>
+          }
           <div id="slider">
               <Slider {...settings}>
-                  {this.state.recentAddedMovies}
+                {this.state.recentAddedMovies}
               </Slider>
           </div>
       </div>
