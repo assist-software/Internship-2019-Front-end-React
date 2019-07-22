@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import '../movieCart/movieCart.css';
 
-class MovieCart extends React.Component {
+class MovieCart extends Component {
     constructor(props) {
         super(props)
         this.state = {
