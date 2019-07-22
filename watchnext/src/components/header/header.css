@@ -41,3 +41,9 @@ a {
   border-bottom: 1px solid #fff;
   padding-bottom: 10px;
 }
+#nav button {
+  background-color: transparent;
+  border-radius: 8px;
+  border: 1px solid #f5044c;
+  color: #f5044c !important;
+}

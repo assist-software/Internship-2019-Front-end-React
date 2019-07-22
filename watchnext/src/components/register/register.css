@@ -1,13 +1,11 @@
-
 .frame {
   margin-top: 4%;
-  margin-bottom: 2%; 
+  margin-bottom: 2%;
 }
 
 .container-register {
   flex: 1;
   width: 560px;
-  height: 463px;
   background: #0a0a0a;
   top: 20px;
   margin: 0 auto;
@@ -28,10 +26,28 @@
   margin-left: 5px;
 }
 
-.Login .btn-primary {
+.register .btn-primary {
+  border-color: transparent;
+  background-color: #f5044c;
+}
+.register .btn-primary:focus {
   border-color: transparent;
 }
-
+.register input {
+  background-color: transparent;
+  color: #9c9b9b;
+  /* border-color: transparent; */
+  box-shadow: initial;
+  border: 1px solid #9c9b9b;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.register input:focus {
+  background-color: transparent;
+  color: #9c9b9b;
+  box-shadow: initial;
+  border: 1px solid #9c9b9b;
+}
 .error-message {
   margin: 10px 0;
   color: red;
@@ -44,5 +60,26 @@
   font-weight: bold;
   margin: 60px;
 }
+@media all and (min-width: 480px) {
+  .register form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
 
-
+@media (max-width: 480px) {
+  .register form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+  .container-register {
+    width: 100%;
+  }
+  .registerHeader {
+    font-family: "Montserrat";
+    font-size: 38px;
+    line-height: 60px;
+    font-weight: bold;
+    margin: 60px;
+  }
+}

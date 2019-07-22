@@ -3,6 +3,15 @@ import "./adminheader.css";
 
 class AdminHeader extends Component {
   state = {};
+
+  handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    // this.setState({
+    //   token: ""
+    // });
+  };
+
   render() {
     return (
       <nav className="mb-1 navbar navbar-expand-lg navbar-dark orange lighten-1">
@@ -109,7 +118,11 @@ class AdminHeader extends Component {
                   <small className="mx-2 adminName">Matthew</small>
                 </a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a className="dropdown-item" href="/">
+                  <a
+                    className="dropdown-item"
+                    href="/login"
+                    onClick={this.handleLogout}
+                  >
                     Logout
                   </a>
                 </div>
