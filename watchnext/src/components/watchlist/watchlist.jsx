@@ -20,7 +20,23 @@ class WhatchList extends Component {
     this.setState({ filter: event.target.value });
   };
 
+  removeFromWatchlist(movId) {
+    if (localStorage.getItem("watchlist")) {
+      var toWatch = JSON.parse(localStorage.getItem("watchlist"));
+      if (toWatch.includes(movId)) {
+        for (var i = toWatch.length - 1; i >= 0; i--) {
+          if (toWatch[i] === movId) {
+            toWatch.splice(i, 1);
+            localStorage.setItem("watchlist", JSON.stringify(toWatch));
+            window.location.reload();
+          }
+        }
+      }
+    }
+  }
+
   componentDidMount() {
+    var moviesLocal = JSON.parse(localStorage.getItem("watchlist"));
     let url = "http://192.168.151.218:3000/api/movies";
     const token = localStorage.getItem("token");
 
@@ -32,12 +48,19 @@ class WhatchList extends Component {
     })
       .then(resp => resp.json())
       .then(data => {
-        this.setState({ data: data });
+        this.setState({
+          data: data.filter(mov => {
+            for (var i = 0; i < moviesLocal.length; i++) {
+              if (mov.id == moviesLocal[i]) return mov;
+            }
+          })
+        });
       });
   }
 
   render() {
     const { filter, data } = this.state;
+    console.log("aaa", data);
     const filteredData = data.filter(item => {
       return item.title.toLowerCase().includes(this.state.filter);
     });
@@ -86,10 +109,6 @@ class WhatchList extends Component {
 
                       <select className="sortBySelect ml-4">
                         <option>Latest Added</option>
-                        <option>Action</option>
-                        <option>Comedy</option>
-                        <option>Horror</option>
-                        <option>Fantasy</option>
                       </select>
                     </div>
                   </div>
@@ -100,18 +119,25 @@ class WhatchList extends Component {
                       {filteredData.map((movie, index) => (
                         <div key={index} className="col-md-3 mb-5">
                           <div>
+                            <div className="moovieImg">
+                              <img
+                                className="moovieComponent"
+                                alt="moovie"
+                                src={movie.coverUrl}
+                              />
+                              <button
+                                className="addToList"
+                                onClick={() =>
+                                  this.removeFromWatchlist(movie.id)
+                                }
+                              >
+                                Remove
+                              </button>
+                              <button className="rating">
+                                {movie.imdbScore}
+                              </button>
+                            </div>
                             <a href={"/movie-page/" + movie.id}>
-                              <div className="moovieImg">
-                                <img
-                                  className="moovieComponent"
-                                  alt="moovie"
-                                  src={movie.coverUrl}
-                                />
-                                <button className="addToList">Remove</button>
-                                <button className="rating">
-                                  {movie.imdbScore}
-                                </button>
-                              </div>
                               <h5 id="moovieTitle">{movie.title}</h5>
                             </a>
                             <small>
@@ -121,7 +147,7 @@ class WhatchList extends Component {
                                 month: "2-digit",
                                 day: "2-digit"
                               }).format(movie.releaseDate)}{" "}
-                              <br /> {/* {movie.movie.category[1]} */}
+                              <br /> {movie.movie.category[1]}
                             </small>
                           </div>
                         </div>
