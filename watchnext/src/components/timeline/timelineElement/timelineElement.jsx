@@ -28,7 +28,7 @@ class TimelineElement extends Component {
               <div className="row scorRow">
                 <div className="imdb_sc mr-4">
                   <span class="timelineScore mr-3">IMDB Score </span>
-                  {movie.imdbScore}
+                  {movie.imdbScore} {movie.category.name}
                 </div>
               </div>
             </div>
