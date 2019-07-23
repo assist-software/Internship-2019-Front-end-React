@@ -33,6 +33,7 @@ class Watchlist extends React.Component {
   }
 
   load = (lastAdded) => {
+    console.log("aaaa")
     this.setState(() => {
       return {
         watchListIndex: lastAdded ? JSON.parse(localStorage.getItem("watchList")).reverse() : JSON.parse(localStorage.getItem("watchList")),
@@ -44,12 +45,7 @@ class Watchlist extends React.Component {
     var movies_id = lastAdded ? JSON.parse(localStorage.getItem("watchList")).reverse() : JSON.parse(localStorage.getItem("watchList"))
 
     for (var i = 0; i < movies_id.length; i++) {
-      fetch(api.movie + movies_id[i],{
-        method:'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      })
+      fetch(api.movies + movies_id[i])
       .then(resp => resp.json())
       .then(item => {
         this.setState((prev) => {
