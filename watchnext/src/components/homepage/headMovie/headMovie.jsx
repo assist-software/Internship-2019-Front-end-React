@@ -8,7 +8,8 @@ class headMovie extends Component {
     super(props);
     this.state = {
       movies: [],
-      data: []
+      data: [],
+      message: null
     };
   }
 
@@ -21,6 +22,12 @@ class headMovie extends Component {
       toWatch.push(this.state.data.id);
       localStorage.setItem("watchlist", JSON.stringify(toWatch));
     }
+
+    this.setState({ message: "Movie added to WatchList" });
+    setTimeout(() => {
+      // console.log(this.state.message);
+      this.setState({ message: null });
+    }, 3000);
   }
 
   replaceUrl(trailerUrl) {
@@ -46,7 +53,7 @@ class headMovie extends Component {
   }
 
   render() {
-    const { data } = this.state;
+    const { data, message } = this.state;
     return (
       <div className="hero-content">
         <div className="container py-4">
@@ -107,6 +114,7 @@ class headMovie extends Component {
                     />
                     Add to list
                   </button>
+                  {message && <div className="add-message">{message}</div>}
                 </div>
               </div>
             </div>
