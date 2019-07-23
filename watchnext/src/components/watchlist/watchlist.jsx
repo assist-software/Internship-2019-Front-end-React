@@ -89,7 +89,7 @@ class WhatchList extends Component {
   render() {
     const { filter, data, existToWatch, nrWatch } = this.state;
     const filteredData = data.filter(item => {
-      return item.title.toLowerCase().includes(this.state.filter);
+      return item.title.toLowerCase().includes(this.state.filter.toLowerCase());
     });
     return (
       <React.Fragment>

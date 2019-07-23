@@ -97,6 +97,7 @@ class comingMovies extends Component {
     let catUrl = "http://192.168.151.218:3000/api/category";
     let url = "http://192.168.151.218:3000/api/movies/";
     const token = localStorage.getItem("token");
+    var today = new Date();
 
     fetch(url, {
       method: "GET",
@@ -106,7 +107,11 @@ class comingMovies extends Component {
     })
       .then(resp => resp.json())
       .then(data => {
-        this.setState({ data: data });
+        this.setState({
+          data: data.filter(mov => {
+            if (mov.releaseDate > today.getTime()) return mov;
+          })
+        });
       });
 
     fetch(catUrl, {

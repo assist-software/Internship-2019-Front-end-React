@@ -25,7 +25,7 @@ class Moovie extends Component {
   }
 
   convertDate(myDate) {
-    const newDate = new Intl.DateTimeFormat("en-US", {
+    const newDate = new Intl.DateTimeFormat({
       year: "numeric",
       month: "2-digit",
       day: "2-digit"

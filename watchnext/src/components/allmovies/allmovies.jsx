@@ -82,7 +82,7 @@ class AllMovies extends Component {
   render() {
     const { filter, data, categories } = this.state;
     const filteredData = data.filter(item => {
-      return item.title.toLowerCase().includes(this.state.filter);
+      return item.title.toLowerCase().includes(this.state.filter.toLowerCase());
     });
 
     return (
