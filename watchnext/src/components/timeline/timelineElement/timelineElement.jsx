@@ -26,7 +26,10 @@ class TimelineElement extends Component {
                 <div className="timelineTitle">{movie.title}</div>
               </div>
               <div className="row scorRow">
-                <div className="imdb_sc mr-4">{movie.imdbScore}</div>
+                <div className="imdb_sc mr-4">
+                  <span class="timelineScore mr-3">IMDB Score </span>
+                  {movie.imdbScore}
+                </div>
               </div>
             </div>
           </div>

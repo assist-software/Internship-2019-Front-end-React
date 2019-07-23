@@ -18,12 +18,10 @@ class Moovie extends Component {
     if (toWatch.indexOf(this.props.movie.id) === -1) {
       toWatch.push(this.props.movie.id);
       localStorage.setItem("watchlist", JSON.stringify(toWatch));
-      console.log(localStorage.getItem("watchlist"));
     }
   }
 
   convertDate(myDate) {
-    console.log(myDate);
     const newDate = new Intl.DateTimeFormat("en-US", {
       year: "numeric",
       month: "2-digit",
