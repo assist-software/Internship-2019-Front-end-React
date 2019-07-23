@@ -22,6 +22,17 @@ class Moovie extends Component {
     }
   }
 
+  convertDate(myDate) {
+    console.log(myDate);
+    const newDate = new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).format(myDate);
+
+    return newDate;
+  }
+
   render() {
     const { movie } = this.props;
 
@@ -48,16 +59,11 @@ class Moovie extends Component {
               <h5 id="moovieTitle">{movie.title}</h5>
             </a>
             <small>
-              Realeased date:{" "}
-              {new Intl.DateTimeFormat("en-US", {
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit"
-              }).format(movie.releaseDate)}{" "}
+              {this.convertDate(movie.releaseDate)}
               <br />
-              {movie.category.map((cat, index) => {
+              {/* {movie.category.map((cat, index) => {
                 return <small key={index}>{cat.name} </small>;
-              })}
+              })} */}
             </small>
           </div>
         )}

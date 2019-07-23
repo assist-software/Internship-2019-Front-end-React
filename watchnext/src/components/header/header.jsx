@@ -94,7 +94,7 @@ class Header extends Component {
               WatchList
             </NavLink>
             <Badge className="ml-2" variant="danger">
-              {/* {this.props.nrWatch} */}6
+              {this.props.nrWatch}
             </Badge>
           </li>
           <li className="navLink d-none d-md-block">

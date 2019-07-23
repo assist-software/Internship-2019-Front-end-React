@@ -69,18 +69,34 @@ class RecentAdded extends Component {
   }
 
   nrIncrement() {
-    if (this.state.nr < this.state.data.length) {
-      this.setState({ nr: this.state.nr + 2 });
+    if (this.state.data.length % 2 == 0) {
+      if (this.state.nr < this.state.data.length) {
+        this.setState({ nr: this.state.nr + 2 });
+      } else {
+        this.setState({ nr: 2 });
+      }
     } else {
-      this.setState({ nr: 2 });
+      if (this.state.nr < this.state.data.length) {
+        this.setState({ nr: this.state.nr + 1 });
+      } else {
+        this.setState({ nr: 1 });
+      }
     }
   }
 
   nrDecrement() {
-    if (this.state.nr > 2) {
-      this.setState({ nr: this.state.nr - 2 });
+    if (this.state.data.length % 2 == 0) {
+      if (this.state.nr > 2) {
+        this.setState({ nr: this.state.nr - 2 });
+      } else {
+        this.setState({ nr: this.state.data.length });
+      }
     } else {
-      this.setState({ nr: this.state.data.length });
+      if (this.state.nr > 1) {
+        this.setState({ nr: this.state.nr - 1 });
+      } else {
+        this.setState({ nr: this.state.data.length });
+      }
     }
   }
 
@@ -90,7 +106,7 @@ class RecentAdded extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 4,
-      slidesToScroll: 2,
+      slidesToScroll: this.state.data.length % 2 == 0 ? 2 : 1,
       nextArrow: <SampleNextArrow nrInc={param => this.nrIncrement(param)} />,
       prevArrow: <SamplePrevArrow nrDec={param => this.nrDecrement(param)} />,
       responsive: [

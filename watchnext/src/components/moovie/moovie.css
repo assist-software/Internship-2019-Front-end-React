@@ -3,8 +3,10 @@
 .moovieComponent {
   width: 95%;
   border-radius: 8px;
-  object-fit: cover;
-  max-height: 320px;
+  object-fit: cover; /* Scale the image so it covers whole area, thus will likely crop */
+  object-position: center; /* Center the image within the element */
+  height: 100%;
+  width: 100%;
 }
 
 #moovieTitle {
@@ -58,4 +60,6 @@ small {
 
 .moovieImg {
   position: relative;
+  height: 350px;
+  width: 90%;
 }

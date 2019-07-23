@@ -9,13 +9,18 @@
 }
 
 .heroImageDiv {
+  position: relative;
   height: 550px;
-  width: 390px;
+  width: 70%;
+  float: right;
 }
 .heroImage {
-  border-radius: 15px;
+  width: 95%;
+  border-radius: 8px;
+  object-fit: cover; /* Scale the image so it covers whole area, thus will likely crop */
+  object-position: center; /* Center the image within the element */
   height: 100%;
-  float: right;
+  width: 100%;
 }
 
 .heroTitle {

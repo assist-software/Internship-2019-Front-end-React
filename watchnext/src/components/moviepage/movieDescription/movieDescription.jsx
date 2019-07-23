@@ -52,12 +52,14 @@ class MovieDescription extends Component {
                           alt="Play Trailer"
                           className="playIcon"
                         />
-                        <img
-                          alt="moovie"
-                          className="movImage"
-                          src={data[0].coverUrl}
-                        />
                       </button>
+
+                      <img
+                        alt="moovie"
+                        className="movImage"
+                        src={data[0].coverUrl}
+                      />
+
                       <div
                         className="modal fade bd-example-modal-lg"
                         id="watchTrailer"
@@ -94,7 +96,7 @@ class MovieDescription extends Component {
                       </a>
                     </div>
                   </div>
-                  <div className="col-md-6 description">
+                  <div className="col-md-6 description mt-3">
                     <h1 className="pt-2">{data[0].title}</h1>
                     <img
                       alt="imdb"
