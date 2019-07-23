@@ -12,6 +12,24 @@ class headMovie extends Component {
     };
   }
 
+  addToWatchlist(event) {
+    var toWatch =
+      localStorage.getItem("watchlist") === null
+        ? new Array()
+        : JSON.parse(localStorage.getItem("watchlist"));
+    if (toWatch.indexOf(this.state.data.id) === -1) {
+      toWatch.push(this.state.data.id);
+      localStorage.setItem("watchlist", JSON.stringify(toWatch));
+    }
+  }
+
+  replaceUrl(trailerUrl) {
+    if (trailerUrl) {
+      const finalUrl = trailerUrl.replace("watch?v=", "embed/");
+      return finalUrl;
+    }
+  }
+
   componentDidMount() {
     let url = "http://192.168.151.218:3000/api/movies";
     const token = localStorage.getItem("token");
@@ -70,7 +88,7 @@ class headMovie extends Component {
                             <iframe
                               title="trailerYoutube"
                               className="embed-responsive-item"
-                              src={data.trailerUrl}
+                              src={this.replaceUrl(data.trailerUrl)}
                               allowFullScreen
                             />
                           </div>
@@ -78,7 +96,10 @@ class headMovie extends Component {
                       </div>
                     </div>
                   </div>
-                  <button className="heroAddButton ml-3">
+                  <button
+                    className="heroAddButton ml-3"
+                    onClick={this.addToWatchlist.bind(this)}
+                  >
                     <FontAwesomeIcon
                       icon={faPlus}
                       color="white"

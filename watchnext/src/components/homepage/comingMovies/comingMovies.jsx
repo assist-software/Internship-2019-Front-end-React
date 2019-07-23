@@ -15,6 +15,7 @@ class comingMovies extends Component {
       data: [],
       categories: [],
       date: null,
+      timestampDate: null,
       isOpenPicker: false,
       isTimeline: false,
       isClicked: false,
@@ -27,6 +28,24 @@ class comingMovies extends Component {
     this.setState({
       date
     });
+
+    const timestampDate = date.getTime();
+    console.log("time", timestampDate);
+
+    //   let url =
+    //     "http://192.168.151.218:3000/api/movie/query?from=" + timestampDate;
+
+    //   const token = localStorage.getItem("token");
+    //   fetch(url, {
+    //     method: "GET",
+    //     headers: {
+    //       Authorization: `Bearer ${token}`
+    //     }
+    //   })
+    //     .then(resp => resp.json())
+    //     .then(data => {
+    //       this.setState({ data: data.movies });
+    //     });
   };
 
   openPicker = () => {

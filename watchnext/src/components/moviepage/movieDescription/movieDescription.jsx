@@ -11,6 +11,24 @@ class MovieDescription extends Component {
     };
   }
 
+  addToWatchlist(event) {
+    var toWatch =
+      localStorage.getItem("watchlist") === null
+        ? new Array()
+        : JSON.parse(localStorage.getItem("watchlist"));
+    if (toWatch.indexOf(this.props.match.params.id) === -1) {
+      toWatch.push(this.props.match.params.id);
+      localStorage.setItem("watchlist", JSON.stringify(toWatch));
+    }
+  }
+
+  replaceUrl(trailerUrl) {
+    if (trailerUrl) {
+      const finalUrl = trailerUrl.replace("watch?v=", "embed/");
+      return finalUrl;
+    }
+  }
+
   componentDidMount() {
     let url = "http://192.168.151.218:3000/api/movies";
     const token = localStorage.getItem("token");
@@ -81,7 +99,7 @@ class MovieDescription extends Component {
                                 <iframe
                                   title="trailerYoutube"
                                   className="embed-responsive-item"
-                                  src={data[0].trailerUrl}
+                                  src={this.replaceUrl(data[0].trailerUrl)}
                                   allowFullScreen
                                 />
                               </div>
@@ -96,7 +114,7 @@ class MovieDescription extends Component {
                       </a>
                     </div>
                   </div>
-                  <div className="col-md-6 description">
+                  <div className="col-md-6 description mt-4">
                     <div className="row">
                       <h1>{data[0].title}</h1>
 
@@ -133,7 +151,12 @@ class MovieDescription extends Component {
                       <h5 id="movieDes">{data[0].description}</h5>
                     </div>
                     <div>
-                      <button className="addToWatch">Add to watchlist</button>
+                      <button
+                        className="addToWatch"
+                        onClick={this.addToWatchlist.bind(this)}
+                      >
+                        Add to watchlist
+                      </button>
                     </div>
                     <div className="row detRow mt-5">
                       <div className="col-md-2">

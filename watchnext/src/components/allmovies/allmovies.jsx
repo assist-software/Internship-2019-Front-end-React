@@ -10,6 +10,7 @@ class AllMovies extends Component {
     super(props);
     this.state = {
       data: [],
+      categories: [],
       filteredData: [],
       filter: ""
     };
@@ -19,7 +20,27 @@ class AllMovies extends Component {
     this.setState({ filter: event.target.value });
   };
 
+  selectedCategoryHandler = event => {
+    event.preventDefault();
+    const cat = event.target.value;
+    this.setState({ selectedCategory: cat });
+    let url = "http://192.168.151.218:3000/api/movies-category/" + cat;
+
+    const token = localStorage.getItem("token");
+    fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ data: data.movies });
+      });
+  };
+
   componentDidMount() {
+    let catUrl = "http://192.168.151.218:3000/api/category";
     let url = "http://192.168.151.218:3000/api/movies";
     const token = localStorage.getItem("token");
 
@@ -33,10 +54,21 @@ class AllMovies extends Component {
       .then(data => {
         this.setState({ data: data });
       });
+
+    fetch(catUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ categories: data });
+      });
   }
 
   render() {
-    const { filter, data } = this.state;
+    const { filter, data, categories } = this.state;
     const filteredData = data.filter(item => {
       return item.title.toLowerCase().includes(this.state.filter);
     });
@@ -63,7 +95,7 @@ class AllMovies extends Component {
                         onChange={this.handleChange}
                         type="text"
                         className="search-query form-control searchB"
-                        placeholder="Search by category..."
+                        placeholder="Search by title..."
                       />
 
                       <span className="input-group-btn">
@@ -78,55 +110,60 @@ class AllMovies extends Component {
                 </div>
                 <div className="col-md-6 mt-3">
                   <div className="row sortDiv">
-                    <small className="pt-2" id="sortBy">
+                    <small className="pt-2 mr-2" id="sortBy">
                       Filter By:
                     </small>
 
-                    <select className="sortBySelect ml-4">
-                      <option>Latest Added</option>
-                      <option>Action</option>
-                      <option>Comedy</option>
-                      <option>Horror</option>
-                      <option>Fantasy</option>
+                    <select
+                      className="sortBySelect"
+                      onChange={this.selectedCategoryHandler}
+                    >
+                      <option value="none">None</option>
+                      {categories &&
+                        categories.map(cat => {
+                          return (
+                            <option key={cat.id} value={cat.id}>
+                              {cat.name}
+                            </option>
+                          );
+                        })}
                     </select>
                   </div>
                 </div>
               </div>
               <div className="col-md-12">
                 <div className="row">
-                  <div className="row">
-                    {filteredData.map((movie, index) => (
-                      <div key={index} className="col-md-3 mb-5">
-                        <div>
-                          <a href={"/movie-page/" + movie.id}>
-                            <div className="moovieImg">
-                              <img
-                                className="moovieComponent"
-                                alt="moovie"
-                                src={movie.coverUrl}
-                              />
-                              <button className="addToList">
-                                Add to Watchlist
-                              </button>
-                              <button className="rating">
-                                {movie.imdbScore}
-                              </button>
-                            </div>
-                            <h5 id="moovieTitle">{movie.title}</h5>
-                          </a>
-                          <small>
-                            Realeased date:{" "}
-                            {new Intl.DateTimeFormat("en-US", {
-                              year: "numeric",
-                              month: "2-digit",
-                              day: "2-digit"
-                            }).format(movie.releaseDate)}{" "}
-                            <br /> {/* {movie.movie.category[1]} */}
-                          </small>
-                        </div>
+                  {filteredData.map((movie, index) => (
+                    <div key={index} className="col-md-3 mb-5">
+                      <div>
+                        <a href={"/movie-page/" + movie.id}>
+                          <div className="moovieImg">
+                            <img
+                              className="moovieComponent"
+                              alt="moovie"
+                              src={movie.coverUrl}
+                            />
+                            <button className="addToList">
+                              Add to Watchlist
+                            </button>
+                            <button className="rating">
+                              {movie.imdbScore}
+                            </button>
+                          </div>
+                          <h5 id="moovieTitle">{movie.title}</h5>
+                        </a>
+                        <small>
+                          Realeased date:{" "}
+                          {new Intl.DateTimeFormat("en-US", {
+                            year: "numeric",
+                            month: "2-digit",
+                            day: "2-digit"
+                          }).format(movie.releaseDate)}{" "}
+                          <br /> {/* {movie.movie.category[1]} */}
+                        </small>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

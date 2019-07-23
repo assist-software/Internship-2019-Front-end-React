@@ -40,3 +40,7 @@
 .titRow {
   display: flex;
 }
+
+.timelineScore {
+  color: white;
+}
