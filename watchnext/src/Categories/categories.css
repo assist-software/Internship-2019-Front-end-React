@@ -3,9 +3,16 @@
     color: #010103;
     padding-top: 140px;
     max-width: 1143px;
-        height: 1400px; 
+    height: 1280px;
     background: #010103;
     min-width: 1120px;
+}
+
+#categorypage #comedy {
+    margin: 0 auto;
+    box-sizing: border-box;
+    max-width: 1920px;
+    max-height: 1024px;
 }
 
 #categorypage #leftcateg {
