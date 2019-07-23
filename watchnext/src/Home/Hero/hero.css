@@ -8,21 +8,21 @@
   height: 1024px;
 }
 
-#moon{
+#hero #moon{
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top:200px;
 }
 
-.moon{
+#hero .moon{
   font-family: CamptonLight;
   font-size: 48px;
   line-height: 60px;
   color: #FFFFFF;
 }
 
-.p{
+#hero .p{
   font-family: CamptonLight;
   font-size: 15px;
   line-height: 22px;
@@ -33,7 +33,7 @@
   opacity: 0.6;
 }
 
-.img2{
+#hero .img2{
 
   width: 392px;
   height: 552px;
@@ -42,9 +42,7 @@
   border-radius: 20px;
 }
 
-
-
-#trailer {
+#hero #trailer {
   background: #F5044C;
   height: 48px;
   width: 176px;
@@ -59,10 +57,7 @@
   font-family: CamptonLight;
 }
 
-
-#moon #list{
-
-
+#hero #moon #list{
   background: #1E1E1E !important;
   height: 48px;
   width: 176px;
@@ -78,7 +73,7 @@
   cursor: pointer;
 }
 
-#left span{
+#hero #left span{
   font-size: 26px;
   vertical-align: middle;
   margin: -2px 11px 0 -26px;
@@ -86,7 +81,7 @@
   font-family: sans-serif;
 }
 
-#down{
+#hero #down{
   margin: 0 auto;
   display: block;
   /* border: 1px solid red; */

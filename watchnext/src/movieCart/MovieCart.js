@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import '../movieCart/movieCart.css';
 
 class MovieCart extends React.Component {

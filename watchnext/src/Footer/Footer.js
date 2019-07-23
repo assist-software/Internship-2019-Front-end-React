@@ -23,14 +23,14 @@ class Footer extends React.Component {
                         <li><a href="#">Jobs</a></li>
                     </ul>
                     <ul>
-                        <li id="first.li.up"><a href="#">Contact us</a></li>
+                        <li id="first.li.up"><a href="/contact">Contact us</a></li>
                         <li><a href="/register">Register</a></li>
                         <li><a href="#">News</a></li>
                     </ul>
                     <ul>
                         <li id="first.li.up"><a href="">Condition of Use</a></li>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Interest-Based Ads</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Interest-Based Ads</a></li>
                     </ul>
                  </div>
             </div>
