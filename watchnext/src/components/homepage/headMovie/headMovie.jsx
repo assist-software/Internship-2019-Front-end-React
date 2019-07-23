@@ -9,7 +9,8 @@ class headMovie extends Component {
     this.state = {
       movies: [],
       data: [],
-      message: null
+      message: null,
+      alreadyAdded: false
     };
   }
 
@@ -23,7 +24,11 @@ class headMovie extends Component {
       localStorage.setItem("watchlist", JSON.stringify(toWatch));
     }
 
-    this.setState({ message: "Movie added to WatchList" });
+    this.setState({ message: "Movie added to WatchList", alreadyAdded: true });
+    if (this.state.alreadyAdded === true) {
+      this.setState({ message: "Movie already added" });
+      console.log(this.state.message);
+    }
     setTimeout(() => {
       // console.log(this.state.message);
       this.setState({ message: null });
@@ -53,7 +58,7 @@ class headMovie extends Component {
   }
 
   render() {
-    const { data, message } = this.state;
+    const { data, message, alreadyAdded } = this.state;
     return (
       <div className="hero-content">
         <div className="container py-4">
@@ -114,6 +119,7 @@ class headMovie extends Component {
                     />
                     Add to list
                   </button>
+
                   {message && <div className="add-message">{message}</div>}
                 </div>
               </div>
