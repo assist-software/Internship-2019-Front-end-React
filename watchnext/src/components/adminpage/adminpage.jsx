@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import UpdateMoovie from "./updatemovie/updatemovie";
-
 class AdminPage extends Component {
   constructor(props) {
     super(props);
@@ -21,34 +20,28 @@ class AdminPage extends Component {
       selectedMovie: null
     };
   }
-
   handleChange = event => {
     this.setState({ filter: event.target.value });
   };
-
   selectMovieUpdate(movieId, movie) {
     this.setState({
       selectedMovieUpdateId: movieId,
       selectedMovie: movie
     });
   }
-
   selectMovieDelete(movieId, movie) {
     this.setState({ selectedMovieDeleteId: movieId });
   }
-
   closeUpdateModal() {
     this.setState({
       selectedMovieUpdateId: null
     });
   }
-
   closeDeleteModal() {
     this.setState({
       selectedMovieDeleteId: null
     });
   }
-
   deleteMovie() {
     const movieToDelete = this.state.selectedMovieDeleteId;
     const token = localStorage.getItem("token");
@@ -70,7 +63,6 @@ class AdminPage extends Component {
         this.closeDeleteModal();
       });
   }
-
   componentDidMount() {
     let url = "http://192.168.151.218:3000/api/movies";
     const token = localStorage.getItem("token");
@@ -85,13 +77,11 @@ class AdminPage extends Component {
         this.setState({ data: data });
       });
   }
-
   render() {
     const { filter, data, selectedMovie } = this.state;
     const filteredData = data.filter(item => {
       return item.title.toLowerCase().includes(filter);
     });
-
     return (
       <div className="admin-content">
         <AdminHeader />
@@ -233,7 +223,7 @@ class AdminPage extends Component {
                         </div>
                       </div>
                     </div>
-
+                    ​
                     <div className="col-md- movAction">
                       <button
                         className="movBtn"
@@ -280,5 +270,4 @@ class AdminPage extends Component {
     );
   }
 }
-
 export default AdminPage;

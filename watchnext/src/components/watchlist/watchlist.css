@@ -32,6 +32,7 @@
   border: 1px solid #f5044c;
   width: 160px;
   height: 40px;
+  outline: none;
 }
 
 .searchRow {

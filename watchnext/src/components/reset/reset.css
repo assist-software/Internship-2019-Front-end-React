@@ -57,6 +57,9 @@ p {
 .reset .btn-primary:focus {
   border-color: transparent;
 }
+#resp-reset {
+  color: green;
+}
 @media all and (min-width: 480px) {
   .reset form {
     margin: 0 auto;

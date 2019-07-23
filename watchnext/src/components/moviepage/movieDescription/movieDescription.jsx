@@ -96,13 +96,26 @@ class MovieDescription extends Component {
                       </a>
                     </div>
                   </div>
-                  <div className="col-md-6 description mt-3">
-                    <h1 className="pt-2">{data[0].title}</h1>
-                    <img
-                      alt="imdb"
-                      className="imdbImage pl-3"
-                      src={require("../../../assets/img/imdb.png")}
-                    />
+                  <div className="col-md-6 description">
+                    <div className="row">
+                      <h1>{data[0].title}</h1>
+
+                      <img
+                        alt="imdb"
+                        className="imdbImage pl-3 pt-2"
+                        src={require("../../../assets/img/IMDB_Logo.png")}
+                      />
+                      <h5 className="imdb-score pt-2" id="score-imdb">
+                        {data[0].imdbScore}
+                        <small>/10</small>
+                      </h5>
+                      <img
+                        alt="star-imdb"
+                        className="imdbImageStar pl-3 pt-2"
+                        src={require("../../../assets/img/star-imdb.png")}
+                      />
+                    </div>
+
                     <div>
                       <small id="movieDet">
                         {data[0].category &&

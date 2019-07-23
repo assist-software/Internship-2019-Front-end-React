@@ -11,7 +11,8 @@ class Reset extends Component {
     this.state = {
       email: "",
       success: true,
-      message: ""
+      successMessage: "",
+      errorMessage: ""
     };
   }
   validateForm() {
@@ -32,38 +33,32 @@ class Reset extends Component {
       url: "/reset-password",
       data: {
         email
-      }
-    })
-      .then(response => {
+      },
+      afterSuccess: response => {
         console.log(response);
-        alert("An email with your reseted password has been sent!");
-        // this.setState({ success: true });
-        // console.log("test", success);
-
-        // if (response.data.success === false) {
-        //   // this.setState({
-        //   //   success: false,
-        //   //   message: response.data.message
-        //   // });
-        //   console.log("success  false");
-        // }
-      })
-      .catch(error => {
-        alert("This user is not in database");
-      });
+        this.setState({
+          successMessage: "An email with your reseted password has been sent"
+        });
+      },
+      errorHandler: err => {
+        this.setState({ errorMessage: "This user is not in database" });
+      }
+    });
   };
 
   render() {
-    const { message } = this.state;
-    console.log(message);
+    const { errorMessage, successMessage } = this.state;
+    console.log(errorMessage, successMessage);
     return (
       <div className="container">
-        <img
-          src={require("../../assets/img/frame.png")}
-          alt="Logo"
-          className="frame"
-        />
-
+        <a href="/">
+          {" "}
+          <img
+            src={require("../../assets/img/frame.png")}
+            alt="Logo"
+            className="frame"
+          />
+        </a>
         <div className="container-reset">
           <hr className="new5" />
           <div className="title-reset">
@@ -97,7 +92,13 @@ class Reset extends Component {
                 className="d-flex align-items-center justify-content-center w-100"
                 id="err"
               >
-                {message}
+                {errorMessage}
+              </div>
+              <div
+                className="d-flex align-items-center justify-content-center w-100"
+                id="resp-reset"
+              >
+                {successMessage}
               </div>
             </form>
           </div>

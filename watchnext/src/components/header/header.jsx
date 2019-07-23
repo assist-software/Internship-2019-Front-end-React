@@ -100,11 +100,11 @@ class Header extends Component {
           <li className="navLink d-none d-md-block">
             <a href="https://assist-software.net">Contact</a>
           </li>
-          <li className="navLink d-none d-md-block">
+          {/* <li className="navLink d-none d-md-block">
             <a href="/login">
               <Button>Login</Button>
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     );

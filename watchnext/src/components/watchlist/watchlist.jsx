@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Header from "../header/header";
 import Footer from "../footer/footer";
-
 class WhatchList extends Component {
   constructor(props) {
     super(props);
@@ -17,11 +16,9 @@ class WhatchList extends Component {
       isLoggedIn: false
     };
   }
-
   handleChange = event => {
     this.setState({ filter: event.target.value });
   };
-
   removeFromWatchlist(movId) {
     var toWatch = JSON.parse(localStorage.getItem("watchlist"));
     if (toWatch.includes(movId)) {
@@ -34,7 +31,6 @@ class WhatchList extends Component {
       }
     }
   }
-
   selectedFilterHandler = event => {
     event.preventDefault();
     const cat = event.target.value;
@@ -43,12 +39,9 @@ class WhatchList extends Component {
     } else {
       var moviesLocal = JSON.parse(localStorage.getItem("watchlist")).reverse();
     }
-
     this.setState({ existToWatch: true });
-
     let url = "http://192.168.151.218:3000/api/movies";
     const token = localStorage.getItem("token");
-
     fetch(url, {
       method: "GET",
       headers: {
@@ -67,16 +60,13 @@ class WhatchList extends Component {
         });
       });
   };
-
   componentDidMount() {
     var moviesLocal = JSON.parse(localStorage.getItem("watchlist"));
     this.setState({ nrWatch: moviesLocal.length });
     if (moviesLocal != null) {
       this.setState({ existToWatch: true });
-
       let url = "http://192.168.151.218:3000/api/movies";
       const token = localStorage.getItem("token");
-
       fetch(url, {
         method: "GET",
         headers: {
@@ -95,13 +85,11 @@ class WhatchList extends Component {
         });
     }
   }
-
   render() {
     const { filter, data, existToWatch, nrWatch } = this.state;
     const filteredData = data.filter(item => {
       return item.title.toLowerCase().includes(this.state.filter);
     });
-
     return (
       <React.Fragment>
         {existToWatch && (
@@ -128,7 +116,7 @@ class WhatchList extends Component {
                             className="search-query form-control searchB"
                             placeholder="Search for a movie..."
                           />
-
+                          ​
                           <span className="input-group-btn">
                             <button className="btn btn-danger" type="button">
                               <span>
@@ -147,7 +135,7 @@ class WhatchList extends Component {
                         <small className="pt-2" id="sortBy">
                           Filter By:
                         </small>
-
+                        ​
                         <select
                           className="sortBySelect ml-4"
                           onChange={this.selectedFilterHandler}
@@ -211,5 +199,4 @@ class WhatchList extends Component {
   }
   // }
 }
-
 export default WhatchList;
