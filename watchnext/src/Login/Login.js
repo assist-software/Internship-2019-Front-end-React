@@ -3,11 +3,11 @@ import '../Login/login.css';
 import '../Home/Home'
 import api from "../api-connection.js"
 
-
-import { withRouter } from "react-router";
+import { withRouter, Redirect } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
+import { browserHistory } from 'react-router'
 
 class Login extends React.Component {
 
@@ -25,7 +25,9 @@ class Login extends React.Component {
 			passwordConfirm: '',
 			requestRegister: false,
 			requestReset: false,
-			lerrors: 0
+			lerrors: 0,
+			// secret_token: JSON.parse(localStorage.getItem("token")),
+			// rolUser: JSON.parse(localStorage.getItem("Rol"))
 		}
 		this.handleChangePassword = this.handleChangePassword.bind(this);
 		this.handleChangePasswordConfirm = this.handleChangePasswordConfirm.bind(this);
@@ -76,8 +78,8 @@ class Login extends React.Component {
 		this.setState({ isRegister: false, isLogin: true })
 	}
 
-	changetoReset(){
-		this.setState({ isLogin: false, isReset: true})
+	changetoReset() {
+		this.setState({ isLogin: false, isReset: true })
 	}
 
 	isEmailValid(email) {
@@ -99,12 +101,12 @@ class Login extends React.Component {
 			errors.push('Empty fields! ');
 		} else
 
-		if (emailLogin != '' && this.isEmailValid(emailLogin) != 1) {
-			errors.push("Invalid email! ");
-		}
-		else{
-
-		}
+			if (emailLogin != '' && this.isEmailValid(emailLogin) != 1) {
+				errors.push("Invalid email! ");
+			}
+			else {
+				this.sendResetToJsonServer(emailLogin)
+			}
 
 		this.setState({ requestReset: true, lerrors: errors })
 
@@ -119,16 +121,16 @@ class Login extends React.Component {
 			errors.push("Empty fields! ");
 		} else
 
-		if (this.isEmailValid(emailLogin) != 1 && emailLogin != '') {
-			errors.push("Invalid email! ");
-		} else
+			if (this.isEmailValid(emailLogin) != 1 && emailLogin != '') {
+				errors.push("Invalid email! ");
+			} else
 
-		if (this.passwordsValidation(password, passwordConfirm) == false) {
-			errors .push("Passwords don't match! ");
-		}
-		else{
-			this.sendToJsonServer(fullName, emailLogin, password, passwordConfirm)
-		}
+				if (this.passwordsValidation(password, passwordConfirm) == false) {
+					errors.push("Passwords don’t match! ");
+				}
+				else {
+					this.sendToJsonServer(fullName, emailLogin, password, passwordConfirm)
+				}
 
 		this.setState({ requestRegister: true, lerrors: errors })
 		return errors;
@@ -139,12 +141,59 @@ class Login extends React.Component {
 
 		if (emailLogin == '' || password == '') {
 			errors.push("Empty fields. ");
-		}
-		if (this.isEmailValid(emailLogin) != 1) {
-			errors.push("Invalid email.");
-		}
+		} else
+			if (this.isEmailValid(emailLogin) != 1) {
+				errors.push("Invalid email.");
+			} else {
+				this.sendLoginToJsonServer(emailLogin, password)
+			}
 		this.setState({ requestLogin: true, lerrors: errors })
 		return errors;
+	}
+
+	sendLoginToJsonServer = (emailLogin, password) => {
+		var data = {
+			"email": emailLogin,
+			"password": password
+		};
+
+		fetch(api.logIn,
+			{
+				crossDomain: true,
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(data)
+			})
+			.then(response => response.json())
+			.then(data => {
+				localStorage.setItem('secret_token', data.token)
+				localStorage.setItem('user_rol', data.Rol)
+				if(localStorage.getItem('secret_token') != 'undefined'){
+					this.props.history.push("/home")
+				}
+			}
+			);
+
+	}
+
+	sendResetToJsonServer = (emailLogin) => {
+		var data = {
+			"email": emailLogin
+		};
+
+		fetch(api.resetPass,
+			{
+				crossDomain: true,
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(data)
+			})
+			.then(response => response.json())
+
 	}
 
 	sendToJsonServer = (fullName, emailLogin, password, passwordConfirm) => {
@@ -159,23 +208,33 @@ class Login extends React.Component {
 
 			fetch(api.singUp,
 				{
+					crossDomain: true,
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
 					},
 					body: JSON.stringify(data)
 				})
-                .then(response => alert(JSON.stringify(data)))
-			
+				.then(response => response.json())
+				.then(data => alert(JSON.stringify(data)));
 
-		}else{alert("invalid data 	")}
+		} else { alert("invalid data 	") }
 	}
+
+
 
 	render() {
 		const { isLogin, isRegister, isReset } = this.state
 		const { requestLogin, requestRegister, lerrors, requestReset } = this.state
 		const { isPassworDisplayed, emailLogin, password, fullName, passwordConfirm } = this.state
+
+		if (localStorage.getItem('secret_token') != null && localStorage.getItem('secret_token') != 'undefined') {
+			this.props.history.push("/home")
+		}
+
+
 		return (
+
 			<div id="login_page">
 
 				<div id="logo">
@@ -192,14 +251,17 @@ class Login extends React.Component {
 							<input name="password" placeholder="Password" id="log" className="vis" type={isPassworDisplayed ? "text" : "password"} value={password} onChange={e => this.handleChangePassword(e.target.value)} />
 							<FontAwesomeIcon icon={faEye} id="eye" onClick={() => this.displayPassword(!isPassworDisplayed)} />
 						</div>
-						<Link to="/reset"> <p id="password" onClick = {() => this.changetoReset()}> Forgot password? </p> </Link>
-					
+						<Link to="/reset"> <p id="password" onClick={() => this.changetoReset()}> Forgot password? </p> </Link>
+
 						{(requestLogin == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => {
-							return  <div>{item}</div> })} </p>}
+							return <div>{item}</div>
+						})} </p>}
 						<div align="center" id="buttonDiv">
 							<input type="button" className="logIn button1" align="center" value="Log in" onClick={() => this.errors(emailLogin, password)} />
+
 							<Link to="/register"> <p id="create" onClick={() => this.changeToRegister()}> Don’t have an account? Let’s create one </p> </Link>
 							<i id="createOne"></i>
+
 						</div>
 					</div>
 				}
@@ -218,7 +280,8 @@ class Login extends React.Component {
 							<input type={isPassworDisplayed ? "text" : "password"} name="password" placeholder="Confirm password" id="log" className="vis" value={passwordConfirm} onChange={e => this.handleChangePasswordConfirm(e.target.value)} />
 
 							{(requestRegister == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => {
-							return  <div>{item}</div> })} </p>}
+								return <div>{item}</div>
+							})} </p>}
 
 						</div>
 						<div align="center" id="buttonDiv">
@@ -232,16 +295,17 @@ class Login extends React.Component {
 				{(isReset) &&
 					<div id="boxReset">
 						<h1 id="resetLoginText"> Reset password </h1>
-						<p id = {(requestReset == true && lerrors == '') ? "hideItem" : "resetText"} > We will send you over email the instructions in <br /> order to get your password reseted. </p>
+						<p id={(requestReset == true && lerrors == '') ? "hideItem" : "resetText"} > We will send you over email the instructions in <br /> order to get your password reseted. </p>
 						<div align="center">
-							<input type="text" id = {(requestReset == true && lerrors == '') ? "hideItem" : "log"} name="email" placeholder="Email adress" value={emailLogin} onChange={e => this.handleChangeEmailLogin(e.target.value)} />
-							{(requestReset == true && lerrors == '') && <p id = "resetText"> An email with instructions <br /> has been sent to <font color="#F5044C">{emailLogin}</font>! </p>}
+							<input type="text" id={(requestReset == true && lerrors == '') ? "hideItem" : "log"} name="email" placeholder="Email adress" value={emailLogin} onChange={e => this.handleChangeEmailLogin(e.target.value)} />
+							{(requestReset == true && lerrors == '') && <p id="resetText"> An email with instructions <br /> has been sent to <font color="#F5044C">{emailLogin}</font>! </p>}
 							{(requestReset == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => {
-							return  <div>{item}</div> })} </p>}
+								return <div>{item}</div>
+							})} </p>}
 						</div>
 						<div align="center" id="buttonDiv">
-							<input type="button" id = {(requestReset == true && lerrors == '') ? "hideItem" : ""} className="logIn button1" value="Reset password" align="center" onClick={() => this.errorsReset(emailLogin)} />
-							{<Link to="/home"><input type="button" id = {(requestReset == true && lerrors == '') ? "button2" : "hideItem"} align="center" value="Return Home"></input> </Link>}
+							<input type="button" id={(requestReset == true && lerrors == '') ? "hideItem" : ""} className="logIn button1" value="Reset password" align="center" onClick={() => this.errorsReset(emailLogin)} />
+							{<Link to="/home"><input type="button" id={(requestReset == true && lerrors == '') ? "button2" : "hideItem"} align="center" value="Return Home"></input> </Link>}
 						</div>
 					</div>
 				}

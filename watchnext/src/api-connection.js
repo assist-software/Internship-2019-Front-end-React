@@ -8,14 +8,16 @@
 //     delMovie: 'http://localhost:3001/movies/'
 // }
 
-const api = {
-    
+const api = { 
     categories: 'http://192.168.151.105:1234/category/',
     movies: 'http://192.168.151.105:1234/movies/',
     catMovies: 'http://192.168.151.105:1234/movies/?category_like=',
     singUp: 'http://192.168.151.105:1234/signup/',
     addMovie: 'http://192.168.151.105:1234/movies/add',
-    delMovie: 'http://192.168.151.105:1234/movies/'
+    delMovie: 'http://192.168.151.105:1234/movies/',
+    singUp: 'http://192.168.151.105:1234/signup/',
+    logIn: 'http://192.168.151.105:1234/login/',
+    resetPass: 'http://192.168.151.105:1234/reset/'
 }
 
 export default api
