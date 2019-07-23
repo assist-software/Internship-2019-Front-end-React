@@ -10,9 +10,10 @@ class Contact extends React.Component {
     
     render() {
       return (
-        <div className="contact">
+        <div className="contacts">
+          <div id = "barContact"></div>
           <p id="cont">Contact</p>
-            <form id="form" action="/action_page.php">
+            <form id="formcontact" action="/action_page.php">
                 <label id="first">First Name</label>
                 <input type="text" id="fname" name="firstname" placeholder="Your first name.." />
                 <label id="last">Last name</label>
@@ -20,7 +21,7 @@ class Contact extends React.Component {
                 <label id="em">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email.." />
                 <label id="sub">Subject</label>
-                <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
+                <input id="subject" name="subject" placeholder="Write something.."></input>
                 <input type="submit" id="submit" value="Submit" />
             </form>
         </div>

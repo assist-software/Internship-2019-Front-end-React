@@ -7,10 +7,10 @@
 
 const api = {
     
-    categories: 'https://cors-anywhere.herokuapp.com/http://localhost:3001/category/',
-    movies: 'https://cors-anywhere.herokuapp.com/http://localhost:3001/movies/',
-    catMovies: 'https://cors-anywhere.herokuapp.com/http://192.168.151.105/movies/?category_like=',
-    singUp: 'https://cors-anywhere.herokuapp.com/http://192.168.151.105:1234/signup/'
+    categories: 'http://localhost:3001/category/',
+    movies: 'http://192.168.151.105/movies/',
+    catMovies: 'http://192.168.151.105/movies/?category_like=',
+    singUp: 'http://192.168.151.105:1234/signup/'
 }
 
 export default api
