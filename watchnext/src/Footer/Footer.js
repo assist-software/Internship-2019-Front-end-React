@@ -36,7 +36,6 @@ class Footer extends React.Component {
             </div>
 
             <div id = "footerDown">
-                <div id = "bar"> </div>
                 <p>Copyright <font face = "corbel">©</font> 1990-2019 Moovie.com, Inc.</p>
                 <ul>
                     <li id = "liText">Follow us on social media</li>
