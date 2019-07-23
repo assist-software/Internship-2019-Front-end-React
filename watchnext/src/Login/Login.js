@@ -4,191 +4,243 @@ import '../Home/Home'
 
 import { withRouter } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faPrescriptionBottleAlt } from '@fortawesome/free-solid-svg-icons'  
-import {Link} from 'react-router-dom';
+import { faEye, faPrescriptionBottleAlt } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
-    
-    constructor() {
-        super()
-        this.state = {
-            value: '',
-            password1: '',
-            password2: '',
-            isPassworDisplayed: false,
-            isLogin: true,
-            isRegister: false,
-            isReset: false,
-            isClicked: false,
-            checked: false,
-            isPressed: false,
-            squad: false
-        
-        }
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleChangePassword1 = this.handleChangePassword1.bind(this);
-        this.handleChangePassword2 = this.handleChangePassword2.bind(this);
-    }
+	constructor() {
+		super()
+		this.state = {
+			isLogin: true,
+			isRegister: false,
+			isReset: false,
+			isPasswordDisplayed: false,
+			emailLogin: '',
+			password: '',
+			requestLogin: false,
+			fullName: '',
+			passwordConfirm: '',
+			requestRegister: false,
+			requestReset: false,
+			lerrors: 0
+		}
+		this.handleChangePassword = this.handleChangePassword.bind(this);
+		this.handleChangePasswordConfirm = this.handleChangePasswordConfirm.bind(this);
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
+		this.handleChangeEmailLogin = this.handleChangeEmailLogin.bind(this);
+		this.handleChangeFullName = this.handleChangeFullName.bind(this);
 
-    handleChangePassword1(event) {
-        this.setState({password1: event}, () => {
-            console.log(this.state.password1)
-        });
-        
-    }
+	}
 
-    handleChangePassword2(event) {
-        this.setState({password2: event});
-        console.log(this.state.password1)
-    }
+	componentDidMount() {
+		if (this.props.location.pathname.indexOf('login') !== -1) {
+			this.setState({ isLogin: true, isRegister: false, isReset: false })
+		}
+		else if (this.props.location.pathname.indexOf('register') != -1) {
+			this.setState({ isLogin: false, isRegister: true, isReset: false })
+		}
+		else {
+			this.setState({ isLogin: false, isRegister: false, isReset: true })
+		}
 
-    displayPassword(value) {
-        this.setState({isPassworDisplayed: value})
-    }
+	}
 
-    matchingPasswords(){
-        if(this.state.password1 === this.state.password2){
-            console.log(this.state.password1, this.state.password2)
-            console.log("equal")
-            return 1;
-        }
-        else {
-            console.log("not equal")
-            return 0;
-        }
-    }
+	handleChangeFullName(fullName) {
+		this.setState({ fullName: fullName })
+	}
 
-    resetClicked() { 
-        if(this.state.checked == true)
-            this.setState({isClicked: true})
-        this.setState({squad: true})
-    }
+	changeToRegister() {
+		this.setState({ isLogin: false, isRegister: true })
+	}
 
-    changeToRegister(isLogin, isRegister) {
-        this.setState({isLogin: false, isRegister: true})
-        this.setState({
-            isPressed: false,
-            isClicked: false,
-            checked: false
-        })
-    }
+	handleChangePassword(password) {
+		this.setState({ password: password })
+	}
 
-    changeToLogin(isRegister, isLogin){
-        this.setState({isRegister: false, isLogin: true})
-        this.setState({
-            isPressed: false,
-            isClicked: false,
-            checked: false
-        })
-    }
+	handleChangeEmailLogin(email) {
+		this.setState({ emailLogin: email })
+	}
 
-    changeToReset(isLogin, isReset){
-        this.setState({isLogin: false, isReset: true})
-        this.setState({
-            isPressed: false,
-            isClicked: false,
-            checked: false
-        })
-    }
+	handleChangePasswordConfirm(password) {
+		this.setState({ passwordConfirm: password })
+	}
 
-    validateEmail(value, isPressed) {   
-        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        this.state = {checked: re.test(value)}
-        this.resetClicked()
-        this.setState({isPressed: true})
-    }
+	displayPassword(password) {
+		this.setState({ isPassworDisplayed: password })
+	}
 
-    componentDidMount(){
-        if(this.props.location.pathname.indexOf('login') !== -1) {
-            this.setState({isLogin: true, isRegister: false, isReset: false})
-        }
-        else if(this.props.location.pathname.indexOf('register') != -1){
-            this.setState({isLogin: false, isRegister: true, isReset: false})
-        }
-        else{
-            this.setState({isLogin: false, isRegister: false, isReset: true})
-        }
+	changeToLogin() {
+		this.setState({ isRegister: false, isLogin: true })
+	}
 
-    }
+	isEmailValid(email) {
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email)
+	}
 
-    render() {
-        const {isPassworDisplayed, isLogin, isRegister, isReset} = this.state
-        const {isClicked} = this.state
-        return (
-            <div id = "login_page">
+	passwordsValidation(password, passwordConfirm) {
+		if (password === passwordConfirm)
+			return true;
+		else
+			return false;
+	}
 
-                    <div id = "logo"> 
-                        <img id = "logoImage" src={require("../Footer/moovie_logo.png")}/> 
-                    </div>
+	errorsReset(emailLogin) {
+		var errors = [];
 
-                    <div id = "barLogin"></div>
+		if (emailLogin == '') {
+			errors.push('Empty fields! ');
+		} else
 
-                    {(isLogin) && 
-                    <div id = "box">
-                        <h1 id = "loginText"> Log in to <br/>your account </h1>
-                        <div align="center">
-                            <input type="text" id="log" name="email" placeholder="Email adress"/>
-                            <input type={isPassworDisplayed ? "text":"password"} name="password" placeholder = "Password" id = "log" className = "vis"></input>
-                            <FontAwesomeIcon icon={faEye} id = "eye" onClick={()=> this.displayPassword(!isPassworDisplayed)} />
-                        </div>
-                            <Link to="/reset"> <p id = "password" onClick = {() => this.changeToReset(isLogin, isReset)}> Forgot password? </p> </Link>
-                            {(this.state.squad && this.state.isPressed && !isClicked && isLogin) && <p id='noLogin' align = "center">Invalid email or blank fields. <br/> Try again!</p>}
-                        <div align = "center" id = "buttonDiv">
-                            <input type = "button" className = "logIn button1" align = "center" value = "Log in" align ="center" onClick = {() => this.validateEmail(this.state.value, this.state.isPressed)}></input>
-                            <Link to="/register"> <p id="create" onClick = {() => this.changeToRegister(isLogin, isRegister)}> Don’t have an account? Let’s create one </p> </Link>
-                            <i id = "createOne"></i>
-                        </div>
-                    </div>
-                    }
+		if (emailLogin != '' && this.isEmailValid(emailLogin) != 1) {
+			errors.push("Invalid email! ");
+		}
+		else{
 
-                    {(isRegister) && 
-                        <div id = "box">
-                            <h1 id = "loginText"> Let<font face = "corbel">'</font>s create <br/>your account </h1>
-                            <div align="center" id = "logInInputDiv">
-                                <input type="text" id="log" name="fullName" placeholder="Full name"/>
-                                <input type="text" id = {isClicked ? "hideItem" : "log"} name="email" placeholder="Confirm email adress"  value={this.state.value} onChange={this.handleChange} />
-                                
+		}
 
-                                <input type={isPassworDisplayed ? "text":"password"} name="password" placeholder = "Password" id = "log" className = "vis" value={this.state.password1} onChange={e=>this.handleChangePassword1(e.target.value)}></input>
-                                <FontAwesomeIcon icon={faEye} id = "eye" onClick={() => this.displayPassword(!isPassworDisplayed)} />
-                                <br/>
-                                <input type={isPassworDisplayed ? "text":"password"} name="password" placeholder = "Confirm password" id = "log" className = "vis" value={this.state.password2} onChange={e=>this.handleChangePassword2(e.target.value)}></input>
+		this.setState({ requestReset: true, lerrors: errors })
 
-                                {(this.state.squad && this.state.isPressed && !isClicked && isRegister) && <p id='noRegister'>Invalid email or blank fields. <br/> Try again!</p>}
-                                {/* {console.log(this.state.password1, this.state.password2)} */}
-                                {(this.matchingPasswords(this.state.password1, this.state.password2) == 0) && <p id="noRegister"> Passwords don't match </p>}
-                            </div>
-                            <div align = "center" id = "buttonDiv">
-                                <input type = "button" className = "logIn button1" align = "center" value = "Register" align ="center"  onClick = {() => this.validateEmail(this.state.value, this.state.isPressed)} ></input>
-                                <Link to="/login"> <p id="create" onClick = {() => this.changeToLogin(isRegister, isLogin)}> Already have an account? Log in </p> </Link>
-                                <i id = "haveOne"></i>
-                            </div>
-                        </div>
-                    }
 
-                    {(isReset) && 
-                        <div id = "boxReset">
-                            <h1 id = "resetLoginText"> Reset password </h1>
-                            <p id = {isClicked ? "hideItem" : "resetText" } > We will send you over email the instructions in <br/> order to get your password reseted. </p>
-                            <div align="center">
-                                <input type="text" id = {isClicked ? "hideItem" : "log"} name="email" placeholder="Email adress"  value={this.state.value} onChange={this.handleChange} />
-                                <p id = {isClicked ? "afterClick" : "hideItem" } > An email with instructions <br/> has been sent to <font color = "#F5044C">{this.state.value}</font>! </p>
-                                {(this.state.squad && this.state.isPressed && !isClicked && isReset) && <p id='noEmail'>Invalid email or blank fields <br/> Try again!</p>}
-                            </div>
-                            <div align = "center" id = "buttonDiv">
-                                <input type = "button" id = {isClicked ? "hideItem" : "" } className = "logIn button1" value = "Reset password" align ="center" onClick = {() => this.validateEmail(this.state.value, this.state.isPressed)}></input>
-                                <Link to="/home"><input type = "button" id = {isClicked ? "button2" : "hideItem" } align = "center" value = "Return Home"></input> </Link>
-                            </div>
-                        </div>
-                    }
-                </div>
-        )    
-    }
+		return errors;
+	}
+
+	errorsRegister(fullName, emailLogin, password, passwordConfirm) {
+		var errors = [];
+
+		if (fullName == '' || emailLogin == '' || password == '' || passwordConfirm == '') {
+			errors.push("Empty fields! ");
+		} else
+
+		if (this.isEmailValid(emailLogin) != 1 && emailLogin != '') {
+			errors.push("Invalid email! ");
+		} else
+
+		if (this.passwordsValidation(password, passwordConfirm) == false) {
+			errors .push("Passwords don't match! ");
+		}
+		else{
+			this.sendToJsonServer(fullName, emailLogin, password, passwordConfirm)
+		}
+
+		this.setState({ requestRegister: true, lerrors: errors })
+		return errors;
+	}
+
+	errors(emailLogin, password) {
+		var errors = [];
+
+		if (emailLogin == '' || password == '') {
+			errors.push("Empty fields. ");
+		}
+		if (this.isEmailValid(emailLogin) != 1) {
+			errors.push("Invalid email.");
+		}
+		this.setState({ requestLogin: true, lerrors: errors })
+		return errors;
+	}
+
+	sendToJsonServer = (fullName, emailLogin, password, passwordConfirm) => {
+
+		if (fullName != '' && this.isEmailValid(emailLogin) && this.passwordsValidation(password, passwordConfirm)) {
+			var data = {
+				"username": fullName,
+				"email": emailLogin,
+				"password": password
+			};
+
+			fetch("http://192.168.151.105:1234/signup",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(data)
+				})
+                .then(response => alert(JSON.stringify(data)))
+			
+
+		}else{alert("invalid data 	")}
+	}
+
+	render() {
+		const { isLogin, isRegister, isReset } = this.state
+		const { requestLogin, requestRegister, lerrors, requestReset } = this.state
+		const { isPassworDisplayed, emailLogin, password, fullName, passwordConfirm } = this.state
+		return (
+			<div id="login_page">
+
+				<div id="logo">
+					<img id="logoImage" src={require("../Footer/moovie_logo.png")} />
+				</div>
+
+				<div id="barLogin"></div>
+
+				{(isLogin) &&
+					<div id="box">
+						<h1 id="loginText"> Log in to <br />your account </h1>
+						<div align="center">
+							<input type="text" id="log" name="email" placeholder="Email adress" value={emailLogin} onChange={e => this.handleChangeEmailLogin(e.target.value)} />
+							<input name="password" placeholder="Password" id="log" className="vis" type={isPassworDisplayed ? "text" : "password"} value={password} onChange={e => this.handleChangePassword(e.target.value)} />
+							<FontAwesomeIcon icon={faEye} id="eye" onClick={() => this.displayPassword(!isPassworDisplayed)} />
+						</div>
+						<Link to="/reset"> <p id="password"> Forgot password? </p> </Link>
+					
+						{(requestLogin == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => {
+							return  <div>{item}</div> })} </p>}
+						<div align="center" id="buttonDiv">
+							<input type="button" className="logIn button1" align="center" value="Log in" onClick={() => this.errors(emailLogin, password)} />
+							<Link to="/register"> <p id="create" onClick={() => this.changeToRegister()}> Don’t have an account? Let’s create one </p> </Link>
+							<i id="createOne"></i>
+						</div>
+					</div>
+				}
+
+				{(isRegister) &&
+					<div id="box">
+						<h1 id="loginText"> Let<font face="corbel">'</font>s create <br />your account </h1>
+						<div align="center" id="logInInputDiv">
+							<input type="text" id="log" name="fullName" placeholder="Full name" value={fullName} onChange={e => this.handleChangeFullName(e.target.value)} />
+							<input type="text" id="log" name="email" placeholder="Email adress" value={emailLogin} onChange={e => this.handleChangeEmailLogin(e.target.value)} />
+
+
+							<input type={isPassworDisplayed ? "text" : "password"} name="password" placeholder="Password" id="log" className="vis" value={password} onChange={e => this.handleChangePassword(e.target.value)} />
+							<FontAwesomeIcon icon={faEye} id="eye" onClick={() => this.displayPassword(!isPassworDisplayed)} />
+							<br />
+							<input type={isPassworDisplayed ? "text" : "password"} name="password" placeholder="Confirm password" id="log" className="vis" value={passwordConfirm} onChange={e => this.handleChangePasswordConfirm(e.target.value)} />
+
+							{(requestRegister == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => {
+							return  <div>{item}</div> })} </p>}
+
+						</div>
+						<div align="center" id="buttonDiv">
+							<input type="button" className="logIn button1" align="center" value="Register" onClick={() => this.errorsRegister(fullName, emailLogin, password, passwordConfirm)} />
+							<Link to="/login"> <p id="create" onClick={() => this.changeToLogin()}> Already have an account? Log in </p> </Link>
+							<i id="haveOne"></i>
+						</div>
+					</div>
+				}
+
+				{(isReset) &&
+					<div id="boxReset">
+						<h1 id="resetLoginText"> Reset password </h1>
+						<p id = {(requestReset == true && lerrors == '') ? "hideItem" : "resetTextResetPassword"} > We will send you over email the instructions in <br /> order to get your password reseted. </p>
+						<div align="center">
+							<input type="text" id = {(requestReset == true && lerrors == '') ? "hideItem" : "logResetPassword"} name="email" placeholder="Email adress" value={emailLogin} onChange={e => this.handleChangeEmailLogin(e.target.value)} />
+							{(requestReset == true && lerrors == '') && <p id="afterClick" > An email with instructions <br /> has been sent to <font color="#F5044C">{emailLogin}</font>! </p>}
+							{(requestReset == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => {
+							return  <div>{item}</div> })} </p>}
+						</div>
+						<div align="center" id="buttonDiv">
+							<input type="button" id = {(requestReset == true && lerrors == '') ? "hideItem" : ""} className="logIn button1" value="Reset password" align="center" onClick={() => this.errorsReset(emailLogin)} />
+							{<Link to="/home"><input type="button" id = {(requestReset == true && lerrors == '') ? "button2" : "hideItem"} align="center" value="Return Home"></input> </Link>}
+						</div>
+					</div>
+				}
+			</div>
+		)
+	}
 }
 
 const input = document.querySelector("click")
