@@ -66,8 +66,6 @@ class RecentAdded extends Component {
     })
       .then(resp => resp.json())
       .then(data => {
-        console.log("rrr", data);
-
         this.setState({
           data: data.filter(mov => {
             if (mov.releaseDate <= today.getTime()) return mov;
