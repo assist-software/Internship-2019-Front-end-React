@@ -9,7 +9,10 @@ import api from "../api-connection.js"
 class Admin extends React.Component {
 	constructor() {
 		super()
-		this.state = {}
+		this.state = {
+			popupVisible:false,
+			popup_id:3
+		}
 	}
 
 	componentDidMount = () => this.getMovies()
@@ -24,27 +27,39 @@ class Admin extends React.Component {
 						release={item.releaseDate}
 						gen={item.category}
 						img={item.coverUrl}
-						dm={this.deleteMovie}
+						dm={this.displayDeletePopUp}
 					/>)
 				this.setState({ data:movies, movieList: movies})
 			})
 	}
 
+	displayDeletePopUp = (id) => {
+		this.setState({popupVisible:true,popup_id:3,delId:id})
+	}
+
+	deleteAnswer = (answer) => {
+		if(answer){
+			this.deleteMovie(this.state.delId)
+		}else{
+			this.updatePopupVisibility(false)
+			this.getMovies()
+		}
+	}
+
 	deleteMovie = (id) => {
-	
 		this.setState((p)=>{
 			return {
 				data:p.data.filter((item) => item.props.id != id),
 				movieList:p.data.filter((item) => item.props.id != id)
 			}
 		})
-		fetch(api.movies + id, {
+		fetch(api.delMovie + id, {
 			method: 'DELETE'
 		}).then(function(response) {
 			return response.json();
 		}).then(function(data) {
-			alert("Ok")
 		});
+			this.setState({popupVisible:false})
 	}
 
 	search = (event) => {
@@ -54,9 +69,18 @@ class Admin extends React.Component {
 		this.setState({movieList:movies})
 	}
 
+	addNew = () => {
+		this.setState({popup_id:1,popupVisible:true})
+	}
+
+	updatePopupVisibility = (val) => {
+		this.setState({popupVisible:val})
+	}
+
 	render() {
 		return (
 			<div id="admin">
+				<Popup popup_id={this.state.popup_id} visible={this.state.popupVisible} updatePopupVisibility={this.updatePopupVisibility} ans={this.deleteAnswer}/>
 				<div id="container">
 					<div id="main">
 						<div id="top">
@@ -65,7 +89,7 @@ class Admin extends React.Component {
 								<FontAwesomeIcon icon={faSearch} id="ico" />
 							</div>
 							<div>
-								<button>Add new </button>
+								<button onClick={() => this.addNew()}>Add new </button>
 							</div>
 						</div>
 						<ul id="movie">
