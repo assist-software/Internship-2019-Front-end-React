@@ -1,9 +1,10 @@
-import React from 'react';
-import './dropdown.css';
+import React from 'react'
+import './dropdown.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import { Scrollbars } from 'react-custom-scrollbars';
+import { Scrollbars } from 'react-custom-scrollbars'
+import api from "../api-connection.js"
 
 class Dropdown extends React.Component {
 
@@ -37,16 +38,15 @@ class Dropdown extends React.Component {
   }
 
   getMovies = () => {
-    let url = "http://localhost:3001/category"
-    fetch(url)
+    fetch(api.categories)
       .then(resp => resp.json())
       .then(data => {
         data.map(item => {
-          fetch("http://localhost:3001/movies?category_like=" + item.id)
+          fetch(api.catMovies + item.name)
             .then(resp => resp.json())
             .then(data => {
               let movies = data.map(item => item)
-              this.setState((prev) => {catCount: prev.catCount[item.id] = movies.length }
+              this.setState((prev) => {catCount: prev.catCount[item.name] = movies.length }
             )
         })
       })
@@ -68,7 +68,7 @@ class Dropdown extends React.Component {
         {this.state.listOpen && <div id="list">
           <ul>
             <Scrollbars style={{ height: 175 }}>
-              {this.props.list.map(item => <li onClick={() => this.genreSelect(item)} key={item.id}>{item.title} {this.props.num && "(" + this.state.catCount[item.id]+ ")"}</li>)}
+              {this.props.list.map(item => <li onClick={() => this.genreSelect(item)} key={item.id}>{item.title} {this.props.num && "(" + this.state.catCount[item.title]+ ")"}</li>)}
             </Scrollbars>
           </ul>
         </div>}

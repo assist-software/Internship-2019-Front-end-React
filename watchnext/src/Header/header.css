@@ -61,3 +61,74 @@ a{color:#fff;text-decoration: none;}
     min-width: 185px;
     justify-content: space-between;
 }
+
+#ppic{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    border: 2px solid #F5044C;
+}
+
+#group{
+    align-items: center;
+    display: flex;
+    margin-left: 520px;
+}
+
+#dd{
+    margin-right: 108px;
+}
+
+#uname{
+    color: #FFFFFF;
+    opacity: 0.4;
+    margin-left: 16px;
+    cursor: pointer;
+}
+
+#opts{
+    position: absolute;
+    width: 176px;
+    height: 72px;
+    margin-left: 133px;
+    top: 96px;
+    background: #FFFFFF;
+    border: 1px solid #DADADA;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 60px rgba(163, 163, 163, 0.1);
+    border-radius: 8px;  
+}
+
+#opts p{
+    color: #010103;
+    opacity: 0.7;
+    font-size: 16px;
+    text-align: left;
+    font-family: CamptonLight;
+    font-weight: 900;
+    cursor: pointer;
+    padding: 15px;
+    
+}
+
+#opts p:hover{
+    background:#00000014;
+}
+
+#uname{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#uname svg{
+    min-width:15px;
+}
+
+#opts p :focus {
+    outline:none;
+}
