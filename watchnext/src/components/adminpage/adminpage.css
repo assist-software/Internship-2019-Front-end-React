@@ -76,6 +76,12 @@
 .addNewContent {
   height: 920px !important;
 }
+.form-control:focus {
+  background-color: #fff;
+  outline: 0;
+  box-shadow: none;
+  border-color: #495057 !important;
+}
 
 @media screen and (max-width: 770px) {
   .addNewContent {

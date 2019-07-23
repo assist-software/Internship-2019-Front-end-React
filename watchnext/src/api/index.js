@@ -1,6 +1,9 @@
 import axios from "axios";
 import { API_URL } from "../constants/api";
 
+const client = axios.create();
+// client.defaults.timeout = 10000;
+
 const getHeaders = () => {
   const token = localStorage.getItem("token");
   if (token) {
@@ -26,7 +29,7 @@ const createApiRequest = async ({
 
     const requestData = method === "get" ? params : data;
 
-    const response = await axios[method](
+    const response = await client[method](
       `${API_URL}${url}`,
       requestData,
       config

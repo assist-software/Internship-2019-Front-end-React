@@ -74,6 +74,14 @@ class Register extends Component {
     const { registerError } = this.state;
     return (
       <div className="container">
+        <a href="/">
+          {" "}
+          <img
+            src={require("../../assets/img/frame.png")}
+            alt="Logo"
+            className="frame"
+          />
+        </a>
         <img
           src={require("../../assets/img/frame.png")}
           alt="Logo"
@@ -141,7 +149,7 @@ class Register extends Component {
               </Button>
               <p className="already-account">
                 Already have an account?{" "}
-                <Link to="/" className="link-reg">
+                <Link to="/login" className="link-reg">
                   Log in!
                 </Link>
               </p>
