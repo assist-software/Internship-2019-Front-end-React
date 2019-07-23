@@ -120,7 +120,11 @@ class MovieDescription extends Component {
                       <small id="movieDet">
                         {data[0].category &&
                           data[0].category.map((cat, index) => {
-                            return <small key={index}>{cat.name} - </small>;
+                            return (
+                              <small id="categ-description" key={index}>
+                                {cat.name} -{" "}
+                              </small>
+                            );
                           })}
                         {data[0].duration}
                       </small>

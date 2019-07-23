@@ -142,6 +142,10 @@ ul.movDetCont li {
   margin-top: 30px;
   padding-bottom: 120px;
 }
+#categ-description {
+  opacity: 1;
+  font-weight: bold;
+}
 
 .detRow {
   height: 30px !important;

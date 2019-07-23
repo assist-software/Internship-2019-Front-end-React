@@ -56,10 +56,10 @@ class Register extends Component {
           //Admin123.
           // user: lori@yahoo.com Admin123.
           errorHandler: err => {
+            // if(Response.message === "This user is already in databse")
             this.setState({ loginError: "Invalid credentials" });
           },
           afterSuccess: ({ data: { token } }) => {
-            console.log("tessstsyydy");
             localStorage.setItem("token", token);
             this.props.history.push("/login");
           }
@@ -82,11 +82,6 @@ class Register extends Component {
             className="frame"
           />
         </a>
-        <img
-          src={require("../../assets/img/frame.png")}
-          alt="Logo"
-          className="frame"
-        />
         <div className="container-register">
           <hr className="new5" />
           <div className="title">
