@@ -1,10 +1,12 @@
 import React from 'react';
 import '../Login/login.css';
 import '../Home/Home'
+import api from "../api-connection.js"
+
 
 import { withRouter } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faPrescriptionBottleAlt } from '@fortawesome/free-solid-svg-icons'
+import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
@@ -149,12 +151,13 @@ class Login extends React.Component {
 
 		if (fullName != '' && this.isEmailValid(emailLogin) && this.passwordsValidation(password, passwordConfirm)) {
 			var data = {
-				"username": fullName,
 				"email": emailLogin,
-				"password": password
+				"password": password,
+				"fullName": fullName,
+				"confirmPassword": passwordConfirm
 			};
 
-			fetch("http://192.168.151.105:1234/signup",
+			fetch(api.singUp,
 				{
 					method: "POST",
 					headers: {
