@@ -39,6 +39,18 @@ class AllMovies extends Component {
       });
   };
 
+  addToWatchlist(movId) {
+    console.log("click");
+    var toWatch =
+      localStorage.getItem("watchlist") === null
+        ? new Array()
+        : JSON.parse(localStorage.getItem("watchlist"));
+    if (toWatch.indexOf(movId) === -1) {
+      toWatch.push(movId);
+      localStorage.setItem("watchlist", JSON.stringify(toWatch));
+    }
+  }
+
   componentDidMount() {
     let catUrl = "http://192.168.151.218:3000/api/category";
     let url = "http://192.168.151.218:3000/api/movies";
@@ -136,20 +148,21 @@ class AllMovies extends Component {
                   {filteredData.map((movie, index) => (
                     <div key={index} className="col-md-3 mb-5">
                       <div>
+                        <div className="moovieImg">
+                          <img
+                            className="moovieComponent"
+                            alt="moovie"
+                            src={movie.coverUrl}
+                          />
+                          <button
+                            className="addToList"
+                            onClick={() => this.addToWatchlist(movie.id)}
+                          >
+                            Add to Watchlist
+                          </button>
+                          <button className="rating">{movie.imdbScore}</button>
+                        </div>
                         <a href={"/movie-page/" + movie.id}>
-                          <div className="moovieImg">
-                            <img
-                              className="moovieComponent"
-                              alt="moovie"
-                              src={movie.coverUrl}
-                            />
-                            <button className="addToList">
-                              Add to Watchlist
-                            </button>
-                            <button className="rating">
-                              {movie.imdbScore}
-                            </button>
-                          </div>
                           <h5 id="moovieTitle">{movie.title}</h5>
                         </a>
                         <small>

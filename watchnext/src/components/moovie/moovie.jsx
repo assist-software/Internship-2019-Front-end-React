@@ -6,7 +6,7 @@ class Moovie extends Component {
     super(props);
     this.state = {
       selected: false,
-      warning: "Success"
+      added: "no"
     };
   }
 
@@ -18,6 +18,9 @@ class Moovie extends Component {
     if (toWatch.indexOf(this.props.movie.id) === -1) {
       toWatch.push(this.props.movie.id);
       localStorage.setItem("watchlist", JSON.stringify(toWatch));
+      this.setState({ added: "yes" });
+    } else {
+      this.setState({ added: "already" });
     }
   }
 
@@ -45,10 +48,24 @@ class Moovie extends Component {
                 src={movie.coverUrl}
               />
               <button
-                className="addToList"
+                className={
+                  this.state.added === "yes"
+                    ? "addedToList"
+                    : [
+                        this.state.added === "already"
+                          ? "alreadyAddedToList"
+                          : "addToList"
+                      ]
+                }
                 onClick={this.addToWatchlist.bind(this)}
               >
-                Add to watchlist
+                {this.state.added === "yes"
+                  ? "Added"
+                  : [
+                      this.state.added === "already"
+                        ? "Already added"
+                        : "Add to watchlist"
+                    ]}
               </button>
 
               <button className="rating">{movie.imdbScore}</button>

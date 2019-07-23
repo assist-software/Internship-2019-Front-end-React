@@ -16,8 +16,8 @@ class MovieDescription extends Component {
       localStorage.getItem("watchlist") === null
         ? new Array()
         : JSON.parse(localStorage.getItem("watchlist"));
-    if (toWatch.indexOf(this.props.match.params.id) === -1) {
-      toWatch.push(this.props.match.params.id);
+    if (toWatch.indexOf(parseInt(this.props.match.params.id)) === -1) {
+      toWatch.push(parseInt(this.props.match.params.id));
       localStorage.setItem("watchlist", JSON.stringify(toWatch));
     }
   }

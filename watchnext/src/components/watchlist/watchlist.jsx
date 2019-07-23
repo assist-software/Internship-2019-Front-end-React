@@ -26,7 +26,7 @@ class WhatchList extends Component {
         if (toWatch[i] === movId) {
           toWatch.splice(i, 1);
           localStorage.setItem("watchlist", JSON.stringify(toWatch));
-          window.location.reload();
+          this.componentDidMount();
         }
       }
     }
@@ -34,9 +34,10 @@ class WhatchList extends Component {
   selectedFilterHandler = event => {
     event.preventDefault();
     const cat = event.target.value;
-    if (cat == "none") {
+    if (cat === "none") {
       var moviesLocal = JSON.parse(localStorage.getItem("watchlist"));
     } else {
+      // eslint-disable-next-line no-redeclare
       var moviesLocal = JSON.parse(localStorage.getItem("watchlist")).reverse();
     }
     this.setState({ existToWatch: true });
@@ -53,7 +54,7 @@ class WhatchList extends Component {
         this.setState({
           data: data.filter(mov => {
             for (var i = 0; i < moviesLocal.length; i++) {
-              if (mov.id == moviesLocal[i]) return mov;
+              if (mov.id === moviesLocal[i]) return mov;
             }
           })
         });
@@ -78,7 +79,7 @@ class WhatchList extends Component {
           this.setState({
             data: data.filter(mov => {
               for (var i = 0; i < moviesLocal.length; i++) {
-                if (mov.id == moviesLocal[i]) return mov;
+                if (mov.id === moviesLocal[i]) return mov;
               }
             })
           });
