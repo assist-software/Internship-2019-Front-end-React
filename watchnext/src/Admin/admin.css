@@ -1,5 +1,5 @@
 #admin{
-  
+  min-width:1150px;
 }
 
 #admin #container{
@@ -63,12 +63,18 @@
     font-weight: 900;
 }
 
+#admin #movie li #cat span{
+    margin-left:5px;
+}
+
 #admin #movie li #cat{
     font-size: 18px;
     color: #000000;
     opacity: 0.6;
     font-weight: 600;
     font-family: CamptonLight;
+    display: flex;
+    align-items: baseline;
 }
 
 #admin #movie li #manage{
@@ -82,4 +88,55 @@
 #admin #movie li #head{
     display: flex;
     align-items: center;
+}
+
+#admin #movie li #manage svg{
+    cursor: pointer;
+}
+
+#admin #top{
+    display: flex;
+    align-items: baseline;
+    margin: 0 auto;
+    justify-content: space-between;
+    max-width: 1015px;
+}
+
+#admin #searchI{
+    border: 1px solid #9C9B9B;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 18px;
+    width:367px;
+    height:48px;
+    outline: none;
+    color: #9C9B9B;
+    line-height: 21px;
+    padding-left:16px;
+    padding-right:20px;
+    margin-top: 148px;
+}
+
+#admin #top svg{
+    margin-left:-40px;
+    color: #9C9B9B;
+}
+
+#admin #top button{
+    background: #F5044C;
+    border-radius: 8px;
+    width:176px;
+    height:48px;
+    text-align: center;
+    color: #FFFFFF;
+    outline: none !important;
+    border:0;
+    font-size: 18px;
+    font-family: CamptonLight;
+    cursor: pointer;
+    padding-top:5px;
+}
+
+#admin #top button:hover{
+    background:#ff3b76;
 }

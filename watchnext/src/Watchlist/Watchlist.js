@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import Dropdown from '../dropdown/Dropdown';
 import MovieCart from '../movieCart/MovieCart';
+import api from "../api-connection.js";
 
 class Watchlist extends React.Component {
   constructor(props) {
@@ -43,8 +44,7 @@ class Watchlist extends React.Component {
     var movies_id = lastAdded ? JSON.parse(localStorage.getItem("watchList")).reverse() : JSON.parse(localStorage.getItem("watchList"))
 
     for (var i = 0; i < movies_id.length; i++) {
-      let url = "http://localhost:3001/movies/" + movies_id[i]
-      fetch(url)
+      fetch(api.movies + movies_id[i])
         .then(resp => resp.json())
         .then(item => {
           this.setState((prev) => {
@@ -56,8 +56,8 @@ class Watchlist extends React.Component {
                 key={item.id} id={item.id} 
                 title={item.title} 
                 release={item.releaseDate}
-                gen={item.gen} 
-                img={item.img} 
+                gen={item.category} 
+                img={item.coverUrl} 
                 page='watchlist' />),
               comingMoviesList: prev.comingMovies.concat(
                 <MovieCart refreshMovieList={() => this.load()} 
@@ -65,8 +65,8 @@ class Watchlist extends React.Component {
                 key={item.id} id={item.id} 
                 title={item.title} 
                 release={item.releaseDate} 
-                gen={item.gen} 
-                img={item.img} 
+                gen={item.category} 
+                img={item.coverUrl} 
                 page='watchlist' />)
             }
           })
@@ -136,7 +136,7 @@ class Watchlist extends React.Component {
     if (movieName) {
       let movies = this.state.comingMovies
         .filter((item) => item.props.title.toLowerCase().includes(movieName.toLowerCase()))
-      this.setState({ comingMoviesList: movies })
+      this.setState({comingMoviesList: movies})
     } else {
       this.setState({comingMoviesList: this.state.comingMovies})
     }

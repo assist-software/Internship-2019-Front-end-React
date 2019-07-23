@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import arrowRight from '../RecentAdded/right.png';
 import arrowLeft from "../RecentAdded/left.png"
+import api from "../../api-connection.js"
 
 class PrevArrow extends React.Component {
   render() {
@@ -41,11 +42,17 @@ class RecentAdded extends React.Component {
   }
 
   componentDidMount(){
-    let url = "http://localhost:3001/movies"
-    fetch(url)
+    fetch(api.movies)
       .then(resp => resp.json())
       .then(data => {
-        let movies = data.map(item => <MovieCart updateCounter={()=>this.props.updateCounter()} key={item.id} id={item.id} title={item.title} release={item.releaseDate} gen={item.category} img={item.cover} />)
+        let movies = data.map(item => 
+          <MovieCart 
+          updateCounter={()=>this.props.updateCounter()} 
+          key={item.id} id={item.id} 
+          title={item.title} 
+          release={item.releaseDate} 
+          gen={item.category} 
+          img={item.coverUrl} />)
         this.setState({recentAddedMovies:movies})
       })
   }

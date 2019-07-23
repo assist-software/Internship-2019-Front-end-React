@@ -11,22 +11,23 @@ import { faList } from '@fortawesome/free-solid-svg-icons'
 import { faTh } from '@fortawesome/free-solid-svg-icons'
 import MovieCart from '../../movieCart/MovieCart';
 import Timeline from './Timeline/Timeline';
+import api from "../../api-connection.js";
 
 class ComingNext extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-				loaded:false,
-				genreName:'',
-        genre:'Action',
-        genres: [],
-        startDate: new Date(),
-        date:'',
-        dateOpen:false,
-        isListDisplayed:true
+      loaded: false,
+      genreName: '',
+      genre: 'Action',
+      genres: [],
+      startDate: new Date(),
+      date: '',
+      dateOpen: false,
+      isListDisplayed: true
     }
   }
-  
+
   dateChange = (date) => {
     this.setState({
       startDate: date,
@@ -35,15 +36,15 @@ class ComingNext extends React.Component {
   }
 
   dateSelect = (date) => {
-		this.setState({
-			date: date,
-			dateOpen: true
-		})
+    this.setState({
+      date: date,
+      dateOpen: true
+    })
   }
 
   updateGenre = (genre) => {
-		this.setState({genre})
-		this.getMovies(genre)
+    this.setState({ genre })
+    this.getMovies(genre)
   }
 
   btnDateClick = () => {
@@ -55,42 +56,45 @@ class ComingNext extends React.Component {
   }
 
   componentDidMount = () => {
-		this.getMovies(1)
-    let url = "http://localhost:3001/category"
-    fetch(url)
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({genres:data.map((item) => {
-          return {"id":item.id, title:item.name} 
-        }) 
-      }) 
+    this.getMovies('Action')
+    fetch(api.categories, {
+      method: 'GET'
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      this.setState({
+        genres: data.map((item) => {
+          return { "id": item.id, title: item.name }
+        })
       })
-	}
-	
-	getMovies = (category_id) => {
-		let url = "http://localhost:3001/movies?category_like=" + category_id
-    fetch(url)
-      .then(resp => resp.json())
-      .then(data => {
-				let movies = data.map(item => 
-          <MovieCart 
-            key={item.id}
-						updateCounter={()=>this.props.updateCounter()} 
-						id={item.id} title={item.title} 
-						release={item.releaseDate} 
-						gen={item.category} 
-            img={item.coverUrl}
-					/>)
-				this.setState({comingNext:movies})
-      })
-	}
+    })
+  }
+
+  getMovies = (category) => {
+    fetch(api.catMovies + category, {
+      method: 'GET'
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      let movies = data.map(item =>
+        <MovieCart
+          key={item.id}
+          updateCounter={() => this.props.updateCounter()}
+          id={item.id} title={item.title}
+          release={item.releaseDate}
+          gen={item.category}
+          img={item.coverUrl}
+        />)
+      this.setState({ comingNext: movies })
+    })
+  }
 
   swithcList = (val) => {
-    this.setState({list:val})
+    this.setState({ list: val })
   }
 
   render() {
-		const {genre, genres} = this.state;
+    const { genre, genres } = this.state;
     return (
       <div id="comingNext">
         <div id="container">
@@ -98,15 +102,15 @@ class ComingNext extends React.Component {
           <div id="top">
             <h1>See what movies are<br />coming next month</h1>
 
-            <div id="filter">       
-              <Dropdown list={genres} gen={genre} ug={this.updateGenre} num={true}/>
+            <div id="filter">
+              <Dropdown list={genres} gen={genre} ug={this.updateGenre} num={true} />
 
-              <button id="date" onClick={this.btnDateClick}> 
-                <FontAwesomeIcon icon={faCalendar} /> Any Date <FontAwesomeIcon icon={this.state.dateOpen?faChevronDown:faChevronLeft} />
+              <button id="date" onClick={this.btnDateClick}>
+                <FontAwesomeIcon icon={faCalendar} /> Any Date <FontAwesomeIcon icon={this.state.dateOpen ? faChevronDown : faChevronLeft} />
               </button>
 
               <div id="dp">
-                <DatePicker 
+                <DatePicker
                   selected={this.state.date} onSelect={this.dateChange} onChange={this.dateSelect}
                   popperPlacement="botom-start"
                   popperModifiers={{
@@ -120,23 +124,23 @@ class ComingNext extends React.Component {
                   }}
                 />
               </div>
-              
+
               <div id="view">
                 <button onClick={() => this.swithcList(false)}><FontAwesomeIcon icon={faTh} /></button>
                 <button onClick={() => this.swithcList(true)}><FontAwesomeIcon icon={faList} /></button>
               </div>
 
             </div>
-      
+
           </div>
 
           <div id="comingList">
-            {!this.state.list ? this.state.comingNext :  <Timeline/>}
-          </div>  
+            {!this.state.list ? this.state.comingNext : <Timeline />}
+          </div>
 
         </div>
       </div>
-    )    
+    )
   }
 }
 

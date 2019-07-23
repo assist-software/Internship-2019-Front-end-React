@@ -1,32 +1,12 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { faPen } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+import api from "../../api-connection.js";
 
 class Movie extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			catNames :''
-		}
-	}
-
-
-	componentDidMount = ()  => {	
-		this.props.gen.map((id, index) => {
-			{
-				let url = "http://localhost:3001/category/" + id
-				fetch(url)
-					.then(resp => resp.json())
-					.then(data => {
-						this.setState((prev) => {
-							return {
-								catNames : prev.catNames + data.name  + " - "
-							}
-						})
-					})
-			}
-		})
 	}
 
 	render() {
@@ -42,10 +22,12 @@ class Movie extends React.Component {
 					{this.props.release.split("-")[0]}
 				</div>
 				<div id="cat">
-					{this.state.catNames}
+					{this.props.gen.map((gen, index) => (index > 0 ? 
+					<div key={index}><span> • </span>{gen}</div>
+					:  <div key={index}>{gen}</div>))}
 				</div>
 				<div id="manage">
-					<FontAwesomeIcon icon={faTrash} />
+					<FontAwesomeIcon icon={faTrash} onClick={() => this.props.dm(this.props.id)} />
 					<FontAwesomeIcon icon={faPen} />
 				</div>
 			</li>
