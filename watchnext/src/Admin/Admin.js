@@ -57,6 +57,7 @@ class Admin extends React.Component {
 	render() {
 		return (
 			<div id="admin">
+				<Popup/>
 				<div id="container">
 					<div id="main">
 						<div id="top">

@@ -12,7 +12,7 @@ class MovieCart extends React.Component {
 	}
 
 	addToWatchList(event) {
-		var arr = localStorage.getItem("watchList") === null ? new Array() : JSON.parse(localStorage.getItem("watchList"))
+		var arr = localStorage.getItem("watchList") === null ? [] : JSON.parse(localStorage.getItem("watchList"))
 		if (arr.indexOf(this.props.id) === -1) {
 			arr.push(this.props.id)
 			localStorage.setItem('watchList', JSON.stringify(arr));

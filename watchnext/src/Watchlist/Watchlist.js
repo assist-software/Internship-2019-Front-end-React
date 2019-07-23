@@ -10,7 +10,7 @@ class Watchlist extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      watchListIndex: JSON.parse(localStorage.getItem("watchList")).reverse(),
+      watchListIndex:!localStorage.getItem("watchList") === null?  JSON.parse(localStorage.getItem("watchList")).reverse() : [],
       comingMovies: new Array(),
       comingMoviesList: new Array(),
       selected: 'Latest Added',
