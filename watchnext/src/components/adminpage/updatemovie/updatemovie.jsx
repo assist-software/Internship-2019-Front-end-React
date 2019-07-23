@@ -141,7 +141,7 @@ class UpdateMoovie extends Component {
       axios
         // eslint-disable-next-line no-useless-concat
         .put(
-          `http://192.168.151.218:3000/api/movie` + "/" + this.state.movie.id,
+          `http://192.168.151.218:3000/api/movie/` + this.state.movie.id,
           movies,
           {
             method: "POST",
@@ -195,7 +195,7 @@ class UpdateMoovie extends Component {
   }
 
   render() {
-    const { errors, isSubmitted, categories } = this.state;
+    const { errors, categories } = this.state;
     return (
       <div className="container updateMovieContainer">
         <div className="col-md-12">

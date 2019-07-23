@@ -159,7 +159,6 @@ class AddMoovie extends Component {
 
     if (validateForm(this.state.errors)) {
       const token = localStorage.getItem("token");
-      console.log(this.state.category);
       axios
         .post(
           `http://192.168.151.218:3000/api/movie`,
