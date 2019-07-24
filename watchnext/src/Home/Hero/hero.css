@@ -20,6 +20,11 @@
   font-size: 48px;
   line-height: 60px;
   color: #FFFFFF;
+  max-width: 450px;
+}
+
+#hero .moon {
+
 }
 
 #hero .p{
@@ -87,4 +92,8 @@
   /* border: 1px solid red; */
   text-align: center;
   margin-top: 223px;
+}
+
+#hero #moon .added{
+  color: #656565 !important;
 }

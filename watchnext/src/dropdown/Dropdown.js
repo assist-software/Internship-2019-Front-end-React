@@ -41,10 +41,13 @@ class Dropdown extends React.Component {
     fetch(api.categories)
       .then(resp => resp.json())
       .then(data => {
+     
         data.map(item => {
           fetch(api.catMovies + item.name)
             .then(resp => resp.json())
             .then(data => {
+              console.log(data)
+              console.log(data.length)
               let movies = data.map(item => item)
               this.setState((prev) => {catCount: prev.catCount[item.name] = movies.length }
             )
