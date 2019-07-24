@@ -67,6 +67,7 @@ import api from '../api-connection.js'
       const { genre, genres } = this.state;
         return (   
         <div id="categorypage">
+
             <div id="titlelist">
               <h1 id="title">All movies</h1>
               <div id="filter">
@@ -74,12 +75,11 @@ import api from '../api-connection.js'
                 {this.state.list}
               </div>
             </div>
-        <div id="afisarefilme">
-        
-        {this.state.categorymov}
-        </div>
-            
 
+          <div id="afisarefilme">
+            {this.state.categorymov}
+          </div>
+            
         </div>
     );
   }

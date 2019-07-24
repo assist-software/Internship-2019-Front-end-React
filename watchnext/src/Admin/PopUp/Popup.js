@@ -156,7 +156,7 @@ class Popup extends React.Component {
               <input type="submit" className="addMovieButton" value="Add movie" onClick={()=>this.addMovie()}/>
             </div>
 
-            <p id="cancelButton"> Cancel </p>
+            <p id="cancelButton" onClick={()=>this.props.updatePopupVisibility(false)}> Cancel </p>
 
           </div>
 

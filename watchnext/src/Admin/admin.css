@@ -27,7 +27,6 @@
     box-shadow: 0px 4px 60px rgba(163, 163, 163, 0.1);
     border-radius: 8px;
     max-width: 1136px;
-    min-height: 144px;
     margin: 0 auto;
     margin-bottom: 16px;
     width: 90%;
@@ -56,6 +55,7 @@
     color: #000000;
     opacity: 0.6;
     font-weight: 900;
+    text-align: left !important;
 }
 
 #admin #movie li #date span, #admin #movie li #cat span{
@@ -75,6 +75,8 @@
     font-family: CamptonLight;
     display: flex;
     align-items: baseline;
+    width: 300px;
+    justify-content: center;
 }
 
 #admin #movie li #manage{
@@ -88,6 +90,7 @@
 #admin #movie li #head{
     display: flex;
     align-items: center;
+    width: 450px;
 }
 
 #admin #movie li #manage svg{
