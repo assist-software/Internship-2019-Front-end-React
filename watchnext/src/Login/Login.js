@@ -284,7 +284,7 @@ class Login extends React.Component {
 							})} </p>}
 
 						</div>
-						<div align="center" id="buttonDiv">
+						<div align="center" id="buttonDiv2">
 							<input type="button" className="logIn button1" align="center" value="Register" onClick={() => this.errorsRegister(fullName, emailLogin, password, passwordConfirm)} />
 							<Link to="/login"> <p id="create" onClick={() => this.changeToLogin()}> Already have an account? Log in </p> </Link>
 							<i id="haveOne"></i>
@@ -303,7 +303,7 @@ class Login extends React.Component {
 								return <div>{item}</div>
 							})} </p>}
 						</div>
-						<div align="center" id="buttonDiv">
+						<div align="center" id="buttonDiv3">
 							<input type="button" id={(requestReset == true && lerrors == '') ? "hideItem" : ""} className="logIn button1" value="Reset password" align="center" onClick={() => this.errorsReset(emailLogin)} />
 							{<Link to="/home"><input type="button" id={(requestReset == true && lerrors == '') ? "button2" : "hideItem"} align="center" value="Return Home"></input> </Link>}
 						</div>
