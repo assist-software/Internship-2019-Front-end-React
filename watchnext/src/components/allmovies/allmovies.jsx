@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Header from "../header/header";
 import Footer from "../footer/footer";
+import createApiRequest from "../../api";
 
 class AllMovies extends Component {
   constructor(props) {
@@ -17,7 +18,10 @@ class AllMovies extends Component {
   }
 
   handleChange = event => {
-    this.setState({ filter: event.target.value });
+    this.setState({ filter: event.target.value }, () => {
+      const { filter } = this.state;
+      this.fetchMovies({ name: filter });
+    });
   };
 
   selectedCategoryHandler = event => {
@@ -53,19 +57,12 @@ class AllMovies extends Component {
 
   componentDidMount() {
     let catUrl = "http://192.168.151.218:3000/api/category";
+    // let url = "http://127.0.0.1:3008/api/movies";
     let url = "http://192.168.151.218:3000/api/movies";
+
     const token = localStorage.getItem("token");
 
-    fetch(url, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({ data: data });
-      });
+    this.fetchMovies();
 
     fetch(catUrl, {
       method: "GET",
@@ -79,8 +76,23 @@ class AllMovies extends Component {
       });
   }
 
+  fetchMovies = data => {
+    createApiRequest({
+      method: "get",
+      data,
+      url: "/api/movies",
+      afterSuccess: ({ data }) => {
+        this.setState({ data });
+      },
+      errorHandler: err => {
+        console.log("Error ", err);
+      }
+    });
+  };
+
   render() {
     const { filter, data, categories } = this.state;
+
     const filteredData = data.filter(item => {
       return item.title.toLowerCase().includes(this.state.filter.toLowerCase());
     });

@@ -30,6 +30,7 @@ class Header extends Component {
           <li>
             <a href="/">
               <svg
+                className="svg-header"
                 width="257"
                 height="57"
                 viewBox="0 0 257 57"

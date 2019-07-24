@@ -34,7 +34,7 @@ class comingMovies extends Component {
 
     let url =
       "http://192.168.151.218:3000/api/movie/query?from=" + timestampDate;
-
+    debugger;
     const token = localStorage.getItem("token");
     fetch(url, {
       method: "GET",
