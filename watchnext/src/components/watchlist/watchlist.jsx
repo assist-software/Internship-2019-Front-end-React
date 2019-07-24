@@ -91,6 +91,7 @@ class WhatchList extends Component {
     const filteredData = data.filter(item => {
       return item.title.toLowerCase().includes(this.state.filter.toLowerCase());
     });
+    localStorage.setItem("nrWatch", nrWatch);
     return (
       <React.Fragment>
         <div className="whatchlist-content">
