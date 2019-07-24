@@ -53,7 +53,7 @@
     background:#f1205e !important;
 }
 #cancelButton:hover{
-    background:#efefef !important;
+    cursor: pointer;
 }
 #delete{
     font-family: Campton;
@@ -642,3 +642,4 @@
     border-radius: 8px;
     margin: 0 auto;
 }
+
