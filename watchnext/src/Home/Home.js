@@ -13,7 +13,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <Hero />
+                <Hero updateCounter={()=>this.props.updateCounter()} />
                 <RecentAdded updateCounter={()=>this.props.updateCounter()} />
                 <ComingNext  updateCounter={()=>this.props.updateCounter()} />
             </div>

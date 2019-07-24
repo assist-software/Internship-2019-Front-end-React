@@ -13,7 +13,7 @@
 const base = 'http://192.168.151.105:1234'
 const api = { 
     categories: base + '/category/',
-    movies: base + '/movies/',
+    movies: base + '/movies/get',
     catMovies: base + '/movies/?category_like=',
     singUp: base + '/signup/',
     addMovie: base + '/movies/add',
