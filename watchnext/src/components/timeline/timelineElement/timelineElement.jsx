@@ -27,8 +27,15 @@ class TimelineElement extends Component {
               </div>
               <div className="row scorRow">
                 <div className="imdb_sc mr-4">
-                  <span class="timelineScore mr-3">IMDB Score </span>
                   {movie.imdbScore}
+                  {movie.category &&
+                    movie.category.map((cat, index) => {
+                      return (
+                        <span key={index} class="categoriesList ml-3">
+                          {cat.name}
+                        </span>
+                      );
+                    })}
                 </div>
               </div>
             </div>

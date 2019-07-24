@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./addmoovie.css";
 import { Form } from "react-bootstrap";
 import axios from "axios";
+import moment from "moment";
 
 // eslint-disable-next-line no-useless-escape
 const validUrl = /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i;
@@ -18,7 +19,6 @@ class AddMoovie extends Component {
     this.state = {
       categories: [],
       alreadyExists: null,
-      isSuccess: false,
       title: null,
       trailerUrl: null,
       originalSourceUrl: null,
@@ -143,7 +143,8 @@ class AddMoovie extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    debugger;
+    let myDate = new Date(this.state.releaseDate).getTime();
+
     const movies = {
       title: this.state.title,
       trailerUrl: this.state.trailerUrl,
@@ -157,7 +158,7 @@ class AddMoovie extends Component {
       director: this.state.director,
       writers: this.state.writers,
       stars: this.state.stars,
-      releaseDate: this.state.releaseDate
+      releaseDate: myDate
     };
 
     if (validateForm(this.state.errors)) {
@@ -182,12 +183,20 @@ class AddMoovie extends Component {
             this.setState({
               alreadyExists: "Movie already exists in the database!"
             });
+          }
+          if (
+            res.data.message &&
+            res.data.message === "There are some fild witch must be filled"
+          ) {
+            console.log(res.message);
+            this.setState({
+              alreadyExists: "You must complete all fields!"
+            });
           } else if (
             res.data &&
             res.data.message &&
             res.data.message === "ok"
           ) {
-            this.setState({ isSuccess: true });
             this.props.handClose();
             this.props.updateMovies(res.data.movie);
           }
@@ -198,7 +207,7 @@ class AddMoovie extends Component {
   };
 
   render() {
-    const { errors, categories, alreadyExists, isSuccess } = this.state;
+    const { errors, categories, alreadyExists } = this.state;
     return (
       <div className="container addMovieContainer">
         <div className="col-md-12">
@@ -409,6 +418,7 @@ class AddMoovie extends Component {
                     Release date
                   </Form.Text>
                   <Form.Control
+                    placeholder="YYYY/MM/DD"
                     type="text"
                     name="releaseDate"
                     onChange={this.handleChange}

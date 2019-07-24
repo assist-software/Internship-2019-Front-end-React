@@ -4,6 +4,16 @@
   background: url("../../../assets/img/head_image.png");
 }
 
+.hero-container {
+  width: 70%;
+}
+
+@media (max-width: 970px) {
+  .hero-container {
+    width: 100%;
+  }
+}
+
 .hero-row {
   padding-top: 100px;
 }

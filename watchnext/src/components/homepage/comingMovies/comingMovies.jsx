@@ -34,7 +34,7 @@ class comingMovies extends Component {
 
     let url =
       "http://192.168.151.218:3000/api/movie/query?from=" + timestampDate;
-    debugger;
+
     const token = localStorage.getItem("token");
     fetch(url, {
       method: "GET",
@@ -77,20 +77,42 @@ class comingMovies extends Component {
   selectedCategoryHandler = event => {
     event.preventDefault();
     const cat = event.target.value;
-    this.setState({ selectedCategory: cat });
-    let url = "http://192.168.151.218:3000/api/movies-category/" + cat;
-
+    var today = new Date();
     const token = localStorage.getItem("token");
-    fetch(url, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({ data: data.movies });
-      });
+    this.setState({ selectedCategory: cat });
+    if (cat === "none") {
+      let url = "http://192.168.151.218:3000/api/movies";
+      fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(resp => resp.json())
+        .then(data => {
+          this.setState({
+            data: data.filter(mov => {
+              if (mov.releaseDate > today.getTime()) return mov;
+            })
+          });
+        });
+    } else {
+      let url = "http://192.168.151.218:3000/api/movies-category/" + cat;
+      fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(resp => resp.json())
+        .then(data => {
+          this.setState({
+            data: data.movies.filter(mov => {
+              if (mov.releaseDate > today.getTime()) return mov;
+            })
+          });
+        });
+    }
   };
 
   componentDidMount() {

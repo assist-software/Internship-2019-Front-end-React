@@ -61,7 +61,7 @@ class headMovie extends Component {
     const { data, message, alreadyAdded } = this.state;
     return (
       <div className="hero-content">
-        <div className="container py-4">
+        <div className="container py-4 hero-container">
           <div className="container-hed-movie">
             <div className="row justify-content-center align-items-center hero-row">
               <div className="col-md-6">
