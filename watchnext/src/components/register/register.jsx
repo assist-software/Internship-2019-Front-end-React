@@ -25,10 +25,14 @@ class Register extends Component {
     });
   };
   handleSubmit = async event => {
-    const { password, confimPassword, email } = this.state;
+    const { password, confimPassword, email, username } = this.state;
     event.preventDefault();
 
-    if (password !== confimPassword) {
+    if (email === "" || username === "") {
+      this.setState({
+        registerError: "All fields must be filled"
+      });
+    } else if (password !== confimPassword) {
       this.setState({ registerError: "Passwords don't match" });
     } else if (
       !password.match(
