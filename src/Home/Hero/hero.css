@@ -1,0 +1,90 @@
+#hero{
+  background-image: url(./image4.1.png);
+  background-repeat: no-repeat;
+  min-height: 100%;
+  margin: 0 auto;
+  background-color: black;
+  background-position: center;
+  height: 1024px;
+}
+
+#hero #moon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:200px;
+}
+
+#hero .moon{
+  font-family: CamptonLight;
+  font-size: 48px;
+  line-height: 60px;
+  color: #FFFFFF;
+}
+
+#hero .p{
+  font-family: CamptonLight;
+  font-size: 15px;
+  line-height: 22px;
+  max-width: 464px;
+  padding-right: 84px;
+  height: 100px;
+  color: #FFFFFF;
+  opacity: 0.6;
+}
+
+#hero .img2{
+
+  width: 392px;
+  height: 552px;
+  left: 800px;
+  top: 232px;
+  border-radius: 20px;
+}
+
+#hero #trailer {
+  background: #F5044C;
+  height: 48px;
+  width: 176px;
+  border-radius: 8px;
+  font-size: 17px;
+  border-style: none;
+  color: #FFFFFF;
+  margin-right: 21px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  font-family: CamptonLight;
+}
+
+#hero #moon #list{
+  background: #1E1E1E !important;
+  height: 48px;
+  width: 176px;
+  border-radius: 8px;
+  font-size: 17px;
+  border-style: none;
+  color: #FFFFFF;
+  margin-right: 21px;
+  font-family: CamptonLight;
+  font-weight: 600;
+  outline: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+#hero #left span{
+  font-size: 26px;
+  vertical-align: middle;
+  margin: -2px 11px 0 -26px;
+  font-weight: 100;
+  font-family: sans-serif;
+}
+
+#hero #down{
+  margin: 0 auto;
+  display: block;
+  /* border: 1px solid red; */
+  text-align: center;
+  margin-top: 223px;
+}

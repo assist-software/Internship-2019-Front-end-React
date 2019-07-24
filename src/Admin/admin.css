@@ -1,0 +1,142 @@
+#admin{
+  min-width:1150px;
+}
+
+#admin #container{
+    min-height: 1000px;
+    background: #E5E5E5;
+    margin-top: 118px;
+}
+
+#main{
+    min-height: 100px;
+    max-width: 1136px;
+    margin:0 auto;
+  
+}
+
+#admin #movie{
+    margin:0 auto;
+    padding:0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#admin #movie li{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 60px rgba(163, 163, 163, 0.1);
+    border-radius: 8px;
+    max-width: 1136px;
+    min-height: 144px;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px;
+}
+
+#admin #movie li img{
+    width:80x;
+    height:80px;
+}
+
+#admin #movie li #name{
+    font-family: CamptonLight;
+    font-size: 24px;
+    color: #000000;
+    margin-left: 16px;
+    font-weight: 900;
+}
+
+#admin #movie li #date{
+    font-family: CamptonLight;
+    font-size: 19px;
+    color: #000000;
+    opacity: 0.6;
+    font-weight: 900;
+}
+
+#admin #movie li #date span, #admin #movie li #cat span{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+}
+
+#admin #movie li #cat span{
+    margin-left:5px;
+}
+
+#admin #movie li #cat{
+    font-size: 18px;
+    color: #000000;
+    opacity: 0.6;
+    font-weight: 600;
+    font-family: CamptonLight;
+    display: flex;
+    align-items: baseline;
+}
+
+#admin #movie li #manage{
+    color: gray;
+}
+
+#admin #movie li #manage svg{
+    margin-left: 16px;
+}
+
+#admin #movie li #head{
+    display: flex;
+    align-items: center;
+}
+
+#admin #movie li #manage svg{
+    cursor: pointer;
+}
+
+#admin #top{
+    display: flex;
+    align-items: baseline;
+    margin: 0 auto;
+    justify-content: space-between;
+    max-width: 1015px;
+}
+
+#admin #searchI{
+    border: 1px solid #9C9B9B;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 18px;
+    width:367px;
+    height:48px;
+    outline: none;
+    color: #9C9B9B;
+    line-height: 21px;
+    padding-left:16px;
+    padding-right:20px;
+    margin-top: 148px;
+}
+
+#admin #top svg{
+    margin-left:-40px;
+    color: #9C9B9B;
+}
+
+#admin #top button{
+    background: #F5044C;
+    border-radius: 8px;
+    width:176px;
+    height:48px;
+    text-align: center;
+    color: #FFFFFF;
+    outline: none !important;
+    border:0;
+    font-size: 18px;
+    font-family: CamptonLight;
+    cursor: pointer;
+    padding-top:5px;
+}
+
+#admin #top button:hover{
+    background:#ff3b76;
+}

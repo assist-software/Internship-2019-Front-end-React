@@ -1,0 +1,49 @@
+#dropDown #filter svg{
+    font-size: 16px !important;
+    font-weight: bold;
+    width: 16px !important;
+}
+
+#dropDown #list{
+    background:none;
+    /* padding: 0 10px 0 10px; */
+}
+
+#dropDown #filter button{
+    width: 158px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    background: #f5044c;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 600;
+    font-family: unset;
+}
+
+#dp button{
+    pointer-events: none;
+    width:10px !important;;
+    height: 10px !important;;
+    color:#fff !important;
+}
+#dp input{
+    width: 158px;
+    height: 40px;    opacity: 0;
+    margin: -28px 0px 0px -159px;
+    cursor: pointer;
+
+}
+
+#dp .react-datepicker{
+    margin-left:-200px;
+}
+
+.react-datepicker__month{
+    background: #F5044C;
+    border-radius: 8px;
+}
+

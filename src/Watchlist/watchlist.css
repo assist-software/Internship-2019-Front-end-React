@@ -1,0 +1,157 @@
+#watchList{
+    min-height: 900px;
+    margin: 0 auto;
+    padding-top: 158px;
+    max-width: 1180px;
+    margin-bottom: 250px;
+    padding-left: 30px;
+    padding-right: 30px;
+    min-width: 900px;
+}
+
+#watchList #comingList{
+    margin-top:137px;
+    display: flex;
+    margin-top: 120px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#watchList #title{
+    font-size: 48px;
+    line-height: 60px;    
+    color: #FFFFFF;
+    min-width: 430px;
+    font-family: CamptonLight;
+    margin-top: 98px;
+}
+
+#wctrl{
+    margin:0;
+    margin-top:100px;
+    display: flex;
+    justify-content: space-between;   
+}
+
+#searchamov{
+    width: 347px;
+    height: 56px;
+    border: 0;
+    background: #1D1D23;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    padding: 0px 0px 0 21px;
+    font-weight: bold;
+    font-family: corbel;
+}
+
+#searchamov::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #FFFFFF;
+    opacity: 1; /* Firefox */
+  }
+  
+#searchamov:-ms-input-placeholder { /* Internet Explorer 10-11 */
+color: #FFFFFF;
+}
+
+#searchamov::-ms-input-placeholder { /* Microsoft Edge */
+color: #FFFFFF;
+}
+
+#wctrl #ico{
+    margin-left:-40px;
+}
+
+#ctrl-right span {
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: CamptonLight;
+}
+
+#wctrl #genre button{
+    font-family: corbel;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 600;
+    width: 176px;
+    height: 56px;
+    outline: none;
+    border: 1px solid #F5044C;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #F5044C;
+    font-family: CamptonLight;
+}
+
+#wctrl #genre svg{
+    font-size: 16px !important;
+    font-weight: bold;
+    width: 16px !important;  
+}
+
+#wctrl ul{
+    list-style-type: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    width: 179px;
+    margin-top: 10px;
+    color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    border: 1px solid #F5044C;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #000000c4;
+}
+
+#wctrl li{
+    text-align: left;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: CamptonLight;
+    font-size: 15px;
+    color: #F5044C;
+}
+
+#wctrl li:hover{
+    background: #F5044C;
+    color:#fff;
+}
+
+#wctrl #ctrl-right{
+    display: flex;
+    align-items: center;
+}
+
+#nor{
+    text-align: center;
+    font-family: monospace;
+    font-size: 25px;
+    color: gray;
+}
+
+#nof {
+    text-align: center;
+}
+
+#nof svg{
+    font-size: 39px;
+    color: gray;
+}
+
+#watchList #list ul{
+    height:122px;
+}

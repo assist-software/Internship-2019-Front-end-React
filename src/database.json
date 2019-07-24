@@ -1,0 +1,203 @@
+{
+  "movies": [
+    {
+      "id": 2,
+      "title": "Godzila Kind of the Monsters2",
+      "trailerUrl": "",
+      "originalSourceUrl": "",
+      "coverUrl": "https://cdn1.imggmi.com/uploads/2019/7/23/7ee3b3549a7af9fdc8c2c419518a66d9-full.png",
+      "imdbId": "",
+      "imdbScore": "8,3",
+      "description": "",
+      "releaseDate": "2019-03-25",
+      "category": [
+        "Action",
+        "Comedy"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Godzila Kind of the Monsters3",
+      "trailerUrl": "",
+      "originalSourceUrl": "",
+      "coverUrl": "https://cdn1.imggmi.com/uploads/2019/7/23/7ee3b3549a7af9fdc8c2c419518a66d9-full.png",
+      "imdbId": "",
+      "imdbScore": "8,3",
+      "description": "",
+      "releaseDate": "2019-03-20",
+      "category": [
+        "Action",
+        "Comedy"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Godzila Kind of the Monsters4",
+      "trailerUrl": "",
+      "originalSourceUrl": "",
+      "coverUrl": "https://cdn1.imggmi.com/uploads/2019/7/23/7ee3b3549a7af9fdc8c2c419518a66d9-full.png",
+      "imdbId": "",
+      "imdbScore": "8,3",
+      "description": "",
+      "releaseDate": "2019-04-20",
+      "category": [
+        "Action",
+        "Comedy"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Godzila Kind of the Monsters5",
+      "trailerUrl": "",
+      "originalSourceUrl": "",
+      "coverUrl": "https://cdn1.imggmi.com/uploads/2019/7/23/7ee3b3549a7af9fdc8c2c419518a66d9-full.png",
+      "imdbId": "",
+      "imdbScore": "8,3",
+      "description": "",
+      "releaseDate": "2019-03-20",
+      "category": [
+        "Action",
+        "Comedy"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Godzila Kind of the Monsters7",
+      "trailerUrl": "",
+      "originalSourceUrl": "",
+      "coverUrl": "https://cdn1.imggmi.com/uploads/2019/7/23/7ee3b3549a7af9fdc8c2c419518a66d9-full.png",
+      "imdbId": "",
+      "imdbScore": "8,3",
+      "description": "",
+      "releaseDate": "2019-03-20",
+      "category": [
+        "Action"
+      ]
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Action"
+    },
+    {
+      "id": 2,
+      "name": "Adventure"
+    },
+    {
+      "id": 3,
+      "name": "Animation"
+    },
+    {
+      "id": 4,
+      "name": "Biography"
+    },
+    {
+      "id": 5,
+      "name": "Comedy"
+    },
+    {
+      "id": 6,
+      "name": "Crime"
+    },
+    {
+      "id": 7,
+      "name": "Documentary"
+    },
+    {
+      "id": 8,
+      "name": "Drama"
+    },
+    {
+      "id": 9,
+      "name": "Family"
+    },
+    {
+      "id": 10,
+      "name": "Fantasy"
+    },
+    {
+      "id": 11,
+      "name": "Film Noir"
+    },
+    {
+      "id": 12,
+      "name": "History"
+    },
+    {
+      "id": 13,
+      "name": "Horror"
+    },
+    {
+      "id": 14,
+      "name": "Music"
+    },
+    {
+      "id": 15,
+      "name": "Musical"
+    },
+    {
+      "id": 16,
+      "name": "Mystery"
+    },
+    {
+      "id": 17,
+      "name": "Romance"
+    },
+    {
+      "id": 18,
+      "name": "Sci-Fi"
+    },
+    {
+      "id": 19,
+      "name": "Short Film"
+    },
+    {
+      "id": 20,
+      "name": "Sport"
+    },
+    {
+      "id": 21,
+      "name": "Superhero"
+    },
+    {
+      "id": 22,
+      "name": "Thriller"
+    },
+    {
+      "id": 23,
+      "name": "War"
+    },
+    {
+      "id": 24,
+      "name": "Western"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Bobo",
+      "email": "sal@yahoo.com",
+      "password": "pass"
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "id": 2
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "id": 3
+    },
+    {
+      "username": "Bogdan Petrosceac",
+      "email": "b.petrosceac@gmail.com",
+      "password": "asd",
+      "confirm": "asd",
+      "id": 4
+    }
+  ]
+}

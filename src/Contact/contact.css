@@ -1,0 +1,104 @@
+
+.contacts {
+    box-sizing: border-box;
+    max-width: 1920px;
+    max-height: 1024px;
+}
+.contacts {
+    background: #0A0A0A;
+    margin-left: 512px;
+    display: block;
+    margin: 0 auto;
+    max-width: 560px;
+    min-height: 623px;
+    margin-top: 186px;
+    align-content: center;
+}
+
+.contacts #barContact{
+    margin-left: auto;
+    margin-right: auto;
+    width: 560px;
+    height: 8px;
+    background: #212128;
+}
+.contacts #formcontact{
+    align-items: center;
+    margin-top: 150px;
+    margin-left: 30px;
+}
+
+.contacts #cont {
+    padding-top: 35px;
+    margin-bottom: -70px;
+    font-family: Campton;
+    font-size: 48px;
+    line-height: 60px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+.contacts input {
+    width: 290px;
+    height: 48px;
+    margin-left: 165px;
+    margin-right: auto;
+    margin-bottom: 22px;
+    border-radius: 8px;
+    line-height: 21px;
+    font-family: Camptonlight;
+    font-size: 18px;
+    padding-left: 16px;
+    background: #0A0A0A;
+    border: 1px solid #9C9B9B;
+    outline: none;
+    display: flex;
+    margin-top: -34px;
+     resize: vertical;
+}
+
+.contacts #submit{
+    width: 367px;
+    height: 48px;
+    margin-left: 70px;
+    margin-top: 40px;
+    padding-left: 145px;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 8px;
+    background: #F5044C;
+    border-color: #F5044C;
+    font-size: 18px;
+    line-height: 25px;
+    outline: none;
+    font-family: Campton;
+    cursor: pointer;
+}
+
+.contacts #submit:hover {
+    color: #0A0A0A;
+}
+
+.contacts #first{
+    font-family: Campton;
+    display: flex;
+    margin-left: 46px;
+}
+
+.contacts #last{
+    font-family: Campton;
+    display: flex;
+    margin-left: 46px;
+}
+
+.contacts #em{
+    font-family: Campton;
+    display: flex;
+    margin-left: 46px;
+}
+
+.contacts #sub{
+    font-family: Campton;
+    display: flex;
+    margin-left: 46px;
+}

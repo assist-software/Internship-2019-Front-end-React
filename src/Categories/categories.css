@@ -1,0 +1,99 @@
+#categorypage {
+    background: black;
+    margin: 0 auto;
+    margin-top: 134px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1440px;
+    width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 74.15%;
+}
+
+#categorypage  #title{
+    font-size: 48px;
+    line-height: 60px;    
+    color: #FFFFFF;
+    min-width: 430px;
+    margin-right: 580px;
+    margin-top: 0px;
+    font-family: CamptonLight;
+}
+#categorypage #afisarefilme{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#categorypage #dropDown {
+    position: absolute;
+    right: 280px;
+}
+
+#categorypage #filter button {
+    width: 158px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    cursor: pointer;
+    background: transparent;
+    color: #F5044C;
+    border: 1px solid #f5044c;
+    font-weight: 600;
+    font-family: CamptonLight;
+    padding: 11px 14px 10px 14px;
+}
+
+#categorypage li {
+    text-align: left;
+    height: 40px;
+    font-family: Camptonlight;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: 60px;
+    cursor: pointer;
+}
+
+#categorypage ul {
+    list-style-type: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    width: 158px;
+    margin-top: 10px;
+    background: #F5044C;
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    max-height: 175px;
+}
+#categorypage #filter{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#categorypage #list {
+    background: none;
+    font-family: Campton;
+    color: white;
+    margin-bottom: 150px;
+}
+
+#categorypage #titlelist{
+    justify-content: space-between;
+    align-items: center;
+    display: -webkit-inline-box;
+    margin-bottom: 70px;
+    margin-top: 70px;
+}
