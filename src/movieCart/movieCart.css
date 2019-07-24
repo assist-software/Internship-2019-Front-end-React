@@ -13,6 +13,7 @@
 .movieCart img{
     width:272px;
     height:416px;
+    border-radius: 20px;
 }
 
 .movieCart .releaseDate,.genres{

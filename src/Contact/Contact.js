@@ -20,8 +20,8 @@ class Contact extends React.Component {
                 <input type="text" id="lname" name="lastname" placeholder="Your last name.." />
                 <label id="em">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email.." />
-                <label id="sub">Subject</label>
-                <input id="subject" name="subject" placeholder="Write something.."></input>
+                <label id="sub">Message</label>
+                <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
                 <input type="submit" id="submit" value="Submit" />
             </form>
         </div>

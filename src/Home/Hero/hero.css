@@ -8,27 +8,30 @@
   height: 1024px;
 }
 
-#hero #moon{
+#hero #moon {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top:200px;
+  padding-top: 233px;
 }
 
-#hero .moon{
+#hero .moon {
   font-family: CamptonLight;
   font-size: 48px;
+  padding-top: 18px;
   line-height: 60px;
   color: #FFFFFF;
+  margin-bottom: 24px;
 }
 
-#hero .p{
+#hero .p {
   font-family: CamptonLight;
-  font-size: 15px;
-  line-height: 22px;
+  font-size: 18px;
+  line-height: 25px;
   max-width: 464px;
   padding-right: 84px;
   height: 100px;
+  padding-bottom: 23px;
   color: #FFFFFF;
   opacity: 0.6;
 }
@@ -51,6 +54,7 @@
   border-style: none;
   color: #FFFFFF;
   margin-right: 21px;
+  margin-top: 7px;
   font-weight: 600;
   outline: none;
   cursor: pointer;
@@ -64,7 +68,7 @@
   border-radius: 8px;
   font-size: 17px;
   border-style: none;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   margin-right: 21px;
   font-family: CamptonLight;
   font-weight: 600;
@@ -79,6 +83,10 @@
   margin: -2px 11px 0 -26px;
   font-weight: 100;
   font-family: sans-serif;
+}
+
+#hero #left{
+  margin-bottom: 60px;
 }
 
 #hero #down{

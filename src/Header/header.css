@@ -1,4 +1,4 @@
-#nav{
+#nav {
     max-width: 1755px;
     background: transparent;
     color: #fff;
@@ -11,7 +11,7 @@
     height: 123px;
 }
 
-#nav ul{
+#nav ul {
     display: flex;
     margin: 0 auto;
     text-align: center;
@@ -20,14 +20,19 @@
     list-style: none;
     font-family: CamptonLight;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
+    margin-right: -41px;
+    margin-left: -73px;
     margin-top: 45px;
     outline: none;
 }
 
-#nav li{
+#nav li {
     line-height: 37px;
     height: 36px;
+    margin-left: -11px;
+    margin-right: -12px;
+    cursor: pointer;
 }
 
 .h{
@@ -44,7 +49,7 @@
 
 a{color:#fff;text-decoration: none;}
 
-#watchNum{
+#watchNum {
     margin-left: -3px;
     background-repeat: no-repeat;
     position: absolute;
@@ -53,13 +58,14 @@ a{color:#fff;text-decoration: none;}
     background-position: center;
     padding-bottom: 1px;
     font-size: 10px;
-    background-image: url(./bullet.svg);
+    background-image: url(/bullet.svg);
 }
 
-.group{
+.group {
     display: flex;
-    min-width: 185px;
+    min-width: 190px;
     justify-content: space-between;
+    margin-right: 14px;
 }
 
 #ppic{
