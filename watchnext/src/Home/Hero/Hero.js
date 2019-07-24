@@ -7,11 +7,35 @@ import Movie from '../../Movie/Movie.js';
 import api from "../../api-connection.js"
 
 class Home extends React.Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 
 		}
+	}
+
+	addToWatchList(event)  {
+		this.isWatchListed(this.state.id)
+		var arr = localStorage.getItem("watchList") === null ? [] : JSON.parse(localStorage.getItem("watchList"))
+		if (arr.indexOf(this.state.id) === -1) {
+			arr.push(this.state.id)
+			localStorage.setItem('watchList', JSON.stringify(arr));
+			this.props.updateCounter()
+			this.setState(() => { return { notif: "Added" } })
+		} else {
+			this.setState(() => { return { notif: "Already In" } })
+		}
+	
+	}
+
+	isWatchListed = (id) => {
+		var arr = localStorage.getItem("watchList") === null ? [] : JSON.parse(localStorage.getItem("watchList"))
+		if (arr.indexOf(id) === -1) {
+			this.setState({ added: true})
+			return true
+		}
+		this.setState({ added: false})
+		return false
 	}
 
 	componentDidMount = () => {
@@ -21,12 +45,14 @@ class Home extends React.Component {
 				let movie = 
 					<div>
 						<div id="moon">
-
 							<div id="left">
-								<h1 className="moon">Moonlight {this.props.name}</h1>
-								<p className="p">A chronicle of the childhood, adolescence and burgeoning adulthood of a young, African-American, gay man growing up in a rough neighborhood of Miami.</p>
-								<button id="trailer" >Watch trailer</button>
-								<button id="list" ><span>+</span> Add to list</button>
+								<h1 className="moon">{data.title}</h1>
+								<p className="p">{data.description}</p>
+								<a href={data.trailerUrl}><button id="trailer">Watch trailer</button></a>
+								{
+									this.state.added ? <button id="list" onClick={this.addToWatchList.bind(this)}><span>+</span> Add to list</button>
+									: <button id="list" className="added"><span>+</span>  Add to list </button>
+								}
 							</div>
 
 							<div>
@@ -38,14 +64,16 @@ class Home extends React.Component {
 							<a href="#recentAdded" ><FontAwesomeIcon icon={faChevronDown} /> </a>
 						</div>
 					</div>
-				
-				this.setState({ movie: movie})
+		
+				this.setState({ movie: movie, id:data.id})
 			})
 	}
 
 	render() {
 		return (
+			
 			<div id="hero">
+			
 				{this.state.movie && this.state.movie}
 			</div>
 		);
