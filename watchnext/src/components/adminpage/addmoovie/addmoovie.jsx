@@ -17,6 +17,8 @@ class AddMoovie extends Component {
     super(props);
     this.state = {
       categories: [],
+      alreadyExists: null,
+      isSuccess: false,
       title: null,
       trailerUrl: null,
       originalSourceUrl: null,
@@ -49,6 +51,7 @@ class AddMoovie extends Component {
   }
 
   handleChange = event => {
+    this.setState({ alreadyExists: null });
     event.preventDefault();
     const { name, value } = event.target;
     let errors = this.state.errors;
@@ -171,7 +174,21 @@ class AddMoovie extends Component {
           }
         )
         .then(res => {
-          window.location.reload();
+          if (
+            res.data &&
+            res.data.message &&
+            res.data.message === "The movies is already in database"
+          ) {
+            this.setState({
+              alreadyExists: "Movie already exists in the database!"
+            });
+          } else if (
+            res.data &&
+            res.data.message &&
+            res.data.message === "ok"
+          ) {
+            this.setState({ isSuccess: true });
+          }
         });
     } else {
       window.alert("Please fill in all fields!");
@@ -179,7 +196,7 @@ class AddMoovie extends Component {
   };
 
   render() {
-    const { errors, categories } = this.state;
+    const { errors, categories, alreadyExists, isSuccess } = this.state;
     return (
       <div className="container addMovieContainer">
         <div className="col-md-12">
@@ -441,16 +458,28 @@ class AddMoovie extends Component {
                   )}
                 </Form.Group>
               </div>
+              {alreadyExists && (
+                <small className="errorAlready text-center mt-3">
+                  {alreadyExists}
+                </small>
+              )}
             </div>
 
-            <div className="row titleRow justify-content-center align-items-center">
+            <div
+              className={
+                "row titleRow justify-content-center align-items-center" +
+                (alreadyExists ? "" : " mt-4")
+              }
+            >
               <input
                 className="modalAddMoovie"
                 type="submit"
                 value="Add moovie"
+                data-dismiss={isSuccess ? "modal" : ""}
               />
             </div>
           </Form>
+
           <div className="row justify-content-center align-items-center mt-2">
             <button className="modalCancelAdd">Cancel</button>
           </div>

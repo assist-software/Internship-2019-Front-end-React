@@ -7,7 +7,8 @@ class MovieDescription extends Component {
     super(props);
     this.state = {
       movies: [],
-      data: []
+      data: [],
+      added: "no"
     };
   }
 
@@ -19,6 +20,9 @@ class MovieDescription extends Component {
     if (toWatch.indexOf(parseInt(this.props.match.params.id)) === -1) {
       toWatch.push(parseInt(this.props.match.params.id));
       localStorage.setItem("watchlist", JSON.stringify(toWatch));
+      this.setState({ added: "yes" });
+    } else {
+      this.setState({ added: "already" });
     }
   }
 
@@ -152,10 +156,24 @@ class MovieDescription extends Component {
                     </div>
                     <div>
                       <button
-                        className="addToWatch"
+                        className={
+                          this.state.added === "yes"
+                            ? "addedToWatch"
+                            : [
+                                this.state.added === "already"
+                                  ? "alreadyAddedToWatch"
+                                  : "addToWatch"
+                              ]
+                        }
                         onClick={this.addToWatchlist.bind(this)}
                       >
-                        Add to watchlist
+                        {this.state.added === "yes"
+                          ? "Added"
+                          : [
+                              this.state.added === "already"
+                                ? "Already added"
+                                : "Add to watchlist"
+                            ]}
                       </button>
                     </div>
                     <div className="row detRow mt-5">

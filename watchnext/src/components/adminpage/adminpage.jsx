@@ -63,6 +63,7 @@ class AdminPage extends Component {
         this.closeDeleteModal();
       });
   }
+
   componentDidMount() {
     let url = "http://192.168.151.218:3000/api/movies";
     const token = localStorage.getItem("token");
@@ -80,7 +81,7 @@ class AdminPage extends Component {
   render() {
     const { filter, data, selectedMovie } = this.state;
     const filteredData = data.filter(item => {
-      return item.title.toLowerCase().includes(filter);
+      return item.title.toLowerCase().includes(filter.toLowerCase());
     });
     return (
       <div className="admin-content">

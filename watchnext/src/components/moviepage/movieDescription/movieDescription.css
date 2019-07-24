@@ -122,6 +122,34 @@ h1 {
   margin-top: 20px;
 }
 
+.addedToWatch {
+  background: #009e22;
+  border-radius: 8px;
+  width: 176px;
+  height: 48px;
+  border: 0;
+  font-family: "Montserrat";
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.alreadyAddedToWatch {
+  background: #2a009e;
+  border-radius: 8px;
+  width: 176px;
+  height: 48px;
+  border: 0;
+  font-family: "Montserrat";
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
 ul.movDetList li {
   padding-top: 10px;
   font-size: 14px;
