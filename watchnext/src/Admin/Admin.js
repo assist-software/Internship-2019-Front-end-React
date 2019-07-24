@@ -16,7 +16,7 @@ class Admin extends React.Component {
 	}
 
 	componentDidMount = () => this.getMovies()
-
+	
 	getMovies = () => {
 		fetch(api.movies)
 			.then(resp => resp.json())

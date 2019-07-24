@@ -40,8 +40,29 @@ class Timeline extends React.Component {
 						</div>
 					</VerticalTimelineElement>
 				})
-				this.setState({ comingNext: movies })
+				
+				let sortebyDate = movies
+				sortebyDate.sort(function (a, b) {
+			
+					var dateA = a.props.icon
+					var dateB = b.props.icon
+			
+					if (dateA < dateB) {
+					return -1;
+					}
+					if (dateA > dateB) {
+					return 1;
+					}
+			
+					return 0;
+				});
+				this.setState({ comingNext: sortebyDate })
 			})
+
+
+		
+
+			  
 	}
 
 	render() {
