@@ -143,7 +143,7 @@ class AddMoovie extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
+    debugger;
     const movies = {
       title: this.state.title,
       trailerUrl: this.state.trailerUrl,
@@ -188,6 +188,8 @@ class AddMoovie extends Component {
             res.data.message === "ok"
           ) {
             this.setState({ isSuccess: true });
+            this.props.handClose();
+            this.props.updateMovies(res.data.movie);
           }
         });
     } else {
@@ -475,13 +477,14 @@ class AddMoovie extends Component {
                 className="modalAddMoovie"
                 type="submit"
                 value="Add moovie"
-                data-dismiss={isSuccess ? "modal" : ""}
               />
             </div>
           </Form>
 
           <div className="row justify-content-center align-items-center mt-2">
-            <button className="modalCancelAdd">Cancel</button>
+            <button className="modalCancelAdd" onClick={this.props.handClose}>
+              Cancel
+            </button>
           </div>
         </div>
       </div>

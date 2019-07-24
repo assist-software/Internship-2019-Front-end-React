@@ -73,7 +73,7 @@
   margin-top: 50px;
 }
 
-.addNewContent {
+.modal-content {
   height: 950px !important;
 }
 .form-control:focus {
@@ -84,13 +84,25 @@
 }
 
 @media screen and (max-width: 770px) {
-  .addNewContent {
+  .modal-content {
     height: 1330px !important;
   }
 }
 
 .modal-header {
   border-bottom: none !important;
+}
+
+.btn-primary:hover {
+  background-color: #f5044c;
+  border-color: #f5044c;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #f5044c;
+  border-color: #f5044c;
 }
 
 button:focus {
@@ -155,8 +167,8 @@ button:focus {
   color: #010103;
 }
 
-.modal-content {
-  height: 300px;
+.deleteContent {
+  height: 300px !important;
 }
 
 .cancelModal {

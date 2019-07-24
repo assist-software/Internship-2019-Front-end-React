@@ -8,6 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import UpdateMoovie from "./updatemovie/updatemovie";
+
+import { Button, Modal } from "react-bootstrap";
+
 class AdminPage extends Component {
   constructor(props) {
     super(props);
@@ -17,9 +20,25 @@ class AdminPage extends Component {
       filter: "",
       selectedMovieUpdateId: null,
       selectedMovieDeleteId: null,
-      selectedMovie: null
+      selectedMovie: null,
+      showMod: false
     };
   }
+
+  updateMovies(movie) {
+    let data = this.state.data;
+    data.push(movie);
+    this.setState({ data });
+  }
+
+  close = () => {
+    this.setState({ showMod: false });
+  };
+
+  open = () => {
+    this.setState({ showMod: true });
+  };
+
   handleChange = event => {
     this.setState({ filter: event.target.value });
   };
@@ -83,6 +102,7 @@ class AdminPage extends Component {
     const filteredData = data.filter(item => {
       return item.title.toLowerCase().includes(filter.toLowerCase());
     });
+
     return (
       <div className="admin-content">
         <AdminHeader />
@@ -108,33 +128,19 @@ class AdminPage extends Component {
               </div>
             </div>
             <div className="col-md-6">
-              <button
-                className="addNew mt-1 mr-3"
-                data-toggle="modal"
-                data-target="#addMoovie"
-              >
+              <Button className="addNew mt-1 mr-3" onClick={this.open}>
                 Add new
-              </button>
-              <div
-                className="modal fade bd-example-modal-lg"
-                id="addMoovie"
-                role="dialog"
-              >
-                <div className="modal-dialog modal-lg">
-                  <div className="modal-content addNewContent">
-                    <div className="modal-header">
-                      <button
-                        type="button"
-                        className="close"
-                        data-dismiss="modal"
-                      >
-                        &times;
-                      </button>
-                    </div>
-                    <AddMoovie />
-                  </div>
-                </div>
-              </div>
+              </Button>
+
+              <Modal show={this.state.showMod} onHide={this.close} size="lg">
+                <Modal.Header closeButton />
+                <Modal.Body>
+                  <AddMoovie
+                    handClose={this.close}
+                    updateMovies={movie => this.updateMovies(movie)}
+                  />
+                </Modal.Body>
+              </Modal>
             </div>
           </div>
           <div className="all-moovies">
@@ -186,7 +192,7 @@ class AdminPage extends Component {
                         role="dialog"
                       >
                         <div className="modal-dialog deleteDialog">
-                          <div className="modal-content">
+                          <div className="modal-content deleteContent">
                             <div className="modal-header">
                               <button
                                 type="button"
