@@ -25,7 +25,7 @@ class Register extends Component {
     });
   };
   handleSubmit = async event => {
-    const { password, confimPassword } = this.state;
+    const { password, confimPassword, email } = this.state;
     event.preventDefault();
 
     if (password !== confimPassword) {
@@ -39,8 +39,8 @@ class Register extends Component {
         registerError:
           "Password must contain 8 characters, digits && special characters"
       });
-      // } else if (!email.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)) {
-      // this.setState({ registerError: 'Please insert a valid email address' })
+    } else if (!email.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)) {
+      this.setState({ registerError: "Please insert a valid email address" });
     } else {
       try {
         const { username, email, password, confimPassword } = this.state;

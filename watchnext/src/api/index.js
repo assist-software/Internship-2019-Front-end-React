@@ -1,9 +1,6 @@
 import axios from "axios";
 import { API_URL } from "../constants/api";
 
-const client = axios.create();
-// client.defaults.timeout = 10000;
-
 const getHeaders = () => {
   const token = localStorage.getItem("token");
   if (token) {
@@ -14,28 +11,36 @@ const getHeaders = () => {
   return {};
 };
 
+const removeEmptyFormObject = obj => {
+  const tempObj = { ...obj };
+  Object.keys(tempObj).forEach(key => {
+    if (tempObj[key] === "") {
+      delete tempObj[key];
+    }
+  });
+
+  return tempObj;
+};
+
 const createApiRequest = async ({
   method,
-  data,
-  params,
+  data = {},
   url,
   errorHandler,
   afterSuccess
 }) => {
   try {
-    const config = {};
     const headers = getHeaders();
-    config.headers = headers;
+    const dataSendType = method === "get" ? "params" : "data";
+    const params = {
+      method,
+      headers,
+      url: `${API_URL}${url}`,
+      [dataSendType]: removeEmptyFormObject(data)
+    };
 
-    const requestData = method === "get" ? params : data;
-
-    const response = await client[method](
-      `${API_URL}${url}`,
-      requestData,
-      config
-    );
+    const response = await axios(params);
     if (afterSuccess) {
-      console.log(response);
       afterSuccess(response);
     }
 

@@ -62,84 +62,86 @@ class headMovie extends Component {
     return (
       <div className="hero-content">
         <div className="container py-4">
-          <div className="row justify-content-center align-items-center hero-row">
-            <div className="col-md-6">
-              <div className="row headTitle">
-                <div>
-                  <h5 className="heroTitle">{data.title}</h5>
-                </div>
-                <div className="mt-4">
-                  <h3 className="heroDescription">{data.description}</h3>
-                </div>
-                <div className="mt-5">
-                  <button
-                    className="heroWatchButton"
-                    data-toggle="modal"
-                    data-target="#watchTrailer"
-                  >
-                    Watch trailer
-                  </button>
-                  <div
-                    className="modal fade bd-example-modal-lg"
-                    id="watchTrailer"
-                    role="dialog"
-                  >
-                    <div className="modal-dialog trailerDialog modal-lg">
-                      <div className="modal-content trailerContent">
-                        <div className="modal-header">
-                          <button
-                            type="button"
-                            className="close"
-                            data-dismiss="modal"
-                          >
-                            &times;
-                          </button>
-                        </div>
-                        <div className="modal-body">
-                          <div className="embed-responsive embed-responsive-16by9">
-                            <iframe
-                              title="trailerYoutube"
-                              className="embed-responsive-item"
-                              src={this.replaceUrl(data.trailerUrl)}
-                              allowFullScreen
-                            />
+          <div className="container-hed-movie">
+            <div className="row justify-content-center align-items-center hero-row">
+              <div className="col-md-6">
+                <div className="row headTitle">
+                  <div>
+                    <h5 className="heroTitle">{data.title}</h5>
+                  </div>
+                  <div className="mt-4">
+                    <h3 className="heroDescription">{data.description}</h3>
+                  </div>
+                  <div className="mt-5">
+                    <button
+                      className="heroWatchButton"
+                      data-toggle="modal"
+                      data-target="#watchTrailer"
+                    >
+                      Watch trailer
+                    </button>
+                    <div
+                      className="modal fade bd-example-modal-lg"
+                      id="watchTrailer"
+                      role="dialog"
+                    >
+                      <div className="modal-dialog trailerDialog modal-lg">
+                        <div className="modal-content trailerContent">
+                          <div className="modal-header">
+                            <button
+                              type="button"
+                              className="close"
+                              data-dismiss="modal"
+                            >
+                              &times;
+                            </button>
+                          </div>
+                          <div className="modal-body">
+                            <div className="embed-responsive embed-responsive-16by9">
+                              <iframe
+                                title="trailerYoutube"
+                                className="embed-responsive-item"
+                                src={this.replaceUrl(data.trailerUrl)}
+                                allowFullScreen
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <button
-                    className="heroAddButton ml-3"
-                    onClick={this.addToWatchlist.bind(this)}
-                  >
-                    <FontAwesomeIcon
-                      icon={faPlus}
-                      color="white"
-                      className="mr-3"
-                    />
-                    Add to list
-                  </button>
+                    <button
+                      className="heroAddButton ml-3"
+                      onClick={this.addToWatchlist.bind(this)}
+                    >
+                      <FontAwesomeIcon
+                        icon={faPlus}
+                        color="white"
+                        className="mr-3"
+                      />
+                      Add to list
+                    </button>
 
-                  {message && <div className="add-message">{message}</div>}
+                    {message && <div className="add-message">{message}</div>}
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-6 py-3">
+                <div className="heroImageDiv">
+                  <img className="heroImage" src={data.coverUrl} alt="Logo" />
                 </div>
               </div>
             </div>
-            <div className="col-md-6 py-3">
-              <div className="heroImageDiv">
-                <img className="heroImage" src={data.coverUrl} alt="Logo" />
-              </div>
+            <div className="row justify-content-center align-items-center">
+              <button className="btn nextPage" onClick={this.props.nextPage}>
+                <a href="#RecentAdded">
+                  <FontAwesomeIcon
+                    icon={faArrowDown}
+                    color="white"
+                    className="mt-5"
+                  />
+                </a>
+              </button>
             </div>
-          </div>
-          <div className="row justify-content-center align-items-center">
-            <button className="btn nextPage" onClick={this.props.nextPage}>
-              <a href="#RecentAdded">
-                <FontAwesomeIcon
-                  icon={faArrowDown}
-                  color="white"
-                  className="mt-5"
-                />
-              </a>
-            </button>
           </div>
         </div>
       </div>
