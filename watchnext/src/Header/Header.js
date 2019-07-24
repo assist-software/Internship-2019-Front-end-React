@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import ReactDOM from 'react-dom';
 
 class Header extends React.Component {
 	constructor(props) {
@@ -23,12 +24,25 @@ class Header extends React.Component {
 		alert("log out")
 	}
 
+	componentDidMount = () => {
+		document.addEventListener('click', this.handleClickOutside, true);
+	}
+
+	componentWillUnmount = () => {
+		document.removeEventListener('click', this.handleClickOutside, true);
+	}
+
+	handleClickOutside = event => {
+		if(!event.path.includes(ReactDOM.findDOMNode(this.refs.nav)))
+		   this.setState({isOptionOpen:false})
+	}
+
 	render() {
 		const page = this.props.page.toLowerCase()
 		return (
 			page != "/login" &&
 				page == "/admin" ?
-				<div id="nav">
+				<div id="nav" ref="nav">
 					<ul>
 						<li>
 							<svg xmlns="http://www.w3.org/2000/svg" width="176" height="39" viewBox="0 0 176 39" fill="none">

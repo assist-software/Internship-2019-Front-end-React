@@ -1,20 +1,25 @@
-// const api = {
-//     categories: 'http://localhost:3001/category/',
-//     movies: 'http://localhost:3001/movies/',
-//     catMovies: 'http://localhost:3001/movies?category_like=',
-//     singUp: 'http://localhost:3001/users',
-//     logIn: 'http://localhost:3001/users',
-//     resetPass: 'http://localhost:3001/users'
-// }
-
+const base = 'http://localhost:3001'
 const api = {
-    //https://cors-anywhere.herokuapp.com/
-    categories: 'http://localhost:3001/category/',
-    movies: 'http://localhost:3001/movies/',
-    catMovies: 'http://192.168.151.105/movies/?category_like=',
-    singUp: 'http://192.168.151.105:1234/signup/',
-    logIn: 'http://192.168.151.105:1234/login/',
-    resetPass: 'http://192.168.151.105:1234/reset/'
+    categories: base + '/category/',
+    movies: base +'/movies/',
+    movie: base + '/movies/',
+    catMovies: base + '/movies?category_like=',
+    singUp: base + '/users',
+    addMovie: base + '/movies',
+    delMovie: base + '/movies/'
 }
+
+// const base = 'http://192.168.151.105:1234'
+// const api = { 
+//     categories: '/category/',
+//     movies: '/movies/',
+//     catMovies: '/movies/?category_like=',
+//     singUp: '/signup/',
+//     addMovie: '/movies/add',
+//     delMovie: '/movies/',
+//     singUp: '/signup/',
+//     logIn: '/login/',
+//     resetPass: '/reset/'
+// }
 
 export default api

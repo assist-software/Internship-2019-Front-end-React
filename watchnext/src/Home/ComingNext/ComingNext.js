@@ -71,6 +71,7 @@ class ComingNext extends React.Component {
   }
 
   getMovies = (category) => {
+    let categoreis = {}
     fetch(api.catMovies + category, {
       method: 'GET'
     })

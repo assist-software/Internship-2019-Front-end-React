@@ -28,13 +28,18 @@ const Main = (props) => (
           render={() => <Watchlist updateCounter={()=>props.updateCounter()} />}
         />
 
-        <Route path='/categories' component = {Categories} />
+        <Route
+        path='/categories'
+        render={() => <Categories updateCounter={()=>props.updateCounter()} />}
+      />
+
         <Route path='/contact' component = {Contact} />
         <Route path='/login' component = {Login} />
         <Route path='/register' component = {Login} />
         <Route path='/reset' component = {Login} />
         <Route path='/movie' component = {Movie} />
         <Route path='/admin' component = {Admin} />
+        <Route component={Home} />
       </Switch>
     </main>
   )
