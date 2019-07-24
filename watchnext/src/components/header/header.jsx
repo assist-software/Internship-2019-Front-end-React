@@ -14,6 +14,8 @@ class Header extends Component {
   }
 
   render() {
+    var toWatch = JSON.parse(localStorage.getItem("watchlist"));
+    const nrList = toWatch.length;
     return (
       <div id="nav">
         <ul>
@@ -95,7 +97,7 @@ class Header extends Component {
               WatchList
             </NavLink>
             <Badge className="ml-2" variant="danger">
-              {this.props.nrWatch}
+              {nrList}
             </Badge>
           </li>
           <li className="navLink d-none d-md-block">
