@@ -5,17 +5,19 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import Dropdown from '../dropdown/Dropdown';
 import MovieCart from '../movieCart/MovieCart';
 import api from "../api-connection.js";
+import { array } from 'prop-types';
 
 class Watchlist extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      watchListIndex:!localStorage.getItem("watchList") === null?  JSON.parse(localStorage.getItem("watchList")).reverse() : [],
+      watchListIndex: !localStorage.getItem("watchList") === null ? JSON.parse(localStorage.getItem("watchList")).reverse() : [],
       comingMovies: new Array(),
       comingMoviesList: new Array(),
       selected: 'Latest Added',
       loaded: false,
       movieName: '',
+      searchTxt: '',
       options: [{
         id: 0,
         title: 'Latest Added'
@@ -33,6 +35,7 @@ class Watchlist extends React.Component {
   }
 
   load = (lastAdded) => {
+    console.log("aaaa")
     this.setState(() => {
       return {
         watchListIndex: lastAdded ? JSON.parse(localStorage.getItem("watchList")).reverse() : JSON.parse(localStorage.getItem("watchList")),
@@ -45,39 +48,37 @@ class Watchlist extends React.Component {
 
     for (var i = 0; i < movies_id.length; i++) {
       fetch(api.movies + movies_id[i])
-        .then(resp => resp.json())
-        .then(item => {
-          this.setState((prev) => {
-            return {
-              loaded: true,
-              comingMovies: prev.comingMovies.concat(
-                <MovieCart refreshMovieList={() => this.load()} 
-                updateCounter={() => this.props.updateCounter()} 
-                key={item.id} id={item.id} 
-                title={item.title} 
-                release={item.releaseDate}
-                gen={item.category} 
-                img={item.coverUrl} 
-                page='watchlist' />),
-              comingMoviesList: prev.comingMovies.concat(
-                <MovieCart refreshMovieList={() => this.load()} 
-                updateCounter={() => this.props.updateCounter()}
-                key={item.id} id={item.id} 
-                title={item.title} 
-                release={item.releaseDate} 
-                gen={item.category} 
-                img={item.coverUrl} 
-                page='watchlist' />)
-            }
-          })
+      .then(resp => resp.json())
+      .then(item => {
+        this.setState((prev) => {
+          return {
+            loaded: true,
+            comingMovies: prev.comingMovies.concat(
+              <MovieCart refreshMovieList={() => this.load()} 
+              updateCounter={() => this.props.updateCounter()} 
+              key={item.id} id={item.id} 
+              title={item.title} 
+              release={item.releaseDate}
+              gen={item.category} 
+              img={item.coverUrl} 
+              page='watchlist' />),
+            comingMoviesList: prev.comingMovies.concat(
+              <MovieCart refreshMovieList={() => this.load()} 
+              updateCounter={() => this.props.updateCounter()}
+              key={item.id} id={item.id} 
+              title={item.title} 
+              release={item.releaseDate} 
+              gen={item.category} 
+              img={item.coverUrl} 
+              page='watchlist' />)
+          }
         })
+      })
     }
   }
 
   selectOpt = (opt_id) => {
-    if(typeof(opt_id)=="string") opt_id=0
-
-    if (opt_id == 1) {
+    if (opt_id == "Name") {
       let sortedByName = this.state.comingMoviesList
       sortedByName.sort(function (a, b) {
 
@@ -101,11 +102,11 @@ class Watchlist extends React.Component {
       })
     }
 
-    if (opt_id == 0) {
+    if (opt_id == "Latest Added") {
       this.load(true)
     }
 
-    if (opt_id == 2) {
+    if (opt_id == "Release Date") {
       let sortebyDate = this.state.comingMoviesList
       sortebyDate.sort(function (a, b) {
 
@@ -133,6 +134,7 @@ class Watchlist extends React.Component {
 
   search = (event) => {
     const movieName = event.target.value
+    this.setState({searchTxt: movieName})
     if (movieName) {
       let movies = this.state.comingMovies
         .filter((item) => item.props.title.toLowerCase().includes(movieName.toLowerCase()))
@@ -142,6 +144,12 @@ class Watchlist extends React.Component {
     }
   }
   
+  componentWillMount = () => {
+    if (localStorage.getItem("watchList") === null ){
+      localStorage.setItem("watchList","[]")
+    }
+  }
+
   render() {
     return (
       <div id="watchList">
@@ -162,7 +170,7 @@ class Watchlist extends React.Component {
         <div id="comingList">{this.state.comingMoviesList}</div>
 
         {
-          (this.state.comingMoviesList.length == 0 && this.state.loaded) &&
+          (this.state.comingMoviesList.length == 0 && this.state.loaded && this.state.searchTxt ) &&
           <div id="nof"><FontAwesomeIcon icon={faSearch} id="ico" /> <h3 id="nor">No results found:(</h3></div>
         }
       </div>

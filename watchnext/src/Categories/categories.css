@@ -56,13 +56,18 @@
 #categorypage li {
     text-align: left;
     height: 40px;
-    font-family: Camptonlight;
+    font-weight: 600;
     display: flex;
     align-items: center;
     padding-left: 10px;
-    font-size: 18px;
+    font-size: 16px;
+    font-family: CamptonLight;
     font-weight: 60px;
     cursor: pointer;
+}
+
+#categorypage li:hover{
+    background: #C7044C;
 }
 
 #categorypage ul {

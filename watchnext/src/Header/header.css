@@ -21,8 +21,9 @@
     font-family: CamptonLight;
     font-weight: 700;
     font-size: 14px;
-    margin-top: 45px;
+    align-items: center;
     outline: none;
+    height: 118px;
 }
 
 #nav li{
