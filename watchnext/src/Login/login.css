@@ -40,15 +40,13 @@
 
 #logInInputDiv{
     text-align: center;
-    margin-top: 100px;
 }
 
 #loginText{
     color: #FFFFFF;
-    margin-top: 0px auto;
-    margin: 0 auto;
-    margin-bottom: 100px;
-    padding: 30px 0 40px 0px;
+    margin: 0px auto;
+    margin-bottom: 15px;
+    padding: 52px 0 48px 0px;
     text-align: center;
     font-size: 48px;
     width: 432px;
@@ -92,7 +90,14 @@
 }
 
 #buttonDiv{
-    margin-top: 40px;
+    margin-top: 66px;
+}
+
+#buttonDiv2{
+    margin-top: 18px;
+}
+#buttonDiv3{
+    margin-top: 18px;
 }
 
 #logIn{
@@ -161,8 +166,9 @@
     color: #9C9B9B;
     font-family: Campton;
     font-size: 14px;
-    margin-top: 7px;
+    margin-top: 15px;
     margin-bottom: 0px;
+
 }
 
 #createOne{
@@ -206,7 +212,7 @@
     text-align: center;
     font-size: 48px;
     width: 432px;
-    height: 144px;
+    height: 100px;
     line-height: 60px;
     font-family: Campton;
     font-weight: 100;

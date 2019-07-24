@@ -105,7 +105,7 @@ class Login extends React.Component {
 				errors.push("Invalid email! ");
 			}
 			else {
-				this.sendResetToJsonServer(emailLogin)
+				this.sendResetToJsonServer(emailLogin, errors)
 			}
 
 		this.setState({ requestReset: true, lerrors: errors })
@@ -129,7 +129,7 @@ class Login extends React.Component {
 					errors.push("Passwords don’t match! ");
 				}
 				else {
-					this.sendToJsonServer(fullName, emailLogin, password, passwordConfirm)
+					this.sendToJsonServer(fullName, emailLogin, password, passwordConfirm,errors)
 				}
 
 		this.setState({ requestRegister: true, lerrors: errors })
@@ -145,13 +145,13 @@ class Login extends React.Component {
 			if (this.isEmailValid(emailLogin) != 1) {
 				errors.push("Invalid email.");
 			} else {
-				this.sendLoginToJsonServer(emailLogin, password)
+				this.sendLoginToJsonServer(emailLogin, password, errors)
 			}
 		this.setState({ requestLogin: true, lerrors: errors })
 		return errors;
 	}
 
-	sendLoginToJsonServer = (emailLogin, password) => {
+	sendLoginToJsonServer = (emailLogin, password, errors) => {
 		var data = {
 			"email": emailLogin,
 			"password": password
@@ -173,12 +173,15 @@ class Login extends React.Component {
 				if(localStorage.getItem('secret_token') != 'undefined'){
 					this.props.history.push("/home")
 				}
+				errors.push(JSON.stringify(data.message))
+				this.setState({ requestLogin: true, lerrors: errors })
+				return errors
 			}
 			);
 
 	}
 
-	sendResetToJsonServer = (emailLogin) => {
+	sendResetToJsonServer = (emailLogin, errors) => {
 		var data = {
 			"email": emailLogin
 		};
@@ -191,12 +194,20 @@ class Login extends React.Component {
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify(data)
+				
 			})
 			.then(response => response.json())
+			.then(data => {
+				// alert(JSON.stringify(data.message))
+				errors.push(JSON.stringify(data.message))
+				this.setState({ requestReset: true, lerrors: errors })
+				return errors
+			})
+			
 
 	}
 
-	sendToJsonServer = (fullName, emailLogin, password, passwordConfirm) => {
+	sendToJsonServer = (fullName, emailLogin, password, passwordConfirm, errors) => {
 
 		if (fullName != '' && this.isEmailValid(emailLogin) && this.passwordsValidation(password, passwordConfirm)) {
 			var data = {
@@ -215,8 +226,16 @@ class Login extends React.Component {
 					},
 					body: JSON.stringify(data)
 				})
-				.then(response => response.json())
-				.then(data => alert(JSON.stringify(data)));
+				.then(response => response.json()).then(data => {
+				// .then(data => alert(JSON.stringify(data)));
+				if(localStorage.getItem('secret_token') != 'undefined'){
+					// this.props.history.push("/login")
+					this.changeToLogin()
+				}
+				errors.push(JSON.stringify(data.message))
+				this.setState({ requestRegister: true, lerrors: errors })
+				return errors
+				})
 
 		} else { alert("invalid data 	") }
 	}
@@ -238,7 +257,7 @@ class Login extends React.Component {
 			<div id="login_page">
 
 				<div id="logo">
-					<img id="logoImage" src={require("../Footer/moovie_logo.png")} />
+					<a href = "../home" ><img id="logoImage" src={require("../Footer/moovie_logo.png")} /> </a>
 				</div>
 
 				<div id="barLogin"></div>
@@ -253,9 +272,9 @@ class Login extends React.Component {
 						</div>
 						<Link to="/reset"> <p id="password" onClick={() => this.changetoReset()}> Forgot password? </p> </Link>
 
-						{(requestLogin == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => {
-							return <div>{item}</div>
-						})} </p>}
+						{(requestLogin == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => 
+							 <div>{item.replace(/"/g, '')}</div>
+						)} </p>}
 						<div align="center" id="buttonDiv">
 							<input type="button" className="logIn button1" align="center" value="Log in" onClick={() => this.errors(emailLogin, password)} />
 
@@ -264,7 +283,7 @@ class Login extends React.Component {
 
 						</div>
 					</div>
-				}
+				}	
 
 				{(isRegister) &&
 					<div id="box">
@@ -278,13 +297,13 @@ class Login extends React.Component {
 							<FontAwesomeIcon icon={faEye} id="eye" onClick={() => this.displayPassword(!isPassworDisplayed)} />
 							<br />
 							<input type={isPassworDisplayed ? "text" : "password"} name="password" placeholder="Confirm password" id="log" className="vis" value={passwordConfirm} onChange={e => this.handleChangePasswordConfirm(e.target.value)} />
-
-							{(requestRegister == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => {
-								return <div>{item}</div>
-							})} </p>}
+							{console.log(lerrors)}
+							{(requestRegister == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => 
+							 <div>{item.replace(/"/g, '')}</div>
+							)} </p>}
 
 						</div>
-						<div align="center" id="buttonDiv">
+						<div align="center" id="buttonDiv2">
 							<input type="button" className="logIn button1" align="center" value="Register" onClick={() => this.errorsRegister(fullName, emailLogin, password, passwordConfirm)} />
 							<Link to="/login"> <p id="create" onClick={() => this.changeToLogin()}> Already have an account? Log in </p> </Link>
 							<i id="haveOne"></i>
@@ -299,11 +318,11 @@ class Login extends React.Component {
 						<div align="center">
 							<input type="text" id={(requestReset == true && lerrors == '') ? "hideItem" : "log"} name="email" placeholder="Email adress" value={emailLogin} onChange={e => this.handleChangeEmailLogin(e.target.value)} />
 							{(requestReset == true && lerrors == '') && <p id="resetText"> An email with instructions <br /> has been sent to <font color="#F5044C">{emailLogin}</font>! </p>}
-							{(requestReset == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => {
-								return <div>{item}</div>
-							})} </p>}
+							{(requestReset == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => 
+							 <div>{item.replace(/"/g, '')}</div>
+							)} </p>}
 						</div>
-						<div align="center" id="buttonDiv">
+						<div align="center" id="buttonDiv3">
 							<input type="button" id={(requestReset == true && lerrors == '') ? "hideItem" : ""} className="logIn button1" value="Reset password" align="center" onClick={() => this.errorsReset(emailLogin)} />
 							{<Link to="/home"><input type="button" id={(requestReset == true && lerrors == '') ? "button2" : "hideItem"} align="center" value="Return Home"></input> </Link>}
 						</div>

@@ -52,3 +52,13 @@
     font-size: 12px;
     color:#e6e6e6;
 }
+
+.react-datepicker__day{
+    color: #ffffff !important;
+    display: inline-block;
+    width: 1.7rem;
+    line-height: 1.7rem;
+    text-align: center;
+    /* padding: 12px 10px 12px 10px !important; */
+    font-weight: bold;
+}

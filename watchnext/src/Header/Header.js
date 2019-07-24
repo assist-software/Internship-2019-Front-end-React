@@ -7,6 +7,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import ReactDOM from 'react-dom';
+import {Redirect} from 'react-dom';
 
 class Header extends React.Component {
 	constructor(props) {
@@ -22,6 +23,8 @@ class Header extends React.Component {
 
 	logOut = () => {
 		alert("log out")
+		localStorage.removeItem("secret_token")
+		localStorage.removeItem("user_rol")
 	}
 
 	componentDidMount = () => {
@@ -43,6 +46,7 @@ class Header extends React.Component {
 			page != "/login" &&
 				page == "/admin" ?
 				<div id="nav" ref="nav">
+
 					<ul>
 						<li>
 							<svg xmlns="http://www.w3.org/2000/svg" width="176" height="39" viewBox="0 0 176 39" fill="none">
@@ -73,7 +77,7 @@ class Header extends React.Component {
 							<img id="ppic" src=""></img>
 							<p id="uname" onClick={() => this.toggleDropDown()}>Matthew <FontAwesomeIcon icon={this.state.isOptionOpen ? faChevronDown : faChevronLeft} /></p>
 							{this.state.isOptionOpen && <div id="opts">
-								<p onClick={() => this.logOut()}>Log Out</p>
+								<Link to ='' refresh = "true" ><p onClick={() => this.logOut()}>Log Out</p> </Link>
 							</div>}
 						</div>
 						<li>
