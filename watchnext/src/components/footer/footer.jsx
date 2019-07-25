@@ -3,7 +3,14 @@ import "./footer.css";
 
 class Footer extends Component {
   state = {};
+
+  logout() {
+    localStorage.removeItem("token");
+    window.location.reload();
+  }
+
   render() {
+    const token = localStorage.getItem("token");
     return (
       <section id="footer">
         <div className="container">
@@ -95,7 +102,17 @@ class Footer extends Component {
                   <a href="/register">Register</a>
                 </li>
                 <li>
-                  <a href="/login">Login</a>
+                  {token ? (
+                    <button
+                      type="button"
+                      onClick={() => this.logout()}
+                      class="btn btn-link"
+                    >
+                      Logout
+                    </button>
+                  ) : (
+                    <a href="/login">Login</a>
+                  )}
                 </li>
               </ul>
             </div>

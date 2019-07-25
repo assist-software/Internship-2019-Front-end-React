@@ -101,3 +101,15 @@ section .section-title {
 .footerRight {
   text-align: right;
 }
+
+.btn-link {
+  color: white;
+  font-size: 14px !important;
+  font-family: "Montserrat" !important;
+  padding-left: 0px !important;
+}
+
+.btn-link:hover {
+  color: white;
+  text-decoration: none;
+}
