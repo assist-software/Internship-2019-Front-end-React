@@ -78,7 +78,19 @@ class ComingNext extends React.Component {
     })
     .then(resp => resp.json())
     .then(data => {
-      let movies = data.map(item =>
+      let movies = data
+      .filter(item=>{
+        var todayDate = new Date().toISOString().slice(0,10);
+       
+        let cyear = todayDate.slice(0,4)
+        let cmm = todayDate.slice(5,7)
+
+        let ryear = item.releaseDate.slice(0,4)
+        let rmm = item.releaseDate.slice(5,7)
+
+        return cyear==ryear && parseInt(rmm) == parseInt(cmm)+1 
+      })
+      .map(item =>
         <MovieCart
           key={item.id}
           updateCounter={() => this.props.updateCounter()}
@@ -106,7 +118,7 @@ class ComingNext extends React.Component {
             <h1>See what movies are<br />coming next month</h1>
 
             <div id="filter">
-              <Dropdown list={genres} gen={genre} ug={this.updateGenre} num={true} />
+              <Dropdown list={genres} gen={genre} ug={this.updateGenre} num={true} page="comingnext"/>
 
               <button id="date" onClick={this.btnDateClick}>
                 <FontAwesomeIcon icon={faCalendar} /> Any Date <FontAwesomeIcon icon={this.state.dateOpen ? faChevronDown : faChevronLeft} />

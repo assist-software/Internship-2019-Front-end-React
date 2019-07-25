@@ -50,7 +50,8 @@ class Watchlist extends React.Component {
 
       .then(resp => resp.json())
       .then(item => {
-        if(JSON.stringify(item) != "{}"){       
+        
+        if(JSON.stringify(item) != "{}" && item != null){     
           this.setState((prev) => {
             return {
               loaded: true,
@@ -176,7 +177,7 @@ class Watchlist extends React.Component {
 
           <div id="ctrl-right">
             <span>Sort by</span>
-            <Dropdown list={this.state.options} gen={this.state.selected} ug={this.selectOpt} />
+            <Dropdown list={this.state.options} gen={this.state.selected} ug={this.selectOpt} page="watchlist"/>
           </div>
         </div>
 
