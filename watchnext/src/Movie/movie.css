@@ -40,8 +40,8 @@
 }
 #moovie #right #title img{
     width: 98px;
-    height: 28px;
-    padding-top: 10px;
+    height: 22px;
+    border-radius: 7px 10px 10px 6px;
     padding-left: 20px;
 }
 #moovie #right #title h1 {

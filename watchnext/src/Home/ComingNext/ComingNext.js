@@ -33,6 +33,7 @@ class ComingNext extends React.Component {
       startDate: date,
       dateOpen: false
     });
+    
   }
 
   dateSelect = (date) => {
@@ -71,7 +72,7 @@ class ComingNext extends React.Component {
   }
 
   getMovies = (category) => {
-    let categoreis = {}
+    let categories = {}
     fetch(api.catMovies + category, {
       method: 'GET'
     })
