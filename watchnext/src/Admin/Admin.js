@@ -7,14 +7,15 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import api from "../api-connection.js"
 
 class Admin extends React.Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			popupVisible:false,
 			popup_id:3,
 			searchTxt: '',
 			loaded:false
 		}
+		
 	}
 
 	componentDidMount = () => this.getMovies()
@@ -28,8 +29,7 @@ class Admin extends React.Component {
 						{...item}
 						originalSourceUrl={item.originalSourceUrl}
 						dm={this.displayDeletePopUp}
-						edit={this.edit}
-	
+						edit={this.edit} 
 					/>)
 				this.setState({ data:movies, movieList: movies, loaded:true})
 			})

@@ -39,13 +39,15 @@
 }
 
 #hero .img2{
-
+  cursor: pointer;
   width: 392px;
   height: 552px;
   left: 800px;
   top: 232px;
   border-radius: 20px;
 }
+
+
 
 #hero #trailer {
   background: #F5044C;

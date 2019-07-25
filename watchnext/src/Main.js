@@ -38,7 +38,12 @@ const Main = (props) => (
         <Route path='/register' component = {Login} />
         <Route path='/reset' component = {Login} />
         <Route path='/movie' component = {Movie} />
-        <Route path='/admin' component = {Admin} />
+
+        <Route
+        path='/admin'
+        render={() => <Admin updateCounter={()=>props.updateCounter()} />}
+      />
+
         <Route component={Home} />
       </Switch>
     </main>

@@ -273,10 +273,8 @@ font-family: corbel;
 }
 
 #moovie #playbut{
-    position: absolute;
     width: 80px;
     height: 80px;
-    margin-left: -223px;
     top: 447px;
     cursor: pointer;
 }
