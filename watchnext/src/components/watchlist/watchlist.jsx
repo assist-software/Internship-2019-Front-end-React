@@ -172,13 +172,18 @@ class WhatchList extends Component {
                               <h5 id="moovieTitle">{movie.title}</h5>
                             </a>
                             <small>
+                              {movie.category.map((cat, index) => {
+                                return index > 0
+                                  ? " • " + cat.name
+                                  : " " + cat.name;
+                              })}
+                              <br />
                               Realeased date:{" "}
                               {new Intl.DateTimeFormat("en-US", {
                                 year: "numeric",
                                 month: "2-digit",
                                 day: "2-digit"
                               }).format(movie.releaseDate)}{" "}
-                              <br />
                             </small>
                           </div>
                         </div>

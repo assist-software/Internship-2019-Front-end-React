@@ -13,6 +13,8 @@ import WhatchList from "../components/watchlist/watchlist";
 import AdminPage from "../components/adminpage/adminpage";
 import LoginAdmin from "../components/adminpage/loginadmin/loginadmin";
 import AllMovies from "../components/allmovies/allmovies";
+import Header from "../components/header/header";
+import AdminHeader from "../components/adminpage/adminheader/adminheader";
 
 const App = () => (
   <Router>

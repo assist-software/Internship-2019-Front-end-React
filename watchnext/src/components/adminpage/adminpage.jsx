@@ -134,7 +134,7 @@ class AdminPage extends Component {
 
               <Modal show={this.state.showMod} onHide={this.close} size="lg">
                 <Modal.Header closeButton />
-                <Modal.Body>
+                <Modal.Body className="addContent">
                   <AddMoovie
                     handClose={this.close}
                     updateMovies={movie => this.updateMovies(movie)}

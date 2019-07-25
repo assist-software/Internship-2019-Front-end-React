@@ -139,7 +139,7 @@ class MovieDescription extends Component {
                     </div>
 
                     <div>
-                      <small id="movieDet">
+                      {/* <small id="movieDet">
                         {data[0].category &&
                           data[0].category.map((cat, index) => {
                             return (
@@ -149,6 +149,17 @@ class MovieDescription extends Component {
                             );
                           })}
                         {data[0].duration}
+                      </small> */}
+
+                      <small>
+                        {data[0].category &&
+                          data[0].category.map((cat, index) => {
+                            return index > 0
+                              ? " • " + cat.name
+                              : " " + cat.name;
+                          })}
+                        <br />
+                        {" Duration: " + data[0].duration}
                       </small>
                     </div>
                     <div>

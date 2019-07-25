@@ -74,12 +74,12 @@ class Moovie extends Component {
               <h5 id="moovieTitle">{movie.title}</h5>
             </a>
             <small>
-              {movie.category &&
-                movie.category.map((cat, index) => {
-                  return <small key={index}>{cat.name} </small>;
-                })}{" "}
-              <br />
-              {this.convertDate(movie.releaseDate)}
+              Realeased date:{" "}
+              {new Intl.DateTimeFormat("en-US", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+              }).format(movie.releaseDate)}{" "}
             </small>
           </div>
         )}

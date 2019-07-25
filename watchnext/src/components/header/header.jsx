@@ -14,17 +14,23 @@ class Header extends Component {
   }
 
   render() {
-    var toWatch = JSON.parse(localStorage.getItem("watchlist"));
-    const nrList = toWatch.length;
+    let nrList;
+    const toWatch = JSON.parse(localStorage.getItem("watchlist"));
+    if (toWatch && toWatch.length) {
+      nrList = toWatch.length;
+    } else {
+      nrList = 0;
+    }
+
     return (
       <div id="nav">
         <ul>
-          <li className="navLink d-none d-md-block">
+          <li className="navLink d-none d-lg-block">
             <NavLink activeClassName="active" to={"/home"}>
               Home
             </NavLink>
           </li>
-          <li className="navLink d-none d-md-block">
+          <li className="navLink d-none d-lg-block">
             <NavLink activeClassName="active" to={"/movies"}>
               All Movies
             </NavLink>
@@ -92,7 +98,7 @@ class Header extends Component {
               </svg>
             </a>
           </li>
-          <li className="navLink d-none d-md-block">
+          <li className="navLink d-none d-lg-block">
             <NavLink activeClassName="active" to={"/watch-list"}>
               WatchList
             </NavLink>
@@ -100,7 +106,7 @@ class Header extends Component {
               {nrList}
             </Badge>
           </li>
-          <li className="navLink d-none d-md-block">
+          <li className="navLink d-none d-lg-block">
             <a href="https://assist-software.net">Contact</a>
           </li>
           {/* <li className="navLink d-none d-md-block">

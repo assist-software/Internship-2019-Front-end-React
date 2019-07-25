@@ -24,23 +24,56 @@ class AllMovies extends Component {
     });
   };
 
+  // selectedCategoryHandler = event => {
+  //   event.preventDefault();
+  //   const cat = event.target.value;
+  //   this.setState({ selectedCategory: cat });
+  //   let url = "http://192.168.151.218:3000/api/movies-category/" + cat;
+
+  //   const token = localStorage.getItem("token");
+  //   fetch(url, {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization: `Bearer ${token}`
+  //     }
+  //   })
+  //     .then(resp => resp.json())
+  //     .then(data => {
+  //       this.setState({ data: data.movies });
+  //     });
+  // };
+
   selectedCategoryHandler = event => {
     event.preventDefault();
     const cat = event.target.value;
-    this.setState({ selectedCategory: cat });
-    let url = "http://192.168.151.218:3000/api/movies-category/" + cat;
-
     const token = localStorage.getItem("token");
-    fetch(url, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({ data: data.movies });
-      });
+    this.setState({ selectedCategory: cat });
+    console.log("aaa", cat);
+    if (cat === "none") {
+      let url = "http://192.168.151.218:3000/api/movies";
+      fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(resp => resp.json())
+        .then(data => {
+          this.setState({ data: data });
+        });
+    } else {
+      let url = "http://192.168.151.218:3000/api/movies-category/" + cat;
+      fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(resp => resp.json())
+        .then(data => {
+          this.setState({ data: data.movies });
+        });
+    }
   };
 
   addToWatchlist(movId) {
@@ -184,7 +217,6 @@ class AllMovies extends Component {
                             month: "2-digit",
                             day: "2-digit"
                           }).format(movie.releaseDate)}{" "}
-                          <br /> {/* {movie.movie.category[1]} */}
                         </small>
                       </div>
                     </div>
