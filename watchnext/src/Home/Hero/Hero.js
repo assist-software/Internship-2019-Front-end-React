@@ -72,7 +72,7 @@ class Home extends React.Component {
 								}
 							</div>
 
-							<div>
+							<div id="img">
 								<img className="img2" alt="img2" src={this.state.movie.coverUrl} onClick={() => (window.location.href='/movie?id='+this.state.id)}/>
 							</div>
 						</div>

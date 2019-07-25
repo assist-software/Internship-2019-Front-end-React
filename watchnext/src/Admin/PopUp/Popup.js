@@ -7,12 +7,15 @@ import './popup.css';
 import { withRouter } from "react-router-dom";
 import api from "../../api-connection.js"
 
+
+
 class Popup extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       genre: 'Action',
       loaded: false,
+      obs: true,
       genres: [
         {
           id: 0,
@@ -64,6 +67,35 @@ class Popup extends React.Component {
     })
   }
 
+  sendAdminToJsonServer = (obs) => {
+    var data = {
+      "secret_token": localStorage.getItem('secret_token')
+    };
+  
+    fetch(api.adminCheck,
+      {
+        crossDomain: true,
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "secret_token": localStorage.getItem('secret_token')
+        },
+        // body: JSON.stringify(data)
+  
+      })
+      .then(response => response.json()).then(response => {
+        if (response.rol != 1) {
+          this.setState({ obs: false })
+          // console.log(obs)
+          return obs;
+  
+        } else {
+          this.setState({ obs: true, checked: true })
+          return obs;
+        }
+  
+      })
+  }
 
   checkErrors = () => {
     const { title, trailerUrl, originalSourceUrl, coverUrl, description, imdbScore, releaseDate, category } = this.state
@@ -126,7 +158,8 @@ class Popup extends React.Component {
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "secret_token": localStorage.getItem('secret_token')
         },
         body: JSON.stringify(data)
       })
@@ -174,12 +207,14 @@ class Popup extends React.Component {
         {
           method: "PUT",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "secret_token": localStorage.getItem('secret_token')
           },
           body: JSON.stringify(data)
         })
         .then(response => this.close())
     });
+    // this.sendAdminToJsonServer(this.state.obs)
   }
 
   handleChange = (value, name) => this.setState({[name]: value})
@@ -219,6 +254,8 @@ class Popup extends React.Component {
   }
 
   render() {
+    if (this.state.obs == false)
+      this.props.history.push("/home")
     return (<div>
       {this.props.visible && <div id="blurAdminPage" onClick={() => this.props.ans(false)}></div>}
 

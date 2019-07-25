@@ -19,6 +19,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-slick": "^0.24.0",
+    "react-slidedown": "^2.4.4",
     "react-vertical-timeline-component": "^2.4.0",
     "slick-carousel": "^1.8.1"
   },

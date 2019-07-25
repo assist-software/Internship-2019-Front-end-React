@@ -199,7 +199,11 @@ class Login extends React.Component {
 			.then(response => response.json())
 			.then(data => {
 				// alert(JSON.stringify(data.message))
-				errors.push(JSON.stringify(data.message))
+				console.log(JSON.stringify(data.message).replace(/"/g, '') )
+				if(JSON.stringify(data.message).replace(/"/g, '') == "Email provided was not found"){		
+					errors.push(JSON.stringify(data.message).replace(/"/g, ''))
+					console.log(errors)
+				}
 				this.setState({ requestReset: true, lerrors: errors })
 				return errors
 			})
@@ -228,10 +232,10 @@ class Login extends React.Component {
 				})
 				.then(response => response.json()).then(data => {
 				// .then(data => alert(JSON.stringify(data)));
-				if(localStorage.getItem('secret_token') != 'undefined'){
+				if(data.message == ''){
 					// this.props.history.push("/login")
 					this.changeToLogin()
-				}
+				} 
 				errors.push(JSON.stringify(data.message))
 				this.setState({ requestRegister: true, lerrors: errors })
 				return errors
@@ -296,8 +300,8 @@ class Login extends React.Component {
 							<FontAwesomeIcon icon={faEye} id="eye" onClick={() => this.displayPassword(!isPassworDisplayed)} />
 							<br />
 							<input type={isPassworDisplayed ? "text" : "password"} name="password" placeholder="Confirm password" id="log" className="vis" value={passwordConfirm} onChange={e => this.handleChangePasswordConfirm(e.target.value)} />
-							{console.log(lerrors)}
-							{(requestRegister == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => 
+							{console.log(lerrors, requestRegister)}				
+							{(requestRegister == true && this.state.lerrors != '') && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => 
 							 <div>{item.replace(/"/g, '')}</div>
 							)} </p>}
 
@@ -317,7 +321,8 @@ class Login extends React.Component {
 						<div align="center">
 							<input type="text" id={(requestReset == true && lerrors == '') ? "hideItem" : "log"} name="email" placeholder="Email adress" value={emailLogin} onChange={e => this.handleChangeEmailLogin(e.target.value)} />
 							{(requestReset == true && lerrors == '') && <p id="resetText"> An email with instructions <br /> has been sent to <font color="#F5044C">{emailLogin}</font>! </p>}
-							{(requestReset == true && this.state.lerrors.length > 0) && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => 
+							{console.log(requestReset, lerrors.length, lerrors)}
+							{(requestReset == true) && <p id='noLogin' align="center" >{lerrors.map((item) => 
 							 <div>{item.replace(/"/g, '')}</div>
 							)} </p>}
 						</div>

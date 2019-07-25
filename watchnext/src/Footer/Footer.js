@@ -21,17 +21,17 @@ class Footer extends React.Component {
             <div id = "personal">
 
             <div id = "footerUp"> 
-                <img src={require("./moovie_logo.png")}/>
+                <a href="/home"><img src={require("./moovie_logo.png")}/></a>
                 <div id = "yup">
                     <ul>
                         <li id="first.li.up"><a href="#">Press Room</a></li>
                         <li><a href="/login">Login</a></li>
-                        <li><a href="#">Jobs</a></li>
+                        <li><a href="/admin">Admin</a></li>
                     </ul>
                     <ul>
                         <li id="first.li.up"><a href="/contact">Contact us</a></li>
                         <li><a href="/register">Register</a></li>
-                        <li><a href="#">News</a></li>
+                        <li><a href="/reset">Reset password</a></li>
                     </ul>
                     <ul>
                         <li id="first.li.up"><a href="">Condition of Use</a></li>
