@@ -53,6 +53,7 @@ import api from '../api-connection.js'
             release={item.releaseDate}
             gen={item.category}
             img={item.coverUrl}
+            imdbScore={item.imdbScore}
           />)
         this.setState({ categorymov: movies })
       })

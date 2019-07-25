@@ -10,25 +10,30 @@ class Movie extends React.Component {
 	}
 
 	render() {
+		
 		return (
 			<li>
 				<div id="head">
-					<img src={require('./profile.png')} />
+					<img src={(this.props.coverUrl == null || this.props.coverUrl == undefined || this.props.coverUrl == "")
+						?"https://cdn.samsung.com/etc/designs/smg/global/imgs/support/cont/NO_IMG_600x600.png"
+						:this.props.coverUrl}
+					/>
 					<div id="name">{this.props.title}</div>
 				</div>
 				<div id="date">
-					{this.props.release.split("-")[2]}<span>/</span>
-					{this.props.release.split("-")[1]}<span>/</span>
-					{this.props.release.split("-")[0]}
+					{this.props.releaseDate.split("-")[2]}<span>/</span>
+					{this.props.releaseDate.split("-")[1]}<span>/</span>
+					{this.props.releaseDate.split("-")[0]}
 				</div>
 				<div id="cat">
-					{this.props.gen.map((gen, index) => (index > 0 ? 
+					{this.props.category ? this.props.category.map((gen, index) => (index > 0 ? 
 					<div key={index}><span> • </span>{gen}</div>
-					:  <div key={index}>{gen}</div>))}
+					:  <div key={index}>{gen}</div>)):<span>N/A</span>
+				}
 				</div>
 				<div id="manage">
 					<FontAwesomeIcon icon={faTrash} onClick={() => this.props.dm(this.props.id)} />
-					<FontAwesomeIcon icon={faPen} />
+					<FontAwesomeIcon icon={faPen} onClick={() => this.props.edit(this.props)} />
 				</div>
 			</li>
 		)

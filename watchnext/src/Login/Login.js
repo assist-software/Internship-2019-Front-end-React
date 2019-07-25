@@ -232,7 +232,6 @@ class Login extends React.Component {
 			this.props.history.push("/home")
 		}
 
-
 		return (
 
 			<div id="login_page">

@@ -11,7 +11,9 @@ class Admin extends React.Component {
 		super()
 		this.state = {
 			popupVisible:false,
-			popup_id:3
+			popup_id:3,
+			searchTxt: '',
+			loaded:false
 		}
 	}
 
@@ -23,13 +25,13 @@ class Admin extends React.Component {
 			.then(data => {
 				let movies = data.map(item =>
 					<Movie key={item.id}
-						id={item.id} title={item.title}
-						release={item.releaseDate}
-						gen={item.category}
-						img={item.coverUrl}
+						{...item}
+						originalSourceUrl={item.originalSourceUrl}
 						dm={this.displayDeletePopUp}
+						edit={this.edit}
+	
 					/>)
-				this.setState({ data:movies, movieList: movies})
+				this.setState({ data:movies, movieList: movies, loaded:true})
 			})
 	}
 
@@ -46,6 +48,15 @@ class Admin extends React.Component {
 		}
 	}
 
+	refreshList = (id) => {
+		this.setState((p)=>{
+			return {
+				data:p.data.filter((item) => item.props.id != id),
+				movieList:p.data.filter((item) => item.props.id != id)
+			}
+		})
+	}
+
 	deleteMovie = (id) => {
 		this.setState((p)=>{
 			return {
@@ -59,14 +70,14 @@ class Admin extends React.Component {
 			return response.json();
 		}).then(function(data) {
 		});
-			this.setState({popupVisible:false})
+		this.setState({popupVisible:false})
 	}
 
 	search = (event) => {
 		let movieName = event.target.value.toLowerCase()
 		let movies = this.state.data
 		.filter((item) => item.props.title.toLowerCase().includes(movieName))
-		this.setState({movieList:movies})
+		this.setState({movieList:movies,searchTxt:event.target.value})
 	}
 
 	addNew = () => {
@@ -77,10 +88,15 @@ class Admin extends React.Component {
 		this.setState({popupVisible:val})
 	}
 
+	edit = (data) => {
+		window.scrollTo(0, 220)
+		this.setState({popup_id:2,popupVisible:true,item:data})
+	}
+
 	render() {
 		return (
 			<div id="admin">
-				<Popup popup_id={this.state.popup_id} visible={this.state.popupVisible} updatePopupVisibility={this.updatePopupVisibility} ans={this.deleteAnswer}/>
+				{<Popup refreshList = {this.getMovies} popup_id={this.state.popup_id} forwardRef ="pop" key={22} visible={this.state.popupVisible} updatePopupVisibility={this.updatePopupVisibility} ans={this.deleteAnswer} item={this.state.item}  />}
 				<div id="container">
 					<div id="main">
 						<div id="top">
@@ -96,6 +112,10 @@ class Admin extends React.Component {
 							{this.state.movieList && this.state.movieList}
 						</ul>
 					</div>
+					{
+						(this.state.movieList && this.state.movieList.length == 0 && this.state.loaded && this.state.searchTxt ) &&
+						<div id="nof" className="nof"><FontAwesomeIcon icon={faSearch} id="ico" /> <h3 id="nor">No match found:(</h3></div>
+					}
 				</div>
 			</div>
 		)

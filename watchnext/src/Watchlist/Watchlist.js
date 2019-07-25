@@ -48,6 +48,7 @@ class Watchlist extends React.Component {
 
     for (var i = 0; i < movies_id.length; i++) {
       fetch(api.movies + movies_id[i])
+
       .then(resp => resp.json())
       .then(item => {
         this.setState((prev) => {
@@ -61,6 +62,7 @@ class Watchlist extends React.Component {
               release={item.releaseDate}
               gen={item.category} 
               img={item.coverUrl} 
+              imdbScore={item.imdbScore}
               page='watchlist' />),
             comingMoviesList: prev.comingMovies.concat(
               <MovieCart refreshMovieList={() => this.load()} 
@@ -70,6 +72,7 @@ class Watchlist extends React.Component {
               release={item.releaseDate} 
               gen={item.category} 
               img={item.coverUrl} 
+              imdbScore={item.imdbScore}
               page='watchlist' />)
           }
         })
@@ -144,6 +147,8 @@ class Watchlist extends React.Component {
     }
   }
   
+  // componentDidMount = () => this.load()
+
   componentWillMount = () => {
     if (localStorage.getItem("watchList") === null ){
       localStorage.setItem("watchList","[]")
@@ -170,8 +175,11 @@ class Watchlist extends React.Component {
         <div id="comingList">{this.state.comingMoviesList}</div>
 
         {
-          (this.state.comingMoviesList.length == 0 && this.state.loaded && this.state.searchTxt ) &&
-          <div id="nof"><FontAwesomeIcon icon={faSearch} id="ico" /> <h3 id="nor">No results found:(</h3></div>
+          (this.state.comingMovies.length>0 && this.state.comingMoviesList.length == 0 && this.state.loaded && this.state.searchTxt ) &&
+          <div id="nof"><FontAwesomeIcon icon={faSearch} id="ico" /> <h3 id="nor">No match found:(</h3></div>
+        }
+        {
+          this.state.comingMovies.length==0 &&  <div id="nof"><h3 id="nor">:(</h3><h3 id="nor">Empty WatchList</h3></div>
         }
       </div>
     )
