@@ -16,13 +16,13 @@
 
 .hero-row {
   padding-top: 100px;
+  padding-left: 40px;
 }
 
 .heroImageDiv {
   position: relative;
   height: 550px;
   width: 70%;
-  float: right;
 }
 .heroImage {
   width: 95%;

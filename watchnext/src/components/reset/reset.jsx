@@ -39,6 +39,9 @@ class Reset extends Component {
         this.setState({
           successMessage: "An email with your reseted password has been sent"
         });
+        setTimeout(() => {
+          this.props.history.push("/login");
+        }, 4000);
       },
       errorHandler: err => {
         this.setState({ errorMessage: "This user is not in database" });

@@ -24,6 +24,7 @@
   height: 40px;
   color: white;
   font: "Montserrat";
+  outline: none;
 }
 
 .modalCancelAdd {

@@ -43,14 +43,10 @@ const createApiRequest = async ({
     if (afterSuccess) {
       afterSuccess(response);
     }
-
-    return response;
   } catch (err) {
     if (errorHandler) {
       errorHandler(err);
     }
-
-    return err;
   }
 };
 
