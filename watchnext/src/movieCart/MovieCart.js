@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../movieCart/movieCart.css';
+import { withRouter } from "react-router-dom";
 
 class MovieCart extends React.Component {
 	constructor(props) {
@@ -53,8 +54,9 @@ class MovieCart extends React.Component {
 	}
 
 	render() {
+		
 		return (
-			<div className="movieCart">
+			<div className="movieCart" onClick={() => (window.location.href='/movie?id='+this.props.id)}>
 				<img src={this.props.img} />
 				<div id="ctrl">
 					{this.props.page == "watchlist" ?
@@ -62,7 +64,7 @@ class MovieCart extends React.Component {
 						:
 						<button className="test" onClick={this.addToWatchList.bind(this)}>Add to watchlist</button>
 					}
-					<div className='rate'>8.3</div>
+					<div className='rate'>{this.props.imdbScore}</div>
 					{this.state.selected && <div id="notif">{this.state.notif}</div>}
 				</div>
 

@@ -52,7 +52,9 @@ class RecentAdded extends React.Component {
           title={item.title} 
           release={item.releaseDate} 
           gen={item.category} 
-          img={item.coverUrl} />)
+          img={item.coverUrl} 
+          imdbScore={item.imdbScore}
+          />)
         this.setState({recentAddedMovies:movies})
       })
   }

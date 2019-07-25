@@ -39,6 +39,7 @@
 #admin #movie li img{
     width:80x;
     height:80px;
+    border-radius: 5px;
 }
 
 #admin #movie li #name{
@@ -62,6 +63,9 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
 }
+#admin #movie li #date span, #admin #movie li #cat span{
+    font-weight: 200;
+}
 
 #admin #movie li #cat span{
     margin-left:5px;
@@ -83,8 +87,8 @@
     color: gray;
 }
 
-#admin #movie li #manage svg{
-    margin-left: 16px;
+#admin #movie li #manage svg :hover{
+ color:#1c1c1c;
 }
 
 #admin #movie li #head{
@@ -95,6 +99,7 @@
 
 #admin #movie li #manage svg{
     cursor: pointer;
+    margin-left: 16px;
 }
 
 #admin #top{
@@ -142,4 +147,8 @@
 
 #admin #top button:hover{
     background:#ff3b76;
+}
+
+.nof{
+    
 }

@@ -26,7 +26,12 @@ class Timeline extends React.Component {
 							item.releaseDate.split("-")[2]+"."+item.releaseDate.split("-")[1] + "." + item.releaseDate.split("-")[0]
 						}
 					>
-						<img className="img1" alt="img1" src={item.coverUrl} />
+					
+						<img className="img1" alt="img1" src={(item.coverUrl== null || item.coverUrl == undefined || item.coverUrl== "")
+							?"https://cdn.samsung.com/etc/designs/smg/global/imgs/support/cont/NO_IMG_600x600.png"
+							:item.coverUrl}
+						/>
+
 						<div className="row">
 							<h3 id="title" className="vertical-timeline-element-title">{item.title}</h3>
 							<div className="al">
