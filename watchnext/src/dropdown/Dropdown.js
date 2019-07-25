@@ -38,20 +38,48 @@ class Dropdown extends React.Component {
   }
 
   getMovies = () => {
-    fetch(api.categories)
+    if(this.props.page && this.props.page == "comingnext"){
+      fetch(api.categories)
       .then(resp => resp.json())
       .then(data => {
-     
         data.map(item => {
           fetch(api.catMovies + item.name)
             .then(resp => resp.json())
             .then(data => {
-              let movies = data.map(item => item)
+              let movies = data
+                .filter(item=>{
+                  var todayDate = new Date().toISOString().slice(0,10);
+                
+                  let cyear = todayDate.slice(0,4)  
+                  let cmm = todayDate.slice(5,7)
+          
+                  let ryear = item.releaseDate.slice(0,4)
+                  let rmm = item.releaseDate.slice(5,7)
+          
+                  return cyear==ryear && parseInt(rmm) == parseInt(cmm)+1 
+                })
+              .map(item => item)
               this.setState((prev) => {catCount: prev.catCount[item.name] = movies.length }
             )
         })
       })
     })
+
+    }else{
+      fetch(api.categories)
+        .then(resp => resp.json())
+        .then(data => {
+          data.map(item => {
+            fetch(api.catMovies + item.name)
+              .then(resp => resp.json())
+              .then(data => {
+                let movies = data.map(item => item)
+                this.setState((prev) => {catCount: prev.catCount[item.name] = movies.length }
+              )
+          })
+        })
+      })
+    }
   }
 
   componentDidMount = () => {
