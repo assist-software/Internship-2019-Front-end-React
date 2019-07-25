@@ -25,7 +25,7 @@
 .contacts #formcontact{
     align-items: center;
     margin-top: 150px;
-    margin-left: 30px;
+    margin-left: 22px;
 }
 
 .contacts #cont {
@@ -38,7 +38,7 @@
     text-align: center;
     color: #FFFFFF;
 }
-.contacts input {
+.contacts input, textarea {
     width: 290px;
     height: 48px;
     margin-left: 165px;
@@ -54,7 +54,13 @@
     outline: none;
     display: flex;
     margin-top: -34px;
-     resize: vertical;
+    resize: vertical;
+}
+
+.contacts textarea{
+    height: 82px;
+    resize: none;
+    line-height: 43px;
 }
 
 .contacts #submit{
