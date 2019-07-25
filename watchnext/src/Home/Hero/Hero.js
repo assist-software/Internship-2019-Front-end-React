@@ -2,7 +2,7 @@ import React from 'react';
 import '../Hero/Hero.js';
 import '../Hero/hero.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faTimes, faUnlink } from '@fortawesome/free-solid-svg-icons'
 import Movie from '../../Movie/Movie.js';
 import api from "../../api-connection.js"
 
@@ -10,53 +10,70 @@ class Home extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-
+			added:true
 		}
 	}
 
 	addToWatchList(event)  {
-		this.isWatchListed(this.state.id)
 		var arr = localStorage.getItem("watchList") === null ? [] : JSON.parse(localStorage.getItem("watchList"))
 		if (arr.indexOf(this.state.id) === -1) {
 			arr.push(this.state.id)
 			localStorage.setItem('watchList', JSON.stringify(arr));
 			this.props.updateCounter()
-			this.setState(() => { return { notif: "Added" } })
-		} else {
-			this.setState(() => { return { notif: "Already In" } })
-		}
+		} 
+		this.isWatchListed(this.state.movie.id)
+	}
+
+	removeFromWatchList = () => {
 	
+		if (localStorage.getItem("watchList")) {	
+			var arr = JSON.parse(localStorage.getItem("watchList"))
+			if (arr.includes(this.state.id)) {
+				for (var i = arr.length - 1; i >= 0; i--) {
+					if (arr[i] === this.state.id) {
+						arr.splice(i, 1);
+						localStorage.setItem('watchList', JSON.stringify(arr));
+						this.props.updateCounter()
+						this.isWatchListed(this.state.movie.id)
+					}
+				}
+			}
+		}
 	}
 
 	isWatchListed = (id) => {
 		var arr = localStorage.getItem("watchList") === null ? [] : JSON.parse(localStorage.getItem("watchList"))
-		if (arr.indexOf(id) === -1) {
-			this.setState({ added: true})
-			return true
-		}
-		this.setState({ added: false})
-		return false
+		this.setState({ added: arr.indexOf(id) === -1})
 	}
 
 	componentDidMount = () => {
+	
 		fetch(api.lastMovie)
 			.then(resp => resp.json())
-			.then(data => {
-				let movie = 
+			.then(data => {	
+				this.isWatchListed(data.id)
+				this.setState({ movie: data, id:data.id})
+			})
+	}
+
+	render() {
+		return (
+			<div id="hero">
+				{this.state.movie && 
 					<div>
 						<div id="moon">
 							<div id="left">
-								<h1 className="moon">{data.title}</h1>
-								<p className="p">{data.description}</p>
-								<a href={data.trailerUrl}><button id="trailer">Watch trailer</button></a>
+								<h1 className="moon">{this.state.movie.title}</h1>
+								<p className="p">{this.state.movie.description}</p>
+								<a href={this.state.movie.trailerUrl}><button id="trailer">Watch trailer</button></a>
 								{
 									this.state.added ? <button id="list" onClick={this.addToWatchList.bind(this)}><span>+</span> Add to list</button>
-									: <button id="list" className="added"><span>+</span>  Add to list </button>
+									: <button id="list" className="added" onClick={()=>this.removeFromWatchList()}><FontAwesomeIcon icon={faUnlink}/> WatchList </button>
 								}
 							</div>
 
 							<div>
-								<img className="img2" alt="img2" src={require('./image4.2.png')} />
+								<img className="img2" alt="img2" src={this.state.movie.coverUrl} onClick={() => (window.location.href='/movie?id='+this.state.id)}/>
 							</div>
 						</div>
 
@@ -64,17 +81,7 @@ class Home extends React.Component {
 							<a href="#recentAdded" ><FontAwesomeIcon icon={faChevronDown} /> </a>
 						</div>
 					</div>
-		
-				this.setState({ movie: movie, id:data.id})
-			})
-	}
-
-	render() {
-		return (
-			
-			<div id="hero">
-			
-				{this.state.movie && this.state.movie}
+				}
 			</div>
 		);
 	}

@@ -85,6 +85,7 @@ class ComingNext extends React.Component {
           release={item.releaseDate}
           gen={item.category}
           img={item.coverUrl}
+          imdbScore={item.imdbScore}
         />)
       this.setState({ comingNext: movies })
     })

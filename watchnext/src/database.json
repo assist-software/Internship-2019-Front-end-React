@@ -1,28 +1,28 @@
 {
   "movies": [
     {
-      "id": 2,
       "title": "Godzila Kind of the Monsters2",
-      "trailerUrl": "https://www.youtube.com/watch?v=9NJj12tJzqc",
-      "originalSourceUrl": "",
-      "coverUrl": "https://cdn1.imggmi.com/uploads/2019/7/23/7ee3b3549a7af9fdc8c2c419518a66d9-full.png",
+      "trailerUrl": "https://www.youtube.com/watch?v=6ziBFh3V1aM",
+      "originalSourceUrl": "www.google.com",
+      "coverUrl": "https://i.imgur.com/otYK8Cd.png",
       "imdbId": "",
-      "imdbScore": "8,3",
+      "imdbScore": "8.3",
       "description": "A chronicle of the childhood, adolescence and burgeoning adulthood of a young, African-American, gay man growing up in a rough neighborhood of Miami.",
       "releaseDate": "2020-03-25",
       "category": [
         "Action",
         "Comedy"
-      ]
+      ],
+      "id": 2
     },
     {
       "id": 3,
       "title": "Godzila Kind of the Monsters3",
-      "trailerUrl": "",
-      "originalSourceUrl": "",
+      "trailerUrl": "https://www.youtube.com/watch?v=9NJj12tJzqc",
+      "originalSourceUrl": "www.google.com",
       "coverUrl": "https://cdn1.imggmi.com/uploads/2019/7/23/7ee3b3549a7af9fdc8c2c419518a66d9-full.png",
       "imdbId": "",
-      "imdbScore": "8,3",
+      "imdbScore": "8.3",
       "description": "",
       "releaseDate": "2019-04-20",
       "category": [
@@ -31,18 +31,49 @@
       ]
     },
     {
-      "id": 7,
       "title": "Godzila Kind of the Monsters7",
-      "trailerUrl": "",
-      "originalSourceUrl": "",
+      "trailerUrl": "https://www.youtube.com/watch?v=9NJj12tJzqc",
+      "originalSourceUrl": "www.google.com",
       "coverUrl": "https://cdn1.imggmi.com/uploads/2019/7/23/7ee3b3549a7af9fdc8c2c419518a66d9-full.png",
       "imdbId": "",
-      "imdbScore": "8,3",
-      "description": "",
+      "imdbScore": "8.3",
+      "description": "descri",
       "releaseDate": "2019-03-20",
       "category": [
         "Action"
-      ]
+      ],
+      "id": 7
+    },
+    {
+      "title": "Avatar2",
+      "trailerUrl": "https://www.youtube.com/watch?v=6ziBFh3V1aM",
+      "originalSourceUrl": "asdasd",
+      "coverUrl": "https://is3-ssl.mzstatic.com/image/thumb/Music/v4/6f/df/a2/6fdfa2d1-09a8-4f6c-6510-deaca712988f/source/1200x1200bb.jpg",
+      "imdbId": "",
+      "imdbScore": "7",
+      "description": "2",
+      "releaseDate": "2019-04-12",
+      "category": [
+        "Action",
+        "Comedy"
+      ],
+      "id": 9
+    },
+    {
+      "title": "It Chapter Two ",
+      "trailerUrl": "ggg2",
+      "originalSourceUrl": "https://www.imdb.com/title/tt7349950/",
+      "coverUrl": "https://horrornews.net/wp-content/uploads/2018/08/IT-Chapter-2.jpg",
+      "imdbId": "",
+      "imdbScore": "8",
+      "description": "Twenty-seven years after their first encounter with the terrifying Pennywise, the Losers Club have grown up and moved away, until a devastating phone call brings them back.",
+      "releaseDate": "2012-12-05",
+      "category": [
+        "Horror",
+        " Thriller",
+        "Action"
+      ],
+      "id": 16
     }
   ],
   "category": [
