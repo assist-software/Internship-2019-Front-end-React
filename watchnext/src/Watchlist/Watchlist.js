@@ -35,7 +35,6 @@ class Watchlist extends React.Component {
   }
 
   load = (lastAdded) => {
-    console.log("aaaa")
     this.setState(() => {
       return {
         watchListIndex: lastAdded ? JSON.parse(localStorage.getItem("watchList")).reverse() : JSON.parse(localStorage.getItem("watchList")),
@@ -51,35 +50,45 @@ class Watchlist extends React.Component {
 
       .then(resp => resp.json())
       .then(item => {
-        this.setState((prev) => {
-          return {
-            loaded: true,
-            comingMovies: prev.comingMovies.concat(
-              <MovieCart refreshMovieList={() => this.load()} 
-              updateCounter={() => this.props.updateCounter()} 
-              key={item.id} id={item.id} 
-              title={item.title} 
-              release={item.releaseDate}
-              gen={item.category} 
-              img={item.coverUrl} 
-              imdbScore={item.imdbScore}
-              page='watchlist' />),
-            comingMoviesList: prev.comingMovies.concat(
-              <MovieCart refreshMovieList={() => this.load()} 
-              updateCounter={() => this.props.updateCounter()}
-              key={item.id} id={item.id} 
-              title={item.title} 
-              release={item.releaseDate} 
-              gen={item.category} 
-              img={item.coverUrl} 
-              imdbScore={item.imdbScore}
-              page='watchlist' />)
-          }
-        })
+        
+        if(JSON.stringify(item) != "{}" && item != null){     
+          this.setState((prev) => {
+            return {
+              loaded: true,
+              comingMovies: prev.comingMovies.concat(
+                <MovieCart refreshMovieList={() => this.load()} 
+                updateCounter={() => this.props.updateCounter()} 
+                key={item.id} id={item.id} 
+                title={item.title} 
+                release={item.releaseDate}
+                gen={item.category} 
+                img={item.coverUrl} 
+                imdbScore={item.imdbScore}
+                page='watchlist' />),
+              comingMoviesList: prev.comingMovies.concat(
+                <MovieCart refreshMovieList={() => this.load()} 
+                updateCounter={() => this.props.updateCounter()}
+                key={item.id} id={item.id} 
+                title={item.title} 
+                release={item.releaseDate} 
+                gen={item.category} 
+                img={item.coverUrl} 
+                imdbScore={item.imdbScore}
+                page='watchlist' />)
+            }
+          })
+        }
       })
     }
   }
 
+  preventRemovedIndexes = () => {
+    let movies = JSON.parse(localStorage.getItem("watchList"))
+    if(movies){
+
+    }
+  }
+ 
   selectOpt = (opt_id) => {
     if (opt_id == "Name") {
       let sortedByName = this.state.comingMoviesList
@@ -168,7 +177,7 @@ class Watchlist extends React.Component {
 
           <div id="ctrl-right">
             <span>Sort by</span>
-            <Dropdown list={this.state.options} gen={this.state.selected} ug={this.selectOpt} />
+            <Dropdown list={this.state.options} gen={this.state.selected} ug={this.selectOpt} page="watchlist"/>
           </div>
         </div>
 

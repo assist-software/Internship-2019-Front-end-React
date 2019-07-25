@@ -32,7 +32,7 @@
 
  #hero .p{
   font-family: CamptonLight;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 22px;
   max-width: 464px;
   padding-right: 84px;
@@ -91,8 +91,8 @@
   font-family: sans-serif;
  }
 
- #hero #left{
-  margin-right: 88px;
+ #hero #moon #img{
+  margin-top: 32px;
  }
 
  #hero #down{

@@ -56,8 +56,8 @@ class MovieCart extends React.Component {
 	render() {
 		
 		return (
-			<div className="movieCart" onClick={() => (window.location.href='/movie?id='+this.props.id)}>
-				<img src={this.props.img} />
+			<div className="movieCart">
+				<img src={this.props.img} onClick={() => (window.location.href='/movie?id='+this.props.id)}/>
 				<div id="ctrl">
 					{this.props.page == "watchlist" ?
 						<button className="test" onClick={this.removeFromWatchList.bind(this)}>Remove</button>
