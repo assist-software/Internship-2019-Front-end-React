@@ -22,7 +22,6 @@ class Header extends React.Component {
 	}
 
 	logOut = () => {
-		alert("log out")
 		localStorage.removeItem("secret_token")
 		localStorage.removeItem("user_rol")
 	}
