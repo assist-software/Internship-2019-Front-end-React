@@ -1,8 +1,7 @@
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
-@media screen and (min-width: 970px) {
+@media (min-width: 970px) {
     #recentAdded {
       width: 100%;
-      flex-direction: column
     }
   }
 #recentAdded{
@@ -11,8 +10,7 @@
     background: #010103;
     margin:0 auto;
     padding-top: 80px;
-    display: flex;
-    flex-direction: row
+    min-width: 1120px;
 }
 
 #recentAdded #left{

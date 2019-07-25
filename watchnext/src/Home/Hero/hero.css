@@ -23,7 +23,7 @@
   max-width: 450px;
  }
 
- @media screen (min-width: 970px) {
+ @media screen and (min-width: 970px) {
   #hero {
     width: 100%;
     flex-direction: row;
@@ -39,9 +39,10 @@
   height: 100px;
   color: #FFFFFF;
   opacity: 0.6;
- }
+}
 
- #hero .img2{
+#hero .img2{
+  cursor: pointer;
   width: 392px;
   height: 552px;
   left: 800px;
@@ -49,7 +50,9 @@
   border-radius: 20px;
  }
 
- #hero #trailer {
+
+
+#hero #trailer {
   background: #F5044C;
   height: 48px;
   width: 176px;

@@ -3,6 +3,8 @@
     background-color: black;
     max-width: 1440px;
     height: 1120px;
+    min-width: 970px;
+    width: 100%;
 }
 
 #moovie #containermov{
@@ -43,15 +45,14 @@
     height: 22px;
     border-radius: 7px 10px 10px 6px;
     padding-left: 20px;
+    padding-top: 17px;
 }
 #moovie #right #title h1 {
      width: 376px;
-    height: 53px;
     display: flex;
     font-family: Campton;
-    font-size: 48px;
+    font-size: 34px;
     line-height: 60px;
-    align-items: center; 
     color: #FFFFFF;
     margin: 0;
 }
@@ -67,15 +68,18 @@
     font-size: 18px;
     line-height: 25px;
     color: #FFFFFF;
+    margin-top: 13px;
     opacity: 0.6;
 }
 
 #moovie #descr{
     width: 464px;
-    top: 396px;
-    height: 260px;
+    top: 387px;
+    max-height: 400px;
+    height: 153px;
     font-family: Campton;
     font-size: 18px;
+    margin-top: 46px;
     line-height: 25px;
     color: #FFFFFF;
 }
@@ -215,6 +219,7 @@ font-family: corbel;
     margin: 0 auto;
     max-width: 1134px;
     height: 335px;
+    width: 90%;
 }
 
 #moovie #containerfoto #fotto h1{
@@ -273,10 +278,8 @@ font-family: corbel;
 }
 
 #moovie #playbut{
-    position: absolute;
     width: 80px;
     height: 80px;
-    margin-left: -223px;
     top: 447px;
     cursor: pointer;
 }
