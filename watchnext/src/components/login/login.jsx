@@ -81,7 +81,7 @@ class Login extends Component {
               className="d-flex align-items-center justify-content-center w-100"
               id="err"
             >
-              {loginError}
+              {/* {loginError} */}
             </div>
             <form id="form" onSubmit={this.onSubmitForm}>
               <FormGroup controlId="email">
@@ -118,6 +118,8 @@ class Login extends Component {
               >
                 Forgot password?
               </Link>
+              <div className="err-login">{loginError}</div>
+
               <Button
                 large="true"
                 block

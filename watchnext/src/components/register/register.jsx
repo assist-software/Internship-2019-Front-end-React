@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import createApiRequest from "../../api";
 import "./register.css";
 
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -13,69 +15,88 @@ class Register extends Component {
       email: "",
       password: "",
       confimPassword: "",
-      errors: []
+      errors: {}
     };
   }
-  validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
-  }
-  handleChange = event => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
-  };
-  handleSubmit = async event => {
+  validateForm = () => {
     const { password, confimPassword, email, username } = this.state;
-    event.preventDefault();
 
-    if (email === "" || username === "") {
-      this.setState({
-        registerError: "All fields must be filled"
-      });
-    } else if (password !== confimPassword) {
-      this.setState({ registerError: "Passwords don't match" });
-    } else if (
+    const errors = {};
+
+    if (!email) {
+      errors.email = "Required";
+    }
+    if (!username) {
+      errors.username = "Required";
+    }
+
+    if (password !== confimPassword) {
+      errors.confimPassword = "Passwords don't match";
+    }
+
+    if (
       !password.match(
         /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/gm
       )
     ) {
-      this.setState({
-        registerError:
-          "Password must contain 8 characters, digits && special characters"
-      });
-    } else if (!email.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)) {
-      this.setState({ registerError: "Please insert a valid email address" });
-    } else {
-      try {
-        const { username, email, password, confimPassword } = this.state;
-        await createApiRequest({
-          method: "post",
-          url: "/signup",
-          data: {
-            username,
-            email,
-            password,
-            confimPassword
-          },
-          //Admin123.
-          // user: lori@yahoo.com Admin123.
-          errorHandler: err => {
-            // if(Response.message === "This user is already in databse")
-            this.setState({ loginError: "Invalid credentials" });
-          },
-          afterSuccess: ({ data: { token } }) => {
-            localStorage.setItem("token", token);
-            this.props.history.push("/login");
-          }
-        });
-      } catch (err) {
-        console.log(err, "eroare");
+      errors.password =
+        "Password must contain 8 characters, digits && special characters";
+    }
+
+    if (!emailRegex.test(email)) {
+      errors.email = "Please insert a valid email address";
+    }
+
+    this.setState({ errors });
+    return errors;
+  };
+
+  handleChange = event => {
+    this.setState(
+      {
+        [event.target.id]: event.target.value
       }
+      // this.validateForm
+    );
+  };
+
+  handleSubmit = async event => {
+    const { password, confimPassword, email, username } = this.state;
+    event.preventDefault();
+    const errors = await this.validateForm();
+    if (!Object.keys(errors).length) {
+      this.setState({ errors: {} });
+      const { username, email, password, confimPassword } = this.state;
+      await createApiRequest({
+        method: "post",
+        url: "/signup",
+        data: {
+          username,
+          email,
+          password,
+          confimPassword
+        },
+        //Admin123.
+        // user: lori@yahoo.com Admin123.
+        // message: "User is already in databse")
+        errorHandler: ({
+          response: {
+            data: { message }
+          }
+        }) => {
+          this.setState({ errors: { ...errors, message } });
+        },
+
+        afterSuccess: ({ data: { token } }) => {
+          localStorage.setItem("token", token);
+          this.props.history.push("/login");
+        }
+      });
     }
   };
 
   render() {
-    const { registerError } = this.state;
+    const { errors } = this.state;
     return (
       <div className="container">
         <a href="/">
@@ -103,7 +124,11 @@ class Register extends Component {
                   placeholder="Full name"
                   value={this.state.username}
                   onChange={this.handleChange}
+                  isInvalid={errors.username}
                 />
+                {errors.username && (
+                  <div className="error-message">{errors.username}</div>
+                )}
               </FormGroup>
 
               <FormGroup controlId="email">
@@ -113,29 +138,42 @@ class Register extends Component {
                   type="email"
                   placeholder="Email address"
                   value={this.state.email}
+                  isInvalid={errors.email}
                   onChange={this.handleChange}
                 />
+                {errors.email && (
+                  <div className="error-message">{errors.email}</div>
+                )}
               </FormGroup>
               <FormGroup controlId="password">
                 <FormControl
                   value={this.state.password}
                   onChange={this.handleChange}
                   type="password"
+                  isInvalid={errors.password}
                   placeholder="Password"
                 />
+                {errors.password && (
+                  <div className="error-message">{errors.password}</div>
+                )}
               </FormGroup>
               <FormGroup controlId="confimPassword">
                 <FormControl
                   value={this.state.confimPassword}
                   onChange={this.handleChange}
                   type="password"
+                  isInvalid={errors.confimPassword}
                   placeholder="Confirm Password"
                 />
+                {errors.confimPassword && (
+                  <div className="error-message">{errors.confimPassword}</div>
+                )}
               </FormGroup>
-              <div className="error-message">{registerError}</div>
+              {errors.message && (
+                <div className="error-message">{errors.message}</div>
+              )}
               <Button
                 block
-                disabled={!this.validateForm()}
                 type="submit"
                 style={{
                   background: "#F5044C",

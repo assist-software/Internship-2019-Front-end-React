@@ -18,6 +18,7 @@
 
 .login .btn-primary {
   border-color: transparent;
+  margin-top: 90px;
 }
 .login .btn-primary:focus {
   border-color: transparent;
@@ -109,6 +110,10 @@ p {
   color: #9c9b9b;
   box-shadow: initial;
   border: 1px solid #9c9b9b;
+}
+.err-login {
+  color: red;
+  padding-top: 30px;
 }
 @media all and (min-width: 480px) {
   .login form {
