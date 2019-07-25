@@ -25,7 +25,7 @@ class Footer extends React.Component {
                 <div id = "yup">
                     <ul>
                         <li id="first.li.up"><a href="#">Press Room</a></li>
-                        <li><a href="#">Advertising</a></li>
+                        <li><a href="/login">Login</a></li>
                         <li><a href="#">Jobs</a></li>
                     </ul>
                     <ul>

@@ -6,8 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import ReactDOM from 'react-dom';
-import {Redirect} from 'react-dom';
 
 class Header extends React.Component {
 	constructor(props) {
@@ -22,21 +20,7 @@ class Header extends React.Component {
 	}
 
 	logOut = () => {
-		localStorage.removeItem("secret_token")
-		localStorage.removeItem("user_rol")
-	}
-
-	componentDidMount = () => {
-		document.addEventListener('click', this.handleClickOutside, true);
-	}
-
-	componentWillUnmount = () => {
-		document.removeEventListener('click', this.handleClickOutside, true);
-	}
-
-	handleClickOutside = event => {
-		if(!event.path.includes(ReactDOM.findDOMNode(this.refs.nav)))
-		   this.setState({isOptionOpen:false})
+		alert("log out")
 	}
 
 	render() {
@@ -44,8 +28,7 @@ class Header extends React.Component {
 		return (
 			page != "/login" &&
 				page == "/admin" ?
-				<div id="nav" ref="nav">
-
+				<div id="nav">
 					<ul>
 						<li>
 							<a href='/home'><svg xmlns="http://www.w3.org/2000/svg" width="176" height="39" viewBox="0 0 176 39" fill="none">
@@ -77,7 +60,7 @@ class Header extends React.Component {
 							<img id="ppic" src=""></img>
 							<p id="uname" onClick={() => this.toggleDropDown()}>Matthew <FontAwesomeIcon icon={this.state.isOptionOpen ? faChevronDown : faChevronLeft} /></p>
 							{this.state.isOptionOpen && <div id="opts">
-								<Link to ='' refresh = "true" ><p onClick={() => this.logOut()}>Log Out</p> </Link>
+								<p onClick={() => this.logOut()}>Log Out</p>
 							</div>}
 						</div>
 						<li>
@@ -91,10 +74,10 @@ class Header extends React.Component {
 
 						<div className="group">
 							<Link to={'/'}><li className={(this.props.page.toLowerCase() == '/home' || this.props.page.toLowerCase() == '/') ? 'active h' : 'h'}>Home</li></Link>
-							<Link to={'/Categories'}><li className={this.props.page.toLowerCase() == '/categories' ? 'active h' : 'h'}>Categories</li></Link>
+							<Link to={'/Categories'}><li className={this.props.page.toLowerCase() == '/categories' ? 'active h' : 'h'}>All movies</li></Link>
 						</div>
 						<li>
-							<svg width="257" height="57" viewBox="0 0 257 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<a href="/home"><svg width="257" height="57" viewBox="0 0 257 57" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g clipPath="url(#clip0)">
 									<path d="M58.8882 3.85719C57.7852 2.75515 56.437 1.95923 54.9051 1.46944C53.3731 0.979639 51.7186 0.734741 50.0029 0.734741C44.6104 0.734741 40.4435 3.06127 37.5021 7.71433C34.6221 3.1225 30.4552 0.795966 25.0014 0.795966C20.5894 0.795966 16.6063 2.51025 13.0522 5.8776V1.34699H0V38.2654H13.0522V20.0817C13.0522 18.1225 13.2361 16.5307 13.5424 15.3062C13.8488 14.0817 14.2778 13.1021 14.8293 12.4286C15.3808 11.7551 15.9936 11.2654 16.7289 11.0205C17.4642 10.7756 18.1996 10.6531 19.0575 10.6531C20.0379 10.6531 20.8345 10.7756 21.5699 11.0205C22.3052 11.2654 22.8567 11.7551 23.3469 12.4898C23.7759 13.2245 24.1435 14.2041 24.3886 15.4286C24.6338 16.6531 24.7563 18.1837 24.7563 20.0817V38.2654H37.8085V20.0817C37.8085 14.0205 39.892 10.9592 44.0589 10.9592C44.8555 10.9592 45.5296 11.0817 46.2036 11.3266C46.8777 11.5715 47.4905 12 47.9807 12.6735C48.4709 13.347 48.8386 14.2654 49.145 15.4898C49.3901 16.7143 49.5126 18.2449 49.5126 20.0817V38.2654H62.5036V14.3266C62.5036 11.8776 62.1972 9.79597 61.5231 8.08168C60.8491 6.36739 59.9912 4.89801 58.8882 3.85719Z" fill="white" />
 									<path d="M100.986 27.7347C99.8832 25.2857 99.3317 22.5306 99.3317 19.4694C99.3317 16.7143 99.8832 14.2041 100.986 11.8163C102.028 9.55102 103.437 7.59184 105.276 5.93878C105.153 5.81633 105.031 5.69388 104.847 5.57143C102.825 3.79592 100.496 2.44898 97.7998 1.46939C95.1035 0.489796 92.1622 0 88.9757 0C85.7893 0 82.7867 0.489796 80.0904 1.53061C77.3942 2.5102 75.0656 3.91837 73.0434 5.69388C71.0826 7.46939 69.5506 9.4898 68.4476 11.8776C67.3446 14.2653 66.7931 16.7755 66.7931 19.5306C66.7931 22.5306 67.3446 25.2857 68.4476 27.7959C69.5506 30.2449 71.0826 32.3878 73.0434 34.1633C75.0043 35.9388 77.2716 37.2857 79.9679 38.2653C82.6641 39.2449 85.6054 39.6735 88.7306 39.6735C91.9171 39.6735 94.9197 39.1837 97.6772 38.2653C100.435 37.2857 102.825 35.9388 104.785 34.2245C104.908 34.102 105.031 33.9796 105.153 33.8571C103.437 32.0816 102.028 30.0612 100.986 27.7347ZM96.6968 23.0816C96.2678 24.1224 95.655 25.0408 94.9197 25.7755C94.1844 26.5714 93.2652 27.1224 92.2847 27.551C91.243 27.9796 90.14 28.2245 89.037 28.2245C87.934 28.2245 86.7697 27.9796 85.7893 27.551C84.7475 27.1224 83.8897 26.5102 83.1543 25.7755C82.419 24.9796 81.8062 24.1224 81.3773 23.0816C80.9483 22.0408 80.7032 20.9388 80.7032 19.6531C80.7032 18.4898 80.9483 17.449 81.3773 16.4082C81.8062 15.4286 82.419 14.5102 83.1543 13.7755C83.8897 12.9796 84.8088 12.4286 85.7893 12C86.831 11.5714 87.934 11.3265 89.037 11.3265C90.14 11.3265 91.3043 11.5714 92.2847 12C93.3265 12.4286 94.1844 13.0408 94.9197 13.7755C95.655 14.5714 96.2678 15.4286 96.6968 16.4694C97.1257 17.5102 97.3708 18.6122 97.3708 19.7143C97.3708 20.8776 97.187 22.0408 96.6968 23.0816Z" fill="url(#paint0_linear)" />
@@ -114,7 +97,7 @@ class Header extends React.Component {
 										<rect width="257" height="57" fill="white" />
 									</clipPath>
 								</defs>
-							</svg>
+							</svg></a>
 						</li>
 
 						<div className="group">

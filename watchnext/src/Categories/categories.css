@@ -16,7 +16,7 @@
     line-height: 60px;    
     color: #FFFFFF;
     min-width: 430px;
-    margin-right: 580px;
+    margin-right: 699px;
     margin-top: 0px;
     font-family: CamptonLight;
 }
@@ -49,6 +49,7 @@
     font-weight: 600;
     font-family: CamptonLight;
     padding: 11px 14px 10px 14px;
+    margin-right: -70px;
 }
 
 #categorypage li {

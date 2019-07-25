@@ -1,5 +1,9 @@
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
-
+@media (min-width: 970px) {
+    #recentAdded {
+      width: 100%;
+    }
+  }
 #recentAdded{
     max-width: 1143px;
     height: 864px; 
@@ -7,7 +11,6 @@
     margin:0 auto;
     padding-top: 80px;
     min-width: 1120px;
-
 }
 
 #recentAdded #left{
