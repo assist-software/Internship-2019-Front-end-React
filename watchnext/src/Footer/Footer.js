@@ -7,6 +7,12 @@ class Footer extends React.Component {
     constructor(props) {
         super(props)
     }
+
+    clearLocalStorage(){
+        localStorage.removeItem('secret_token')
+        localStorage.removeItem('user_rol')
+        alert("Sing out successfully !")
+    }
     
     render() {
         return (
@@ -29,7 +35,7 @@ class Footer extends React.Component {
                     </ul>
                     <ul>
                         <li id="first.li.up"><a href="">Condition of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+        <li>  { (localStorage.getItem('secret_token') == '' || localStorage.getItem('secret_token') == undefined) ? <a href =''>Privacy Policy</a>  : <a href="" onClick = {() => { this.clearLocalStorage() }}>Sign out</a>}</li>
                         <li><a href="#">Interest-Based Ads</a></li>
                     </ul>
                  </div>

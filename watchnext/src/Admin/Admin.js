@@ -94,6 +94,11 @@ class Admin extends React.Component {
 	}
 
 	render() {
+
+		if (localStorage.getItem('user_rol') != 1 || localStorage.getItem('user_rol') == 'undefined' || localStorage.getItem('user_rol') == '') {
+			this.props.history.push("/home")
+		}
+
 		return (
 			<div id="admin">
 				{<Popup refreshList = {this.getMovies} popup_id={this.state.popup_id} forwardRef ="pop" key={22} visible={this.state.popupVisible} updatePopupVisibility={this.updatePopupVisibility} ans={this.deleteAnswer} item={this.state.item}  />}
