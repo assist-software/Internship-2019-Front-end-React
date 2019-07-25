@@ -13,10 +13,10 @@
 
 #categorypage  #title{
     font-size: 48px;
-    line-height: 60px;    
+    line-height: 60px;
     color: #FFFFFF;
-    min-width: 430px;
-    margin-right: 699px;
+    /* min-width: 430px; */
+    /* margin-right: 699px; */
     margin-top: 0px;
     font-family: CamptonLight;
 }
@@ -26,11 +26,6 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-}
-
-#categorypage #dropDown {
-    position: absolute;
-    right: 280px;
 }
 
 #categorypage #filter button {
@@ -49,7 +44,6 @@
     font-weight: 600;
     font-family: CamptonLight;
     padding: 11px 14px 10px 14px;
-    margin-right: -70px;
 }
 
 #categorypage li {
@@ -96,8 +90,10 @@
 
 #categorypage #titlelist{
     justify-content: space-between;
-    align-items: center;
-    display: -webkit-inline-box;
+    align-items: end;
+    display: flex;
     margin-bottom: 70px;
+    min-width: 593px;
+    width: 1020px;
     margin-top: 70px;
 }
