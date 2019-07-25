@@ -26,12 +26,12 @@ class Footer extends React.Component {
                     <ul>
                         <li id="first.li.up"><a href="#">Press Room</a></li>
                         <li><a href="/login">Login</a></li>
-                        <li><a href="#">Jobs</a></li>
+                        <li><a href="/admin">Admin</a></li>
                     </ul>
                     <ul>
                         <li id="first.li.up"><a href="/contact">Contact us</a></li>
                         <li><a href="/register">Register</a></li>
-                        <li><a href="#">News</a></li>
+                        <li><a href="/reset">Reset password</a></li>
                     </ul>
                     <ul>
                         <li id="first.li.up"><a href="">Condition of Use</a></li>
