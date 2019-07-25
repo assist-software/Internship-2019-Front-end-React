@@ -3,12 +3,12 @@ import '../Admin/admin.css'
 import Popup from './PopUp/Popup'
 import Movie from './movie/Movie'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faWindowRestore } from '@fortawesome/free-solid-svg-icons'
 import api from "../api-connection.js"
 
 class Admin extends React.Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			popupVisible: false,
 			popup_id: 3,
@@ -17,6 +17,7 @@ class Admin extends React.Component {
 			obs: true,
 			checked: false
 		}
+		
 	}
 
 	componentDidMount = () => this.getMovies()
@@ -110,8 +111,9 @@ class Admin extends React.Component {
 		if (this.state.checked != false)
 			this.sendAdminToJsonServer(this.state.obs)
 		// console.log(this.state.obs)
-		if (this.state.obs == false || localStorage.getItem('secret-token') == undefined || localStorage.getItem('secret-token') == '')
-			this.props.history.push("/home")
+		if (this.state.obs == false || localStorage.getItem('secret_token') == undefined || localStorage.getItem('secret_token') == '' || localStorage.getItem('user_rol') == 2)
+			// this.props.history.push("/home")
+			window.location.href = '/home'
 
 		return (
 			<div id="admin">
