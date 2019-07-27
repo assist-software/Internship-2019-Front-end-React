@@ -232,7 +232,8 @@ class Login extends React.Component {
 				})
 				.then(response => response.json()).then(data => {
 				// .then(data => alert(JSON.stringify(data)));
-				if(data.message == ''){
+				console.log(data.message)
+				if(data.message != "Email aready taken"){
 					// this.props.history.push("/login")
 					this.changeToLogin()
 				} 
@@ -299,8 +300,7 @@ class Login extends React.Component {
 							<input type={isPassworDisplayed ? "text" : "password"} name="password" placeholder="Password" id="log" className="vis" value={password} onChange={e => this.handleChangePassword(e.target.value)} />
 							<FontAwesomeIcon icon={faEye} id="eye" onClick={() => this.displayPassword(!isPassworDisplayed)} />
 							<br />
-							<input type={isPassworDisplayed ? "text" : "password"} name="password" placeholder="Confirm password" id="log" className="vis" value={passwordConfirm} onChange={e => this.handleChangePasswordConfirm(e.target.value)} />
-							{console.log(lerrors, requestRegister)}				
+							<input type={isPassworDisplayed ? "text" : "password"} name="password" placeholder="Confirm password" id="log" className="vis" value={passwordConfirm} onChange={e => this.handleChangePasswordConfirm(e.target.value)} />			
 							{(requestRegister == true && this.state.lerrors != '') && <p id='noLogin' align="center" >{this.state.lerrors.map((item) => 
 							 <div>{item.replace(/"/g, '')}</div>
 							)} </p>}

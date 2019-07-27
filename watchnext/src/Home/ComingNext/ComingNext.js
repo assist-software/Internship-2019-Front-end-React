@@ -41,6 +41,7 @@ class ComingNext extends React.Component {
       date: date,
       dateOpen: true
     })
+    alert(date)
   }
 
   updateGenre = (genre) => {
@@ -49,7 +50,11 @@ class ComingNext extends React.Component {
   }
 
   btnDateClick = () => {
+ 
     this.setState((prev) => {
+      if(!prev.dateOpen == true){
+        this._calendar.setOpen(true)
+      }
       return {
         dateOpen: !prev.dateOpen
       }
@@ -125,9 +130,10 @@ class ComingNext extends React.Component {
               </button>
 
               <div id="dp">
-                <DatePicker
+                <DatePicker  ref={(c) => this._calendar = c}
                   selected={this.state.date} onSelect={this.dateChange} onChange={this.dateSelect}
                   popperPlacement="botom-start"
+            
                   popperModifiers={{
                     flip: {
                       enabled: false

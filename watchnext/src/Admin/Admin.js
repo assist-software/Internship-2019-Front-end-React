@@ -103,9 +103,8 @@ class Admin extends React.Component {
 	}
 
 	render() {
-
 		// if (localStorage.getItem('user_rol') != 1 || localStorage.getItem('user_rol') == 'undefined' || localStorage.getItem('user_rol') == '') {
-		// 	this.props.history.push("/home")
+		// 	// this.props.history.push("/home")
 		// }
 		console.log(this.state.obs)
 		if (this.state.checked != false)
