@@ -8,12 +8,15 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import ReactDOM from 'react-dom';
 import {Redirect} from 'react-dom';
+import api from "../api-connection.js"
 
 class Header extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			isOptionOpen: false
+			isOptionOpen: false,
+			profile: '',
+			fullName: ''
 		}
 	}
 
@@ -28,6 +31,17 @@ class Header extends React.Component {
 
 	componentDidMount = () => {
 		document.addEventListener('click', this.handleClickOutside, true);
+			fetch(api.profile, {
+				method: 'GET',
+				headers: {
+					"Content-Type": "application/json",
+					"secret_token": localStorage.getItem('secret_token')
+				  },
+			}).then(function (response) {
+				return response.json();
+			}).then((data) => {
+				this.setState({profile:data.avatarUrl,fullName:data.fullName})
+			});
 	}
 
 	componentWillUnmount = () => {
@@ -47,7 +61,7 @@ class Header extends React.Component {
 				<div id="nav" ref="nav">
 
 					<ul>
-						<li>
+						<li><a href ='/home'>
 							<svg xmlns="http://www.w3.org/2000/svg" width="176" height="39" viewBox="0 0 176 39" fill="none">
 								<g clipPath="url(#clip0)">
 									<path d="M40.2919 2.6391C39.5372 1.88507 38.6148 1.34049 37.5666 1.00537C36.5185 0.670247 35.3864 0.502686 34.2125 0.502686C30.5229 0.502686 27.6719 2.09452 25.6594 5.2782C23.6888 2.13641 20.8377 0.544576 17.1062 0.544576C14.0875 0.544576 11.3622 1.71751 8.93046 4.02148V0.92159H0V26.1815H8.93046V13.7401C8.93046 12.3996 9.05625 11.3104 9.26588 10.4726C9.47552 9.6348 9.76901 8.96455 10.1463 8.50376C10.5237 8.04296 10.943 7.70784 11.4461 7.54028C11.9492 7.37272 12.4523 7.28894 13.0393 7.28894C13.7101 7.28894 14.2552 7.37272 14.7583 7.54028C15.2615 7.70784 15.6388 8.04296 15.9742 8.54565C16.2677 9.04834 16.5193 9.71858 16.687 10.5564C16.8547 11.3942 16.9385 12.4415 16.9385 13.7401V26.1815H25.869V13.7401C25.869 9.59291 27.2945 7.49839 30.1456 7.49839C30.6906 7.49839 31.1518 7.58217 31.613 7.74973C32.0742 7.91729 32.4935 8.21053 32.8289 8.67132C33.1643 9.13212 33.4159 9.76047 33.6255 10.5983C33.7932 11.4361 33.8771 12.4834 33.8771 13.7401V26.1815H42.7656V9.80236C42.7656 8.12675 42.556 6.70247 42.0948 5.52954C41.6336 4.35661 41.0466 3.35124 40.2919 2.6391Z" fill="white" />
@@ -68,13 +82,13 @@ class Header extends React.Component {
 										<rect width="175.842" height="39" fill="white" />
 									</clipPath>
 								</defs>
-							</svg>
+							</svg> </a>
 						</li>
 
 						<div id="group">
 							<Link to={'/admin'}><li id="dd" className={this.props.page.toLowerCase() == '/admin' ? 'active h' : 'h'}>Movies</li></Link>
-							<img id="ppic" src=""></img>
-							<p id="uname" onClick={() => this.toggleDropDown()}>Matthew <FontAwesomeIcon icon={this.state.isOptionOpen ? faChevronDown : faChevronLeft} /></p>
+							<img src={this.state.profile}id="ppic"  />
+							<p id="uname" onClick={() => this.toggleDropDown()}>{this.state.fullName} <FontAwesomeIcon icon={this.state.isOptionOpen ? faChevronDown : faChevronLeft} /></p>
 							{this.state.isOptionOpen && <div id="opts">
 								<Link to ='' refresh = "true" ><p onClick={() => this.logOut()}>Log Out</p> </Link>
 							</div>}
@@ -92,7 +106,7 @@ class Header extends React.Component {
 							<Link to={'/'}><li className={(this.props.page.toLowerCase() == '/home' || this.props.page.toLowerCase() == '/') ? 'active h' : 'h'}>Home</li></Link>
 							<Link to={'/Categories'}><li className={this.props.page.toLowerCase() == '/categories' ? 'active h' : 'h'}>Categories</li></Link>
 						</div>
-						<li>
+						<li><a href = '/home'>
 							<svg width="257" height="57" viewBox="0 0 257 57" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g clipPath="url(#clip0)">
 									<path d="M58.8882 3.85719C57.7852 2.75515 56.437 1.95923 54.9051 1.46944C53.3731 0.979639 51.7186 0.734741 50.0029 0.734741C44.6104 0.734741 40.4435 3.06127 37.5021 7.71433C34.6221 3.1225 30.4552 0.795966 25.0014 0.795966C20.5894 0.795966 16.6063 2.51025 13.0522 5.8776V1.34699H0V38.2654H13.0522V20.0817C13.0522 18.1225 13.2361 16.5307 13.5424 15.3062C13.8488 14.0817 14.2778 13.1021 14.8293 12.4286C15.3808 11.7551 15.9936 11.2654 16.7289 11.0205C17.4642 10.7756 18.1996 10.6531 19.0575 10.6531C20.0379 10.6531 20.8345 10.7756 21.5699 11.0205C22.3052 11.2654 22.8567 11.7551 23.3469 12.4898C23.7759 13.2245 24.1435 14.2041 24.3886 15.4286C24.6338 16.6531 24.7563 18.1837 24.7563 20.0817V38.2654H37.8085V20.0817C37.8085 14.0205 39.892 10.9592 44.0589 10.9592C44.8555 10.9592 45.5296 11.0817 46.2036 11.3266C46.8777 11.5715 47.4905 12 47.9807 12.6735C48.4709 13.347 48.8386 14.2654 49.145 15.4898C49.3901 16.7143 49.5126 18.2449 49.5126 20.0817V38.2654H62.5036V14.3266C62.5036 11.8776 62.1972 9.79597 61.5231 8.08168C60.8491 6.36739 59.9912 4.89801 58.8882 3.85719Z" fill="white" />
@@ -113,7 +127,7 @@ class Header extends React.Component {
 										<rect width="257" height="57" fill="white" />
 									</clipPath>
 								</defs>
-							</svg>
+							</svg></a>
 						</li>
 
 						<div className="group">

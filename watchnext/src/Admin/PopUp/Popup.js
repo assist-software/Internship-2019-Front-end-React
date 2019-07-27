@@ -200,7 +200,7 @@ class Popup extends React.Component {
         "imdbScore": imdbScore,
         "description": description,
         "releaseDate": releaseDate,
-        "category": api.base == "local" ? (category.includes(",")?category.split(",").map(item => item) : category) : category
+        "category": api.base == "local" ? (category.includes(",")?category.split(",").map(item => item) : category) : category.toString()
       };
   
       fetch(api.editMovie + this.props.item.id,

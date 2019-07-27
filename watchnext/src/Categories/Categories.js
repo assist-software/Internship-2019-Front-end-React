@@ -5,8 +5,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import MovieCart from '../movieCart/MovieCart';
 import '../movieCart/movieCart.css';
-import api from '../api-connection.js'
-  
+import api from '../api-connection.js';
+
   class Categories extends React.Component {
   
     constructor(props){
@@ -19,6 +19,7 @@ import api from '../api-connection.js'
         isListDisplayed: true
       }
     }
+    
     updateGenre = (genre) => {
       this.setState({ genre })
       this.getMovies(genre)
@@ -63,7 +64,6 @@ import api from '../api-connection.js'
       this.setState({ list: val })
     }
   
-
     render() {
       const { genre, genres } = this.state;
         return (   
@@ -86,5 +86,4 @@ import api from '../api-connection.js'
   }
 }
 
-      
   export default Categories

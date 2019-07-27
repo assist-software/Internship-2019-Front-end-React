@@ -64,11 +64,25 @@
     padding: 11px 14px 10px 14px;
 }
 
+.react-datepicker-popper{
+  margin-top:50px !important;
+}
+
 #comingNext #filter button:hover{
     background:#F5044C !important;
     color:#fff;
 }
 
+#cdatac{
+  pointer-events: none;
+}
+.react-datepicker__input-container input[type=text]{
+  pointer-events: none;
+}
+#dp .react-datepicker {
+  margin-left: -200px;
+  margin-top: -48px;
+}
 #comingNext select:hover {
     color: #444645;
     background: #ddd;

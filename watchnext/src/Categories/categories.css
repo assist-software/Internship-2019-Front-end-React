@@ -86,6 +86,7 @@
     font-family: Campton;
     color: white;
     margin-bottom: 150px;
+    position: absolute;
 }
 
 #categorypage #titlelist{
@@ -94,6 +95,7 @@
     display: flex;
     margin-bottom: 70px;
     min-width: 593px;
-    width: 1020px;
+    max-width: 1020px;
     margin-top: 70px;
+    width: 90%
 }
