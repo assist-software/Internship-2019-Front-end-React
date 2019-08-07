@@ -1,0 +1,22 @@
+.participantRow {
+  margin-top: 20px;
+}
+
+.participantName {
+  color: #000000;
+  font-family: "Montserrat";
+  font-size: 18px;
+}
+
+.participantCourse {
+  color: #000000;
+  opacity: 0.5;
+  font-size: 14px;
+  font-family: "Montserrat";
+}
+
+.badge-light {
+  background-color: #2f1b3c;
+  color: white;
+  padding: 10px;
+}

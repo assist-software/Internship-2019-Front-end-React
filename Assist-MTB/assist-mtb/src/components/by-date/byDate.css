@@ -1,0 +1,25 @@
+.calendarRow {
+  margin-top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+  .calendarRow {
+    margin-top: 10%;
+  }
+}
+
+.byDateShow {
+  margin-top: 50px;
+}
+
+.react-calendar {
+  border: none !important;
+}
+
+.react-calendar__tile--active {
+  background-color: #2f1b3c !important;
+  border-radius: 32px;
+}

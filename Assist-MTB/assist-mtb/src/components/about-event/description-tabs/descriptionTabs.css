@@ -1,0 +1,28 @@
+.MuiTab-textColorPrimary.Mui-selected {
+  color: #2f1b3c !important;
+  outline: none !important;
+}
+
+.MuiTab-root {
+  font-family: "Montserrat" !important;
+  font-weight: bold !important;
+  outline: none !important;
+}
+
+.PrivateTabIndicator-colorPrimary-63 {
+  background-color: #2f1b3c !important;
+  outline: none !important;
+}
+
+.MuiTab-wrapper {
+  outline: none !important;
+}
+
+.MuiTabs-flexContainer {
+  background-color: #ffffff;
+}
+
+.MuiBox-root-97 {
+  font-family: "Montserrat" !important;
+  text-align: justify;
+}

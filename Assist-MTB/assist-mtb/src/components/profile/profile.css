@@ -1,0 +1,87 @@
+.profileImage {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userFullName {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userFullName h3 {
+  color: #202033;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.userEmail {
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userEmail h4 {
+  color: #2f1b3c;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.userStatistics {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userStatistics h3 {
+  color: #2f1b3c;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.separator {
+  font-size: 18px;
+  color: #ccccd0;
+}
+
+.left-side {
+  float: right;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-size: 12px;
+  color: #6e6e7c;
+}
+
+.right-side {
+  float: left;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-size: 12px;
+  color: #6e6e7c;
+}
+
+.lastEventsTitle {
+  font-size: 24px;
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+.lastEventsRow {
+  margin-top: 80px;
+}
+
+.lastEvents {
+  margin-top: 20px;
+}
+
+.col-md-4 {
+  padding-left: 0px !important;
+}

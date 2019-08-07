@@ -1,0 +1,65 @@
+.signInRow {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.passwordRow {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signInCredentials {
+  width: 300px;
+}
+
+.MuiInputLabel-formControl {
+  font-weight: bold;
+  font-family: "Montserrat" !important;
+  font-size: 14px !important;
+  color: #4b2b5f !important;
+}
+
+.signInButton {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitSignIn {
+  background-color: #4b2b5f !important;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  width: 200px;
+  height: 50px;
+}
+
+.forgotRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forgotPass {
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.recPass {
+  letter-spacing: -0.02em;
+  text-decoration-line: underline;
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #4b2b5f;
+}

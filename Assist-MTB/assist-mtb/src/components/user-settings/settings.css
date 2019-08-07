@@ -1,0 +1,30 @@
+.profileImage {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileSettings {
+  width: 400px;
+}
+
+.MuiInputBase-input {
+  color: #2f1b3c !important;
+  font-family: "Montserrat" !important;
+}
+
+.profileEdit {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitEdit {
+  background-color: #4b2b5f !important;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  width: 200px;
+  height: 50px;
+}

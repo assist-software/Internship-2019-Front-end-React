@@ -1,0 +1,129 @@
+.historyEventComponent {
+  width: 95%;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.historyEventImg {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.historyDate {
+  position: absolute;
+  background: #2f1b3c;
+  border-radius: 8px;
+  width: 35px;
+  height: 43px;
+  border: 0;
+  font-family: "Montserrat";
+  font-size: 20px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  bottom: 275px;
+  right: 17px;
+}
+
+.dateSpan {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+.historyEventTitle {
+  position: absolute;
+  font-family: "Montserrat";
+  font-size: 28px;
+  line-height: 20px;
+  color: #ffffff;
+  margin-left: 15px;
+  bottom: 35px;
+}
+
+.historyEventDate {
+  position: absolute;
+  font-family: "Montserrat";
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  margin-left: 15px;
+  bottom: 5px;
+}
+
+.historyRight {
+  float: right;
+  font-family: "Montserrat";
+  font-size: 32px;
+  color: #2f1b3c;
+}
+
+.historyLeft {
+  font-family: "Montserrat";
+  font-size: 32px;
+  color: #000000;
+  font-weight: bold;
+}
+
+.historySubmitFinish {
+  background-color: #4b2b5f !important;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  width: 200px;
+  height: 50px;
+  outline: none !important;
+}
+
+.finishContent {
+  height: 300px !important;
+}
+
+.finishDialog {
+  padding-top: 15% !important;
+}
+
+.textModal {
+  font-size: 24px;
+  line-height: 52px;
+  font-family: Montserrat;
+  text-align: center;
+  color: #010103;
+}
+
+.cancelModal {
+  background: #ffffff;
+  box-shadow: 0px 4px 100px rgba(163, 163, 163, 0.1);
+  border-radius: 8px;
+  width: 140px;
+  height: 40px;
+  font-family: Montserrat;
+  border: 1px solid #2f1b3c;
+  outline: none !important;
+}
+
+.finishCourseModal {
+  width: 140px;
+  height: 40px;
+  font-family: Montserrat;
+  background: #2f1b3c;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  outline: none !important;
+}
+
+.modal-footer {
+  padding-right: 100px !important;
+  border-top: none !important;
+  margin-bottom: 30px;
+}
+
+.modal-header {
+  border-bottom: none !important;
+}

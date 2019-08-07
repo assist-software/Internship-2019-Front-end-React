@@ -1,0 +1,46 @@
+.headBike {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginIn {
+  background-color: #4b2b5f !important;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  font-weight: bold;
+  width: 200px;
+  height: 50px;
+  outline: none !important;
+}
+
+.signUp {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  font-family: "Montserrat";
+  font-weight: bold;
+  width: 200px;
+  height: 50px;
+  outline: none !important;
+}
+
+.signInCont {
+  height: 620px !important;
+}
+
+.signUpCont {
+  height: 760px !important;
+}
+
+.log {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.sUp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

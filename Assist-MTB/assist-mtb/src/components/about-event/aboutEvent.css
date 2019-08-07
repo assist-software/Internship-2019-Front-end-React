@@ -1,0 +1,91 @@
+.eventPicture {
+  object-fit: cover;
+  object-position: top;
+  height: 100%;
+  width: 100%;
+}
+
+.aboutEventImg {
+  position: relative;
+  height: 680px;
+  width: 100%;
+}
+
+.share {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 32px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  font-family: "Montserrat";
+  font-size: 20px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  bottom: 90%;
+  right: 2%;
+  outline: none !important;
+}
+
+.dateEvent {
+  position: absolute;
+  background: #2f1b3c;
+  border-radius: 8px;
+  width: 60px;
+  height: 100px;
+  border: 0;
+  font-family: "Montserrat";
+  font-size: 28px;
+  line-height: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  bottom: 2%;
+  left: 2%;
+  line-height: 20px;
+}
+
+.dateSpanEvent {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.tabsRow {
+  margin-top: 50px;
+}
+
+.viewEventTitle {
+  position: absolute;
+  font-family: "Montserrat";
+  font-size: 46px;
+  line-height: 20px;
+  color: #ffffff;
+  bottom: 10%;
+  left: 9%;
+}
+
+.viewEventDate {
+  position: absolute;
+  font-family: "Montserrat";
+  font-size: 24px;
+  line-height: 20px;
+  color: #ffffff;
+  bottom: 3%;
+  left: 9%;
+}
+
+.startRoute {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitStart {
+  background-color: #4b2b5f !important;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  width: 200px;
+  height: 50px;
+  outline: none !important;
+}

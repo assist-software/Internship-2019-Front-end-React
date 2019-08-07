@@ -1,0 +1,65 @@
+.signUpRow {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.credRow {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signUpCredentials {
+  width: 300px;
+}
+
+.MuiInputLabel-formControl {
+  font-weight: bold;
+  font-family: "Montserrat" !important;
+  font-size: 14px !important;
+  color: #4b2b5f !important;
+}
+
+.signUpButton {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitSignUp {
+  background-color: #4b2b5f !important;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  width: 200px;
+  height: 50px;
+}
+
+.logRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logAct {
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.logLink {
+  letter-spacing: -0.02em;
+  text-decoration-line: underline;
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #4b2b5f;
+}

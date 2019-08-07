@@ -1,0 +1,119 @@
+.navbar {
+  background-color: #2f1b3c !important;
+  height: 115px;
+}
+
+.navbar-brand {
+  font-family: Montserrat;
+  font-size: 40px;
+}
+
+.navTitle {
+  margin-left: 30px;
+}
+
+#nav li {
+  line-height: 40px;
+  height: 40px;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  background-color: #2f1b3c !important;
+  color: #ffffff !important;
+}
+
+.navbar h3 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.dot {
+  color: #1cd4d4;
+}
+
+.navMenu {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.nav-link {
+  font-family: "Montserrat";
+  color: #ffffff;
+}
+
+.navBrowse span {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+
+  color: #ffffff;
+}
+
+.menuBars {
+  color: white;
+}
+
+.menuLink {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  padding-bottom: 5px;
+  color: white;
+}
+
+.mb-1,
+.my-1 {
+  margin-bottom: 0rem !important;
+}
+
+.nav-flex-icons {
+  align-items: center;
+}
+
+.dropdown-toggle::after {
+  vertical-align: 0 !important;
+}
+
+.userName {
+  font-size: 18px;
+  color: white;
+  font-family: Montserrat;
+}
+
+.dropdown-toggle::after {
+  color: white;
+  opacity: 0.5;
+}
+
+.navbar-collapse a {
+  color: black;
+  font-size: 14px;
+}
+
+.dropdown-item {
+  padding: 0.8rem 1.8rem;
+}
+
+.dropdown-icon {
+  margin-right: 15px;
+}
+
+.dropdown-toggle::after {
+  opacity: 1;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #ffffff;
+}
+
+.active {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,65 @@
+.sosButton {
+  position: absolute;
+  background-color: #ff0809;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  color: #ffffff;
+  font-family: "Montserrat";
+  font-weight: bold;
+  border: 7px solid #e98a8a;
+  top: 25%;
+  right: 2%;
+}
+
+.headTextCourse {
+  margin-top: 50px;
+}
+
+.headTime {
+  position: absolute;
+  font-family: "Montserrat";
+  font-size: 36px;
+  color: #ffffff;
+  font-weight: bold;
+  top: 58%;
+  left: 35%;
+}
+
+.time {
+  font-size: 24px;
+}
+
+.ranking {
+  margin-top: 30px;
+}
+
+.realTime {
+  font-family: "Montserrat";
+  font-size: 32px;
+  color: #000000;
+  font-weight: bold;
+}
+
+.yourPosition {
+  font-family: "Montserrat";
+  font-size: 24px;
+  color: #000000;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.submitFinish {
+  background-color: #4b2b5f !important;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  width: 200px;
+  height: 50px;
+  outline: none !important;
+}
+
+.rowFinish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,23 @@
+.headTitle {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 80px;
+  margin-top: 40px;
+}
+
+.headDescription {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.0241176em;
+
+  color: #6e6e7c;
+}
+
+.col-md-4 {
+  padding-left: 10px !important;
+}
